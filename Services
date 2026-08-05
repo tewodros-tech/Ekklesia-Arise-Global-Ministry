@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekklesia Arise - Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+    body { background: #faf9f6; color: #1e1e2a; line-height: 1.6; }
+    .navbar {
+      background: #0b2a3b;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #c9a84c;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo i { color: #c9a84c; font-size: 2rem; }
+    .logo span { color: white; font-weight: 700; font-size: 1.3rem; }
+    .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .nav-links a { color: #ecf3f8; text-decoration: none; font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: 0.2s; }
+    .nav-links a:hover, .nav-links a.active { border-bottom-color: #c9a84c; color: #f5e7b0; }
+    .nav-links a i { margin-right: 6px; color: #c9a84c; }
+    .page-hero {
+      background: linear-gradient(135deg, #0b2a3b 0%, #1b4a5e 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 6px solid #c9a84c;
+    }
+    .page-hero h1 { font-size: 2.8rem; font-weight: 300; letter-spacing: 2px; }
+    .page-hero h1 i { color: #c9a84c; margin-right: 12px; }
+    .page-hero p { max-width: 700px; margin: 0.8rem auto 0; font-size: 1.1rem; opacity: 0.9; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0b2a3b;
+      border-left: 6px solid #c9a84c;
+      padding-left: 1rem;
+      margin: 2.5rem 0 1.5rem 0;
+    }
+    .section-title i { color: #c9a84c; margin-right: 10px; }
+    .service-item {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      border: 1px solid #eaedf0;
+      transition: 0.2s;
+    }
+    .service-item:hover { border-color: #c9a84c; box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+    .service-item i { font-size: 2.8rem; color: #c9a84c; width: 4rem; text-align: center; }
+    .service-item .content { flex: 1; }
+    .service-item .content h3 { color: #0b2a3b; font-weight: 600; }
+    .service-item .content p { color: #2d4453; }
+    .badge { background: #e9eff2; padding: 0.25rem 1.2rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; color: #0b2a3b; display: inline-block; margin-top: 0.3rem; }
+    .training-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .training-item { background: white; border-radius: 16px; padding: 1rem 1.5rem; border-left: 4px solid #c9a84c; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .training-item h4 { color: #0b2a3b; }
+    footer {
+      background: #0b2a3b;
+      color: #cbd8e0;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 4px solid #c9a84c;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer i { color: #c9a84c; margin: 0 4px; }
+    footer a { color: #e6dba8; text-decoration: none; }
+    @media (max-width: 700px) {
+      .navbar { flex-direction: column; gap: 1rem; align-items: stretch; text-align: center; }
+      .nav-links { justify-content: center; gap: 1rem; }
+      .page-hero h1 { font-size: 2rem; }
+      .service-item { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-church"></i>
+    <div>
+      <span>Ekklesia Arise</span>
+      <small>Global Ministry</small>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="services.html" class="active"><i class="fas fa-hands-praying"></i> Services</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1><i class="fas fa-hands-praying"></i> Our Services</h1>
+  <p>Training, equipping, and resourcing the Church for the end-time harvest</p>
+</div>
+
+<div class="container">
+  <h2 class="section-title"><i class="fas fa-school"></i> Tyrannus Discipleship School</h2>
+  <div style="background: white; border-radius: 20px; padding: 1.8rem; border-left: 6px solid #c9a84c; margin-bottom: 2rem;">
+    <p><strong>4-week residential training</strong> · 10 cohorts graduated · 130+ hours of instruction</p>
+    <p style="margin-top:0.5rem;">Core topics: Sonship, From Hypocrisy to Christlikeness, Christian Ethics, Bible Study Methods, Spiritual Warfare, The Triumphant Church, The Law of the Sanctuary, God's Full Counsel, and Apostolic Discipleship.</p>
+  </div>
+
+  <div class="training-grid">
+    <div class="training-item"><h4><i class="fas fa-child" style="color:#c9a84c;"></i> Sonship</h4><p style="font-size:0.9rem; color:#3d4f5c;">Understanding identity as children of God.</p></div>
+    <div class="training-item"><h4><i class="fas fa-cross" style="color:#c9a84c;"></i> Christlikeness</h4><p style="font-size:0.9rem; color:#3d4f5c;">From hypocrisy to authentic transformation.</p></div>
+    <div class="training-item"><h4><i class="fas fa-shield-alt" style="color:#c9a84c;"></i> Spiritual Warfare</h4><p style="font-size:0.9rem; color:#3d4f5c;">Equipped for victory in spiritual battles.</p></div>
+    <div class="training-item"><h4><i class="fas fa-crown" style="color:#c9a84c;"></i> Triumphant Church</h4><p style="font-size:0.9rem; color:#3d4f5c;">The Church prevailing in the end times.</p></div>
+  </div>
+
+  <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Training & Seminars</h2>
+  <div class="service-item">
+    <i class="fas fa-place-of-worship"></i>
+    <div class="content">
+      <h3>Church Leadership & Discipleship</h3>
+      <p>Training for elders, pastors, and ministry leaders. Topics: Healthy Church Planting, Leadership Development, and Mentoring.</p>
+      <span class="badge"><i class="fas fa-map-marker-alt"></i> 90+ cities · 312 churches</span>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <i class="fas fa-book"></i>
+    <div class="content">
+      <h3>Publications & Resources</h3>
+      <p>Over 17 books and study materials in Amharic, English, and other languages. Including: "The Triumphant Church", "Sonship", "Spiritual Warfare", and "Christian Ethics".</p>
+      <span class="badge"><i class="fas fa-book-open"></i> Available in print & digital</span>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <i class="fas fa-globe-africa"></i>
+    <div class="content">
+      <h3>International Outreach</h3>
+      <p>Training conducted in Kenya, Tanzania, Uganda, Nigeria, Malawi, Rwanda, South Africa, USA, UK, Sweden, Netherlands, Belgium, Germany, Denmark, Greece, and more.</p>
+      <span class="badge"><i class="fas fa-globe"></i> 15+ nations reached</span>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <i class="fas fa-video"></i>
+    <div class="content">
+      <h3>Media & Digital Ministry</h3>
+      <p>Online teaching videos, recorded sessions, and digital resources being developed to reach a wider audience. Plans for coaching and mentoring platforms.</p>
+      <span class="badge"><i class="fas fa-broadcast"></i> Coming soon</span>
+    </div>
+  </div>
+
+  <div style="margin: 3rem 0; text-align: center; background: #e9eff2; padding: 2rem; border-radius: 28px;">
+    <h3 style="color:#0b2a3b;"><i class="fas fa-hand-holding-heart" style="color:#c9a84c;"></i> Partner With Us</h3>
+    <p style="color:#2d4453; max-width:600px; margin:0.5rem auto;">Join us in equipping the Church for revival. Contact us to host a training, invite a speaker, or support the ministry.</p>
+    <a href="contact.html" style="background:#0b2a3b; color:white; padding:0.7rem 2.5rem; border-radius:60px; font-weight:600; text-decoration:none; display:inline-block; margin-top:1rem;">Get in Touch <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<footer>
+  <p><i class="fas fa-map-pin"></i> Addis Ababa, Ethiopia &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 Ekklesia Arise Global Ministry | <a href="#">www.ekklesia-arise.com</a></p>
+</footer>
+
+</body>
+</html>
