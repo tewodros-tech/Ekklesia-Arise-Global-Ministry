@@ -25,10 +25,22 @@
     .logo i { color: #c9a84c; font-size: 2rem; }
     .logo span { color: white; font-weight: 700; font-size: 1.3rem; }
     .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; }
-    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
     .nav-links a { color: #ecf3f8; text-decoration: none; font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: 0.2s; }
     .nav-links a:hover, .nav-links a.active { border-bottom-color: #c9a84c; color: #f5e7b0; }
     .nav-links a i { margin-right: 6px; color: #c9a84c; }
+    .lang-toggle {
+      background: #c9a84c;
+      color: #0b2a3b;
+      border: none;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+    .lang-toggle:hover { background: #dbb95c; transform: scale(1.02); }
     .page-hero {
       background: linear-gradient(135deg, #0b2a3b 0%, #1b4a5e 100%);
       color: white;
@@ -75,6 +87,8 @@
       transition: 0.2s;
     }
     .btn-gold:hover { transform: scale(1.02); }
+    .lang-am { display: block; }
+    .lang-en { display: none; }
     footer {
       background: #0b2a3b;
       color: #cbd8e0;
@@ -105,67 +119,93 @@
     </div>
   </div>
   <div class="nav-links">
-    <a href="index.html"><i class="fas fa-home"></i> መነሻ</a>
-    <a href="about.html" class="active"><i class="fas fa-info-circle"></i> ስለእኛ</a>
-    <a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a>
+    <a href="index.html"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
+    <a href="about.html" class="active"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
+    <a href="services.html"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
+    <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
   </div>
 </nav>
 
 <div class="page-hero">
-  <h1><i class="fas fa-info-circle"></i> ስለእኛ</h1>
-  <p>ታሪካችን፣ ራዕያችን እና ቤተክርስቲያንን የማስታጠቅ ቁርጠኝነታችን</p>
+  <h1><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About Us</span></h1>
+  <p><span class="lang-am">ታሪካችን፣ ራዕያችን እና ቤተክርስቲያንን የማስታጠቅ ቁርጠኝነታችን</span><span class="lang-en">Our story, vision, and commitment to equipping the Church</span></p>
 </div>
 
 <div class="container">
   <div class="about-block">
-    <h2><i class="fas fa-history"></i> መሠረታችን</h2>
-    <p>ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ የተመሰረተው በዶ/ር ብርሃኑ ሐብቴ ራዕይ እና ጥሪ ነው። በ1964 ዓ.ም፣ በጸሎት ወቅት፣ ጌታ የኢትዮጵያን ካርታ አሳይቶታል እንዲሁም እንዲህ አለው፡- <em>"አንተ አገር አቀፍ (የወንጌል) ጥሪ አለብህ። ስለዚህ ከበደል ራቅ"</em> ይህ ቤተክርስቲያንን ለተሃድሶ እና ለደቀ መዝሙርነት የማስታጠቅ የዕድሜ ልክ ጉዞ መጀመሪያ ነበር።</p>
-    <p style="margin-top:1rem;">በ1983 ዓ.ም፣ በእንግሊዝ በተካሄደ ዓለም አቀፍ ጉባኤ ላይ፣ ራዕዩ በኢሳያስ 11፡9 ተረጋገጠ፡- <em>"ውኃ ባህርን እንደሚከድን ምድር እግዚአብሔርን በማወቅ ትሞላለች"</em> ከዚያ በኋላ ዶ/ር ብርሃኑ ሙሉ ጊዜያቸውን ለአገልግሎት ሰጥተው ኤክሌሺያ ተነሺ ተመሠረተ።</p>
+    <h2><i class="fas fa-history"></i> <span class="lang-am">መሠረታችን</span><span class="lang-en">Our Foundation</span></h2>
+    <p><span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ የተመሰረተው በዶ/ር ብርሃኑ ሐብቴ ራዕይ እና ጥሪ ነው። በ1964 ዓ.ም፣ በጸሎት ወቅት፣ ጌታ የኢትዮጵያን ካርታ አሳይቶታል እንዲሁም እንዲህ አለው፡- <em>"አንተ አገር አቀፍ (የወንጌል) ጥሪ አለብህ። ስለዚህ ከበደል ራቅ"</em> ይህ ቤተክርስቲያንን ለተሃድሶ እና ለደቀ መዝሙርነት የማስታጠቅ የዕድሜ ልክ ጉዞ መጀመሪያ ነበር።</span><span class="lang-en">Ekklesia Arise Global Ministry was established through the vision and calling of Dr. Berhanu Habte. In 1964 E.C., while in prayer, the Lord showed him the map of Ethiopia and spoke: <em>"You have a national (gospel) calling. Therefore, depart from evil."</em> This marked the beginning of a lifelong journey of equipping the Church for revival and discipleship.</span></p>
+    <p style="margin-top:1rem;"><span class="lang-am">በ1983 ዓ.ም፣ በእንግሊዝ በተካሄደ ዓለም አቀፍ ጉባኤ ላይ፣ ራዕዩ በኢሳያስ 11፡9 ተረጋገጠ፡- <em>"ውኃ ባህርን እንደሚከድን ምድር እግዚአብሔርን በማወቅ ትሞላለች"</em> ከዚያ በኋላ ዶ/ር ብርሃኑ ሙሉ ጊዜያቸውን ለአገልግሎት ሰጥተው ኤክሌሺያ ተነሺ ተመሠረተ።</span><span class="lang-en">In 1983, during an international conference in England, the vision was reaffirmed through Isaiah 11:9: <em>"For the earth will be filled with the knowledge of the Lord as the waters cover the sea."</em> Dr. Berhanu then committed fully to ministry, and Ekklesia Arise was born.</span></p>
   </div>
 
   <div class="about-block">
-    <h2><i class="fas fa-bullseye"></i> ራዕይ እና ተልዕኮ</h2>
-    <p><strong>ራዕይ፡-</strong> ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ሕይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት።</p>
-    <p style="margin-top:0.5rem;"><strong>ተልዕኮ፡-</strong> ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ።</p>
+    <h2><i class="fas fa-bullseye"></i> <span class="lang-am">ራዕይ እና ተልዕኮ</span><span class="lang-en">Vision & Mission</span></h2>
+    <p><strong><span class="lang-am">ራዕይ፡-</span><span class="lang-en">Vision:</span></strong> <span class="lang-am">ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ሕይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት።</span><span class="lang-en">The earth filled with the knowledge of God, and lives transformed into His likeness.</span></p>
+    <p style="margin-top:0.5rem;"><strong><span class="lang-am">ተልዕኮ፡-</span><span class="lang-en">Mission:</span></strong> <span class="lang-am">ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ።</span><span class="lang-en">Equipping the church through teaching and training to preach the gospel and make disciples effectively.</span></p>
   </div>
 
   <div class="about-block">
-    <h2><i class="fas fa-gem"></i> መሠረታዊ እሴቶች</h2>
+    <h2><i class="fas fa-gem"></i> <span class="lang-am">መሠረታዊ እሴቶች</span><span class="lang-en">Core Values</span></h2>
     <div class="values-list">
-      <span><i class="fas fa-pray"></i> በጸሎት መትጋት</span>
-      <span><i class="fas fa-heart"></i> በእግዚአብሔር ፍቅር መኖር</span>
-      <span><i class="fas fa-fire"></i> በመንፈስ ቅዱስ ኃይል መደገፍ</span>
-      <span><i class="fas fa-book"></i> ለእግዚአብሔር ቃል አክብሮት መስጠት</span>
-      <span><i class="fas fa-cross"></i> በቃልና በኑሮ ክርስቶስን መምሰል</span>
+      <span><i class="fas fa-pray"></i> <span class="lang-am">በጸሎት መትጋት</span><span class="lang-en">Prayer</span></span>
+      <span><i class="fas fa-heart"></i> <span class="lang-am">በእግዚአብሔር ፍቅር መኖር</span><span class="lang-en">God's Love</span></span>
+      <span><i class="fas fa-fire"></i> <span class="lang-am">በመንፈስ ቅዱስ ኃይል መደገፍ</span><span class="lang-en">Holy Spirit Power</span></span>
+      <span><i class="fas fa-book"></i> <span class="lang-am">ለእግዚአብሔር ቃል አክብሮት መስጠት</span><span class="lang-en">Reverence for Scripture</span></span>
+      <span><i class="fas fa-cross"></i> <span class="lang-am">በቃልና በኑሮ ክርስቶስን መምሰል</span><span class="lang-en">Christlikeness</span></span>
     </div>
   </div>
 
   <div class="about-block">
-    <h2><i class="fas fa-chart-simple"></i> ቁልፍ አኃዛዊ መረጃዎች</h2>
+    <h2><i class="fas fa-chart-simple"></i> <span class="lang-am">ቁልፍ አኃዛዊ መረጃዎች</span><span class="lang-en">Key Statistics</span></h2>
     <div class="stat-grid">
-      <div class="stat-item"><i class="fas fa-user-graduate"></i> 23,340+ የሰለጠኑ</div>
-      <div class="stat-item"><i class="fas fa-globe"></i> 15+ አገራት</div>
-      <div class="stat-item"><i class="fas fa-book"></i> 17+ ህትመቶች</div>
-      <div class="stat-item"><i class="fas fa-church"></i> 680+ አብያተ ክርስቲያናት</div>
+      <div class="stat-item"><i class="fas fa-user-graduate"></i> 23,340+ <span class="lang-am">የሰለጠኑ</span><span class="lang-en">Trained</span></div>
+      <div class="stat-item"><i class="fas fa-globe"></i> 15+ <span class="lang-am">አገራት</span><span class="lang-en">Nations</span></div>
+      <div class="stat-item"><i class="fas fa-book"></i> 17+ <span class="lang-am">ህትመቶች</span><span class="lang-en">Publications</span></div>
+      <div class="stat-item"><i class="fas fa-church"></i> 680+ <span class="lang-am">አብያተ ክርስቲያናት</span><span class="lang-en">Churches</span></div>
     </div>
-    <p style="font-size:0.95rem; color:#3d4f5c;">ሥልጠናዎች በኢትዮጵያ፣ በኬንያ፣ ታንዛኒያ፣ ኡጋንዳ፣ ናይጄሪያ፣ ማላዊ፣ ሩዋንዳ፣ ደቡብ አፍሪካ፣ አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ኔዘርላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ እና ግሪክ ተካሂደዋል።</p>
+    <p style="font-size:0.95rem; color:#3d4f5c;"><span class="lang-am">ሥልጠናዎች በኢትዮጵያ፣ በኬንያ፣ ታንዛኒያ፣ ኡጋንዳ፣ ናይጄሪያ፣ ማላዊ፣ ሩዋንዳ፣ ደቡብ አፍሪካ፣ አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ኔዘርላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ እና ግሪክ ተካሂደዋል።</span><span class="lang-en">Training conducted across Ethiopia, Kenya, Tanzania, Uganda, Nigeria, Malawi, Rwanda, South Africa, USA, UK, Sweden, Netherlands, Belgium, Germany, Denmark, and Greece.</span></p>
   </div>
 
   <div class="about-block">
-    <h2><i class="fas fa-school"></i> የጢራኖስ ደቀ መዝሙር ትምህርት ቤት</h2>
-    <p>በሐዋሪያት ሥራ 19፡9 መሰረት የተመሰረተው የጢራኖስ ትምህርት ቤት የ4 ሳምንት የአዳሪ ሥልጠና ፕሮግራም ነው። ልጅነት፣ ክርስቲያናዊ ሥነ ምግባር፣ መንፈሳዊ ውጊያ፣ በድል የምትገሰግሰው ቤተክርስቲያን እና ሌሎችን ይሸፍናል። <strong>10 ዙር</strong> ተመራቂዎችን አስመርቋል።</p>
+    <h2><i class="fas fa-school"></i> <span class="lang-am">የጢራኖስ ደቀ መዝሙር ትምህርት ቤት</span><span class="lang-en">Tyrannus Discipleship School</span></h2>
+    <p><span class="lang-am">በሐዋሪያት ሥራ 19፡9 መሰረት የተመሰረተው የጢራኖስ ትምህርት ቤት የ4 ሳምንት የአዳሪ ሥልጠና ፕሮግራም ነው። ልጅነት፣ ክርስቲያናዊ ሥነ ምግባር፣ መንፈሳዊ ውጊያ፣ በድል የምትገሰግሰው ቤተክርስቲያን እና ሌሎችን ይሸፍናል። <strong>10 ዙር</strong> ተመራቂዎችን አስመርቋል።</span><span class="lang-en">Inspired by Acts 19:9, the Tyrannus School is a 4-week residential training program. It covers Sonship, Christian Ethics, Spiritual Warfare, The Triumphant Church, and more. <strong>10 cohorts</strong> have graduated so far.</span></p>
   </div>
 
   <div style="text-align:center; margin: 2rem 0;">
-    <a href="services.html" class="btn-gold"><i class="fas fa-arrow-right"></i> አገልግሎቶቻችንን ይመልከቱ</a>
+    <a href="services.html" class="btn-gold"><i class="fas fa-arrow-right"></i> <span class="lang-am">አገልግሎቶቻችንን ይመልከቱ</span><span class="lang-en">Explore Our Services</span></a>
   </div>
 </div>
 
 <footer>
-  <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
-  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ | <a href="#">www.ekklesia-arise.com</a></p>
+  <p><i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a></p>
 </footer>
+
+<script>
+  let currentLang = 'am';
+  function toggleLanguage() {
+    const amElements = document.querySelectorAll('.lang-am');
+    const enElements = document.querySelectorAll('.lang-en');
+    const btnText = document.getElementById('langBtnText');
+    
+    if (currentLang === 'am') {
+      amElements.forEach(el => el.style.display = 'none');
+      enElements.forEach(el => el.style.display = 'block');
+      btnText.textContent = 'አማርኛ';
+      currentLang = 'en';
+    } else {
+      amElements.forEach(el => el.style.display = 'block');
+      enElements.forEach(el => el.style.display = 'none');
+      btnText.textContent = 'English';
+      currentLang = 'am';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.lang-am').forEach(el => el.style.display = 'block');
+  });
+</script>
 
 </body>
 </html>
