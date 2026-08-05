@@ -25,10 +25,22 @@
     .logo i { color: #c9a84c; font-size: 2rem; }
     .logo span { color: white; font-weight: 700; font-size: 1.3rem; }
     .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; }
-    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
     .nav-links a { color: #ecf3f8; text-decoration: none; font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: 0.2s; }
     .nav-links a:hover, .nav-links a.active { border-bottom-color: #c9a84c; color: #f5e7b0; }
     .nav-links a i { margin-right: 6px; color: #c9a84c; }
+    .lang-toggle {
+      background: #c9a84c;
+      color: #0b2a3b;
+      border: none;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+    .lang-toggle:hover { background: #dbb95c; transform: scale(1.02); }
     .page-hero {
       background: linear-gradient(135deg, #0b2a3b 0%, #1b4a5e 100%);
       color: white;
@@ -83,6 +95,8 @@
       transition: 0.2s;
     }
     .btn-gold:hover { transform: scale(1.02); }
+    .lang-am { display: block; }
+    .lang-en { display: none; }
     footer {
       background: #0b2a3b;
       color: #cbd8e0;
@@ -113,81 +127,107 @@
     </div>
   </div>
   <div class="nav-links">
-    <a href="index.html"><i class="fas fa-home"></i> መነሻ</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a>
-    <a href="services.html" class="active"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a>
+    <a href="index.html"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
+    <a href="services.html" class="active"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
+    <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
   </div>
 </nav>
 
 <div class="page-hero">
-  <h1><i class="fas fa-hands-praying"></i> አገልግሎቶቻችን</h1>
-  <p>ቤተክርስቲያንን ለዘመኑ መጨረሻ መከር ማስታጠቅ፣ ማሰልጠን እና ማበረታታት</p>
+  <h1><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶቻችን</span><span class="lang-en">Our Services</span></h1>
+  <p><span class="lang-am">ቤተክርስቲያንን ለዘመኑ መጨረሻ መከር ማስታጠቅ፣ ማሰልጠን እና ማበረታታት</span><span class="lang-en">Equipping, training, and resourcing the Church for the end-time harvest</span></p>
 </div>
 
 <div class="container">
-  <h2 class="section-title"><i class="fas fa-school"></i> የጢራኖስ ደቀ መዝሙር ትምህርት ቤት</h2>
+  <h2 class="section-title"><i class="fas fa-school"></i> <span class="lang-am">የጢራኖስ ደቀ መዝሙር ትምህርት ቤት</span><span class="lang-en">Tyrannus Discipleship School</span></h2>
   <div style="background: white; border-radius: 20px; padding: 1.8rem; border-left: 6px solid #c9a84c; margin-bottom: 2rem;">
-    <p><strong>የ4 ሳምንት የአዳሪ ሥልጠና</strong> · 10 ዙር ተመራቂዎች · 130+ ሰዓታት ትምህርት</p>
-    <p style="margin-top:0.5rem;">ዋና ትምህርቶች፡- ልጅነት፣ ከግብዝነት ወደ ክርስቶስ መምሰል፣ ክርስቲያናዊ ሥነ ምግባር፣ የመጽሐፍ ቅዱስ አፈታት፣ መንፈሳዊ ውጊያ፣ በድል የምትገሰግሰው ቤተክርስቲያን፣ የመቅደሱ ሕግ፣ የእግዚአብሔር ሙሉ ምክር እና ሐዋሪያዊ ደቀ መዝሙር።</p>
+    <p><strong><span class="lang-am">የ4 ሳምንት የአዳሪ ሥልጠና</span><span class="lang-en">4-week residential training</span></strong> · <span class="lang-am">10 ዙር ተመራቂዎች</span><span class="lang-en">10 cohorts graduated</span> · 130+ <span class="lang-am">ሰዓታት ትምህርት</span><span class="lang-en">hours of instruction</span></p>
+    <p style="margin-top:0.5rem;"><span class="lang-am">ዋና ትምህርቶች፡- ልጅነት፣ ከግብዝነት ወደ ክርስቶስ መምሰል፣ ክርስቲያናዊ ሥነ ምግባር፣ የመጽሐፍ ቅዱስ አፈታት፣ መንፈሳዊ ውጊያ፣ በድል የምትገሰግሰው ቤተክርስቲያን፣ የመቅደሱ ሕግ፣ የእግዚአብሔር ሙሉ ምክር እና ሐዋሪያዊ ደቀ መዝሙር።</span><span class="lang-en">Core topics: Sonship, From Hypocrisy to Christlikeness, Christian Ethics, Bible Study Methods, Spiritual Warfare, The Triumphant Church, The Law of the Sanctuary, God's Full Counsel, and Apostolic Discipleship.</span></p>
   </div>
 
   <div class="training-grid">
-    <div class="training-item"><h4><i class="fas fa-child" style="color:#c9a84c;"></i> ልጅነት</h4><p style="font-size:0.9rem; color:#3d4f5c;">የእግዚአብሔር ልጆች መሆንን መረዳት</p></div>
-    <div class="training-item"><h4><i class="fas fa-cross" style="color:#c9a84c;"></i> ክርስቶስን መምሰል</h4><p style="font-size:0.9rem; color:#3d4f5c;">ከግብዝነት ወደ እውነተኛ ለውጥ</p></div>
-    <div class="training-item"><h4><i class="fas fa-shield-alt" style="color:#c9a84c;"></i> መንፈሳዊ ውጊያ</h4><p style="font-size:0.9rem; color:#3d4f5c;">ለመንፈሳዊ ድል መታጠቅ</p></div>
-    <div class="training-item"><h4><i class="fas fa-crown" style="color:#c9a84c;"></i> በድል የምትገሰግሰው ቤተክርስቲያን</h4><p style="font-size:0.9rem; color:#3d4f5c;">በመጨረሻው ዘመን የምታሸንፍ ቤተክርስቲያን</p></div>
+    <div class="training-item"><h4><i class="fas fa-child" style="color:#c9a84c;"></i> <span class="lang-am">ልጅነት</span><span class="lang-en">Sonship</span></h4><p style="font-size:0.9rem; color:#3d4f5c;"><span class="lang-am">የእግዚአብሔር ልጆች መሆንን መረዳት</span><span class="lang-en">Understanding identity as children of God</span></p></div>
+    <div class="training-item"><h4><i class="fas fa-cross" style="color:#c9a84c;"></i> <span class="lang-am">ክርስቶስን መምሰል</span><span class="lang-en">Christlikeness</span></h4><p style="font-size:0.9rem; color:#3d4f5c;"><span class="lang-am">ከግብዝነት ወደ እውነተኛ ለውጥ</span><span class="lang-en">From hypocrisy to authentic transformation</span></p></div>
+    <div class="training-item"><h4><i class="fas fa-shield-alt" style="color:#c9a84c;"></i> <span class="lang-am">መንፈሳዊ ውጊያ</span><span class="lang-en">Spiritual Warfare</span></h4><p style="font-size:0.9rem; color:#3d4f5c;"><span class="lang-am">ለመንፈሳዊ ድል መታጠቅ</span><span class="lang-en">Equipped for victory in spiritual battles</span></p></div>
+    <div class="training-item"><h4><i class="fas fa-crown" style="color:#c9a84c;"></i> <span class="lang-am">በድል የምትገሰግሰው ቤተክርስቲያን</span><span class="lang-en">The Triumphant Church</span></h4><p style="font-size:0.9rem; color:#3d4f5c;"><span class="lang-am">በመጨረሻው ዘመን የምታሸንፍ ቤተክርስቲያን</span><span class="lang-en">The Church prevailing in the end times</span></p></div>
   </div>
 
-  <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> ሥልጠናዎች እና ሴሚናሮች</h2>
+  <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> <span class="lang-am">ሥልጠናዎች እና ሴሚናሮች</span><span class="lang-en">Training & Seminars</span></h2>
 
   <div class="service-item">
     <i class="fas fa-place-of-worship"></i>
     <div class="content">
-      <h3>የቤተክርስቲያን አመራር እና ደቀ መዝሙርነት</h3>
-      <p>ለሽማግሌዎች፣ ለፓስተሮች እና ለአገልግሎት መሪዎች ሥልጠና። ርዕሶች፡- ጤናማ ቤተክርስቲያን መትከል፣ የአመራር ልማት እና ሜንቶሪንግ።</p>
-      <span class="badge"><i class="fas fa-map-marker-alt"></i> 90+ ከተሞች · 312 አብያተ ክርስቲያናት</span>
+      <h3><span class="lang-am">የቤተክርስቲያን አመራር እና ደቀ መዝሙርነት</span><span class="lang-en">Church Leadership & Discipleship</span></h3>
+      <p><span class="lang-am">ለሽማግሌዎች፣ ለፓስተሮች እና ለአገልግሎት መሪዎች ሥልጠና። ርዕሶች፡- ጤናማ ቤተክርስቲያን መትከል፣ የአመራር ልማት እና ሜንቶሪንግ።</span><span class="lang-en">Training for elders, pastors, and ministry leaders. Topics: Healthy Church Planting, Leadership Development, and Mentoring.</span></p>
+      <span class="badge"><i class="fas fa-map-marker-alt"></i> 90+ <span class="lang-am">ከተሞች</span><span class="lang-en">cities</span> · 312 <span class="lang-am">አብያተ ክርስቲያናት</span><span class="lang-en">churches</span></span>
     </div>
   </div>
 
   <div class="service-item">
     <i class="fas fa-book"></i>
     <div class="content">
-      <h3>ህትመቶች እና መርጃዎች</h3>
-      <p>ከ17 በላይ መጽሐፍት እና የጥናት መርጃዎች በአማርኛ፣ እንግሊዝኛ እና ሌሎች ቋንቋዎች። የሚታወቁት፡- "በድል የምትገሰግሰው ቤተክርስቲያን"፣ "ልጅነት"፣ "መንፈሳዊ ውጊያ" እና "ክርስቲያናዊ ሥነ ምግባር"።</p>
-      <span class="badge"><i class="fas fa-book-open"></i> በህትመት እና በዲጂታል ይገኛል</span>
+      <h3><span class="lang-am">ህትመቶች እና መርጃዎች</span><span class="lang-en">Publications & Resources</span></h3>
+      <p><span class="lang-am">ከ17 በላይ መጽሐፍት እና የጥናት መርጃዎች በአማርኛ፣ እንግሊዝኛ እና ሌሎች ቋንቋዎች። የሚታወቁት፡- "በድል የምትገሰግሰው ቤተክርስቲያን"፣ "ልጅነት"፣ "መንፈሳዊ ውጊያ" እና "ክርስቲያናዊ ሥነ ምግባር"።</span><span class="lang-en">Over 17 books and study materials in Amharic, English, and other languages. Including: "The Triumphant Church", "Sonship", "Spiritual Warfare", and "Christian Ethics".</span></p>
+      <span class="badge"><i class="fas fa-book-open"></i> <span class="lang-am">በህትመት እና በዲጂታል ይገኛል</span><span class="lang-en">Available in print & digital</span></span>
     </div>
   </div>
 
   <div class="service-item">
     <i class="fas fa-globe-africa"></i>
     <div class="content">
-      <h3>ዓለም አቀፍ ድርሻ</h3>
-      <p>በኬንያ፣ ታንዛኒያ፣ ኡጋንዳ፣ ናይጄሪያ፣ ማላዊ፣ ሩዋንዳ፣ ደቡብ አፍሪካ፣ አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ኔዘርላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ እና ግሪክ የተካሄዱ ሥልጠናዎች።</p>
-      <span class="badge"><i class="fas fa-globe"></i> 15+ አገራት ተደርሷል</span>
+      <h3><span class="lang-am">ዓለም አቀፍ ድርሻ</span><span class="lang-en">International Outreach</span></h3>
+      <p><span class="lang-am">በኬንያ፣ ታንዛኒያ፣ ኡጋንዳ፣ ናይጄሪያ፣ ማላዊ፣ ሩዋንዳ፣ ደቡብ አፍሪካ፣ አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ኔዘርላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ እና ግሪክ የተካሄዱ ሥልጠናዎች።</span><span class="lang-en">Training conducted in Kenya, Tanzania, Uganda, Nigeria, Malawi, Rwanda, South Africa, USA, UK, Sweden, Netherlands, Belgium, Germany, Denmark, and Greece.</span></p>
+      <span class="badge"><i class="fas fa-globe"></i> 15+ <span class="lang-am">አገራት ተደርሷል</span><span class="lang-en">nations reached</span></span>
     </div>
   </div>
 
   <div class="service-item">
     <i class="fas fa-video"></i>
     <div class="content">
-      <h3>ሚዲያ እና ዲጂታል አገልግሎት</h3>
-      <p>የመስመር ላይ የቪዲዮ ትምህርቶች፣ የተቀዳጁ ክፍለ ጊዜዎች እና ዲጂታል መርጃዎች ሰፋ ያለ ታዳሚ ለመድረስ እየተዘጋጁ ነው። ለኮቺንግ እና ሜንቶሪንግ እቅዶች።</p>
-      <span class="badge"><i class="fas fa-broadcast"></i> በቅርቡ</span>
+      <h3><span class="lang-am">ሚዲያ እና ዲጂታል አገልግሎት</span><span class="lang-en">Media & Digital Ministry</span></h3>
+      <p><span class="lang-am">የመስመር ላይ የቪዲዮ ትምህርቶች፣ የተቀዳጁ ክፍለ ጊዜዎች እና ዲጂታል መርጃዎች ሰፋ ያለ ታዳሚ ለመድረስ እየተዘጋጁ ነው። ለኮቺንግ እና ሜንቶሪንግ እቅዶች።</span><span class="lang-en">Online teaching videos, recorded sessions, and digital resources being developed to reach a wider audience. Plans for coaching and mentoring platforms.</span></p>
+      <span class="badge"><i class="fas fa-broadcast"></i> <span class="lang-am">በቅርቡ</span><span class="lang-en">Coming soon</span></span>
     </div>
   </div>
 
   <div style="margin: 3rem 0; text-align: center; background: #e9eff2; padding: 2rem; border-radius: 28px;">
-    <h3 style="color:#0b2a3b;"><i class="fas fa-hand-holding-heart" style="color:#c9a84c;"></i> ከእኛ ጋር ይተባበሩ</h3>
-    <p style="color:#2d4453; max-width:600px; margin:0.5rem auto;">ቤተክርስቲያንን ለተሃድሶ በማስታጠቅ ሥራችንን ይቀላቀሉ። ሥልጠና ለማስተናገድ፣ ተናጋሪ ለመጋበዝ ወይም አገልግሎቱን ለመደገፍ ያግኙን።</p>
-    <a href="contact.html" style="background:#0b2a3b; color:white; padding:0.7rem 2.5rem; border-radius:60px; font-weight:600; text-decoration:none; display:inline-block; margin-top:1rem;">ያግኙን <i class="fas fa-arrow-right"></i></a>
+    <h3 style="color:#0b2a3b;"><i class="fas fa-hand-holding-heart" style="color:#c9a84c;"></i> <span class="lang-am">ከእኛ ጋር ይተባበሩ</span><span class="lang-en">Partner With Us</span></h3>
+    <p style="color:#2d4453; max-width:600px; margin:0.5rem auto;"><span class="lang-am">ቤተክርስቲያንን ለተሃድሶ በማስታጠቅ ሥራችንን ይቀላቀሉ። ሥልጠና ለማስተናገድ፣ ተናጋሪ ለመጋበዝ ወይም አገልግሎቱን ለመደገፍ ያግኙን።</span><span class="lang-en">Join us in equipping the Church for revival. Contact us to host a training, invite a speaker, or support the ministry.</span></p>
+    <a href="contact.html" style="background:#0b2a3b; color:white; padding:0.7rem 2.5rem; border-radius:60px; font-weight:600; text-decoration:none; display:inline-block; margin-top:1rem;"><span class="lang-am">ያግኙን</span><span class="lang-en">Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
   </div>
 </div>
 
 <footer>
-  <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
-  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ | <a href="#">www.ekklesia-arise.com</a></p>
+  <p><i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a></p>
 </footer>
+
+<script>
+  let currentLang = 'am';
+  function toggleLanguage() {
+    const amElements = document.querySelectorAll('.lang-am');
+    const enElements = document.querySelectorAll('.lang-en');
+    const btnText = document.getElementById('langBtnText');
+    
+    if (currentLang === 'am') {
+      amElements.forEach(el => el.style.display = 'none');
+      enElements.forEach(el => el.style.display = 'block');
+      btnText.textContent = 'አማርኛ';
+      currentLang = 'en';
+    } else {
+      amElements.forEach(el => el.style.display = 'block');
+      enElements.forEach(el => el.style.display = 'none');
+      btnText.textContent = 'English';
+      currentLang = 'am';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.lang-am').forEach(el => el.style.display = 'block');
+  });
+</script>
 
 </body>
 </html>
