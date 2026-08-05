@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ekklesia Arise - Services</title>
+  <title>ኤክሌሺያ ተነሺ · አገልግሎቶች</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-    body { background: #faf9f6; color: #1e1e2a; line-height: 1.6; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, system-ui, 'Noto Sans Ethiopic', sans-serif; }
+    body { background: #faf9f6; color: #1e1e2a; line-height: 1.7; }
     .navbar {
       background: #0b2a3b;
       padding: 1rem 2rem;
@@ -24,7 +24,7 @@
     .logo { display: flex; align-items: center; gap: 0.5rem; }
     .logo i { color: #c9a84c; font-size: 2rem; }
     .logo span { color: white; font-weight: 700; font-size: 1.3rem; }
-    .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; letter-spacing: 1px; }
+    .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; }
     .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
     .nav-links a { color: #ecf3f8; text-decoration: none; font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: 0.2s; }
     .nav-links a:hover, .nav-links a.active { border-bottom-color: #c9a84c; color: #f5e7b0; }
@@ -41,14 +41,14 @@
     .page-hero p { max-width: 700px; margin: 0.8rem auto 0; font-size: 1.1rem; opacity: 0.9; }
     .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 600;
       color: #0b2a3b;
       border-left: 6px solid #c9a84c;
       padding-left: 1rem;
-      margin: 2.5rem 0 1.5rem 0;
+      margin: 2.8rem 0 1.5rem 0;
     }
-    .section-title i { color: #c9a84c; margin-right: 10px; }
+    .section-title i { color: #c9a84c; margin-right: 12px; }
     .service-item {
       background: white;
       border-radius: 20px;
@@ -71,6 +71,18 @@
     .training-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
     .training-item { background: white; border-radius: 16px; padding: 1rem 1.5rem; border-left: 4px solid #c9a84c; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
     .training-item h4 { color: #0b2a3b; }
+    .btn-gold {
+      background: #c9a84c;
+      color: #0b2a3b;
+      padding: 0.8rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 16px rgba(201,168,76,0.3);
+      transition: 0.2s;
+    }
+    .btn-gold:hover { transform: scale(1.02); }
     footer {
       background: #0b2a3b;
       color: #cbd8e0;
@@ -96,84 +108,85 @@
   <div class="logo">
     <i class="fas fa-church"></i>
     <div>
-      <span>Ekklesia Arise</span>
-      <small>Global Ministry</small>
+      <span>ኤክሌሺያ ተነሺ</span>
+      <small>ግሎባል ሚኒስትሪ</small>
     </div>
   </div>
   <div class="nav-links">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    <a href="services.html" class="active"><i class="fas fa-hands-praying"></i> Services</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="index.html"><i class="fas fa-home"></i> መነሻ</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a>
+    <a href="services.html" class="active"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a>
   </div>
 </nav>
 
 <div class="page-hero">
-  <h1><i class="fas fa-hands-praying"></i> Our Services</h1>
-  <p>Training, equipping, and resourcing the Church for the end-time harvest</p>
+  <h1><i class="fas fa-hands-praying"></i> አገልግሎቶቻችን</h1>
+  <p>ቤተክርስቲያንን ለዘመኑ መጨረሻ መከር ማስታጠቅ፣ ማሰልጠን እና ማበረታታት</p>
 </div>
 
 <div class="container">
-  <h2 class="section-title"><i class="fas fa-school"></i> Tyrannus Discipleship School</h2>
+  <h2 class="section-title"><i class="fas fa-school"></i> የጢራኖስ ደቀ መዝሙር ትምህርት ቤት</h2>
   <div style="background: white; border-radius: 20px; padding: 1.8rem; border-left: 6px solid #c9a84c; margin-bottom: 2rem;">
-    <p><strong>4-week residential training</strong> · 10 cohorts graduated · 130+ hours of instruction</p>
-    <p style="margin-top:0.5rem;">Core topics: Sonship, From Hypocrisy to Christlikeness, Christian Ethics, Bible Study Methods, Spiritual Warfare, The Triumphant Church, The Law of the Sanctuary, God's Full Counsel, and Apostolic Discipleship.</p>
+    <p><strong>የ4 ሳምንት የአዳሪ ሥልጠና</strong> · 10 ዙር ተመራቂዎች · 130+ ሰዓታት ትምህርት</p>
+    <p style="margin-top:0.5rem;">ዋና ትምህርቶች፡- ልጅነት፣ ከግብዝነት ወደ ክርስቶስ መምሰል፣ ክርስቲያናዊ ሥነ ምግባር፣ የመጽሐፍ ቅዱስ አፈታት፣ መንፈሳዊ ውጊያ፣ በድል የምትገሰግሰው ቤተክርስቲያን፣ የመቅደሱ ሕግ፣ የእግዚአብሔር ሙሉ ምክር እና ሐዋሪያዊ ደቀ መዝሙር።</p>
   </div>
 
   <div class="training-grid">
-    <div class="training-item"><h4><i class="fas fa-child" style="color:#c9a84c;"></i> Sonship</h4><p style="font-size:0.9rem; color:#3d4f5c;">Understanding identity as children of God.</p></div>
-    <div class="training-item"><h4><i class="fas fa-cross" style="color:#c9a84c;"></i> Christlikeness</h4><p style="font-size:0.9rem; color:#3d4f5c;">From hypocrisy to authentic transformation.</p></div>
-    <div class="training-item"><h4><i class="fas fa-shield-alt" style="color:#c9a84c;"></i> Spiritual Warfare</h4><p style="font-size:0.9rem; color:#3d4f5c;">Equipped for victory in spiritual battles.</p></div>
-    <div class="training-item"><h4><i class="fas fa-crown" style="color:#c9a84c;"></i> Triumphant Church</h4><p style="font-size:0.9rem; color:#3d4f5c;">The Church prevailing in the end times.</p></div>
+    <div class="training-item"><h4><i class="fas fa-child" style="color:#c9a84c;"></i> ልጅነት</h4><p style="font-size:0.9rem; color:#3d4f5c;">የእግዚአብሔር ልጆች መሆንን መረዳት</p></div>
+    <div class="training-item"><h4><i class="fas fa-cross" style="color:#c9a84c;"></i> ክርስቶስን መምሰል</h4><p style="font-size:0.9rem; color:#3d4f5c;">ከግብዝነት ወደ እውነተኛ ለውጥ</p></div>
+    <div class="training-item"><h4><i class="fas fa-shield-alt" style="color:#c9a84c;"></i> መንፈሳዊ ውጊያ</h4><p style="font-size:0.9rem; color:#3d4f5c;">ለመንፈሳዊ ድል መታጠቅ</p></div>
+    <div class="training-item"><h4><i class="fas fa-crown" style="color:#c9a84c;"></i> በድል የምትገሰግሰው ቤተክርስቲያን</h4><p style="font-size:0.9rem; color:#3d4f5c;">በመጨረሻው ዘመን የምታሸንፍ ቤተክርስቲያን</p></div>
   </div>
 
-  <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Training & Seminars</h2>
+  <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> ሥልጠናዎች እና ሴሚናሮች</h2>
+
   <div class="service-item">
     <i class="fas fa-place-of-worship"></i>
     <div class="content">
-      <h3>Church Leadership & Discipleship</h3>
-      <p>Training for elders, pastors, and ministry leaders. Topics: Healthy Church Planting, Leadership Development, and Mentoring.</p>
-      <span class="badge"><i class="fas fa-map-marker-alt"></i> 90+ cities · 312 churches</span>
+      <h3>የቤተክርስቲያን አመራር እና ደቀ መዝሙርነት</h3>
+      <p>ለሽማግሌዎች፣ ለፓስተሮች እና ለአገልግሎት መሪዎች ሥልጠና። ርዕሶች፡- ጤናማ ቤተክርስቲያን መትከል፣ የአመራር ልማት እና ሜንቶሪንግ።</p>
+      <span class="badge"><i class="fas fa-map-marker-alt"></i> 90+ ከተሞች · 312 አብያተ ክርስቲያናት</span>
     </div>
   </div>
 
   <div class="service-item">
     <i class="fas fa-book"></i>
     <div class="content">
-      <h3>Publications & Resources</h3>
-      <p>Over 17 books and study materials in Amharic, English, and other languages. Including: "The Triumphant Church", "Sonship", "Spiritual Warfare", and "Christian Ethics".</p>
-      <span class="badge"><i class="fas fa-book-open"></i> Available in print & digital</span>
+      <h3>ህትመቶች እና መርጃዎች</h3>
+      <p>ከ17 በላይ መጽሐፍት እና የጥናት መርጃዎች በአማርኛ፣ እንግሊዝኛ እና ሌሎች ቋንቋዎች። የሚታወቁት፡- "በድል የምትገሰግሰው ቤተክርስቲያን"፣ "ልጅነት"፣ "መንፈሳዊ ውጊያ" እና "ክርስቲያናዊ ሥነ ምግባር"።</p>
+      <span class="badge"><i class="fas fa-book-open"></i> በህትመት እና በዲጂታል ይገኛል</span>
     </div>
   </div>
 
   <div class="service-item">
     <i class="fas fa-globe-africa"></i>
     <div class="content">
-      <h3>International Outreach</h3>
-      <p>Training conducted in Kenya, Tanzania, Uganda, Nigeria, Malawi, Rwanda, South Africa, USA, UK, Sweden, Netherlands, Belgium, Germany, Denmark, Greece, and more.</p>
-      <span class="badge"><i class="fas fa-globe"></i> 15+ nations reached</span>
+      <h3>ዓለም አቀፍ ድርሻ</h3>
+      <p>በኬንያ፣ ታንዛኒያ፣ ኡጋንዳ፣ ናይጄሪያ፣ ማላዊ፣ ሩዋንዳ፣ ደቡብ አፍሪካ፣ አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ኔዘርላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ እና ግሪክ የተካሄዱ ሥልጠናዎች።</p>
+      <span class="badge"><i class="fas fa-globe"></i> 15+ አገራት ተደርሷል</span>
     </div>
   </div>
 
   <div class="service-item">
     <i class="fas fa-video"></i>
     <div class="content">
-      <h3>Media & Digital Ministry</h3>
-      <p>Online teaching videos, recorded sessions, and digital resources being developed to reach a wider audience. Plans for coaching and mentoring platforms.</p>
-      <span class="badge"><i class="fas fa-broadcast"></i> Coming soon</span>
+      <h3>ሚዲያ እና ዲጂታል አገልግሎት</h3>
+      <p>የመስመር ላይ የቪዲዮ ትምህርቶች፣ የተቀዳጁ ክፍለ ጊዜዎች እና ዲጂታል መርጃዎች ሰፋ ያለ ታዳሚ ለመድረስ እየተዘጋጁ ነው። ለኮቺንግ እና ሜንቶሪንግ እቅዶች።</p>
+      <span class="badge"><i class="fas fa-broadcast"></i> በቅርቡ</span>
     </div>
   </div>
 
   <div style="margin: 3rem 0; text-align: center; background: #e9eff2; padding: 2rem; border-radius: 28px;">
-    <h3 style="color:#0b2a3b;"><i class="fas fa-hand-holding-heart" style="color:#c9a84c;"></i> Partner With Us</h3>
-    <p style="color:#2d4453; max-width:600px; margin:0.5rem auto;">Join us in equipping the Church for revival. Contact us to host a training, invite a speaker, or support the ministry.</p>
-    <a href="contact.html" style="background:#0b2a3b; color:white; padding:0.7rem 2.5rem; border-radius:60px; font-weight:600; text-decoration:none; display:inline-block; margin-top:1rem;">Get in Touch <i class="fas fa-arrow-right"></i></a>
+    <h3 style="color:#0b2a3b;"><i class="fas fa-hand-holding-heart" style="color:#c9a84c;"></i> ከእኛ ጋር ይተባበሩ</h3>
+    <p style="color:#2d4453; max-width:600px; margin:0.5rem auto;">ቤተክርስቲያንን ለተሃድሶ በማስታጠቅ ሥራችንን ይቀላቀሉ። ሥልጠና ለማስተናገድ፣ ተናጋሪ ለመጋበዝ ወይም አገልግሎቱን ለመደገፍ ያግኙን።</p>
+    <a href="contact.html" style="background:#0b2a3b; color:white; padding:0.7rem 2.5rem; border-radius:60px; font-weight:600; text-decoration:none; display:inline-block; margin-top:1rem;">ያግኙን <i class="fas fa-arrow-right"></i></a>
   </div>
 </div>
 
 <footer>
-  <p><i class="fas fa-map-pin"></i> Addis Ababa, Ethiopia &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
-  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 Ekklesia Arise Global Ministry | <a href="#">www.ekklesia-arise.com</a></p>
+  <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ | <a href="#">www.ekklesia-arise.com</a></p>
 </footer>
 
 </body>
