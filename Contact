@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekklesia Arise - Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+    body { background: #faf9f6; color: #1e1e2a; line-height: 1.6; }
+    .navbar {
+      background: #0b2a3b;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #c9a84c;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo i { color: #c9a84c; font-size: 2rem; }
+    .logo span { color: white; font-weight: 700; font-size: 1.3rem; }
+    .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .nav-links a { color: #ecf3f8; text-decoration: none; font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: 0.2s; }
+    .nav-links a:hover, .nav-links a.active { border-bottom-color: #c9a84c; color: #f5e7b0; }
+    .nav-links a i { margin-right: 6px; color: #c9a84c; }
+    .page-hero {
+      background: linear-gradient(135deg, #0b2a3b 0%, #1b4a5e 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 6px solid #c9a84c;
+    }
+    .page-hero h1 { font-size: 2.8rem; font-weight: 300; letter-spacing: 2px; }
+    .page-hero h1 i { color: #c9a84c; margin-right: 12px; }
+    .page-hero p { max-width: 700px; margin: 0.8rem auto 0; font-size: 1.1rem; opacity: 0.9; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+    }
+    .contact-info { flex: 1 1 250px; }
+    .contact-info i { color: #c9a84c; width: 2rem; font-size: 1.4rem; }
+    .contact-info p { margin: 0.8rem 0; display: flex; align-items: center; gap: 0.8rem; }
+    .contact-info .social-links { margin-top: 1.5rem; display: flex; gap: 1.2rem; }
+    .contact-info .social-links a { color: #0b2a3b; font-size: 1.8rem; transition: 0.2s; }
+    .contact-info .social-links a:hover { color: #c9a84c; transform: scale(1.1); }
+    .contact-form { flex: 2 1 300px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin: 0.6rem 0;
+      border: 1px solid #d6dce0;
+      border-radius: 40px;
+      font-size: 1rem;
+      background: #f7f9fb;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #c9a84c;
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+    .contact-form textarea {
+      border-radius: 24px;
+      min-height: 140px;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: #0b2a3b;
+      border: none;
+      padding: 0.8rem 2.5rem;
+      border-radius: 40px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 0.5rem;
+    }
+    .contact-form button:hover { background: #1b4a5e; transform: scale(1.02); }
+    .contact-form button i { margin-right: 8px; }
+    .map-placeholder {
+      background: #e9eff2;
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      color: #0b2a3b;
+    }
+    footer {
+      background: #0b2a3b;
+      color: #cbd8e0;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 4px solid #c9a84c;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer i { color: #c9a84c; margin: 0 4px; }
+    footer a { color: #e6dba8; text-decoration: none; }
+    @media (max-width: 700px) {
+      .navbar { flex-direction: column; gap: 1rem; align-items: stretch; text-align: center; }
+      .nav-links { justify-content: center; gap: 1rem; }
+      .page-hero h1 { font-size: 2rem; }
+      .contact-flex { padding: 1.5rem; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-church"></i>
+    <div>
+      <span>Ekklesia Arise</span>
+      <small>Global Ministry</small>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="services.html"><i class="fas fa-hands-praying"></i> Services</a>
+    <a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+  <p>We'd love to hear from you. Reach out for prayer, partnership, or training inquiries.</p>
+</div>
+
+<div class="container">
+  <div class="contact-flex">
+    <div class="contact-info">
+      <h3 style="color:#0b2a3b; margin-bottom:1.5rem;"><i class="fas fa-address-card" style="color:#c9a84c;"></i> Get in Touch</h3>
+      <p><i class="fas fa-map-pin"></i> Addis Ababa, Ethiopia</p>
+      <p><i class="fas fa-phone-alt"></i> +251-911-416976</p>
+      <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+      <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div style="margin-top:2rem; background:#f2f6f9; border-radius:16px; padding:1rem;">
+        <p style="font-size:0.9rem;"><i class="fas fa-clock" style="color:#c9a84c;"></i> <strong>Office Hours:</strong> Mon–Fri, 9:00 AM – 5:00 PM (EAT)</p>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 style="color:#0b2a3b; margin-bottom:0.5rem;"><i class="fas fa-paper-plane" style="color:#c9a84c;"></i> Send a Message</h3>
+      <p style="color:#3d4f5c; font-size:0.95rem; margin-bottom:1rem;">We will respond within 2–3 business days.</p>
+      <form>
+        <input type="text" placeholder="Your Full Name" required>
+        <input type="email" placeholder="Your Email Address" required>
+        <input type="text" placeholder="Subject (e.g., Training, Partnership, Prayer)">
+        <textarea placeholder="Your Message..." required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="map-placeholder">
+    <i class="fas fa-map-marked-alt" style="font-size:2.5rem; color:#c9a84c;"></i>
+    <p style="font-weight:500; margin-top:0.5rem;">Ekklesia Arise Global Ministry</p>
+    <p style="font-size:0.9rem; color:#3d4f5c;">Addis Ababa, Ethiopia · Serving the nations</p>
+    <div style="background:#d6dce0; height:120px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-top:1rem; color:#0b2a3b; font-weight:300;">
+      <i class="fas fa-map" style="margin-right:8px; color:#0b2a3b;"></i> Map location (Addis Ababa)
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><i class="fas fa-map-pin"></i> Addis Ababa, Ethiopia &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 Ekklesia Arise Global Ministry | <a href="#">www.ekklesia-arise.com</a></p>
+</footer>
+
+</body>
+</html>
