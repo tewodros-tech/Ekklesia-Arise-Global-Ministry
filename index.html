@@ -53,10 +53,10 @@
       align-items: center;
       gap: 0.6rem;
     }
-    .logo img {
-      height: 48px;
-      width: auto;
-      filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
+    .logo i {
+      color: var(--gold);
+      font-size: 2.2rem;
+      filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.3));
     }
     .logo div span {
       color: #fff;
@@ -148,14 +148,6 @@
       background: radial-gradient(circle at 80% 100%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
       pointer-events: none;
     }
-    .page-hero .hero-logo {
-      max-width: 180px;
-      width: 100%;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.2));
-      position: relative;
-      z-index: 2;
-    }
     .page-hero h1 {
       font-size: 4rem;
       font-weight: 300;
@@ -226,86 +218,54 @@
       margin-right: 14px;
     }
 
-    /* ---------- GALLERY GRID ---------- */
-    .gallery-grid {
+    /* ---------- CARDS ---------- */
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
-    .gallery-grid .gallery-item {
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      transition: 0.3s;
+    .card {
       background: white;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
       border: 1px solid #f0ede6;
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
-    }
-    .gallery-grid .gallery-item:hover {
-      transform: scale(1.03);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      border-color: var(--gold);
-      z-index: 5;
-    }
-    .gallery-grid .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .gallery-grid .gallery-item .placeholder-icon {
-      font-size: 3rem;
-      color: var(--gold);
-      opacity: 0.3;
-    }
-    .gallery-grid .gallery-item .badge-count {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      background: rgba(11, 31, 43, 0.8);
-      backdrop-filter: blur(4px);
-      color: white;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      border: 1px solid rgba(201, 168, 76, 0.3);
-    }
-
-    /* featured books row */
-    .books-featured {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    .books-featured .book-item {
-      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-      transition: 0.3s;
-      background: white;
-      border: 1px solid #f0ede6;
-      aspect-ratio: 2 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .books-featured .book-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
-      border-color: var(--gold);
-    }
-    .books-featured .book-item img {
-      width: 100%;
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
       height: 100%;
-      object-fit: cover;
-      display: block;
+      background: var(--gold);
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -12px rgba(11, 31, 43, 0.15);
+      border-color: var(--gold-light);
+    }
+    .card:hover::after {
+      opacity: 1;
+    }
+    .card i {
+      font-size: 2.6rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: var(--deep);
+    }
+    .card p {
+      color: #3d4f5c;
+      font-size: 0.95rem;
     }
 
     /* ---------- STORY BLOCK ---------- */
@@ -470,9 +430,6 @@
       .page-hero {
         padding: 3rem 1rem;
       }
-      .page-hero .hero-logo {
-        max-width: 120px;
-      }
       .story-block {
         padding: 1.5rem;
       }
@@ -487,14 +444,6 @@
       }
       .section-title {
         font-size: 1.6rem;
-      }
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 0.8rem;
-      }
-      .books-featured {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 0.8rem;
       }
     }
 
@@ -512,9 +461,7 @@
   <!-- ======== NAVBAR ======== -->
   <nav class="navbar">
     <div class="logo">
-      <!-- logo image -->
-      <img src="logo.jpg" alt="Ekklesia Arise Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <i class="fas fa-church" style="display:none; color:var(--gold); font-size:2rem;"></i>
+      <i class="fas fa-church"></i>
       <div>
         <span>Ekklesia Arise</span>
         <small>Global Ministry</small>
@@ -531,8 +478,6 @@
 
   <!-- ======== HERO ======== -->
   <div class="page-hero">
-    <!-- hero logo -->
-    <img src="logo.jpg" alt="Ekklesia Arise" class="hero-logo" onerror="this.style.display='none';" />
     <h1><i class="fas fa-bible"></i> <span class="lang-am">ኤክሌሺያ ተነሺ</span><span class="lang-en">Ekklesia Arise</span></h1>
     <div class="sub">
       <i class="fas fa-pray"></i>
@@ -561,18 +506,6 @@
         <h3 style="color:var(--deep); font-size:1.3rem;"><i class="fas fa-gem" style="color:var(--gold);"></i> <span class="lang-am">እሴቶች</span><span class="lang-en">Values</span></h3>
         <p style="color:#2d4453;"><span class="lang-am">በጸሎት መትጋት፣ በእግዚአብሔር ፍቅር መኖር፣ በመንፈስ ቅዱስ ኃይል መደገፍ፣ ለቃል አክብሮት እና ክርስቶስን መምሰል</span><span class="lang-en">Prayer, love, Holy Spirit power, reverence for God's word, and Christlike living.</span></p>
       </div>
-    </div>
-
-    <!-- ====== IMAGE GALLERY ====== -->
-    <h2 class="section-title"><i class="fas fa-images"></i> <span class="lang-am">የአገልግሎት ቅጽበቶች</span><span class="lang-en">Ministry Moments</span></h2>
-    <div class="gallery-grid" id="galleryGrid">
-      <!-- images 1-18, 1-5 etc will be injected by JS -->
-    </div>
-
-    <!-- ====== BOOKS FEATURED ====== -->
-    <h2 class="section-title"><i class="fas fa-book-open"></i> <span class="lang-am">የዶ/ር ብርሃኑ ሐብቴ መጻሕፍት</span><span class="lang-en">Books by Dr. Berhanu Habte</span></h2>
-    <div class="books-featured" id="booksGrid">
-      <!-- books will be injected by JS -->
     </div>
 
     <!-- FOUNDATION STORY -->
@@ -635,9 +568,8 @@
     <p style="margin-top:0.6rem; opacity:0.7;">© 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a></p>
   </footer>
 
-  <!-- ======== SCRIPTS ======== -->
+  <!-- ======== LANGUAGE TOGGLE SCRIPT ======== -->
   <script>
-    // ---------- LANGUAGE TOGGLE ----------
     let currentLang = 'am';
     function toggleLanguage() {
       const am = document.querySelectorAll('.lang-am');
@@ -659,42 +591,6 @@
       document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
       document.querySelectorAll('.lang-am').forEach(el => el.style.display = 'block');
     });
-
-    // ---------- IMAGE GALLERY INJECTION ----------
-    // all image names as provided (some duplicates, we keep them)
-    const imageNames = [
-      '1.jpg','2.jpg','3.jpg','4.jpg','5.jpg',
-      '1.jpg','2.jpg','3.jpg','4.jpg','5.jpg',
-      '6.jpg','7.jpg','8.jpg','9.jpg','10.jpg',
-      '11.jpg','12.jpg','13.jpg','14.jpg','15.jpg',
-      '16.jpg','17.jpg','18.jpg'
-    ];
-    // book images
-    const bookNames = [
-      'Allbook.jpg','Book1.jpg','Book2.jpg','Book3.jpg','Book4.jpg',
-      'Book5.jpg','Book6.jpg','Book7.jpg','Book8.jpg','Book9.jpg',
-      'Cover1.jpg','Covermain.jpg'
-    ];
-
-    const galleryGrid = document.getElementById('galleryGrid');
-    if (galleryGrid) {
-      imageNames.forEach((name, index) => {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        div.innerHTML = `<img src="${name}" alt="Gallery ${index+1}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-image placeholder-icon\\'></i><span class=\\'badge-count\\'>${index+1}</span>';">`;
-        galleryGrid.appendChild(div);
-      });
-    }
-
-    const booksGrid = document.getElementById('booksGrid');
-    if (booksGrid) {
-      bookNames.forEach((name, index) => {
-        const div = document.createElement('div');
-        div.className = 'book-item';
-        div.innerHTML = `<img src="${name}" alt="Book ${index+1}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-book placeholder-icon\\' style=\\'font-size:2rem; color:var(--gold); opacity:0.3;\\'></i>';">`;
-        booksGrid.appendChild(div);
-      });
-    }
   </script>
 </body>
 </html>
