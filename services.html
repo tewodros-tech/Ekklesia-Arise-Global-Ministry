@@ -6,12 +6,97 @@
   <title>ኤክሌሺያ ተነሺ · አገልግሎቶች</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #1e2b37; line-height: 1.6; }
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 3rem;
+      background: rgba(11, 42, 59, 0.95); backdrop-filter: blur(10px); color: #f5e7d3;
+      position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(201,168,76,0.25);
+      flex-wrap: wrap; transition: 0.3s;
+    }
+    .navbar.scrolled { background: rgba(11, 42, 59, 0.98); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+    .logo { display: flex; align-items: center; gap: 0.7rem; cursor: pointer; }
+    .logo i { font-size: 2rem; color: #c9a84c; }
+    .logo div { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo span { font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; }
+    .logo small { font-size: 0.6rem; opacity: 0.8; letter-spacing: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .nav-links a { color: #f5e7d3; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.4rem; transition: 0.3s; padding: 0.4rem 0.8rem; border-radius: 30px; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: #c9a84c; transition: 0.3s; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 50%; }
+    .nav-links a.active, .nav-links a:hover { background: rgba(201,168,76,0.12); color: #c9a84c; }
+    .lang-toggle { background: transparent; border: 1px solid #c9a84c; color: #f5e7d3; padding: 0.3rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.8rem; transition: 0.3s; }
+    .lang-toggle:hover { background: #c9a84c; color: #0b2a3b; }
+    .lang-en { display: none; }
+    body.lang-en .lang-am { display: none; }
+    body.lang-en .lang-en { display: inline; }
+
+    .page-hero {
+      padding: 10rem 2rem 5rem;
+      background: linear-gradient(135deg, #1a3a2a 0%, #0b2a3b 70%, #1b4a5e 100%);
+      color: #f5e7d3;
+      text-align: center;
+      border-bottom: 6px solid #c9a84c;
+    }
+    .page-hero h1 { font-size: 4rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .page-hero h1 i { color: #c9a84c; }
+    .page-hero .sub { font-size: 1.5rem; font-weight: 300; margin: 1.2rem 0 0.8rem; display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+    .page-hero .sub i { color: #c9a84c; }
+
+    .container { max-width: 1300px; margin: 0 auto; padding: 2rem 2rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin: 3rem 0;
+    }
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+      transition: 0.35s ease;
+      border-bottom: 5px solid #c9a84c;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
+    .service-icon { font-size: 3rem; color: #c9a84c; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.6rem; color: #0b2a3b; margin-bottom: 0.8rem; }
+    .service-card p { color: #555; font-size: 1rem; margin-bottom: 1rem; }
+    .service-card ul { list-style: none; }
+    .service-card ul li { padding: 0.4rem 0; display: flex; align-items: center; gap: 0.6rem; color: #444; }
+    .service-card ul li i { color: #c9a84c; font-size: 1rem; }
+
+    .btn-gold {
+      background: #c9a84c; color: #0b2a3b; padding: 0.9rem 2.8rem; border-radius: 60px;
+      font-weight: 700; text-decoration: none; display: inline-flex; align-items: center;
+      gap: 0.8rem; transition: 0.3s; box-shadow: 0 12px 30px rgba(201,168,76,0.3);
+      font-size: 1.05rem;
+    }
+    .btn-gold:hover { transform: translateY(-4px); background: #dbb95c; box-shadow: 0 18px 40px rgba(201,168,76,0.45); }
+
+    footer {
+      background: #0b2a3b; color: #c9d1d9; padding: 3rem 2rem; text-align: center;
+      border-top: 4px solid #c9a84c; font-size: 0.95rem;
+    }
+    footer a { color: #c9a84c; text-decoration: none; transition: 0.3s; }
+    footer a:hover { color: #dbb95c; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #f5e7d3; font-size: 1.5rem; transition: 0.3s; }
+    .footer-social a:hover { color: #c9a84c; transform: translateY(-3px); }
+
+    @media (max-width: 700px) {
+      .navbar { padding: 0.8rem 1.5rem; }
+      .page-hero h1 { font-size: 2.5rem; }
+      .page-hero .sub { font-size: 1.1rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
       <i class="fas fa-church"></i>
       <div>
         <span>ኤክሌሺያ ተነሺ</span>
@@ -27,7 +112,7 @@
     </div>
   </nav>
 
-  <div class="page-hero" style="background: linear-gradient(135deg, #1a3a2a 0%, #0b2a3b 70%, #1b4a5e 100%);">
+  <div class="page-hero">
     <h1><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Our Services</span></h1>
     <div class="sub">
       <i class="fas fa-star"></i>
@@ -106,6 +191,12 @@
   </div>
 
   <footer>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
     <p>
       <i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp;
       <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp;
@@ -116,6 +207,16 @@
     </p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleLanguage() {
+      document.body.classList.toggle('lang-en');
+      const btn = document.getElementById('langBtnText');
+      if (document.body.classList.contains('lang-en')) { btn.textContent = 'አማርኛ'; } else { btn.textContent = 'English'; }
+    }
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    });
+  </script>
 </body>
 </html>
