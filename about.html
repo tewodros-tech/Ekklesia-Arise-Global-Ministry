@@ -1,211 +1,92 @@
 <!DOCTYPE html>
 <html lang="am">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ኤክሌሺያ ተነሺ · ስለእኛ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, system-ui, 'Noto Sans Ethiopic', sans-serif; }
-    body { background: #faf9f6; color: #1e1e2a; line-height: 1.7; }
-    .navbar {
-      background: #0b2a3b;
-      padding: 1rem 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 4px solid #c9a84c;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .logo { display: flex; align-items: center; gap: 0.5rem; }
-    .logo i { color: #c9a84c; font-size: 2rem; }
-    .logo span { color: white; font-weight: 700; font-size: 1.3rem; }
-    .logo small { display: block; font-size: 0.65rem; font-weight: 300; color: #b9c9d4; }
-    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
-    .nav-links a { color: #ecf3f8; text-decoration: none; font-weight: 500; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: 0.2s; }
-    .nav-links a:hover, .nav-links a.active { border-bottom-color: #c9a84c; color: #f5e7b0; }
-    .nav-links a i { margin-right: 6px; color: #c9a84c; }
-    .lang-toggle {
-      background: #c9a84c;
-      color: #0b2a3b;
-      border: none;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 0.85rem;
-    }
-    .lang-toggle:hover { background: #dbb95c; transform: scale(1.02); }
-    .page-hero {
-      background: linear-gradient(135deg, #0b2a3b 0%, #1b4a5e 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-      border-bottom: 6px solid #c9a84c;
-    }
-    .page-hero h1 { font-size: 2.8rem; font-weight: 300; letter-spacing: 2px; }
-    .page-hero h1 i { color: #c9a84c; margin-right: 12px; }
-    .page-hero p { max-width: 700px; margin: 0.8rem auto 0; font-size: 1.1rem; opacity: 0.9; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
-    .section-title {
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: #0b2a3b;
-      border-left: 6px solid #c9a84c;
-      padding-left: 1rem;
-      margin: 2.8rem 0 1.5rem 0;
-    }
-    .section-title i { color: #c9a84c; margin-right: 12px; }
-    .about-block {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem 2.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      border-left: 8px solid #c9a84c;
-    }
-    .about-block h2 { color: #0b2a3b; font-weight: 500; margin-bottom: 0.5rem; }
-    .about-block h2 i { color: #c9a84c; margin-right: 12px; }
-    .values-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .values-list span { background: #e9eff2; padding: 0.4rem 1.2rem; border-radius: 40px; font-size: 0.9rem; font-weight: 500; color: #0b2a3b; }
-    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .stat-item { background: #f2f6f9; border-radius: 40px; padding: 0.7rem 1.2rem; text-align: center; font-weight: 500; color: #0b2a3b; }
-    .btn-gold {
-      background: #c9a84c;
-      color: #0b2a3b;
-      padding: 0.8rem 2.8rem;
-      border-radius: 60px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 8px 16px rgba(201,168,76,0.3);
-      transition: 0.2s;
-    }
-    .btn-gold:hover { transform: scale(1.02); }
-    .lang-am { display: block; }
-    .lang-en { display: none; }
-    footer {
-      background: #0b2a3b;
-      color: #cbd8e0;
-      padding: 2rem 1.5rem;
-      margin-top: 3rem;
-      border-top: 4px solid #c9a84c;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    footer i { color: #c9a84c; margin: 0 4px; }
-    footer a { color: #e6dba8; text-decoration: none; }
-    @media (max-width: 700px) {
-      .navbar { flex-direction: column; gap: 1rem; align-items: stretch; text-align: center; }
-      .nav-links { justify-content: center; gap: 1rem; }
-      .page-hero h1 { font-size: 2rem; }
-      .about-block { padding: 1.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="logo">
-    <i class="fas fa-church"></i>
-    <div>
-      <span>ኤክሌሺያ ተነሺ</span>
-      <small>ግሎባል ሚኒስትሪ</small>
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fas fa-church"></i>
+      <div>
+        <span>ኤክሌሺያ ተነሺ</span>
+        <small>ግሎባል ሚኒስትሪ</small>
+      </div>
     </div>
-  </div>
-  <div class="nav-links">
-    <a href="index.html"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
-    <a href="about.html" class="active"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
-    <a href="services.html"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
-    <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
-  </div>
-</nav>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
+      <a href="about.html" class="active"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
+      <a href="services.html"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
+      <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
+    </div>
+  </nav>
 
-<div class="page-hero">
-  <h1><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About Us</span></h1>
-  <p><span class="lang-am">ታሪካችን፣ ራዕያችን እና ቤተክርስቲያንን የማስታጠቅ ቁርጠኝነታችን</span><span class="lang-en">Our story, vision, and commitment to equipping the Church</span></p>
-</div>
-
-<div class="container">
-  <div class="about-block">
-    <h2><i class="fas fa-history"></i> <span class="lang-am">መሠረታችን</span><span class="lang-en">Our Foundation</span></h2>
-    <p><span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ የተመሰረተው በዶ/ር ብርሃኑ ሐብቴ ራዕይ እና ጥሪ ነው። በ1964 ዓ.ም፣ በጸሎት ወቅት፣ ጌታ የኢትዮጵያን ካርታ አሳይቶታል እንዲሁም እንዲህ አለው፡- <em>"አንተ አገር አቀፍ (የወንጌል) ጥሪ አለብህ። ስለዚህ ከበደል ራቅ"</em> ይህ ቤተክርስቲያንን ለተሃድሶ እና ለደቀ መዝሙርነት የማስታጠቅ የዕድሜ ልክ ጉዞ መጀመሪያ ነበር።</span><span class="lang-en">Ekklesia Arise Global Ministry was established through the vision and calling of Dr. Berhanu Habte. In 1964 E.C., while in prayer, the Lord showed him the map of Ethiopia and spoke: <em>"You have a national (gospel) calling. Therefore, depart from evil."</em> This marked the beginning of a lifelong journey of equipping the Church for revival and discipleship.</span></p>
-    <p style="margin-top:1rem;"><span class="lang-am">በ1983 ዓ.ም፣ በእንግሊዝ በተካሄደ ዓለም አቀፍ ጉባኤ ላይ፣ ራዕዩ በኢሳያስ 11፡9 ተረጋገጠ፡- <em>"ውኃ ባህርን እንደሚከድን ምድር እግዚአብሔርን በማወቅ ትሞላለች"</em> ከዚያ በኋላ ዶ/ር ብርሃኑ ሙሉ ጊዜያቸውን ለአገልግሎት ሰጥተው ኤክሌሺያ ተነሺ ተመሠረተ።</span><span class="lang-en">In 1983, during an international conference in England, the vision was reaffirmed through Isaiah 11:9: <em>"For the earth will be filled with the knowledge of the Lord as the waters cover the sea."</em> Dr. Berhanu then committed fully to ministry, and Ekklesia Arise was born.</span></p>
-  </div>
-
-  <div class="about-block">
-    <h2><i class="fas fa-bullseye"></i> <span class="lang-am">ራዕይ እና ተልዕኮ</span><span class="lang-en">Vision & Mission</span></h2>
-    <p><strong><span class="lang-am">ራዕይ፡-</span><span class="lang-en">Vision:</span></strong> <span class="lang-am">ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ሕይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት።</span><span class="lang-en">The earth filled with the knowledge of God, and lives transformed into His likeness.</span></p>
-    <p style="margin-top:0.5rem;"><strong><span class="lang-am">ተልዕኮ፡-</span><span class="lang-en">Mission:</span></strong> <span class="lang-am">ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ።</span><span class="lang-en">Equipping the church through teaching and training to preach the gospel and make disciples effectively.</span></p>
-  </div>
-
-  <div class="about-block">
-    <h2><i class="fas fa-gem"></i> <span class="lang-am">መሠረታዊ እሴቶች</span><span class="lang-en">Core Values</span></h2>
-    <div class="values-list">
-      <span><i class="fas fa-pray"></i> <span class="lang-am">በጸሎት መትጋት</span><span class="lang-en">Prayer</span></span>
-      <span><i class="fas fa-heart"></i> <span class="lang-am">በእግዚአብሔር ፍቅር መኖር</span><span class="lang-en">God's Love</span></span>
-      <span><i class="fas fa-fire"></i> <span class="lang-am">በመንፈስ ቅዱስ ኃይል መደገፍ</span><span class="lang-en">Holy Spirit Power</span></span>
-      <span><i class="fas fa-book"></i> <span class="lang-am">ለእግዚአብሔር ቃል አክብሮት መስጠት</span><span class="lang-en">Reverence for Scripture</span></span>
-      <span><i class="fas fa-cross"></i> <span class="lang-am">በቃልና በኑሮ ክርስቶስን መምሰል</span><span class="lang-en">Christlikeness</span></span>
+  <div class="page-hero" style="background: linear-gradient(135deg, #1a3a4a 0%, #0b2a3b 70%, #1b4a5e 100%);">
+    <h1><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About Us</span></h1>
+    <div class="sub">
+      <i class="fas fa-heart"></i>
+      <span class="lang-am">የእግዚአብሔርን ፍቅር በማስተማርና በማገልገል ማሳወቅ</span>
+      <span class="lang-en">Revealing God's love through teaching and service</span>
+      <i class="fas fa-heart"></i>
     </div>
   </div>
 
-  <div class="about-block">
-    <h2><i class="fas fa-chart-simple"></i> <span class="lang-am">ቁልፍ አኃዛዊ መረጃዎች</span><span class="lang-en">Key Statistics</span></h2>
-    <div class="stat-grid">
-      <div class="stat-item"><i class="fas fa-user-graduate"></i> 23,340+ <span class="lang-am">የሰለጠኑ</span><span class="lang-en">Trained</span></div>
-      <div class="stat-item"><i class="fas fa-globe"></i> 15+ <span class="lang-am">አገራት</span><span class="lang-en">Nations</span></div>
-      <div class="stat-item"><i class="fas fa-book"></i> 17+ <span class="lang-am">ህትመቶች</span><span class="lang-en">Publications</span></div>
-      <div class="stat-item"><i class="fas fa-church"></i> 680+ <span class="lang-am">አብያተ ክርስቲያናት</span><span class="lang-en">Churches</span></div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2><span class="lang-am">የአገልግሎታችን ታሪክ</span><span class="lang-en">Our Story</span></h2>
+        <p><span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።</span><span class="lang-en">Ekklesia Arise Global Ministry was established to strengthen the church through God's Word and to spread the gospel to all nations. Led by Dr. Berhanu Habte, this ministry has been serving thousands of people since 1964.</span></p>
+        <p><span class="lang-am">አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</span><span class="lang-en">Our ministry has spread beyond Ethiopia to 15 nations. We have established many churches, developed various training programs, and published over 17 books.</span></p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-gold"><i class="fas fa-arrow-right"></i> <span class="lang-am">አገልግሎቶቻችንን ይመልከቱ</span><span class="lang-en">Explore Our Services</span></a>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="Covermain.jpg" alt="About Us" style="width:100%; border-radius:24px; box-shadow: 0 12px 36px rgba(0,0,0,0.06);" />
+      </div>
     </div>
-    <p style="font-size:0.95rem; color:#3d4f5c;"><span class="lang-am">ሥልጠናዎች በኢትዮጵያ፣ በኬንያ፣ ታንዛኒያ፣ ኡጋንዳ፣ ናይጄሪያ፣ ማላዊ፣ ሩዋንዳ፣ ደቡብ አፍሪካ፣ አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ኔዘርላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ እና ግሪክ ተካሂደዋል።</span><span class="lang-en">Training conducted across Ethiopia, Kenya, Tanzania, Uganda, Nigeria, Malawi, Rwanda, South Africa, USA, UK, Sweden, Netherlands, Belgium, Germany, Denmark, and Greece.</span></p>
+
+    <div class="mission-vision-grid">
+      <div class="mv-card">
+        <i class="fas fa-cross" style="font-size:2.5rem; color:#c9a84c;"></i>
+        <h3><span class="lang-am">መሠረታዊ እምነት</span><span class="lang-en">Core Beliefs</span></h3>
+        <ul>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">በአንድ አምላክ ማመን</span><span class="lang-en">Belief in one God</span></li>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">በኢየሱስ ክርስቶስ መዳን</span><span class="lang-en">Salvation through Jesus Christ</span></li>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">በመንፈስ ቅዱስ ኃይል</span><span class="lang-en">Power of the Holy Spirit</span></li>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">በመጽሐፍ ቅዱስ ሥልጣን</span><span class="lang-en">Authority of the Bible</span></li>
+        </ul>
+      </div>
+      <div class="mv-card">
+        <i class="fas fa-hand-holding-heart" style="font-size:2.5rem; color:#c9a84c;"></i>
+        <h3><span class="lang-am">የአገልግሎት ዘርፎች</span><span class="lang-en">Ministry Areas</span></h3>
+        <ul>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">የደቀ መዝሙር ሥልጠና</span><span class="lang-en">Discipleship Training</span></li>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">የሕትመት አገልግሎት</span><span class="lang-en">Publishing Ministry</span></li>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">የወንጌል ዘመቻዎች</span><span class="lang-en">Gospel Campaigns</span></li>
+          <li><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">የቤተክርስቲያን ተሃድሶ</span><span class="lang-en">Church Revival</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="about-block">
-    <h2><i class="fas fa-school"></i> <span class="lang-am">የጢራኖስ ደቀ መዝሙር ትምህርት ቤት</span><span class="lang-en">Tyrannus Discipleship School</span></h2>
-    <p><span class="lang-am">በሐዋሪያት ሥራ 19፡9 መሰረት የተመሰረተው የጢራኖስ ትምህርት ቤት የ4 ሳምንት የአዳሪ ሥልጠና ፕሮግራም ነው። ልጅነት፣ ክርስቲያናዊ ሥነ ምግባር፣ መንፈሳዊ ውጊያ፣ በድል የምትገሰግሰው ቤተክርስቲያን እና ሌሎችን ይሸፍናል። <strong>10 ዙር</strong> ተመራቂዎችን አስመርቋል።</span><span class="lang-en">Inspired by Acts 19:9, the Tyrannus School is a 4-week residential training program. It covers Sonship, Christian Ethics, Spiritual Warfare, The Triumphant Church, and more. <strong>10 cohorts</strong> have graduated so far.</span></p>
-  </div>
+  <footer>
+    <p>
+      <i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp;
+      <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp;
+      <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com
+    </p>
+    <p style="margin-top:0.8rem; opacity:0.7;">
+      © 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a>
+    </p>
+  </footer>
 
-  <div style="text-align:center; margin: 2rem 0;">
-    <a href="services.html" class="btn-gold"><i class="fas fa-arrow-right"></i> <span class="lang-am">አገልግሎቶቻችንን ይመልከቱ</span><span class="lang-en">Explore Our Services</span></a>
-  </div>
-</div>
-
-<footer>
-  <p><i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
-  <p style="margin-top:0.5rem; opacity:0.7;">© 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a></p>
-</footer>
-
-<script>
-  let currentLang = 'am';
-  function toggleLanguage() {
-    const amElements = document.querySelectorAll('.lang-am');
-    const enElements = document.querySelectorAll('.lang-en');
-    const btnText = document.getElementById('langBtnText');
-    
-    if (currentLang === 'am') {
-      amElements.forEach(el => el.style.display = 'none');
-      enElements.forEach(el => el.style.display = 'block');
-      btnText.textContent = 'አማርኛ';
-      currentLang = 'en';
-    } else {
-      amElements.forEach(el => el.style.display = 'block');
-      enElements.forEach(el => el.style.display = 'none');
-      btnText.textContent = 'English';
-      currentLang = 'am';
-    }
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.lang-am').forEach(el => el.style.display = 'block');
-  });
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
