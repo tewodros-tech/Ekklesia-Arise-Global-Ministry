@@ -3,556 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ኤክሌሺያ ተነሺ · ግሎባል ሚኒስትሪ</title>
-  <!-- Font Awesome 6 (free) -->
+  <title>ኤክሌሺያ ተነሺ · መነሻ</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Google Fonts: elegant & modern -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-    }
-
-    body {
-      background: #f8f6f0;
-      color: #1a1a1e;
-      line-height: 1.6;
-    }
-
-    /* ----- NAVBAR (glassmorphism) ----- */
-    .navbar {
-      background: rgba(11, 42, 59, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.8rem 2.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid rgba(201, 168, 76, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      transition: 0.3s;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .logo i {
-      color: #c9a84c;
-      font-size: 2.2rem;
-      filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
-    }
-    .logo span {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: -0.5px;
-    }
-    .logo small {
-      display: block;
-      font-size: 0.6rem;
-      font-weight: 300;
-      color: #b9d0dc;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .nav-links a {
-      color: #e8f0f5;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.4rem 0;
-      border-bottom: 2px solid transparent;
-      transition: 0.25s;
-      letter-spacing: 0.3px;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      border-bottom-color: #c9a84c;
-      color: #f5e7b0;
-      transform: translateY(-1px);
-    }
-    .nav-links a i {
-      margin-right: 8px;
-      color: #c9a84c;
-    }
-
-    .lang-toggle {
-      background: linear-gradient(135deg, #c9a84c, #b8923a);
-      color: #0b2a3b;
-      border: none;
-      padding: 0.5rem 1.4rem;
-      border-radius: 50px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 14px rgba(201, 168, 76, 0.3);
-    }
-    .lang-toggle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.5);
-    }
-
-    /* ----- HERO (cinematic) ----- */
-    .page-hero {
-      background: linear-gradient(145deg, #0b2a3b 0%, #1b4a5e 70%, #2a5f76 100%);
-      color: white;
-      padding: 4rem 2rem 3.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 4px solid #c9a84c;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .page-hero h1 {
-      font-size: 3.4rem;
-      font-weight: 300;
-      letter-spacing: 3px;
-      position: relative;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-    .page-hero h1 i {
-      color: #c9a84c;
-      margin-right: 16px;
-      filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.3));
-    }
-    .page-hero .sub {
-      max-width: 800px;
-      margin: 1.2rem auto 0;
-      font-size: 1.2rem;
-      opacity: 0.95;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(6px);
-      padding: 0.8rem 2.2rem;
-      border-radius: 80px;
-      display: inline-block;
-      border: 1px solid rgba(201, 168, 76, 0.2);
-    }
-    .page-hero .sub i {
-      color: #c9a84c;
-      margin: 0 8px;
-    }
-    .hero-tagline {
-      margin-top: 1rem;
-      font-weight: 300;
-      opacity: 0.85;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-    }
-
-    /* ----- CONTAINER ----- */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
-    }
-
-    /* section titles with flair */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: #0b2a3b;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 3.5rem 0 2rem 0;
-    }
-    .section-title i {
-      color: #c9a84c;
-      font-size: 2rem;
-    }
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, #c9a84c 40%, transparent);
-      margin-left: 1rem;
-    }
-
-    /* Vision/Mission cards – modern */
-    .vmm-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(4px);
-      border-radius: 40px;
-      padding: 2.5rem 2rem;
-      border: 1px solid rgba(201, 168, 76, 0.15);
-      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.06);
-    }
-    .vmm-item h3 {
-      color: #0b2a3b;
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .vmm-item h3 i {
-      color: #c9a84c;
-      font-size: 1.6rem;
-    }
-    .vmm-item p {
-      color: #2d4453;
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    /* story block – elegant */
-    .story-block {
-      background: white;
-      border-radius: 40px;
-      padding: 2.8rem 3rem;
-      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.04);
-      border-left: 8px solid #c9a84c;
-      margin: 2rem 0;
-      transition: 0.3s;
-    }
-    .story-block:hover {
-      box-shadow: 0 30px 60px -16px rgba(0, 0, 0, 0.08);
-    }
-    .story-block .quote {
-      font-style: italic;
-      background: #f4f6f9;
-      padding: 1.5rem 2.2rem;
-      border-radius: 60px 20px 60px 20px;
-      color: #0b2a3b;
-      border-left: 6px solid #c9a84c;
-      margin: 1rem 0 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    .story-block .quote i {
-      color: #c9a84c;
-      margin-right: 12px;
-      font-size: 1.4rem;
-    }
-
-    /* stats – glass */
-    .stat-highlight {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-around;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(8px);
-      border-radius: 80px;
-      padding: 1.6rem 2.5rem;
-      margin: 2rem 0;
-      border: 1px solid rgba(201, 168, 76, 0.15);
-    }
-    .stat-highlight .item {
-      text-align: center;
-    }
-    .stat-highlight .number {
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #0b2a3b;
-      letter-spacing: -1px;
-    }
-    .stat-highlight .label {
-      font-size: 0.85rem;
-      color: #2d4453;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* TYRANNUS – premium */
-    .tyrannus-box {
-      background: linear-gradient(145deg, #0b2a3b, #1a4053);
-      color: white;
-      border-radius: 40px;
-      padding: 2.8rem 3rem;
-      margin: 2rem 0;
-      border-left: 8px solid #c9a84c;
-      box-shadow: 0 20px 50px -10px rgba(11, 42, 59, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    .tyrannus-box::after {
-      content: '';
-      position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 60%;
-      height: 120%;
-      background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .tyrannus-box h3 {
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .tyrannus-box h3 i {
-      color: #c9a84c;
-    }
-    .tyrannus-box .topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 1.5rem;
-      position: relative;
-      z-index: 2;
-    }
-    .tyrannus-box .topics span {
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1.4rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(201, 168, 76, 0.15);
-      transition: 0.2s;
-    }
-    .tyrannus-box .topics span:hover {
-      background: rgba(201, 168, 76, 0.15);
-      transform: translateY(-2px);
-    }
-
-    /* ----- GALLERY (premium grid) ----- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1.2rem;
-      margin: 2.5rem 0 1rem;
-    }
-    .gallery-grid .gallery-item {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
-      transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 2px solid transparent;
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #edf0f3;
-      cursor: pointer;
-    }
-    .gallery-grid .gallery-item:hover {
-      transform: scale(1.04) translateY(-6px);
-      border-color: #c9a84c;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
-    }
-    .gallery-grid .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: 0.4s;
-    }
-    .gallery-grid .gallery-item:hover img {
-      transform: scale(1.02);
-    }
-    /* featured (Covermain) larger */
-    .gallery-grid .gallery-item.featured {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-    @media (max-width: 640px) {
-      .gallery-grid .gallery-item.featured {
-        grid-column: span 1;
-        grid-row: span 1;
-      }
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 0.8rem;
-      }
-    }
-
-    /* btn gold – premium */
-    .btn-gold {
-      background: linear-gradient(135deg, #c9a84c, #b8923a);
-      color: #0b2a3b;
-      padding: 0.9rem 3rem;
-      border-radius: 60px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 8px 28px rgba(201, 168, 76, 0.25);
-      transition: 0.3s;
-      letter-spacing: 0.5px;
-      border: none;
-      font-size: 1rem;
-    }
-    .btn-gold:hover {
-      transform: scale(1.04);
-      box-shadow: 0 16px 40px rgba(201, 168, 76, 0.4);
-    }
-
-    /* language toggles */
-    .lang-am {
-      display: block;
-    }
-    .lang-en {
-      display: none;
-    }
-
-    /* footer */
-    footer {
-      background: #0b2a3b;
-      color: #cbd8e0;
-      padding: 2.5rem 1.5rem;
-      margin-top: 4rem;
-      border-top: 4px solid #c9a84c;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-    footer i {
-      color: #c9a84c;
-      margin: 0 6px;
-    }
-    footer a {
-      color: #e6dba8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    footer a:hover {
-      color: #f5e7b0;
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0.8rem 1.2rem;
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: stretch;
-        text-align: center;
-      }
-      .nav-links {
-        justify-content: center;
-        gap: 1.2rem;
-      }
-      .page-hero h1 {
-        font-size: 2.2rem;
-      }
-      .section-title {
-        font-size: 1.7rem;
-      }
-      .story-block {
-        padding: 1.8rem;
-      }
-      .tyrannus-box {
-        padding: 1.8rem;
-      }
-      .stat-highlight {
-        flex-direction: column;
-        gap: 0.8rem;
-        border-radius: 40px;
-        padding: 1.5rem;
-      }
-      .vmm-grid {
-        padding: 1.5rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- ====== NAVBAR ====== -->
   <nav class="navbar">
-    <div class="logo">
-      <i class="fas fa-church"></i>
-      <div>
-        <span>ኤክሌሺያ ተነሺ</span>
-        <small>ግሎባል ሚኒስትሪ</small>
-      </div>
-    </div>
+    <div class="logo"><i class="fas fa-church"></i><div><span>ኤክሌሺያ ተነሺ</span><small>ግሎባል ሚኒስትሪ</small></div></div>
     <div class="nav-links">
-      <a href="#" class="active"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
-      <a href="#"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
-      <a href="#"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
-      <a href="#"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
+      <a href="index.html" class="active"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
+      <a href="services.html"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
       <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
     </div>
   </nav>
 
-  <!-- ====== HERO ====== -->
   <div class="page-hero">
     <h1><i class="fas fa-bible"></i> <span class="lang-am">ኤክሌሺያ ተነሺ</span><span class="lang-en">Ekklesia Arise</span></h1>
-    <div class="sub">
-      <i class="fas fa-pray"></i>
-      <span class="lang-am">“ቤቴ ለአሕዛብ ሁሉ የጸሎት ቤት ይባላል”</span>
-      <span class="lang-en">“My house shall be a house of prayer for all nations”</span>
-      <i class="fas fa-pray"></i>
-    </div>
-    <div class="hero-tagline">
-      <span class="lang-am">ቤተክርስቲያንን ለተሃድሶና ለደቀ መዝሙርነት ማስታጠቅ</span>
-      <span class="lang-en">Equipping the church for revival and discipleship</span>
-    </div>
+    <div class="sub"><i class="fas fa-pray"></i><span class="lang-am">“ቤቴ ለአሕዛብ ሁሉ የጸሎት ቤት ይባላል”</span><span class="lang-en">“My house shall be called a house of prayer for all nations”</span><i class="fas fa-pray"></i></div>
+    <div class="hero-tagline"><span class="lang-am">ቤተክርስቲያንን ለተሃድሶና ለደቀ መዝሙርነት ማስታጠቅ</span><span class="lang-en">Equipping the church for revival and discipleship</span></div>
+    <div style="margin-top:2rem;"><a href="services.html" class="btn-gold" style="color:#0b2a3b;"><i class="fas fa-arrow-right"></i> <span class="lang-am">አገልግሎቶቻችንን ይመልከቱ</span><span class="lang-en">Explore Our Services</span></a></div>
   </div>
 
-  <!-- ====== CONTAINER ====== -->
   <div class="container">
-
-    <!-- Vision / Mission / Values -->
     <div class="vmm-grid">
-      <div class="vmm-item">
-        <h3><i class="fas fa-eye"></i> <span class="lang-am">ራዕይ</span><span class="lang-en">Vision</span></h3>
-        <p><span class="lang-am">ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ሕይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት</span><span class="lang-en">The earth filled with the knowledge of God, and lives transformed into His likeness.</span></p>
-      </div>
-      <div class="vmm-item">
-        <h3><i class="fas fa-bullseye"></i> <span class="lang-am">ተልዕኮ</span><span class="lang-en">Mission</span></h3>
-        <p><span class="lang-am">ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ</span><span class="lang-en">Equipping the church through teaching and training to preach the gospel and make disciples effectively.</span></p>
-      </div>
-      <div class="vmm-item">
-        <h3><i class="fas fa-gem"></i> <span class="lang-am">እሴቶች</span><span class="lang-en">Values</span></h3>
-        <p><span class="lang-am">በጸሎት መትጋት፣ በእግዚአብሔር ፍቅር መኖር፣ በመንፈስ ቅዱስ ኃይል መደገፍ፣ ለቃል አክብሮት እና ክርስቶስን መምሰል</span><span class="lang-en">Prayer, love, Holy Spirit power, reverence for God's word, and Christlike living.</span></p>
-      </div>
+      <div class="vmm-item"><h3><i class="fas fa-eye"></i> <span class="lang-am">ራዕይ</span><span class="lang-en">Vision</span></h3><p><span class="lang-am">ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ሕይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት</span><span class="lang-en">The earth filled with the knowledge of God, and lives transformed into His likeness.</span></p></div>
+      <div class="vmm-item"><h3><i class="fas fa-bullseye"></i> <span class="lang-am">ተልዕኮ</span><span class="lang-en">Mission</span></h3><p><span class="lang-am">ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ</span><span class="lang-en">Equipping the church through teaching and training to preach the gospel and make disciples effectively.</span></p></div>
+      <div class="vmm-item"><h3><i class="fas fa-gem"></i> <span class="lang-am">እሴቶች</span><span class="lang-en">Values</span></h3><p><span class="lang-am">በጸሎት መትጋት፣ በእግዚአብሔር ፍቅር መኖር፣ በመንፈስ ቅዱስ ኃይል መደገፍ፣ ለቃል አክብሮት እና ክርስቶስን መምሰል</span><span class="lang-en">Prayer, love, Holy Spirit power, reverence for God's word, and Christlike living.</span></p></div>
     </div>
 
-    <!-- Foundation Story -->
     <h2 class="section-title"><i class="fas fa-history"></i> <span class="lang-am">የአገልግሎቱ መሠረት</span><span class="lang-en">Our Foundation</span></h2>
     <div class="story-block">
-      <div class="quote">
-        <i class="fas fa-quote-left"></i>
-        <span class="lang-am">“መልዕክት በደብዳቤ እጽፍ ነበር፡፡ የምፅፈው ቃል ቤቴ ለአሕዛብ ሁሉ የጸሎት ቤት ይባላል የሚለውን ነበር፡፡ በመንፈስ ውስጥ ሆኜ ሳስታውስ የኢትዮጵያ ካርታ ፊት ለፊቴ ታየኝ፡፡ እኔም ለኢትዮጵያ መልእክተኛ እሆናለሁ ማለት ነው እንዴ? ብዬ ጠየቅሁት፡፡ እንግዲያውስ ልንገርህ አንተ አገር አቀፍ (የወንጌል) ጥሪ አለብህ፡፡ ስለዚህ ከበደል ራቅ” አለኝ።</span>
-        <span class="lang-en">“I was writing a message in a letter. The word I was writing was: 'My house shall be called a house of prayer for all nations.' While I was in the Spirit, the map of Ethiopia appeared before me. I asked, 'Does this mean I am to be a messenger to Ethiopia?' Then He said to me, 'You have a national (gospel) calling. Therefore, depart from evil.'”</span>
-      </div>
-      <p>
-        <span class="lang-am"><strong>ዶ/ር ብርሃኑ ሐብቴ</strong> ጌታን ካገኙበት እለት ጀምሮ በመንፈሳዊ እድገታቸው የሚተጉ ሲሆን፣ በወጣትነት እድሜያቸው ትምህርታቸውን ከመከታተል ጎን ለጎን አብዛኛውን ጊዜያቸውን በአገልግሎት ያሳልፉ ነበር። ይህ ቃል ከፈለገ ብርሃኑ መጽሐፍ ገጽ 65 የተወሰደ ሲሆን፣ እግዚአብሔር ለባሪያው ስለ ተጠሩበት ጥሪ ፈንጠቅ ያደረገበት ዕለት ነው።</span>
-        <span class="lang-en"><strong>Dr. Berhanu Habte</strong> was known for his spiritual growth from the day he encountered the Lord. In his youth, while pursuing his education, he dedicated most of his time to ministry. This quote, taken from page 65 of the book "Felege Berhanu," marks the day God first revealed his calling.</span>
-      </p>
-      <p>
-        <span class="lang-am">በሐምሌ 1983 ዶ/ር ብርሃኑ በቤተ ክርስቲያን ህቡዕ ዓመታት ባላቸው ሰፊ አገልግሎትና ዕውቅና ምክንያት ወደ እንግሊዝ ተጋብዘው በተጓዙበት ወቅት፣ የእግዚአብሔር ድምፅ እንዲህ ሲል መጥቶላቸዋል፡- <em>“ውኃ ባህርን እንደሚከድን ምድር እግዚአብሔርን በማወቅ ትሞላለች”</em> (ኢሳ 11፡9)። ይህም በ1964 ዓም የተቀበሉትን ራዕይ አጠናክሮታል። ከዚያ ወዲህም ሙሉ ጊዜያቸውን ለአገልግሎት ሰጥተው ከህክምና ሙያቸው ተላቀቁ።</span>
-        <span class="lang-en">In July 1983, Dr. Berhanu was invited to an international gospel conference in England. While there, God spoke to him through Isaiah 11:9: <em>"For the earth will be filled with the knowledge of the Lord as the waters cover the sea."</em> This reaffirmed the vision he received in 1964. From that time on, he dedicated himself fully to ministry, leaving his medical profession.</span>
-      </p>
+      <div class="quote"><i class="fas fa-quote-left"></i><span class="lang-am">“መልዕክት በደብዳቤ እጽፍ ነበር፡፡ የምፅፈው ቃል ቤቴ ለአሕዛብ ሁሉ የጸሎት ቤት ይባላል የሚለውን ነበር፡፡ በመንፈስ ውስጥ ሆኜ ሳስታውስ የኢትዮጵያ ካርታ ፊት ለፊቴ ታየኝ፡፡ እኔም ለኢትዮጵያ መልእክተኛ እሆናለሁ ማለት ነው እንዴ? ብዬ ጠየቅሁት፡፡ እንግዲያውስ ልንገርህ አንተ አገር አቀፍ (የወንጌል) ጥሪ አለብህ፡፡ ስለዚህ ከበደል ራቅ” አለኝ።</span><span class="lang-en">“I was writing a message in a letter. The word I was writing was: 'My house shall be called a house of prayer for all nations.' While I was in the Spirit, the map of Ethiopia appeared before me. I asked, 'Does this mean I am to be a messenger to Ethiopia?' Then He said to me, 'You have a national (gospel) calling. Therefore, depart from evil.'”</span></div>
+      <p><span class="lang-am"><strong>ዶ/ር ብርሃኑ ሐብቴ</strong> ጌታን ካገኙበት እለት ጀምሮ በመንፈሳዊ እድገታቸው የሚተጉ ሲሆን፣ በወጣትነት እድሜያቸው ትምህርታቸውን ከመከታተል ጎን ለጎን አብዛኛውን ጊዜያቸውን በአገልግሎት ያሳልፉ ነበር። ይህ ቃል ከፈለገ ብርሃኑ መጽሐፍ ገጽ 65 የተወሰደ ሲሆን፣ እግዚአብሔር ለባሪያው ስለ ተጠሩበት ጥሪ ፈንጠቅ ያደረገበት ዕለት ነው።</span><span class="lang-en"><strong>Dr. Berhanu Habte</strong> was known for his spiritual growth from the day he encountered the Lord. In his youth, while pursuing his education, he dedicated most of his time to ministry. This quote, taken from page 65 of the book "Felege Berhanu," marks the day God first revealed his calling.</span></p>
     </div>
 
-    <!-- Statistics -->
     <h2 class="section-title"><i class="fas fa-chart-simple"></i> <span class="lang-am">ተጽዕኖ አጭር ቆጠራ</span><span class="lang-en">Impact Summary</span></h2>
     <div class="stat-highlight">
       <div class="item"><span class="number">23,340+</span><div class="label"><span class="lang-am">የሰለጠኑ ሰዎች</span><span class="lang-en">Trained People</span></div></div>
@@ -561,22 +48,11 @@
       <div class="item"><span class="number">17+</span><div class="label"><span class="lang-am">የሕትመት ውጤቶች</span><span class="lang-en">Publications</span></div></div>
     </div>
 
-    <!-- ====== GALLERY (premium) ====== -->
     <h2 class="section-title"><i class="fas fa-images"></i> <span class="lang-am">የእኛ ምስሎች</span><span class="lang-en">Our Gallery</span></h2>
     <div class="gallery-grid">
-      <!-- featured Covermain -->
-      <div class="gallery-item featured">
-        <img src="Covermain.jpg" alt="Cover main" loading="lazy" />
-      </div>
-      <!-- Cover1 -->
-      <div class="gallery-item">
-        <img src="Cover1.jpg" alt="Cover 1" loading="lazy" />
-      </div>
-      <!-- Allbook -->
-      <div class="gallery-item">
-        <img src="Allbook.jpg" alt="All books" loading="lazy" />
-      </div>
-      <!-- 1.jpg ... 18.jpg -->
+      <div class="gallery-item featured"><img src="Covermain.jpg" alt="Cover main" loading="lazy" /></div>
+      <div class="gallery-item"><img src="Cover1.jpg" alt="Cover 1" loading="lazy" /></div>
+      <div class="gallery-item"><img src="Allbook.jpg" alt="All books" loading="lazy" /></div>
       <div class="gallery-item"><img src="1.jpg" alt="Image 1" loading="lazy" /></div>
       <div class="gallery-item"><img src="2.jpg" alt="Image 2" loading="lazy" /></div>
       <div class="gallery-item"><img src="3.jpg" alt="Image 3" loading="lazy" /></div>
@@ -595,7 +71,6 @@
       <div class="gallery-item"><img src="16.jpg" alt="Image 16" loading="lazy" /></div>
       <div class="gallery-item"><img src="17.jpg" alt="Image 17" loading="lazy" /></div>
       <div class="gallery-item"><img src="18.jpg" alt="Image 18" loading="lazy" /></div>
-      <!-- Book1.jpg ... Book9.jpg -->
       <div class="gallery-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" /></div>
       <div class="gallery-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" /></div>
       <div class="gallery-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" /></div>
@@ -607,14 +82,10 @@
       <div class="gallery-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" /></div>
     </div>
 
-    <!-- Tyrannus -->
     <h2 class="section-title"><i class="fas fa-school"></i> <span class="lang-am">የጢራኖስ የደቀ መዝሙር ትምህርት ቤት</span><span class="lang-en">Tyrannus Discipleship School</span></h2>
     <div class="tyrannus-box">
       <h3><i class="fas fa-graduation-cap"></i> ጢራኖስ / Tyrannus</h3>
-      <p style="opacity:0.9; margin-bottom:0.8rem; font-size:1.05rem;">
-        <span class="lang-am">በሐዋሪያት ሥራ 19፡9 መሰረት እንደ ጳውሎስ የተወሰኑ ደቀ መዛሙርትን ለይቶ በጥልቀት የማስተማር ሂደት። ለ4 ሳምንታት የሚቆይ የአዳሪ ሥልጠና ሲሆን፣ እስካሁን <strong>10 ዙር</strong> ተማሪዎችን አስመርቋል።</span>
-        <span class="lang-en">Based on Acts 19:9, following Paul's example of separating disciples for deep teaching. A 4-week residential training program with <strong>10 cohorts</strong> graduated so far.</span>
-      </p>
+      <p style="opacity:0.9; margin-bottom:0.8rem; font-size:1.05rem;"><span class="lang-am">በሐዋሪያት ሥራ 19፡9 መሰረት እንደ ጳውሎስ የተወሰኑ ደቀ መዛሙርትን ለይቶ በጥልቀት የማስተማር ሂደት። ለ4 ሳምንታት የሚቆይ የአዳሪ ሥልጠና ሲሆን፣ እስካሁን <strong>10 ዙር</strong> ተማሪዎችን አስመርቋል።</span><span class="lang-en">Based on Acts 19:9, following Paul's example of separating disciples for deep teaching. A 4-week residential training program with <strong>10 cohorts</strong> graduated so far.</span></p>
       <div class="topics">
         <span><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">ልጅነት</span><span class="lang-en">Sonship</span></span>
         <span><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">ከግብዝነት ወደ ክርስቶስ መምሰል</span><span class="lang-en">From Hypocrisy to Christlikeness</span></span>
@@ -627,48 +98,13 @@
         <span><i class="fas fa-check-circle" style="color:#c9a84c;"></i> <span class="lang-am">ሐዋሪያዊ ደቀ መዝሙር</span><span class="lang-en">Apostolic Discipleship</span></span>
       </div>
     </div>
-
-    <!-- CTA -->
-    <div style="margin: 3.5rem 0 2rem; text-align: center;">
-      <a href="#" class="btn-gold"><i class="fas fa-arrow-right"></i> <span class="lang-am">አገልግሎቶቻችንን ይመልከቱ</span><span class="lang-en">Explore Our Services</span></a>
-    </div>
   </div>
 
-  <!-- ====== FOOTER ====== -->
   <footer>
-    <p>
-      <i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp;
-      <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp;
-      <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com
-    </p>
-    <p style="margin-top:0.8rem; opacity:0.7;">
-      © 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a>
-    </p>
+    <p><i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+    <p style="margin-top:0.8rem; opacity:0.7;">© 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a></p>
   </footer>
 
-  <!-- ====== SCRIPT ====== -->
-  <script>
-    let currentLang = 'am';
-    function toggleLanguage() {
-      const amEls = document.querySelectorAll('.lang-am');
-      const enEls = document.querySelectorAll('.lang-en');
-      const btnText = document.getElementById('langBtnText');
-      if (currentLang === 'am') {
-        amEls.forEach(el => el.style.display = 'none');
-        enEls.forEach(el => el.style.display = 'block');
-        btnText.textContent = 'አማርኛ';
-        currentLang = 'en';
-      } else {
-        amEls.forEach(el => el.style.display = 'block');
-        enEls.forEach(el => el.style.display = 'none');
-        btnText.textContent = 'English';
-        currentLang = 'am';
-      }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.lang-am').forEach(el => el.style.display = 'block');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
