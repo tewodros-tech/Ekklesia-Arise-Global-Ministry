@@ -2,1121 +2,1577 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes" />
-  <meta name="description" content="Bean to Bag - Premium Ethiopian specialty coffee, freshly roasted and professionally packaged. Visit our cozy cafe in Addis Ababa." />
-  <title>Bean to Bag | Premium Ethiopian Coffee</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>የኤክሌሺያ ተነሺ አገልግሎት · Ekklesia Arise Global Ministry</title>
+  <meta name="description" content="Ekklesia Arise Global Ministry - Equipping the Church through teaching and training." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Noto+Serif+Ethiopic:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    /* ===== RESET & ROOT ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ================================================================
+       ULTRA PREMIUM THEME VARIABLES — WHITE & BLUE
+       ================================================================ */
+    :root {
+      --primary: #1E4C8F;
+      --primary-hover: #163A6E;
+      --primary-light: rgba(30, 76, 143, 0.08);
+      --primary-glow: rgba(30, 76, 143, 0.25);
+      --dark-blue: #0E2A4F;
+      --dark-blue-deep: #07192E;
+      --accent: #4A7FC1;
+      --accent-light: #B3D0F0;
+      --bg-dark: #F8FAFC;
+      --bg-medium: #F1F4F9;
+      --bg-warm: #EDF1F7;
+      --bg-light: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --text-main: #0B1B33;
+      --text-secondary: #1E3A5F;
+      --text-muted: #4A6580;
+      --text-light: #F4F8FF;
+      --glass-bg: rgba(255, 255, 255, 0.80);
+      --glass-bg-strong: rgba(255, 255, 255, 0.94);
+      --glass-border: rgba(30, 76, 143, 0.10);
+      --glass-border-strong: rgba(30, 76, 143, 0.20);
+      --shadow-sm: 0 2px 8px rgba(10, 30, 50, 0.04);
+      --shadow-md: 0 8px 30px rgba(10, 30, 50, 0.06);
+      --shadow-lg: 0 20px 60px rgba(10, 30, 50, 0.08);
+      --shadow-xl: 0 32px 80px rgba(10, 30, 50, 0.12);
+      --shadow-glow: 0 0 60px rgba(30, 76, 143, 0.10);
+      --shadow-card-hover: 0 24px 64px rgba(30, 76, 143, 0.12), 0 0 0 1px rgba(30, 76, 143, 0.08);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-xl: 40px;
+      --radius-full: 9999px;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-fast: all 0.3s var(--ease-out-expo);
+      --transition-smooth: all 0.5s var(--ease-out-expo);
+      --transition-slow: all 0.8s var(--ease-out-expo);
     }
 
-    :root {
-      --accent: #FFD700;
-      --accent-light: #FFDF66;
-      --accent-dark: #D4AF37;
-      --deep-green: #0A2413;
-      --dark-green: #05140B;
-      --forest: #113F1F;
-      --cream: #FFF5D6;
-      --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.2);
-      --shadow-md: 0 20px 45px rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.45);
-      --shadow-xl: 0 50px 90px rgba(0, 0, 0, 0.6);
-      --glow-gold: 0 0 25px rgba(255, 215, 0, 0.25);
-      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-fast: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      --glass: rgba(255, 215, 0, 0.02);
-      --glass-border: rgba(255, 215, 0, 0.12);
+    /* ================================================================
+       RESET & BASE
+       ================================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
     }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--deep-green);
-      background-image: radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.03) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 70%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
-      color: var(--cream);
-      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
       line-height: 1.7;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Hide custom cursor on touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .cursor-dot, .cursor-ring { display: none !important; }
+      body { cursor: auto; }
     }
 
-    h1, h2, h3, h4, .section-title, .section-subtitle, p, .content p, .cafe-content p, .product-card p, .roast-card p, .stat-label, .contact-info p, .footer p {
-      color: var(--cream);
+    h1, h2, h3, h4, h5, .logo-font { font-family: 'Playfair Display', Georgia, serif; }
+    .amharic { font-family: 'Noto Serif Ethiopic', 'Playfair Display', serif; }
+
+    ::selection { background: var(--primary); color: white; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--dark-blue) 100%);
+      border-radius: 10px;
     }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: none; border: none; outline: none; font-family: inherit; background: transparent; }
+    input { font-family: inherit; cursor: none; }
 
     .container {
-      max-width: 1400px;
+      width: 100%;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 28px;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition-fast);
-    }
-
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: var(--dark-green); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-light), var(--accent-dark)); border-radius: 10px; border: 2px solid var(--dark-green); }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-    ::selection { background: var(--accent); color: var(--dark-green); }
-
-    /* ===== LOADING SCREEN ===== */
-    .loading-screen {
+    /* ================================================================
+       CUSTOM CURSOR SYSTEM
+       ================================================================ */
+    .cursor-dot {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #FFFFFF;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .loading-screen::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .loading-screen.fade-out {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .loading-logo-container {
-      width: clamp(140px, 25vw, 180px);
-      height: clamp(140px, 25vw, 180px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      border: none;
-      box-shadow: none;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-    .loading-logo-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.08)); }
-      50% { transform: scale(1.05); filter: drop-shadow(0 15px 30px rgba(212, 175, 55, 0.35)); }
-    }
-
-    /* ===== HEADER ===== */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 25px 50px;
-      background: linear-gradient(180deg, rgba(10, 36, 19, 0.9) 0%, rgba(10, 36, 19, 0.7) 100%);
-      backdrop-filter: blur(20px);
-      transition: var(--transition);
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .site-header.scrolled {
-      background: rgba(5, 20, 11, 0.95);
-      padding: 15px 50px;
-      box-shadow: var(--shadow-md);
-    }
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .brand {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      gap: 0px;
-      transition: var(--transition);
-      text-decoration: none;
-      position: relative;
-      cursor: pointer;
-    }
-    .brand-logo-frame {
-      width: 75px;
-      height: 75px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      transition: var(--transition);
-      line-height: 0;
-      margin-right: -4px;
-    }
-    .brand-logo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: var(--transition);
-    }
-    .site-header.scrolled .brand-logo-frame {
-      width: 58px;
-      height: 58px;
-    }
-    .brand:hover .brand-logo-frame {
-      transform: scale(1.08) rotate(4deg);
-      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.45));
-    }
-    .roastery-tagline {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      background: linear-gradient(135deg, #FFE6A3 20%, var(--accent) 80%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 4px rgba(255,215,0,0.2);
-      transition: var(--transition);
-      line-height: 1;
-      white-space: nowrap;
-      margin-bottom: 5px;
-      margin-left: -2px;
-    }
-    .brand:hover .roastery-tagline {
-      letter-spacing: 0.15em;
-      text-shadow: 0 0 12px rgba(255,215,0,0.5);
-      background: linear-gradient(135deg, #FFFFFF 30%, var(--accent) 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-    .site-header.scrolled .roastery-tagline {
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 3px;
-    }
-    .desktop-nav { display: flex; gap: 45px; align-items: center; }
-    .desktop-nav a {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255, 245, 214, 0.75);
-      position: relative;
-      padding: 8px 0;
-    }
-    .desktop-nav a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      transition: var(--transition);
-      transform: translateX(-50%);
-    }
-    .desktop-nav a:hover::after, .desktop-nav a.active::after { width: 100%; }
-    .desktop-nav a:hover, .desktop-nav a.active { color: #FFF; text-shadow: 0 0 15px rgba(255,215,0,0.3); }
-    .desktop-nav a.active { font-weight: 700; color: var(--accent); }
-
-    .menu-button {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--glass-border);
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--primary);
       border-radius: 50%;
-      background: rgba(10, 36, 19, 0.9);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: var(--transition);
+      pointer-events: none;
+      z-index: 999999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.2s;
+      mix-blend-mode: difference;
     }
-    .menu-button:hover { border-color: var(--accent); background: var(--dark-green); }
-    .menu-button span { width: 22px; height: 2px; background: var(--accent-light); border-radius: 2px; transition: var(--transition-fast); }
-
-    .mobile-menu {
+    .cursor-ring {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(5, 18, 10, 0.99);
-      backdrop-filter: blur(35px);
-      z-index: 1500;
+      top: 0; left: 0;
+      width: 40px; height: 40px;
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), border-color 0.2s, background 0.2s;
+      opacity: 0.8;
+    }
+    
+    /* Cursor States */
+    body.hover-link .cursor-dot { width: 4px; height: 4px; }
+    body.hover-link .cursor-ring { width: 60px; height: 60px; border-color: var(--primary); background: rgba(30, 76, 143, 0.08); }
+    body.hover-button .cursor-dot { opacity: 0; }
+    body.hover-button .cursor-ring { width: 100%; height: 100%; background: rgba(30, 76, 143, 0.10); border-color: transparent; opacity: 1; border-radius: var(--radius-md); }
+    body.hover-image .cursor-dot { opacity: 0; }
+    body.hover-image .cursor-ring { width: 80px; height: 80px; border-width: 2px; border-color: var(--primary); background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); }
+    body.hover-image .cursor-ring::after { content: 'View'; color: var(--primary); font-size: 0.7rem; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+    /* ================================================================
+       PAGE LOADER
+       ================================================================ */
+    .page-loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--bg-light);
+      z-index: 99999;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      gap: 40px;
-      transform: translateX(100%);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      justify-content: center;
+      transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
     }
-    .mobile-menu.open { transform: translateX(0); }
-    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--cream); position: relative; transition: var(--transition); text-align: center; width: 100%; display: block; }
-    .mobile-menu a:hover, .mobile-menu a.active { color: var(--accent); transform: scale(1.05); }
-    .close-menu {
+    .page-loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(30, 76, 143, 0.15);
+      margin-bottom: 16px;
+    }
+    .loader-name-amharic {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .loader-name-en {
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .loader-cross-spinner {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      margin-top: 10px;
+    }
+    .loader-cross-spinner::before,
+    .loader-cross-spinner::after {
+      content: '';
       position: absolute;
-      top: 30px;
-      right: 30px;
-      font-size: 2.5rem;
-      background: none;
-      border: none;
-      color: var(--cream);
-      cursor: pointer;
-      transition: var(--transition);
+      background: var(--primary);
+      border-radius: 4px;
+      animation: crossPulse 1.5s ease-in-out infinite;
     }
-    .close-menu:hover { transform: rotate(90deg); color: var(--accent); }
+    .loader-cross-spinner::before { width: 4px; height: 40px; left: 50%; top: 0; transform: translateX(-50%); }
+    .loader-cross-spinner::after { width: 30px; height: 4px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0.3s; }
+    @keyframes crossPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-    /* ===== BUTTONS ===== */
+    /* ================================================================
+       SCROLL REVEAL SYSTEM
+       ================================================================ */
+    .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* ================================================================
+       BUTTONS — MAGNETIC & PREMIUM
+       ================================================================ */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 18px 46px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: var(--transition);
-      cursor: pointer;
-      border: 2px solid transparent;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: var(--radius-full);
+      transition: var(--transition-smooth);
       position: relative;
       overflow: hidden;
-      z-index: 1;
+      white-space: nowrap;
     }
+
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-light) 0%, #FFA000 100%);
-      color: #030D07;
-      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.25);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+      color: white;
+      padding: 16px 40px;
+      box-shadow: 0 8px 32px rgba(30, 76, 143, 0.25);
     }
-    .btn-primary::before {
+    .btn-primary:hover { box-shadow: 0 16px 48px rgba(30, 76, 143, 0.35); transform: translateY(-2px); }
+    
+    .btn-glass {
+      background: rgba(255,255,255,0.06);
+      color: var(--text-main);
+      padding: 16px 40px;
+      border: 1px solid var(--glass-border-strong);
+      backdrop-filter: blur(12px);
+    }
+    .btn-glass:hover { background: var(--primary); color: white; border-color: var(--primary); }
+    
+    .btn-glow {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+      color: white;
+      padding: 18px 48px;
+      box-shadow: 0 8px 32px rgba(30, 76, 143, 0.30);
+    }
+    .btn-glow:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 60px rgba(30, 76, 143, 0.40); }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      padding: 12px 28px;
+      border: 2px solid var(--glass-border-strong);
+      backdrop-filter: blur(4px);
+      font-size: 0.85rem;
+    }
+    .btn-secondary:hover { background: var(--primary-light); border-color: var(--primary); transform: translateY(-2px); }
+
+    /* Magnetic Container */
+    .magnetic-wrap { position: relative; display: inline-flex; }
+
+    /* ================================================================
+       NAVIGATION
+       ================================================================ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 10000;
+      transition: var(--transition-smooth);
+    }
+    .navbar::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #FFF8E1 0%, var(--accent) 100%);
-      z-index: -1;
+      inset: 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.5s;
     }
-    .btn-primary:hover { transform: translateY(-5px); box-shadow: var(--glow-gold), 0 20px 40px rgba(255, 215, 0, 0.4); }
-    .btn-primary:hover::before { opacity: 1; }
+    .navbar.scrolled::before { opacity: 1; }
+    .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.04); }
 
-    .btn-outline { border: 2px solid var(--accent); color: var(--cream); background: transparent; }
-    .btn-outline:hover { background: var(--accent); color: #030D07; transform: translateY(-5px); box-shadow: var(--glow-gold); }
-
-    /* ===== HERO ===== */
-    .hero-video-section {
+    .nav-inner {
       position: relative;
-      width: 100%;
-      background: #030D07;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,215,0,0.15);
+      padding: 20px 0;
+      transition: var(--transition-smooth);
     }
-    .hero-video {
-      width: 100%;
-      height: auto;
-      max-height: 95vh;
-      object-fit: cover;
-      display: block;
-      z-index: 0;
-      filter: brightness(0.85) contrast(1.05);
-    }
-    @media (min-width: 1024px) {
-      .hero-video-section { height: 85vh; }
-      .hero-video { width: 100%; height: 100%; object-fit: cover; }
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(5,20,11,0.2) 0%, rgba(10,36,19,0.85) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
+    .navbar.scrolled .nav-inner { padding: 12px 0; }
 
-    .hero-content-section {
-      background: radial-gradient(circle at center, var(--deep-green) 0%, var(--dark-green) 100%);
-      padding: 120px 0;
-      text-align: center;
-      position: relative;
-    }
-    .hero-content-section .tag {
-      color: var(--accent-light);
-      letter-spacing: 0.4em;
-      font-size: 0.95rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      display: inline-block;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(255,215,0,0.3);
-    }
-    .hero-content-section h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 7vw, 5.5rem);
-      line-height: 1.15;
-      margin-bottom: 2rem;
-      background: linear-gradient(135deg, #FFF 30%, var(--accent-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 900;
-      filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4));
-    }
-    .hero-content-section p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin: 1.5rem auto 3rem;
-      color: rgba(255,245,214,0.85);
-      max-width: 750px;
-      font-weight: 300;
-    }
-    .hero-actions {
+    .nav-brand {
       display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      z-index: 10001;
+      text-decoration: none;
     }
-
-    /* ===== SECTIONS ===== */
-    section { padding: 140px 0; position: relative; }
-    .section-header { text-align: center; margin-bottom: 90px; position: relative; z-index: 2; padding: 0 10px; }
-    .section-tag {
-      color: var(--accent-light);
-      letter-spacing: 0.35em;
+    .nav-brand .nav-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+    .navbar.scrolled .nav-brand .nav-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .nav-brand-text { line-height: 1.15; }
+    .nav-brand-amharic {
+      font-family: 'Noto Serif Ethiopic', serif;
       font-size: 0.85rem;
       font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      display: inline-block;
-      text-shadow: 0 0 10px rgba(255,215,0,0.2);
+      color: var(--dark-blue);
+      transition: var(--transition-smooth);
     }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #FFF 40%, var(--accent-light) 100%);
+    .navbar.scrolled .nav-brand-amharic { font-size: 0.75rem; }
+    .nav-brand-en {
+      font-size: 0.45rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-brand-en { font-size: 0.4rem; }
+
+    .nav-menu { display: flex; align-items: center; gap: 8px; list-style: none; }
+    .nav-menu a {
+      padding: 10px 18px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+      position: relative;
+    }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--primary); background: var(--primary-light); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%) !important;
+      color: white !important;
+      padding: 12px 28px !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 16px rgba(30, 76, 143, 0.25);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 48px; height: 48px;
+      background: var(--primary-light);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      cursor: pointer;
+      z-index: 10001;
+      transition: var(--transition-fast);
+    }
+    .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-main); border-radius: 4px; transition: var(--transition-smooth); position: absolute; }
+    .hamburger span:nth-child(1) { transform: translateY(-7px); }
+    .hamburger span:nth-child(2) { width: 16px; }
+    .hamburger span:nth-child(3) { transform: translateY(7px); }
+    .hamburger.active { background: var(--primary); border-color: var(--primary); }
+    .hamburger.active span { background: white; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); }
+
+    .mobile-overlay { position: fixed; inset: 0; background: rgba(10, 30, 50, 0.4); backdrop-filter: blur(8px); z-index: 9999; opacity: 0; visibility: hidden; transition: var(--transition-smooth); }
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+
+    /* ================================================================
+       HERO — FULL IMMERSIVE
+       ================================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg-dark);
+    }
+    .hero-bg-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.1);
+      transition: transform 20s ease;
+      will-change: transform;
+    }
+    .hero:hover .hero-bg-image { transform: scale(1.0); }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.92) 60%, rgba(255,255,255,0.98) 100%);
+      z-index: 1;
+    }
+
+    .hero-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(ellipse at 20% 50%, rgba(30, 76, 143, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(30, 76, 143, 0.04) 0%, transparent 50%);
+      animation: heroGlow 8s ease-in-out infinite alternate;
+    }
+    @keyframes heroGlow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+
+    /* Particle Canvas */
+    #heroParticles { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 140px 0 80px;
+      max-width: 960px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary-light);
+      border: 1px solid var(--glass-border-strong);
+      padding: 10px 28px;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(12px);
+      color: var(--primary);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 32px;
+      animation: fadeInDown 1s var(--ease-out-expo) 0.3s both;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--text-main);
+      margin-bottom: 28px;
+      letter-spacing: -2px;
+      animation: fadeInUp 1s var(--ease-out-expo) 0.5s both;
+    }
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--dark-blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 800;
+      background-clip: text;
     }
-    .section-subtitle {
-      font-size: 1.15rem;
-      color: rgba(255,245,214,0.75);
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      color: var(--text-muted);
       font-weight: 300;
+      max-width: 640px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+      animation: fadeInUp 1s var(--ease-out-expo) 0.7s both;
     }
 
-    /* ===== ALTERNATING GRID ===== */
-    .alternating-grid { display: flex; flex-direction: column; gap: 140px; }
-    .alternating-item {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 90px;
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      animation: fadeInUp 1s var(--ease-out-expo) 0.9s both;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ================================================================
+       SECTION HEADERS
+       ================================================================ */
+    .section-header { text-align: center; margin-bottom: 72px; }
+    .section-title { font-size: clamp(2rem, 4.5vw, 3.4rem); color: var(--text-main); font-weight: 800; margin: 18px 0 16px; line-height: 1.15; }
+    .section-title .gold { color: var(--primary); }
+    .section-subtitle { color: var(--text-muted); font-size: 1.08rem; max-width: 620px; margin: 0 auto; line-height: 1.8; }
+
+    .pill-badge {
+      display: inline-flex;
       align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      padding: 8px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      transition: var(--transition-fast);
     }
-    .alternating-item.reverse { grid-template-columns: 0.9fr 1.1fr; }
-    .alternating-item.reverse .image-wrapper { grid-column: 2; }
-    .alternating-item.reverse .content { grid-column: 1; grid-row: 1; }
 
-    .image-wrapper {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 215, 0, 0.08);
-      transition: var(--transition);
-      background: var(--dark-green);
+    /* ================================================================
+       STATS COUNTER STRIP
+       ================================================================ */
+    .stats-strip {
+      background: var(--bg-dark);
+      padding: 60px 0;
       position: relative;
+      overflow: hidden;
     }
-    .image-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 1px solid var(--accent);
-      border-radius: 24px;
-      opacity: 0;
-      z-index: 2;
-      pointer-events: none;
-      transition: var(--transition);
-      mix-blend-mode: overlay;
+    .stats-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(30,76,143,0.04) 0%, transparent 70%); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; position: relative; z-index: 1; }
+    .stat-item { text-align: center; padding: 30px 20px; border-radius: var(--radius-md); transition: var(--transition-smooth); }
+    .stat-item:hover { background: rgba(30,76,143,0.03); }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      display: inline-block;
     }
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease;
-      filter: saturate(1.02) brightness(0.95);
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+
+    /* ================================================================
+       CONTENT SECTION
+       ================================================================ */
+    .content-section {
+      padding: 80px 0;
+      background: var(--bg-light);
     }
-    .image-wrapper:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: var(--shadow-xl), var(--glow-gold);
+    .content-section:nth-child(even) {
+      background: var(--bg-dark);
     }
-    .image-wrapper:hover::before {
-      opacity: 0.4;
-      inset: 12px;
+    .content-section .section-header {
+      margin-bottom: 48px;
     }
-    .image-wrapper:hover img {
-      transform: scale(1.08);
-      filter: saturate(1.1) brightness(1.05);
+    .content-body {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+    .content-body p {
+      margin-bottom: 20px;
+    }
+    .content-body h3 {
+      font-size: 1.6rem;
+      color: var(--text-main);
+      margin: 40px 0 16px;
+      font-family: 'Playfair Display', serif;
+    }
+    .content-body h4 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin: 28px 0 12px;
+    }
+    .content-body ul, .content-body ol {
+      margin: 16px 0 24px 30px;
+    }
+    .content-body li {
+      margin-bottom: 8px;
+    }
+    .content-body blockquote {
+      border-left: 4px solid var(--primary);
+      padding: 16px 24px;
+      margin: 24px 0;
+      background: var(--primary-light);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+    .content-body .highlight-box {
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 24px 32px;
+      margin: 24px 0;
+      border: 1px solid var(--glass-border-strong);
     }
 
-    .content h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.0rem, 4vw, 2.8rem);
-      margin-bottom: 1.5rem;
-      color: #FFF;
+    /* Table Styles */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    .table-wrapper table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: white;
+    }
+    .table-wrapper th {
+      background: var(--primary);
+      color: white;
+      padding: 14px 18px;
+      text-align: left;
       font-weight: 700;
     }
-    .content p { line-height: 1.85; color: rgba(255,245,214,0.85); margin: 24px 0; font-size: 1.1rem; font-weight: 300; }
+    .table-wrapper td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .table-wrapper tr:nth-child(even) {
+      background: var(--bg-dark);
+    }
+    .table-wrapper tr:hover {
+      background: var(--primary-light);
+    }
 
-    /* ===== STATS ===== */
-    .stats-section { background: var(--dark-green); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 90px 0; position: relative; }
-    .stats-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(255,215,0,0.02) 0%, transparent 70%);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .stat-item {
-      padding: 45px 25px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      border: 1px solid var(--glass-border);
-      transition: var(--transition);
-    }
-    .stat-item:hover { border-color: var(--accent); transform: translateY(-8px); background: rgba(255,215,0,0.05); box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 15px rgba(255,215,0,0.05); }
-    .stat-number { font-size: clamp(2.8rem, 5vw, 3.8rem); color: var(--accent); font-weight: 900; font-family: 'Playfair Display', serif; line-height: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .stat-label { color: rgba(255,245,214,0.65); font-size: 0.85rem; letter-spacing: 0.2em; margin-top: 14px; text-transform: uppercase; font-weight: 600; }
-
-    /* ===== GALLERY ===== */
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
-    .gallery-item {
-      border-radius: 20px;
+    /* ================================================================
+       GIVING SECTION
+       ================================================================ */
+    .giving-section { 
+      padding: 100px 0; 
+      background: linear-gradient(135deg, #0B1B33 0%, #1E4C8F 50%, #0E2A4F 100%);
+      position: relative; 
       overflow: hidden;
-      background: var(--dark-green);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      position: relative;
     }
-    .gallery-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(5,13,8,0.4), transparent);
-      opacity: 1;
-      transition: var(--transition);
+    .giving-section::before { 
+      content: ''; 
+      position: absolute; 
+      inset: 0; 
+      background: radial-gradient(ellipse at 30% 20%, rgba(74, 127, 193, 0.15) 0%, transparent 60%), 
+                  radial-gradient(ellipse at 70% 80%, rgba(74, 127, 193, 0.10) 0%, transparent 50%);
+      pointer-events: none;
     }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: var(--transition); }
-    .gallery-item:hover {
-      transform: translateY(-15px) scale(1.03);
-      border-color: var(--accent);
-      box-shadow: var(--shadow-xl), var(--glow-gold);
-    }
-    .gallery-item:hover::after { opacity: 0.1; }
-    .gallery-item:hover img { transform: scale(1.06); }
-
-    /* ===== PRODUCTS PREVIEW ===== */
-    .products-preview { background: radial-gradient(circle at center, rgba(255,215,0,0.02) 0%, transparent 60%); }
-    .showcase-card {
-      max-width: 800px;
+    .giving-section .container { position: relative; z-index: 1; }
+    
+    .giving-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-xl);
+      padding: 60px 50px;
+      max-width: 700px;
       margin: 0 auto;
-      background: linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0.02) 100%);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 32px;
-      padding: 70px 50px;
       text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.3);
     }
-    .showcase-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      box-shadow: var(--shadow-lg), var(--glow-gold);
-      background: rgba(255,215,0,0.06);
+    .giving-card .icon-big {
+      font-size: 3.5rem;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+      display: block;
     }
-    .showcase-card .section-title { margin-bottom: 24px; }
-    .showcase-card p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px; color: rgba(255,245,214,0.85); }
-    .showcase-btn {
+    .giving-card h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: white;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .giving-card h2 .gold { color: var(--accent-light); }
+    .giving-card .sub-text {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    .giving-card .account-box {
+      background: rgba(255,255,255,0.08);
+      border: 2px dashed rgba(255,255,255,0.20);
+      border-radius: var(--radius-md);
+      padding: 24px 30px;
+      margin-bottom: 30px;
+      transition: var(--transition-smooth);
+    }
+    .giving-card .account-box:hover {
+      border-color: var(--accent-light);
+      background: rgba(255,255,255,0.12);
+    }
+    .giving-card .account-label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .giving-card .account-number {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: white;
+      font-family: 'Inter', monospace;
+      letter-spacing: 3px;
+    }
+    .giving-card .copy-btn {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .giving-card .copy-btn:hover {
+      background: var(--accent-light);
+      color: var(--dark-blue);
+      border-color: var(--accent-light);
+    }
+    .giving-card .btn-donate {
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+      color: var(--dark-blue);
+      padding: 18px 50px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 32px rgba(74, 127, 193, 0.35);
+      transition: var(--transition-smooth);
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: transparent;
-      border: 2px solid var(--accent);
-      padding: 16px 42px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      transition: var(--transition);
       cursor: pointer;
+      border: none;
+      text-decoration: none;
     }
-    .showcase-btn:hover {
-      background: var(--accent);
-      color: #030D07;
-      transform: translateY(-5px);
-      box-shadow: var(--glow-gold);
-      gap: 16px;
+    .giving-card .btn-donate:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(74, 127, 193, 0.50);
+    }
+    .giving-card .donate-note {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      margin-top: 20px;
+      letter-spacing: 1px;
     }
 
-    /* ===== ROAST CARD ===== */
-    .roast-card {
-      background: radial-gradient(circle at center, rgba(255,215,0,0.08) 0%, transparent 80%), var(--dark-green);
-      border-radius: 32px;
-      padding: 70px 50px;
-      text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow-lg);
-    }
-    .roast-card .section-title { margin-bottom: 24px; font-size: clamp(2.2rem, 5vw, 3.2rem); }
-    .roast-card p { font-size: 1.2rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: rgba(255,245,214,0.85); line-height: 1.85; }
+    /* ================================================================
+       FOOTER
+       ================================================================ */
+    .site-footer { background: var(--bg-dark); color: var(--text-muted); padding: 100px 0 0; position: relative; }
+    .site-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border-strong), transparent); }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-brand h3 { font-family: 'Noto Serif Ethiopic', serif; font-size: 1.4rem; color: var(--text-main); margin-bottom: 16px; line-height: 1.3; }
+    .footer-brand p { line-height: 1.8; margin-bottom: 24px; font-size: 0.92rem; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 42px; height: 42px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1rem; transition: var(--transition-smooth); }
+    .footer-social a:hover { background: var(--primary); color: white; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,76,143,0.25); }
+    .footer-col h4 { color: var(--text-main); font-size: 1rem; margin-bottom: 24px; font-weight: 700; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 14px; }
+    .footer-col ul li a { color: var(--text-muted); font-size: 0.9rem; transition: var(--transition-fast); display: inline-flex; align-items: center; gap: 6px; }
+    .footer-col ul li a:hover { color: var(--primary); transform: translateX(4px); }
+    .footer-contact p { margin-bottom: 14px; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; }
+    .footer-contact i { color: var(--primary); margin-top: 3px; min-width: 16px; }
+    .footer-bottom { text-align: center; padding: 32px 0; border-top: 1px solid rgba(30,76,143,0.06); font-size: 0.82rem; }
 
-    /* ===== CTA ===== */
-    .cta-section { background: radial-gradient(circle at center, #113d1e 0%, var(--dark-green) 100%); text-align: center; padding: 140px 0; border-top: 1px solid var(--glass-border); }
-    .cta-actions { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 45px; }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      padding: 90px 40px 40px;
-      background: #030D07;
-      text-align: center;
-      border-top: 1px solid var(--glass-border);
-    }
-    .footer p { font-size: 1rem; color: rgba(255,245,214,0.55); font-weight: 300; }
-    .social-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-    .social-links a { color: var(--cream); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; padding: 10px 24px; border-radius: 30px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,215,0,0.05); transition: var(--transition); }
-    .social-links a:hover { color: var(--accent); background: rgba(255,215,0,0.06); border-color: rgba(255,215,0,0.2); transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-    .contact-info p { font-size: 1rem; color: rgba(255,245,214,0.6); font-weight: 400; letter-spacing: 0.05em; }
-
-    .whatsapp-float {
+    .back-to-top {
       position: fixed;
-      bottom: 35px;
-      right: 35px;
-      background: #25D366;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+      bottom: 32px;
+      right: 32px;
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
       color: white;
-      z-index: 999;
-      box-shadow: 0 12px 35px rgba(37,211,102,0.35);
-      transition: var(--transition);
-    }
-    .whatsapp-float:hover { transform: scale(1.12) translateY(-6px); box-shadow: 0 20px 45px rgba(37,211,102,0.55); }
-
-    /* ===== VIRTUAL SHOP - CAROUSEL ===== */
-    .virtual-shop-section {
-      background: linear-gradient(180deg, var(--deep-green) 0%, var(--dark-green) 100%);
-      overflow: hidden;
-      padding: 120px 0;
-    }
-    .shop-carousel-container {
-      position: relative;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .shop-carousel-viewport {
-      width: 100%;
-      overflow: hidden;
-      scroll-behavior: smooth;
-      position: relative;
-    }
-    .shop-track {
-      display: flex;
-      gap: 30px;
-      width: max-content;
-      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      padding: 20px 0;
-    }
-    .slide-image {
-      width: 380px;
-      height: 480px;
-      flex-shrink: 0;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-      position: relative;
-    }
-    .slide-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .slide-image:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: var(--shadow-xl), var(--glow-gold);
-    }
-    .slide-image:hover img { transform: scale(1.08); }
-    .slide-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      border-radius: 20px;
-    }
-    .slide-image:hover::after { opacity: 1; }
-
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52px;
-      height: 52px;
-      background: rgba(10, 36, 19, 0.85);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      z-index: 20;
-      transition: var(--transition-fast);
-      font-size: 1.8rem;
-      color: var(--accent-light);
-      font-weight: 300;
+      font-size: 1rem;
+      z-index: 9999;
+      box-shadow: 0 8px 24px rgba(30,76,143,0.30);
+      transition: var(--transition-smooth);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
     }
-    .carousel-arrow:hover {
-      background: var(--accent);
-      color: #030D07;
-      border-color: var(--accent);
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: var(--glow-gold);
-    }
-    .arrow-left { left: 20px; }
-    .arrow-right { right: 20px; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { transform: translateY(-4px) scale(1.1); box-shadow: 0 12px 36px rgba(30,76,143,0.40); }
 
-    @media (max-width: 768px) {
-      .carousel-arrow { width: 42px; height: 42px; font-size: 1.4rem; }
-      .arrow-left { left: 10px; }
-      .arrow-right { right: 10px; }
-      .slide-image { width: 280px; height: 380px; }
-    }
-    @media (max-width: 480px) {
-      .slide-image { width: 240px; height: 320px; }
-      .carousel-arrow { width: 36px; height: 36px; font-size: 1.2rem; }
-    }
-
-    /* ===== SCROLL ANIMATIONS ===== */
-    .scroll-animate { opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
-    .scroll-animate.animated { opacity: 1; transform: translateY(0); }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fade-in-up { opacity: 0; animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .animate-fade-in-up:nth-child(2) { animation-delay: 0.15s; }
-    .animate-fade-in-up:nth-child(3) { animation-delay: 0.3s; }
-    .animate-fade-in-up:nth-child(4) { animation-delay: 0.45s; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .animate-fade-in { animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-    /* ===== RESPONSIVE ===== */
+    /* ================================================================
+       RESPONSIVE
+       ================================================================ */
     @media (max-width: 1200px) {
-      .alternating-item, .alternating-item.reverse { gap: 60px; grid-template-columns: 1fr 1fr; }
-      .site-header { padding: 20px 30px; }
-      .showcase-card { padding: 50px 30px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     }
-    @media (max-width: 992px) {
-      .alternating-item, .alternating-item.reverse { grid-template-columns: 1fr !important; gap: 40px; }
-      .alternating-item.reverse .image-wrapper { grid-column: auto; }
-      .alternating-item.reverse .content { grid-column: auto; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-      section { padding: 90px 0; }
+
+    @media (max-width: 1024px) {
+      .content-body { font-size: 1rem; }
     }
+
+    @media (max-width: 920px) {
+      .hamburger { display: flex; }
+      .nav-menu {
+        position: fixed;
+        top: 0; right: 0;
+        width: 320px;
+        height: 100vh;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 100px 40px 60px;
+        gap: 8px;
+        transform: translateX(100%);
+        transition: transform 0.6s var(--ease-out-expo);
+        z-index: 10000;
+        box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+        overflow-y: auto;
+        align-items: stretch;
+      }
+      .nav-menu.open { transform: translateX(0); }
+      .nav-menu a { padding: 14px 20px; border-radius: var(--radius-md); font-size: 1rem; }
+      .nav-cta { margin-top: 16px; text-align: center; justify-content: center; }
+      .hero-title { letter-spacing: -1px; }
+      .giving-card { padding: 40px 25px; }
+    }
+
     @media (max-width: 768px) {
-      .desktop-nav { display: none; }
-      .menu-button { display: flex; }
-      .container { padding: 0 24px; }
-      .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
-      .roast-card { padding: 45px 25px; }
-      .showcase-card { padding: 40px 24px; }
-      .hero-actions, .cta-actions { flex-direction: column; align-items: center; width: 100%; gap: 15px; }
-      .btn { width: 100%; max-width: 320px; padding: 16px 32px; }
-      .hero-content-section { padding: 90px 0; }
-      .site-header { padding: 15px 24px; }
-      .site-header.scrolled { padding: 12px 24px; }
-      .brand-logo-frame { width: 64px; height: 64px; }
-      .site-header.scrolled .brand-logo-frame { width: 52px; height: 52px; }
-      .section-header { margin-bottom: 60px; }
-      .alternating-grid { gap: 90px; }
-      .roastery-tagline { font-size: 0.65rem; letter-spacing: 0.06em; margin-bottom: 2px; margin-left: 0px; }
-      .site-header.scrolled .roastery-tagline { font-size: 0.55rem; letter-spacing: 0.05em; }
-      .showcase-card p { font-size: 1rem; }
+      .container { padding: 0 20px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .content-section { padding: 50px 0; }
+      .content-body { font-size: 0.95rem; }
+      .content-body h3 { font-size: 1.3rem; }
+      .giving-section { padding: 60px 0; }
+      .giving-card { padding: 30px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .table-wrapper { font-size: 0.8rem; }
+      .table-wrapper th, .table-wrapper td { padding: 8px 12px; }
     }
+
     @media (max-width: 480px) {
-      .container { padding: 0 16px; }
-      .brand-logo-frame { width: 56px; height: 56px; }
-      .site-header.scrolled .brand-logo-frame { width: 46px; height: 46px; }
-      .whatsapp-float { width: 56px; height: 56px; font-size: 1.6rem; bottom: 25px; right: 25px; }
-      .site-header { padding: 12px 16px; }
-      .site-header.scrolled { padding: 10px 16px; }
-      section { padding: 70px 0; }
-      .stat-item { padding: 30px 15px; }
-      .roastery-tagline { font-size: 0.58rem; margin-left: -1px; }
+      .hero-content { padding: 120px 0 60px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons .btn { width: 100%; max-width: 280px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .stat-number { font-size: 1.6rem; }
+      .stat-item { padding: 20px 12px; }
+      .giving-card .account-number { font-size: 1.3rem; letter-spacing: 1px; }
+      .giving-card .btn-donate { padding: 14px 30px; font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ===== LOADING ===== -->
-<div class="loading-screen" id="loadingScreen">
-  <div class="loading-logo-container">
-    <img src="Beans.png" alt="Bean to Bag Logo" />
-  </div>
-</div>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ===== HEADER ===== -->
-<header class="site-header" id="siteHeader">
-  <div class="nav-wrap">
-    <a href="index.html" class="brand" aria-label="Bean to Bag Home">
-      <div class="brand-logo-frame">
-        <img src="Beans.png" alt="Bean to Bag Logo" />
-      </div>
-      <div class="roastery-tagline">Coffee Roastery</div>
-    </a>
-    <nav class="desktop-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="origin.html">Origin</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="menu-button" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-
-<!-- ===== MOBILE MENU ===== -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-menu" id="closeMenu">✕</button>
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <a href="products.html">Products</a>
-  <a href="origin.html">Origin</a>
-  <a href="contact.html">Contact</a>
-</div>
-
-<!-- ===== WHATSAPP FLOAT ===== -->
-<a href="https://wa.me/251913662154" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
-
-<!-- ===== MAIN ===== -->
-<main>
-
-  <!-- HERO VIDEO -->
-  <div class="hero-video-section">
-    <video class="hero-video" autoplay muted loop playsinline webkit-playsinline="true" preload="auto" id="heroVideo">
-      <source src="Bean.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-overlay"></div>
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <img src="logo.jpg" alt="Ekklesia Arise Logo" class="loader-logo-img" onerror="this.src='https://placehold.co/80x80/FFFFFF/1E4C8F?text=EA'" />
+    <div class="loader-name-amharic">የኤክሌሺያ ተነሺ አገልግሎት</div>
+    <div class="loader-name-en">Ekklesia Arise Global Ministry</div>
+    <div class="loader-cross-spinner"></div>
   </div>
 
-  <!-- HERO CONTENT -->
-  <div class="hero-content-section">
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <span class="tag animate-fade-in">Bean to Bag</span>
-      <h1 class="animate-fade-in-up">From Bean to Bag —<br />Premium Ethiopian Coffee</h1>
-      <p class="animate-fade-in-up">Carefully sourced Ethiopian Arabica coffee roasted to a balanced medium-dark profile for a rich and smooth cup.</p>
-      <div class="hero-actions animate-fade-in-up">
-        <a href="products.html" class="btn btn-primary">Explore Coffee</a>
-        <a href="products.html" class="btn btn-outline">Shop Collection</a>
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <img src="logo.jpg" alt="Ekklesia Arise Logo" class="nav-logo-img" onerror="this.src='https://placehold.co/44x44/FFFFFF/1E4C8F?text=EA'" />
+          <div class="nav-brand-text">
+            <div class="nav-brand-amharic amharic">የኤክሌሺያ ተነሺ አገልግሎት</div>
+            <div class="nav-brand-en">Ekklesia Arise Global Ministry</div>
+          </div>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="active">መነሻ</a></li>
+          <li><a href="#about">ስለእኛ</a></li>
+          <li><a href="#doctrine">አስተምህሮ</a></li>
+          <li><a href="#publications">ሕትመቶች</a></li>
+          <li><a href="#contact">ያግኙን</a></li>
+          <li><a href="#give" class="nav-cta">ይደግፉ <i class="fas fa-arrow-right" style="margin-left:4px;font-size:0.8rem;"></i></a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <!-- JOURNEY -->
-  <section id="journey">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag scroll-animate">Our Journey</span>
-        <h2 class="section-title scroll-animate">From Farm to Cup</h2>
-        <p class="section-subtitle scroll-animate">Experience the craftsmanship behind every bag of Bean to Bag specialty coffee.</p>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-image" style="background-image: url('XXXL.webp');"></div>
+    <div class="hero-gradient-overlay"></div>
+    <canvas id="heroParticles"></canvas>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-church"></i>
+        የኤክሌሺያ ተነሺ አገልግሎት
       </div>
-      <div class="alternating-grid">
-        <div class="alternating-item scroll-animate">
-          <div class="image-wrapper"><img src="10.JPG" alt="Highland Ethiopian coffee farms" loading="lazy" /></div>
-          <div class="content">
-            <h3>Highland Farms</h3>
-            <p>Our coffee is cultivated by small-scale micro-lot farmers in traditional garden spaces at exceptional altitudes of 1,900–2,200 meters above sea level.</p>
-            <a href="origin.html" class="btn btn-outline">Discover Origin &rarr;</a>
-          </div>
-        </div>
-        <div class="alternating-item reverse scroll-animate">
-          <div class="image-wrapper"><img src="11.JPG" alt="Hand-picking ripe cherries" loading="lazy" /></div>
-          <div class="content">
-            <h3>Selective Harvest</h3>
-            <p>Only perfectly ripe, crimson cherries are carefully hand-picked by our partner estate families, ensuring consistent top-tier sorting.</p>
-            <a href="origin.html" class="btn btn-outline">Learn More &rarr;</a>
-          </div>
-        </div>
-        <div class="alternating-item scroll-animate">
-          <div class="image-wrapper"><img src="12.JPG" alt="Traditional processing" loading="lazy" /></div>
-          <div class="content">
-            <h3>Traditional Processing</h3>
-            <p>Utilizing ancestral washed and modern natural sun-dried processing methods to perfectly locked in clear terroir characteristics.</p>
-            <a href="products.html" class="btn btn-outline">View Products &rarr;</a>
-          </div>
-        </div>
-        <div class="alternating-item reverse scroll-animate">
-          <div class="image-wrapper"><img src="13.JPG" alt="Small-batch roasting" loading="lazy" /></div>
-          <div class="content">
-            <h3>Small-Batch Roasting</h3>
-            <p>Every small batch is calibrated manually to a precise profile, turning green lots weekly for guaranteed maximum cup freshness.</p>
-            <a href="about.html" class="btn btn-outline">Our Process &rarr;</a>
-          </div>
-        </div>
-        <div class="alternating-item scroll-animate">
-          <div class="image-wrapper"><img src="14.JPG" alt="Premium packaging" loading="lazy" /></div>
-          <div class="content">
-            <h3>Premium Packaging</h3>
-            <p>Our signature bags are integrated with precise one-way degassing valves and zip-lock resealable seals to shield aroma over time.</p>
-            <a href="products.html" class="btn btn-outline">Shop Now &rarr;</a>
-          </div>
-        </div>
+
+      <h1 class="hero-title amharic">
+        ምድር <span class="gradient-text">እግዚአብሔርን</span><br>በማወቅ <span class="gradient-text">ትሞላለች</span>
+      </h1>
+
+      <p class="hero-subtitle amharic">
+        ኢሳይያስ 11:9 · ቤተክርስቲያንን በማስተማርና በማሰልጠን ማስታጠቅ
+      </p>
+
+      <div class="hero-buttons">
+        <div class="magnetic-wrap"><a href="#about" class="btn btn-primary magnetic" style="padding: 18px 48px; font-size: 1rem;"><i class="fas fa-play"></i> ይወቁ</a></div>
+        <div class="magnetic-wrap"><a href="#doctrine" class="btn btn-glass magnetic" style="padding: 18px 48px;">አስተምህሮ</a></div>
+        <div class="magnetic-wrap"><a href="#give" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-heart"></i> ይለግሱ</a></div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats-section">
+  <!-- Animated Stats -->
+  <section class="stats-strip">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-item scroll-animate"><div class="stat-number">1,900m+</div><div class="stat-label">Optimal Altitude</div></div>
-        <div class="stat-item scroll-animate"><div class="stat-number">100%</div><div class="stat-label">Heirloom Arabica</div></div>
-        <div class="stat-item scroll-animate"><div class="stat-number">Micro</div><div class="stat-label">Fresh Batch Roasted</div></div>
-        <div class="stat-item scroll-animate"><div class="stat-number">12+</div><div class="stat-label">Partner Co-ops</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="gallery-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title scroll-animate">Coffee Pleasures</h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item scroll-animate"><img src="16.JPG" alt="Pour over coffee" loading="lazy" /></div>
-        <div class="gallery-item scroll-animate"><img src="17.JPG" alt="Barista espresso" loading="lazy" /></div>
-        <div class="gallery-item scroll-animate"><img src="19.JPG" alt="Coffee tasting" loading="lazy" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS PREVIEW -->
-  <section class="products-preview">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag scroll-animate">Our Collection</span>
-        <h2 class="section-title scroll-animate">Premium Ethiopian Coffee</h2>
-      </div>
-      <div class="showcase-card scroll-animate">
-        <h2 class="section-title">Visit Our Products</h2>
-        <p>Discover our exclusive range of specialty Ethiopian coffees — from bright, floral Yirgacheffe to deep, chocolatey single origins. Each bag is freshly roasted and crafted with precision.</p>
-        <a href="products.html" class="showcase-btn">Explore Full Collection →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIRTUAL SHOP CAROUSEL -->
-  <section class="virtual-shop-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag scroll-animate">Virtual Experience</span>
-        <h2 class="section-title scroll-animate">Browse Our Virtual Roastery</h2>
-        <p class="section-subtitle scroll-animate">Immerse yourself in the visual journey of our premium coffee collection.</p>
-      </div>
-    </div>
-    <div class="shop-carousel-container">
-      <div class="carousel-arrow arrow-left" id="arrowLeft">←</div>
-      <div class="shop-carousel-viewport" id="carouselViewport">
-        <div class="shop-track" id="shopTrack">
-          <div class="slide-image"><img src="shelf.png" alt="Reserve coffee" /></div>
-          <div class="slide-image"><img src="shelf1.png" alt="Sidamo coffee" /></div>
-          <div class="slide-image"><img src="shelf2.png" alt="Harar coffee" /></div>
-          <div class="slide-image"><img src="shelf3.png" alt="Limu coffee" /></div>
-          <div class="slide-image"><img src="shelf.png" alt="Reserve coffee" /></div>
-          <div class="slide-image"><img src="shelf1.png" alt="Sidamo coffee" /></div>
-          <div class="slide-image"><img src="shelf2.png" alt="Harar coffee" /></div>
-          <div class="slide-image"><img src="shelf3.png" alt="Limu coffee" /></div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="247" data-suffix="+"><span class="counter-text">0</span></div>
+          <div class="stat-label">የከተሞች ብዛት</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="680" data-suffix="+"><span class="counter-text">0</span></div>
+          <div class="stat-label">አብያተ ክርስቲያናት</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="23,340" data-suffix="+"><span class="counter-text">0</span></div>
+          <div class="stat-label">የሠልጣኞች ብዛት</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="17" data-suffix=""><span class="counter-text">0</span></div>
+          <div class="stat-label">የሕትመት ውጤቶች</div>
         </div>
       </div>
-      <div class="carousel-arrow arrow-right" id="arrowRight">→</div>
     </div>
   </section>
 
-  <!-- ROAST CARD -->
-  <section class="roast-section">
+  <!-- About Section -->
+  <section class="content-section" id="about">
     <div class="container">
-      <div class="roast-card scroll-animate">
-        <span class="section-tag">The Roastery</span>
-        <h2 class="section-title">Signature Medium-Dark Roast</h2>
-        <p>Our roasting balance preserves the vibrant, bright acidity native to high-altitude Ethiopian heirloom varieties while developing deep caramels and a velvet-smooth body. Never oily, never bitter—just perfectly developed sweetness in every single cup.</p>
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-info-circle"></i> ስለእኛ</span>
+        <h2 class="section-title">የኤክሌሺያ ተነሺ <span class="gold">አገልግሎት</span></h2>
+        <p class="section-subtitle">ቤተክርስቲያንን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ ማስታጠቅ</p>
+      </div>
+
+      <div class="content-body reveal">
+        <h3>የአገልግሎቱ አመሠራረት</h3>
+        
+        <blockquote>
+          "…መልዕክት በደብዳቤ እጽፍ ነበር፡፡ የምፅፈው ቃል ቤቴ ለአሕዛብ ሁሉ የጸሎት ቤት ይባላል የሚለውን ነበር፡፡ በመንፈስ ውስጥ ሆኜ ሳስታውስ የኢትዮጵያ ካርታ ፊት ለፊቴ ታየኝ፡፡ እኔም ለኢትዮጵያ መልእክተኛ እሆናለሁ ማለት ነው እንዴ? ብዬ ጠየቅሁት፡፡ …እንግዲያውስ ልንገርህ አንተ አገር አቀፍ ጥሪ አለብህ፡፡ ስለዚህ ከበደል ራቅ።"
+        </blockquote>
+
+        <p>ዶክተር ብርሃኑ ሃብቴ ጌታን ካገኙበት እለት ጀምሮ በመንፈሳዊ እድገታቸው የሚተጉ ብሎም በወጣትነት እድሜያቸው ትምህርታቸውን ከመከታተል ጎን ለጎን አብዛኛውን ጊዜያቸውን በአገልግሎት የተጠመዱ ነበሩ፡፡ ይህ ንግግር ከፈለገ ብርሃኑ መጽሐፍ ገጽ 65 የተወሰደ ሲሆን እግዚአብሄር ለባሪያው በወጣትነት እድሜያቸው ለመጀመሪያ ጊዜ ስለ ተጠሩበት ጥሪ ፈንጠቅ ያደረገበት ዕለት ነበር፡፡</p>
+
+        <p>በሐምሌ ወር 1983 ዶ/ር ብርሃኑ ሃብቴ በቤተ ክርስቲያን ህቡዕ ዓመታት በነበረራቸው ሰፊ አገልግሎትና ዕውቅና ምክንያት በአንድ ዓለም አቀፍ የወንጌል ሥርጭት ጉባዔ እንዲሳተፉ ተጋብዘው ወደ እንግሊዝ አገር ተጓዙ፡፡ ምንም እንኩዋን ዶ/ር ብርሃኑ የኩላሊት ሕክምና የስፔሺላይዜሽን ትምህርታቸውን በስኮትላንድ የተከታተሉ ቢሆንም በዚያች የጌታ ቀን ግን የተንጣለለው ባህርና ተፈጥሮአዊው ትዕይንት ለእይታቸው ልዩ ሆነባቸው፡፡ ምክንያቱም የእግዚአብሔር ድምፅ እንዲህ ሲል መጥቶላቸዋልና፡- "ውኃ ባህርን እንደሚከድን ምድር እግዚአብሔርን በማወቅ ትሞላለች" (ኢሳ 11፡9)፡፡</p>
+
+        <p>እንግዲህ የኢትዮጵያን ካርታ በራዕይ በማሳየት በ1964 ዓም ለመጀመሪያ ጊዜ የተቀበሉት ራዕይ የበለጠ ሰክኖ፣ የበለጠ ደምቆና የበለጠውን ሰፍቶ የመጣላቸው በዚህ ልዩ አጋጣሚ ነበር፡፡ ከዚያ ወዲህም በበለጠ ትጋት፣ የጸሎት ተጋድሎ፣ በመንፈስ ቅዱስ ኃይል ሙሉ ጊዜአቸውን ሰጥተው ለማገልገል በቁርጠኝነት መሰናዳት ጀመሩ፡፡</p>
+
+        <p>ዶ/ር ብርሃኑ ሙሉ ጊዜአቸውን እንደሰጡ ቤተክርስቲያን የአገልጋዩን ራእይ በማገናዘብና እንደ ራሷ ራእይ አድርጋ በመቀበል በዚህ የመጨረሻው ዘመን ለተሃድሶና ደቀ መዛሙርትን ማፍራት ይችሉ ዘንድ መላውን አብያተ ክርስቲያናት የማነሣሣትና የማስታጠቅ ብሔራዊና ዓለም አቀፋዊ ተልዕኮ ላነገበው "ኤክሌሺያ ተነሺ አገልግሎት" ለየቻቸው፡፡ ከቤተሰባቸውና በብርቱ የጸሎት ተጋድሎ ከደጀናቸው ሕብረት ጋር ሆነው ወደ ወንጌል ማስወጫ ተሰማሩ፤ ከአጥቢያቸውም ጀመሩ፡፡</p>
+
+        <p>ኤክሌሺያ ተነሺ አገልግሎት ሰዎች በሚረዱት መንገድ ተገልጦ የአጠቢያ ቤተክርስቲያናቸው ብርሃነ ወንጌልን ድምበር ተሻግሮ አንድ ዓመት ባልሞላ ጊዜ ወደ ሌሎች አብያተክርስቲያናትና ወደ ዓለም አቀፉ መድረክ ዘለቀ፡፡</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- Mission Section -->
+  <section class="content-section" style="background: var(--bg-dark);">
     <div class="container">
-      <span class="section-tag scroll-animate">Freshly Roasted Weekly</span>
-      <h2 class="section-title scroll-animate">Bring Addis Ababa's Finest Home</h2>
-      <p class="section-subtitle scroll-animate">Order your custom bag online today and experience the true essence of Ethiopian specialty coffee.</p>
-      <div class="cta-actions scroll-animate">
-        <a href="products.html" class="btn btn-primary">Order Fresh Bag</a>
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-bullseye"></i> ራዕይና ተልዕኮ</span>
+        <h2 class="section-title">የአገልግሎቱ <span class="gold">አላማ</span></h2>
+      </div>
+
+      <div class="content-body reveal">
+        <h3>ራዕይ</h3>
+        <p>ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ህይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት</p>
+
+        <h3>ተልዕኮ</h3>
+        <p>ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ</p>
+
+        <h3>ዕሴቶች</h3>
+        <ul>
+          <li>በጸሎት መትጋት</li>
+          <li>በእግዚአብሔር ፍቅር መኖር</li>
+          <li>በመንፈስ ቅዱስ ኃይል መደገፍ</li>
+          <li>ለእግዚአብሔር ቃል አክብሮት መስጠት</li>
+          <li>በቃልና በኑሮ ክርስቶስን መምሰል</li>
+        </ul>
+
+        <div class="highlight-box">
+          <h4>ዋና ተግባሮች</h4>
+          <ul>
+            <li>በዘመኑ መጨረሻ በድል የምትገሰግሰውን ቤተክርስቲያን ማየት</li>
+            <li>በቂ የአመራር ክህሎት ያላቸውን የቤተክርስቲያን መሪዎች ማፍራት</li>
+            <li>በእያንዳንዱ አጥቢያ በቂ ቁጥር ያለው ደቀመዝሙር ማፍራት</li>
+            <li>ወንጌልን የሚናገር እና ቤተክርስቲያንን የሚተክል የተነቃቃ ትውልድ መፍጠር</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-</main>
+  <!-- Doctrine Section -->
+  <section class="content-section" id="doctrine">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-book-bible"></i> አስተምህሮ</span>
+        <h2 class="section-title">መሠረታዊ <span class="gold">አስተምህሮች</span></h2>
+        <p class="section-subtitle">በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን ምን መሆን እንደሚገባት በውል ማስጨበጥ</p>
+      </div>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container">
-    <div class="contact-info" style="margin-bottom: 25px;">
-      <p style="margin-bottom: 8px;">Bole Atlas, Addis Ababa, Ethiopia</p>
-      <p>info@beantobagcoffee.com | +251 91 123 4567</p>
+      <div class="content-body reveal">
+        <h3>በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን</h3>
+        <p>የቤተ ክርስቲያን ቋሚ ተግባራት ታላቁ ትዕዛዝ (ማር. 12፡ 29-31) እና ታላቁ ተልዕኮ (ማቴ. 28፡ 19-20) ናቸው። ከሁለቱ ታላላቅ ክፍሎች የተፈለቀቁና ቤተ ክርስቲያን ልትፈጽመው የሚገባት አምስት ተግባራት፦</p>
+        <ul>
+          <li><strong>እግዚአብሔርን ማምለክ</strong> — ጌታ አምላክህን ውደድ</li>
+          <li><strong>ወንጌልን ማሰራጨት</strong> — ሂዱ</li>
+          <li><strong>ሕብረትን ማድረግ</strong> — አጥምቁ</li>
+          <li><strong>ሕይወትን ማሳደግ</strong> — ደቀመዝሙር አድርጓቸው</li>
+          <li><strong>ለአገልግሎት ማሰማራት</strong> — ባልንጀራህን ውደድ</li>
+        </ul>
+        <p>በአጭር ቃል የቤተ ክርስቲያን ተልዕኮ የእግዚአብሔር መንግሥት በምድር ላይ እንዲሠለጥን የማድረግ ተልዕኮ ነው።</p>
+
+        <h3>ልጅነት</h3>
+        <p>ልጅነት በወንጌል አምነው ላልዳኑ ብቻ ሳይሆን በጌታ ቤት ለዓመታት ቆይተው የልጅነት ምስጢር ገና ላልገባቸውም ጭምር ዓይነ ልቡናቸውን ወደ ውስጥ መልሰው ማንነታቸውን እንዲፈትሹ የሚያደርግ ትምህርት ነው። ይህ ትምህርት የክርስትና ሕይወት በልጅነት መንፈስ መከናወን አለበት የሚል ዋና መልእክት ያዘለ ነው።</p>
+
+        <h3>ክርስቲያናዊ ሥነ ምግባር</h3>
+        <p>ክርስቲያናዊ ሥነ ምግባር ከግል ሕይወት አመራር እስከ መንግሥታዊና ሀገራዊ ኃላፊነት ያለውን የክርስቲያናዊ ሥነ ምግባር ፅንሰ ሃሳብ በመጽሐፍ ቅዱሳዊ ሚዛን የተተነተነበት መጽሐፍ ነው።</p>
+
+        <h3>የመቅደሱ ሕግ</h3>
+        <p>የመቅደሱ ሕግ በነቢዩ ሕዝቅኤል መጽሐፍ ላይ ተመሥርቶ የቀረበ ስለዘመኑ ቤተክርስቲያን የሚናገር መልዕክት ሲሆን ቤተክርስቲያን ይህንን መጽሃፍ አስተውላ ከእግዚአብሄር የተሰጣትን እድል አክብራ በትጋት ተልዕኮዋን ከፈጸመች የእግዚአብሄርን ልብ ታረካለች፤ እርሱዋም በክብር ትጎናጸፋለች።</p>
+
+        <h3>መንፈሳዊ ውጊያ</h3>
+        <p>የክርስትና ሕይወት ዕረፍትም ሰልፍም ነው። ስለዚህ ቃሉ በግልጽ በሚነግረን መሠረት ለጠላት ሥራ ንቁ በመሆን አስፈላጊውንም መንፈሣዊ የጦር ዕቃ በመልበስ የክፉውን ሥራ መዋጋት፣ በእጁ ያስገባቸውን ምርኮኞች ነፃ ማውጣትና የእግዚአብሔርን መንግሥት ማስፋት አለብን።</p>
+      </div>
     </div>
-    <p>&copy; 2026 Bean to Bag Premium Specialty Coffee. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#instagram" target="_blank" rel="noopener">Instagram</a>
-      <a href="#facebook" target="_blank" rel="noopener">Facebook</a>
-      <a href="#telegram" target="_blank" rel="noopener">Telegram</a>
+  </section>
+
+  <!-- Training Section -->
+  <section class="content-section" style="background: var(--bg-dark);" id="training">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-chalkboard-teacher"></i> ሥልጠናዎች</span>
+        <h2 class="section-title">የአገልግሎቱ <span class="gold">ተደራሽነት</span></h2>
+        <p class="section-subtitle">በአገር ውስጥ እና በዓለም ዙሪያ የተሰጡ ሥልጠናዎች</p>
+      </div>
+
+      <div class="content-body reveal">
+        <h3>በአገር ውስጥ የተሰጡ ሥልጠናዎች</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ርዕስ</th>
+                <th>የከተሞች ብዛት</th>
+                <th>የቤተ ክርስቲያን ብዛት</th>
+                <th>የሠልጣኞች ብዛት</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>በድል የምትገሰግሰው ቤተ ክርስቲያን</td><td>90</td><td>312</td><td>5,676</td></tr>
+              <tr><td>ልጅነት</td><td>35</td><td>114</td><td>2,452</td></tr>
+              <tr><td>የቤተ ክርስቲያን አመራር</td><td>23</td><td>52</td><td>2,360</td></tr>
+              <tr><td>መንፈሳዊ ውጊያ</td><td>36</td><td>47</td><td>1,848</td></tr>
+              <tr><td>ጤናማ ቤተ ክርስቲያን መትከል</td><td>29</td><td>52</td><td>695</td></tr>
+              <tr><td>የጸጋ ስጦታዎች</td><td>8</td><td>17</td><td>1,920</td></tr>
+              <tr><td>የመቅደሱ ሕግ</td><td>4</td><td>15</td><td>1,270</td></tr>
+              <tr><td>ሌሎች</td><td>53</td><td>121</td><td>7,119</td></tr>
+              <tr style="font-weight:700; background:var(--primary-light);"><td>ድምር</td><td>247</td><td>680</td><td>23,340</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ከአገር ውጭ የተሰጡ ሥልጠናዎች</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ርዕስ</th>
+                <th>አገር</th>
+                <th>የከተሞች ብዛት</th>
+                <th>የቤተ ክርስቲያኖች ብዛት</th>
+                <th>የሠልጣኞች ብዛት</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td rowspan="6">በድል የምትገሰግሰው ቤተ ክርስቲያን</td><td>ታንዛኒያ</td><td>1</td><td>4</td><td>80</td></tr>
+              <tr><td>ኬኒያ</td><td>8</td><td>45</td><td>428</td></tr>
+              <tr><td>ኡጋንዳ</td><td>1</td><td>2</td><td>96</td></tr>
+              <tr><td>ናይጄሪያ</td><td>1</td><td>1</td><td>500</td></tr>
+              <tr><td>ማላዊ</td><td>1</td><td>1</td><td>70</td></tr>
+              <tr><td>ሩዋናዳ</td><td>1</td><td>1</td><td>31</td></tr>
+              <tr><td rowspan="4">ሌሎች</td><td>ኬኒያ</td><td>7</td><td>17</td><td>802</td></tr>
+              <tr><td>ኡጋንዳ</td><td>1</td><td>1</td><td>65</td></tr>
+              <tr><td>ደቡብ አፍሪካ</td><td>2</td><td>2</td><td>110</td></tr>
+              <tr><td>ናይጄሪያ</td><td>2</td><td>2</td><td>280</td></tr>
+              <tr><td>ልጅነት / አመራር ወዘተ</td><td>አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ሆላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ፣ ግሪክ</td><td>22</td><td>23</td><td>1,833</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- ===== SCRIPTS ===== -->
-<script>
-  // 1. Loading Screen
-  window.addEventListener('load', () => {
-    const preloader = document.getElementById('loadingScreen');
-    setTimeout(() => { preloader.classList.add('fade-out'); }, 500);
-  });
+  <!-- Tyranus Section -->
+  <section class="content-section" id="tyranus">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-graduation-cap"></i> ጢራኖስ</span>
+        <h2 class="section-title">የጢራኖስ የደቀ መዝሙር <span class="gold">ትምህርት ቤት</span></h2>
+        <p class="section-subtitle">በሐዋሪያት ሥራ ምዕ 19 ፡9 መሰረት እንደ ጳውሎስ ደቀመዛሙርትን በጥልቀት ማስተማር</p>
+      </div>
 
-  // 2. Header scroll state
-  const siteHeader = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) siteHeader.classList.add('scrolled');
-    else siteHeader.classList.remove('scrolled');
-  });
+      <div class="content-body reveal">
+        <p>የጢራኖስ ራእይ የተወለደው በጣት የሚቆጠሩት የኤክሌሺያ ተነሺ አገልጋዮች በመላው ኢትዮጵያ የቆዳ ስፋት የተበተኑትን አብያተ ክርስቲያናት በአካል ደርሰው ለማገልገልና ለማንቀሳቀስ ረጅም ዕድሜ ቢሰጣቸውም እንኳ ከአቅማቸው በላይ እንደሚሆንባቸው ተገንዝበው በሐዋሪያት ሥራ ምዕ 19 ፡9 መሰረት እንደ ጳውሎስ የተወሰኑ ደቀመዛሙርትን ለይቶ በጥልቀት በማስተማር የእግዚአብሔርን ቃል እውቀት የማጽረስ ሂደት ነው፡፡</p>
 
-  // 3. Mobile menu
-  const menuToggle = document.getElementById('menuToggle');
-  const closeMenu = document.getElementById('closeMenu');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
-  closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
+        <p>ትምህርት ቤቱ ተንቀሳቃሽ ከመሆኑም በተጨማሪ ሠልጣኞቹ ልባቸውን ከሚሰርቋቸው የኑሮም ሆነ የአገልግሎት ጉዳዮች ርቀው፣ አርፈው ቃሉን እንዲማሩ፣ እርስ በርሳቸው ሕብረት እንዲያደርጉና የቀሰሙትን ደቀ መዝሙራዊ ሕይወት እንዲለማመዱ በሚያደርግ ረቀቅ ያለ ስልት ነው፡፡ ጢራኖስ የደቀመዝሙርነት ትምህርት ቤት ለአራት ሳምንታት የሚቆይ የአዳሪ ትምህርት ቤት ሥልጠና ፕሮግራም ሲሆን፤ ትምህርትቤቱ ስራውን ከጀመረ ጊዜ አንስቶ በአስር ዙር ተማሪዎችን አስተምሮ አስመርቋል፡፡</p>
 
-  // 4. Scroll animations
-  const animatable = document.querySelectorAll('.scroll-animate');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-        observer.unobserve(entry.target);
+        <h3>የትምህርት ቤቱ ዋና ዋና ርዕሶች</h3>
+        <ul>
+          <li><strong>ልጅነት</strong> — ለ20 ሰዓታት</li>
+          <li><strong>ከግብዝነት ክርስቶስን ወደመምሰል</strong> — ለ10 ሰዓታት</li>
+          <li><strong>ክርስቲያናዊ ስነምግባር</strong> — ለ10 ሰዓታት</li>
+          <li><strong>የመጽሃፍ ቅዱስ አፈታት፤ የግል መጽሃፍ ቅዱስ ጥናትና የወንጌል ምስክርነት</strong> — ለ22 ሰዓታት</li>
+          <li><strong>መንፈሳዊ ውጊያ</strong> — ለ13 ሰዓታት</li>
+          <li><strong>በድል የምትገሰግሰው ቤተክርስቲያን</strong> — ለ16 ሰዓታት</li>
+          <li><strong>የመቅደሱ ህግ</strong> — ለ9 ሰዓታት</li>
+          <li><strong>የእግዚአብሄር ሙሉ ምክር</strong> — ለ12 ሰዓታት</li>
+          <li><strong>ሐዋሪያዊ ደቀመዝሙር</strong> — ለ18 ሰዓታት</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section class="content-section" style="background: var(--bg-dark);" id="publications">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-book"></i> ሕትመቶች</span>
+        <h2 class="section-title">የሕትመት <span class="gold">ውጤቶች</span></h2>
+        <p class="section-subtitle">ዶ/ር ብርሃኑ በዓመት ቢያንስ አንድ መጽሐፍ የማዘጋጀትና የማሳተም እቅድ ነበራቸው</p>
+      </div>
+
+      <div class="content-body reveal">
+        <p>እስከ 2ሺህ ዓ.ም ድረስ በጠቅላላው ከአሥር በላይ የሕትመት ውጤቶች በአገልግሎቱና በዶ/ር ብርሃኑ ስም መታተማቸው ስኬታማነትን ለመመስከር በራሳቸው በቂ ናቸው፡፡ የሕትመቱ ውጤቶች በዋነኝነት ሥልጠናውን ለማገዝ የተዘጋጁ ሲሆን ከፊሎቹ ደግሞ አስተምህሯቸውን ቀጥተኛ በሆነ መንገድ ለአንባቢ ለማስተላለፍ የታለሙ ናቸው፡፡</p>
+
+        <h3>የታተሙ መጻሕፍት</h3>
+        <div style="columns: 2; column-gap: 30px; margin: 16px 0;">
+          <ul style="margin:0;">
+            <li>ፈለገ ብርሃኑ</li>
+            <li>ልጅነት / Sonship</li>
+            <li>ልጅነት ማስታወሻ</li>
+            <li>ከግብዝነት ክርስቶስን ወደመምሰል ቅጽ 1</li>
+            <li>ከግብዝነት ክርስቶስን ወደመምሰል ቅጽ 2</li>
+            <li>ከግብዝነት ክርስቶስን ወደመምሰል ማስታወሻ</li>
+            <li>ክርስቲያናዊ ስነምግባር</li>
+            <li>መንፈሳዊ ውጊያ</li>
+          </ul>
+          <ul style="margin:0;">
+            <li>በዘመኑ መጨረሻ በድል የምትገሰግሰው ቤተክርስቲያን</li>
+            <li>በድል የምትገሰግሰው ቤተክርስቲያን የመተግበሪያ ስልት</li>
+            <li>The Triumphant Church</li>
+            <li>Implementation strategy for The Triumphant Church</li>
+            <li>የመቅደሱ ህግ</li>
+            <li>የእግዚአብሄር ሙሉ ምክር</li>
+            <li>የሐዋሪያ ደቀመዝሙር ማስታወሻ</li>
+            <li>ባጠቃቀም ብልሹነት የምንቸገርባቸው የጸጋ ስጦታዎች</li>
+            <li>ሽማግሌያዊ ወይስ መጋቢያዊ አመራር የሚለውን ሙግት ትተን ወደ አዲስ ኪዳን እንመለስ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Status Section -->
+  <section class="content-section" id="status">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-chart-line"></i> የአሁኑ ሁኔታ</span>
+        <h2 class="section-title">አገልግሎቱ <span class="gold">አሁን ያለበት ሁኔታ</span></h2>
+      </div>
+
+      <div class="content-body reveal">
+        <p>ኤክሌሺያ ተነሺ አገልግሎት በብርሃነ ወንጌል ቤተክርስቲያን ጥላ ስር ሆኖ እራሱን በመቻል በቦርድ ሲመራ የቆየ አገልግሎት ሲሆን ዶ/ር ብርሃኑ ሐብቴ ወደጌታ ከሄዱም በሁዋላ በባለአደራ ቦርዱ መሪነት አገልግሎቱ ለ10 ዓመታት ያህል ቀጥሎዋል፡፡</p>
+
+        <p>በኃላም የአገልግሎቱን ተደራሽነት ለማስፋት እራሱን እንዲችል ቦርዱ ስላመነበት ከቤተክርስቲያን ጋር በመመካከር አገልግሎቱ ህጋዊ ሆኖ በዶ/ር ብርሃኑ ሐብቴ ቤተሰብ በኩል እንዲመዘገብ ውሳኔ ላይ ተደርሶዋል፡፡ በዚህ ውሳኔ መሰረት አገልግሎቱ ጳጉሜ 2 ቀን 2015 ዓም ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ በሚል ስም በወንጌል አማኞች አብያተ ክርስቲያናት ካውንስል ጽ/ቤት በመመዝገብ ህጋዊ ፈቃድ አግኝቷል፡፡</p>
+
+        <h3>የወደፊት አቅጣጫዎች</h3>
+        <ol>
+          <li><strong>በጢራኖስ ትምህርት ቤት</strong> ያለፉትን እና ሌሎችን ማሰልጠን፤ ከዚህ በፊት የሰለጠኑት ሰልጣኞች ጠርቶ መጠነኛ የአሰልጣኞች ስልጠና በማዘጋጀት ትምህርቱን በውስጣቸው እንደገና በማነሳሳት በተቀናጀ ሁኔታ የስልጠናውን ሂደት በስፋት ማከናወን፡፡</li>
+          <li><strong>በቅርበት ሆነው ትምህርቶቹን የተማሩ ሰዎችን በማስተባበር</strong> ከግብዝነት ክርስቶስን ወደመምሰል፤ ልጅነት እንዲሁም ሌሎች በህብረት ሊጠኑ የሚችሉ ትምህርቶችን በመለየት የቡድን ትምህርቶቹን ማስፋፋት፡፡</li>
+          <li><strong>አብያተ ክርስቲያናትን መድረስ</strong>
+            <ul>
+              <li>በመጀመሪያ የተመረጡ ሦስት ቤተክርስቲያኖች ላይ በጥልቀት መስራት፡፡ እነዚህ ቤተክርስቲያኖች ላይ የሚመጣውን መላካም ለውጥ እንደማሳያ በመጠቀም ሌሎች ቤተክርስቲያኖችም ፈለጉን እንዲከተሉ እያሳዩ ማስተማር፡፡</li>
+              <li>የተሰጡ መሪዎችን በጢራኖስ ትምህርት ቤት በማስተማር ወደመጡበት ቤተክርስቲያን ሲመለሱ ምዕመኑን በማስተማር ትምህርቱን ተግበባራዊ እንዲያደርጉ ማገዝ፡፡</li>
+            </ul>
+          </li>
+        </ol>
+
+        <p>ኤክሌሺያ ተነሺ አገልግሎት እስከ አሁን ካገለገለው በተጨማሪ ዘመኑን በዋጀ መንገድ የሚዲያ አገልግሎትን መጠቀም አስፈላጊ መሆኑን ተገንዝቦዋል፡፡ ስለሆነም በጽሁፍ መቅረብ የሚሉትን ትምህርቶች ለይቶ ለአንባቢያን ተደራሽ የሚሆንበት መንገድ ያመቻቻል፡፡</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giving Section -->
+  <section class="giving-section" id="give">
+    <div class="container">
+      <div class="giving-card reveal-scale">
+        <span class="icon-big"><i class="fas fa-hand-holding-heart"></i></span>
+        <h2>ድጋፍ ለ<span class="gold">አገልግሎቱ</span></h2>
+        <p class="sub-text">በልግስናዎ የወንጌል ሥርጭት ሥራ ተካፋይ ይሁኑ</p>
+
+        <div class="account-box">
+          <div class="account-label"><i class="fas fa-university"></i> የሂሳብ ቁጥር</div>
+          <div class="account-number">1000029580905</div>
+          <button class="copy-btn" onclick="copyAccount()">
+            <i class="fas fa-copy"></i> ቁጥሩን ይቅዱ
+          </button>
+        </div>
+
+        <a href="https://play.google.com/store/apps/details?id=com.cbe.mobile" target="_blank" class="btn-donate">
+          <i class="fas fa-arrow-right"></i> ይለግሱ
+        </a>
+        <p class="donate-note">* ሁሉም ልግስናዎች ለአገልግሎቱ ሥራ የሚውሉ ናቸው</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="amharic">የኤክሌሺያ ተነሺ አገልግሎት</h3>
+          <p>ቤተክርስቲያንን በማስተማርና በማሰልጠን ማስታጠቅ፣ ዘመኑን በዋጀ መንገድ የሚዲያ አገልግሎትን መጠቀም።</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>ፈጣን አገናኞች</h4>
+          <ul>
+            <li><a href="index.html">መነሻ</a></li>
+            <li><a href="#about">ስለእኛ</a></li>
+            <li><a href="#doctrine">አስተምህሮ</a></li>
+            <li><a href="#publications">ሕትመቶች</a></li>
+            <li><a href="#give">ይለግሱ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>አገልግሎቶች</h4>
+          <ul>
+            <li><a href="#tyranus">የጢራኖስ ትምህርት ቤት</a></li>
+            <li><a href="#training">ሥልጠናዎች</a></li>
+            <li><a href="#status">የአሁኑ ሁኔታ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>ያግኙን</h4>
+          <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
+          <p><i class="fas fa-phone"></i> +251-911-416976</p>
+          <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+          <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 የኤክሌሺያ ተነሺ አገልግሎት · Ekklesia Arise Global Ministry. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ================================================================
+    // CUSTOM CURSOR LOGIC
+    // ================================================================
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+      
+      const target = e.target;
+      if (target.closest('a') || target.closest('button') || target.closest('.cursor-hover-img')) {
+        if(target.classList.contains('magnetic')) {
+             document.body.classList.add('hover-button');
+             document.body.classList.remove('hover-link');
+             document.body.classList.remove('hover-image');
+        } else if (target.closest('.cursor-hover-img')) {
+             document.body.classList.add('hover-image');
+             document.body.classList.remove('hover-link');
+             document.body.classList.remove('hover-button');
+        } else {
+             document.body.classList.add('hover-link');
+             document.body.classList.remove('hover-button');
+             document.body.classList.remove('hover-image');
+        }
+      } else {
+        document.body.classList.remove('hover-link', 'hover-button', 'hover-image');
       }
     });
-  }, { root: null, threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  animatable.forEach(el => observer.observe(el));
 
-  // 5. Carousel
-  const track = document.getElementById('shopTrack');
-  const arrowLeft = document.getElementById('arrowLeft');
-  const arrowRight = document.getElementById('arrowRight');
-  let currentIndex = 0;
-  const slides = document.querySelectorAll('.slide-image');
-  const slideWidth = slides[0]?.offsetWidth || 380;
-  const gap = 30;
-  const totalSlides = slides.length;
-  const getVisibleSlides = () => window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
-  let visibleSlides = getVisibleSlides();
-  let maxIndex = Math.max(0, totalSlides - visibleSlides);
+    function animateCursor() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
 
-  function updateCarousel() {
-    const offset = currentIndex * (slideWidth + gap);
-    track.style.transform = `translateX(-${offset}px)`;
-  }
+    // ================================================================
+    // MAGNETIC BUTTONS
+    // ================================================================
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
 
-  arrowRight.addEventListener('click', () => {
-    if (currentIndex < maxIndex) currentIndex++;
-    else currentIndex = 0;
-    updateCarousel();
-  });
+    // ================================================================
+    // COPY ACCOUNT FUNCTION
+    // ================================================================
+    function copyAccount() {
+      const account = "1000029580905";
+      navigator.clipboard.writeText(account).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> ተቀዳ!';
+        btn.style.background = '#4A7FC1';
+        btn.style.color = 'white';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
 
-  arrowLeft.addEventListener('click', () => {
-    if (currentIndex > 0) currentIndex--;
-    else currentIndex = maxIndex;
-    updateCarousel();
-  });
+    // ================================================================
+    // PAGE LOADER & INIT
+    // ================================================================
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('loaded');
+      }, 800);
+    });
 
-  window.addEventListener('resize', () => {
-    visibleSlides = getVisibleSlides();
-    maxIndex = Math.max(0, totalSlides - visibleSlides);
-    if (currentIndex > maxIndex && maxIndex >= 0) currentIndex = maxIndex;
-    else if (maxIndex < 0 && totalSlides > 0) currentIndex = 0;
-    updateCarousel();
-  });
+    // ================================================================
+    // NAVBAR SCROLL
+    // ================================================================
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
 
-  setTimeout(updateCarousel, 100);
-</script>
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 60);
+      backToTop.classList.toggle('visible', y > 600);
+    });
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ================================================================
+    // MOBILE MENU
+    // ================================================================
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileOverlay.addEventListener('click', toggleMenu);
+    navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { if (navMenu.classList.contains('open')) toggleMenu(); }));
+
+    // ================================================================
+    // HERO PARTICLES - INTERACTIVE NETWORK
+    // ================================================================
+    (function initParticles() {
+      const canvas = document.getElementById('heroParticles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * w;
+          this.y = Math.random() * h;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedY = -(Math.random() * 0.3 + 0.1);
+          this.speedX = (Math.random() - 0.5) * 0.2;
+          this.opacity = Math.random() * 0.3 + 0.1;
+        }
+        update() {
+          this.y += this.speedY;
+          this.x += this.speedX;
+          if (this.y < -10) this.reset();
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(30, 76, 143, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(30, 76, 143, ${0.08 * (1 - dist / 120)})`;
+              ctx.stroke();
+            }
+          }
+        }
+        
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ================================================================
+    // SCROLL REVEAL
+    // ================================================================
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
+
+    // ================================================================
+    // ANIMATED STAT COUNTERS
+    // ================================================================
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target.querySelector('.counter-text');
+          const target = entry.target.dataset.target;
+          const suffix = entry.target.dataset.suffix || '';
+          const fx = new TextScramble(el);
+          fx.setText(target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        this.update = this.update.bind(this);
+      }
+      setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 30);
+          const end = start + Math.floor(Math.random() * 30);
+          this.queue.push({ from, to, start, end, char: '' });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+      }
+      update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i];
+          if (this.frame >= end) {
+            complete++;
+            output += to;
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar();
+              this.queue[i].char = char;
+            }
+            output += `<span style="color:rgba(30,76,143,0.3)">${char}</span>`;
+          } else {
+            output += from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update);
+          this.frame++;
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+      }
+    }
+
+    document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+  </script>
 </body>
 </html>
