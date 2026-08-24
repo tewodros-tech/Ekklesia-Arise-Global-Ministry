@@ -42,7 +42,6 @@
       --shadow-md: 0 8px 30px rgba(10, 30, 50, 0.06);
       --shadow-lg: 0 20px 60px rgba(10, 30, 50, 0.08);
       --shadow-xl: 0 32px 80px rgba(10, 30, 50, 0.12);
-      --shadow-glow: 0 0 60px rgba(30, 76, 143, 0.10);
       --shadow-card-hover: 0 24px 64px rgba(30, 76, 143, 0.12), 0 0 0 1px rgba(30, 76, 143, 0.08);
       --radius-sm: 12px;
       --radius-md: 20px;
@@ -695,6 +694,142 @@
     }
 
     /* ================================================================
+       CONTACT INFO SECTION — ATTRACTIVE CARD
+       ================================================================ */
+    .contact-info-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0B1B33 0%, #1E4C8F 60%, #0E2A4F 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-info-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(74, 127, 193, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .contact-info-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--accent-light));
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+    .contact-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.20);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+    }
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+    .contact-card .icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.6rem;
+      color: var(--gold);
+      transition: var(--transition-smooth);
+    }
+    .contact-card:hover .icon {
+      background: var(--gold);
+      color: var(--dark-blue);
+      transform: scale(1.1);
+    }
+    .contact-card h4 {
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0.6;
+    }
+    .contact-card .value {
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .contact-card .value a {
+      color: var(--gold);
+      transition: var(--transition-fast);
+      text-decoration: none;
+    }
+    .contact-card .value a:hover {
+      color: white;
+    }
+    .contact-card .sub-label {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .contact-header .pill-badge {
+      background: rgba(255,255,255,0.08);
+      color: var(--gold);
+      border-color: rgba(255,255,255,0.10);
+    }
+    .contact-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: white;
+      font-weight: 800;
+      margin: 16px 0 8px;
+    }
+    .contact-header h2 .gold {
+      color: var(--gold);
+    }
+    .contact-header p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
        GIVING SECTION
        ================================================================ */
     .giving-section { 
@@ -871,6 +1006,7 @@
     @media (max-width: 1024px) {
       .content-body { font-size: 1rem; }
       .about-preview { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 920px) {
@@ -892,6 +1028,9 @@
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
       .table-wrapper { font-size: 0.8rem; }
       .table-wrapper th, .table-wrapper td { padding: 8px 12px; }
+      .contact-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .contact-card { padding: 24px 16px; }
+      .contact-card .value { font-size: 0.9rem; }
     }
 
     @media (max-width: 480px) {
@@ -903,6 +1042,7 @@
       .stat-item { padding: 20px 12px; }
       .giving-card .account-number { font-size: 1.3rem; letter-spacing: 1px; }
       .giving-card .btn-donate { padding: 14px 30px; font-size: 0.95rem; }
+      .contact-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
     }
   </style>
 </head>
@@ -1108,6 +1248,53 @@
     </div>
   </section>
 
+  <!-- ================================================================
+       CONTACT INFO SECTION — ATTRACTIVE CARD
+       ================================================================ -->
+  <section class="contact-info-section" id="contact">
+    <div class="container">
+      <div class="contact-header reveal">
+        <span class="pill-badge"><i class="fas fa-address-card"></i> አግኙን</span>
+        <h2>ያግኙን <span class="gold">መግቢያ</span></h2>
+        <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Location -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-map-pin"></i></div>
+          <h4>አድራሻ</h4>
+          <div class="value">አዲስ አበባ፣ ኢትዮጵያ</div>
+          <div class="sub-label">Ethiopia, Addis Ababa</div>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <h4>ስልክ</h4>
+          <div class="value"><a href="tel:+251911416976">+251-911-416976</a></div>
+          <div class="sub-label">ለመደወል ይጫኑ</div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <h4>ኢሜል</h4>
+          <div class="value"><a href="mailto:Ekklesiaarise2023@gmail.com">Ekklesiaarise2023@gmail.com</a></div>
+          <div class="sub-label">ለመጻፍ ይጫኑ</div>
+        </div>
+
+        <!-- Website -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-globe"></i></div>
+          <h4>ድረ-ገጽ</h4>
+          <div class="value"><a href="https://www.ekklesia-arise.com" target="_blank">www.ekklesia-arise.com</a></div>
+          <div class="sub-label">ጉብኝት ያድርጉ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Giving Section -->
   <section class="giving-section" id="give">
     <div class="container">
@@ -1133,7 +1320,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer" id="contact">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
