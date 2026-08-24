@@ -2,159 +2,1224 @@
 <html lang="am">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ኤክሌሺያ ተነሺ · አግኙን</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>አግኙን · ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</title>
+  <meta name="description" content="Ekklesia Arise Global Ministry - ለጥያቄዎች፣ ለጸሎት ጥያቄዎች ወይም ለተጨማሪ መረጃ ያግኙን" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Noto+Serif+Ethiopic:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #1e2b37; line-height: 1.6; }
-    .navbar {
-      display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 3rem;
-      background: rgba(11, 42, 59, 0.95); backdrop-filter: blur(8px); color: #f5e7d3;
-      position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(201,168,76,0.3);
-      flex-wrap: wrap;
+    /* ================================================================
+       PREMIUM THEME — MATCHING MAIN SITE
+       ================================================================ */
+    :root {
+      --primary: #1E4C8F;
+      --primary-hover: #163A6E;
+      --primary-light: rgba(30, 76, 143, 0.08);
+      --primary-glow: rgba(30, 76, 143, 0.25);
+      --dark-blue: #0E2A4F;
+      --dark-blue-deep: #07192E;
+      --accent: #4A7FC1;
+      --accent-light: #B3D0F0;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --bg-dark: #F8FAFC;
+      --bg-medium: #F1F4F9;
+      --bg-light: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --text-main: #0B1B33;
+      --text-secondary: #1E3A5F;
+      --text-muted: #4A6580;
+      --glass-bg: rgba(255, 255, 255, 0.80);
+      --glass-border: rgba(30, 76, 143, 0.10);
+      --glass-border-strong: rgba(30, 76, 143, 0.20);
+      --shadow-sm: 0 2px 8px rgba(10, 30, 50, 0.04);
+      --shadow-md: 0 8px 30px rgba(10, 30, 50, 0.06);
+      --shadow-lg: 0 20px 60px rgba(10, 30, 50, 0.08);
+      --shadow-xl: 0 32px 80px rgba(10, 30, 50, 0.12);
+      --shadow-card-hover: 0 24px 64px rgba(30, 76, 143, 0.12), 0 0 0 1px rgba(30, 76, 143, 0.08);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-xl: 40px;
+      --radius-full: 9999px;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: all 0.5s var(--ease-out-expo);
+      --transition-fast: all 0.3s var(--ease-out-expo);
     }
-    .logo { display: flex; align-items: center; gap: 0.7rem; cursor: pointer; }
-    .logo i { font-size: 2rem; color: #c9a84c; }
-    .logo div { display: flex; flex-direction: column; line-height: 1.2; }
-    .logo span { font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; }
-    .logo small { font-size: 0.6rem; opacity: 0.8; letter-spacing: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 1.8rem; flex-wrap: wrap; }
-    .nav-links a { color: #f5e7d3; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: 0.3s; padding: 0.4rem 0.8rem; border-radius: 30px; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: #c9a84c; transition: 0.3s; }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 60%; }
-    .nav-links a.active, .nav-links a:hover { background: rgba(201,168,76,0.15); color: #c9a84c; }
-    .lang-toggle { background: transparent; border: 1px solid #c9a84c; color: #f5e7d3; padding: 0.3rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.8rem; transition: 0.3s; }
-    .lang-toggle:hover { background: #c9a84c; color: #0b2a3b; }
-    .lang-en { display: none; }
-    body.lang-en .lang-am { display: none; }
-    body.lang-en .lang-en { display: inline; }
-    .mobile-menu-btn { display: none; background: none; border: none; color: #f5e7d3; font-size: 1.5rem; cursor: pointer; }
-    @media (max-width: 900px) { .mobile-menu-btn { display: block; } .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; padding: 1rem 0; gap: 0.8rem; } .nav-links.open { display: flex; } .navbar { padding: 0.8rem 1.5rem; } }
-    .page-header {
-      padding: 8rem 2rem 4rem;
-      background: linear-gradient(135deg, #0b2a3b 0%, #1a4055 100%);
-      color: #f5e7d3;
+
+    /* ================================================================
+       RESET & BASE
+       ================================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', Georgia, serif; }
+    .amharic { font-family: 'Noto Serif Ethiopic', 'Playfair Display', serif; }
+
+    ::selection { background: var(--primary); color: white; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--dark-blue) 100%);
+      border-radius: 10px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { border: none; outline: none; font-family: inherit; background: transparent; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ================================================================
+       CUSTOM CURSOR SYSTEM
+       ================================================================ */
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.2s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 40px; height: 40px;
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), border-color 0.2s, background 0.2s;
+      opacity: 0.8;
+    }
+    
+    /* Cursor States */
+    body.hover-link .cursor-dot { width: 4px; height: 4px; }
+    body.hover-link .cursor-ring { width: 60px; height: 60px; border-color: var(--primary); background: rgba(30, 76, 143, 0.08); }
+    body.hover-button .cursor-dot { opacity: 0; }
+    body.hover-button .cursor-ring { width: 100%; height: 100%; background: rgba(30, 76, 143, 0.10); border-color: transparent; opacity: 1; border-radius: var(--radius-md); }
+    body.hover-image .cursor-dot { opacity: 0; }
+    body.hover-image .cursor-ring { width: 80px; height: 80px; border-width: 2px; border-color: var(--primary); background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); }
+    body.hover-image .cursor-ring::after { content: 'View'; color: var(--primary); font-size: 0.7rem; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+    /* ================================================================
+       PAGE LOADER
+       ================================================================ */
+    .page-loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--bg-light);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
+    }
+    .page-loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(30, 76, 143, 0.15);
+      margin-bottom: 16px;
+    }
+    .loader-name-amharic {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark-blue);
       text-align: center;
-      border-bottom: 6px solid #c9a84c;
+      line-height: 1.3;
     }
-    .page-header h1 { font-size: 3.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
-    .page-header h1 i { color: #c9a84c; }
-    .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 1rem auto; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 2rem 0; }
-    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
-    .contact-info .info-item { display: flex; align-items: center; gap: 1.5rem; background: white; padding: 1.5rem 2rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: 0.3s; border-left: 6px solid #c9a84c; }
-    .contact-info .info-item:hover { transform: translateX(8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
-    .contact-info .info-item i { font-size: 2rem; color: #c9a84c; }
-    .contact-info .info-item h4 { font-size: 1.1rem; color: #0b2a3b; }
-    .contact-info .info-item p { color: #555; }
-    .contact-form { background: white; padding: 2.5rem; border-radius: 30px; box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
-    .contact-form h3 { font-size: 1.8rem; color: #0b2a3b; margin-bottom: 1.5rem; border-left: 6px solid #c9a84c; padding-left: 1rem; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 1rem; border: 2px solid #e9e1d7; border-radius: 16px; font-size: 1rem; transition: 0.3s; margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: #c9a84c; outline: none; box-shadow: 0 0 0 4px rgba(201,168,76,0.15); }
-    .contact-form textarea { height: 150px; resize: vertical; }
-    .contact-form button { background: #c9a84c; color: #0b2a3b; padding: 1rem 2.5rem; border: none; border-radius: 60px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 0.8rem; }
-    .contact-form button:hover { background: #dbb95c; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,168,76,0.4); }
-    .map-container { border-radius: 30px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.05); margin-top: 2rem; }
-    @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } .page-header h1 { font-size: 2.5rem; } }
-    footer { background: #0b2a3b; color: #c9d1d9; padding: 3rem 2rem; text-align: center; border-top: 4px solid #c9a84c; font-size: 1rem; }
-    footer a { color: #c9a84c; text-decoration: none; transition: 0.3s; }
-    footer a:hover { color: #dbb95c; }
-    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .footer-social a { color: #f5e7d3; font-size: 1.5rem; transition: 0.3s; }
-    .footer-social a:hover { color: #c9a84c; transform: translateY(-3px); }
+    .loader-name-en {
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .loader-cross-spinner {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      margin-top: 10px;
+    }
+    .loader-cross-spinner::before,
+    .loader-cross-spinner::after {
+      content: '';
+      position: absolute;
+      background: var(--primary);
+      border-radius: 4px;
+      animation: crossPulse 1.5s ease-in-out infinite;
+    }
+    .loader-cross-spinner::before { width: 4px; height: 40px; left: 50%; top: 0; transform: translateX(-50%); }
+    .loader-cross-spinner::after { width: 30px; height: 4px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0.3s; }
+    @keyframes crossPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* ================================================================
+       NAVIGATION — Matching Main Site
+       ================================================================ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 10000;
+      transition: var(--transition-smooth);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .navbar.scrolled {
+      box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-inner { padding: 10px 0; }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      z-index: 10001;
+    }
+    .nav-brand .nav-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+    .navbar.scrolled .nav-brand .nav-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .nav-brand-text { line-height: 1.15; }
+    .nav-brand-amharic {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-brand-amharic { font-size: 0.75rem; }
+    .nav-brand-en {
+      font-size: 0.45rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-brand-en { font-size: 0.4rem; }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-menu a {
+      padding: 10px 18px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+      position: relative;
+    }
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%) !important;
+      color: white !important;
+      padding: 12px 28px !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 16px rgba(30, 76, 143, 0.25);
+    }
+    .nav-cta:hover {
+      box-shadow: 0 8px 32px rgba(30, 76, 143, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 48px; height: 48px;
+      background: var(--primary-light);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      cursor: pointer;
+      z-index: 10001;
+      transition: var(--transition-fast);
+    }
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+      position: absolute;
+    }
+    .hamburger span:nth-child(1) { transform: translateY(-7px); }
+    .hamburger span:nth-child(2) { width: 16px; }
+    .hamburger span:nth-child(3) { transform: translateY(7px); }
+    .hamburger.active { background: var(--primary); border-color: var(--primary); }
+    .hamburger.active span { background: white; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); }
+
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 30, 50, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+    }
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+
+    .nav-menu-mobile {
+      position: fixed;
+      top: 0; right: 0;
+      width: 320px;
+      height: 100vh;
+      background: var(--bg-card);
+      flex-direction: column;
+      padding: 100px 40px 60px;
+      gap: 8px;
+      transform: translateX(100%);
+      transition: transform 0.6s var(--ease-out-expo);
+      z-index: 10000;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+      overflow-y: auto;
+      align-items: stretch;
+      display: none;
+      list-style: none;
+    }
+    .nav-menu-mobile.open { transform: translateX(0); }
+    .nav-menu-mobile a {
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      display: block;
+    }
+    .nav-menu-mobile a:hover,
+    .nav-menu-mobile a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .nav-menu-mobile .nav-cta {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* ================================================================
+       PAGE HERO
+       ================================================================ */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #0B1B33 0%, #1E4C8F 50%, #0E2A4F 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(74, 127, 193, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(74, 127, 193, 0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: white;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 i {
+      color: var(--gold);
+      margin-right: 12px;
+    }
+    .page-hero .sub {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .page-hero .sub i {
+      color: var(--gold);
+    }
+
+    /* ================================================================
+       CONTACT SECTION
+       ================================================================ */
+    .contact-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-info .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-info .section-label::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+    .contact-info h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--text-main);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .contact-info h2 .gold {
+      color: var(--gold);
+    }
+    .contact-info > p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--bg-card);
+      padding: 20px 28px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+    .info-item:hover {
+      transform: translateX(8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--glass-border-strong);
+    }
+    .info-item .icon {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--primary);
+      transition: var(--transition-smooth);
+    }
+    .info-item:hover .icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+    .info-item .content h4 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .info-item .content p {
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .info-item .content p a {
+      color: var(--primary);
+      transition: var(--transition-fast);
+    }
+    .info-item .content p a:hover {
+      color: var(--gold);
+    }
+
+    /* Working Hours Box */
+    .hours-box {
+      background: var(--bg-dark);
+      border-radius: var(--radius-md);
+      padding: 24px 32px;
+      border-left: 4px solid var(--gold);
+      margin-top: 8px;
+    }
+    .hours-box h4 {
+      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .hours-box h4 i {
+      color: var(--gold);
+      margin-right: 8px;
+    }
+    .hours-box p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--bg-card);
+      padding: 40px 36px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--glass-border);
+    }
+    .contact-form h3 {
+      font-size: 1.6rem;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .contact-form h3 .gold {
+      color: var(--gold);
+    }
+    .contact-form .form-group {
+      margin-bottom: 18px;
+    }
+    .contact-form label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .contact-form label .required {
+      color: #e74c3c;
+    }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition-fast);
+      background: var(--bg-light);
+      color: var(--text-main);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 4px var(--primary-light);
+    }
+    .contact-form textarea {
+      height: 140px;
+      resize: vertical;
+    }
+    .contact-form .btn-submit {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+      color: white;
+      padding: 16px 40px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 8px 32px rgba(30, 76, 143, 0.25);
+    }
+    .contact-form .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(30, 76, 143, 0.35);
+    }
+    .contact-form .btn-submit i {
+      font-size: 1.1rem;
+    }
+
+    /* Map */
+    .map-section {
+      padding: 0 0 80px 0;
+      background: var(--bg-light);
+    }
+    .map-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--glass-border);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      display: block;
+    }
+
+    /* ================================================================
+       SECTION HEADERS
+       ================================================================ */
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-title { font-size: clamp(2rem, 4.5vw, 3.4rem); color: var(--text-main); font-weight: 800; margin: 18px 0 16px; line-height: 1.15; }
+    .section-title .gold { color: var(--gold); }
+    .section-subtitle { color: var(--text-muted); font-size: 1.08rem; max-width: 620px; margin: 0 auto; line-height: 1.8; }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      padding: 8px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      transition: var(--transition-fast);
+    }
+
+    /* ================================================================
+       FOOTER — Matching Main Site
+       ================================================================ */
+    .site-footer {
+      background: var(--bg-dark);
+      color: var(--text-muted);
+      padding: 80px 0 0;
+      position: relative;
+    }
+    .site-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--glass-border-strong), transparent);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .footer-brand h3 {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .footer-brand p {
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-size: 0.92rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+    .footer-social a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(30,76,143,0.25);
+    }
+    .footer-col h4 {
+      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 14px;
+    }
+    .footer-col ul li a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-col ul li a:hover {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+    .footer-contact p {
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .footer-contact i {
+      color: var(--primary);
+      margin-top: 3px;
+      min-width: 16px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid rgba(30,76,143,0.06);
+      font-size: 0.82rem;
+    }
+    .footer-bottom a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================================================================
+       BACK TO TOP
+       ================================================================ */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      z-index: 9999;
+      box-shadow: 0 8px 24px rgba(30,76,143,0.30);
+      transition: var(--transition-smooth);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      cursor: pointer;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: 0 12px 36px rgba(30,76,143,0.40);
+    }
+
+    /* ================================================================
+       RESPONSIVE
+       ================================================================ */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-menu-mobile {
+        display: flex;
+      }
+      .page-hero {
+        padding: 120px 0 60px;
+      }
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .contact-form {
+        padding: 30px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .info-item {
+        padding: 16px 20px;
+      }
+      .info-item .icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 1rem;
+      }
+      .map-container iframe {
+        height: 280px;
+      }
+      .hours-box {
+        padding: 18px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+      .page-hero .sub {
+        font-size: 0.9rem;
+        gap: 8px;
+      }
+      .contact-form {
+        padding: 20px 16px;
+      }
+      .contact-form .btn-submit {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <img src="logo.jpg" alt="Ekklesia Arise Logo" class="loader-logo-img" onerror="this.src='https://placehold.co/80x80/FFFFFF/1E4C8F?text=EA'" />
+    <div class="loader-name-amharic">የኤክሌሺያ ተነሺ አገልግሎት</div>
+    <div class="loader-name-en">Ekklesia Arise Global Ministry</div>
+    <div class="loader-cross-spinner"></div>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Navigation -->
   <nav class="navbar" id="navbar">
-    <div class="logo" onclick="window.location.href='index.html'">
-      <i class="fas fa-church"></i>
-      <div><span>ኤክሌሺያ ተነሺ</span><small>ግሎባል ሚኒስትሪ</small></div>
-    </div>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
-      <a href="services.html"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
-      <a href="contact.html" class="active"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
-      <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <img src="logo.jpg" alt="Ekklesia Arise Logo" class="nav-logo-img" onerror="this.src='https://placehold.co/44x44/FFFFFF/1E4C8F?text=EA'" />
+          <div class="nav-brand-text">
+            <div class="nav-brand-amharic amharic">ኤክሌሺያ ተነሺ</div>
+            <div class="nav-brand-en">Ekklesia Arise Global Ministry</div>
+          </div>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
+          <li><a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
+          <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> አግኙን</a></li>
+          <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <section class="page-header">
-    <h1><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact Us</span></h1>
-    <p><span class="lang-am">ለጥያቄዎች፣ ለጸሎት ጥያቄዎች ወይም ለተጨማሪ መረጃ ያግኙን</span><span class="lang-en">Reach out for questions, prayer requests, or more information</span></p>
+  <!-- Mobile Menu -->
+  <ul class="nav-menu-mobile" id="navMenuMobile">
+    <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
+    <li><a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
+    <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> አግኙን</a></li>
+    <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+  </ul>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1><i class="fas fa-envelope"></i> አግኙን</h1>
+      <div class="sub">
+        <i class="fas fa-heart"></i>
+        <span>ለጥያቄዎች፣ ለጸሎት ጥያቄዎች ወይም ለተጨማሪ መረጃ ያግኙን</span>
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
   </section>
 
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <div><h4><span class="lang-am">አድራሻ</span><span class="lang-en">Address</span></h4><p><span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span></p></div>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <div>
+            <span class="section-label"><i class="fas fa-address-card"></i> ያግኙን</span>
+            <h2>እንዴት <span class="gold">እናገኛለን?</span></h2>
+            <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ። መልእክትዎን በፍጥነት ለመመለስ እንጥራለን።</p>
+          </div>
+
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-map-pin"></i></div>
+            <div class="content">
+              <h4>አድራሻ</h4>
+              <p>አዲስ አበባ፣ ኢትዮጵያ</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="content">
+              <h4>ስልክ</h4>
+              <p><a href="tel:+251911416976">+251-911-416976</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-envelope"></i></div>
+            <div class="content">
+              <h4>ኢሜይል</h4>
+              <p><a href="mailto:Ekklesiaarise2023@gmail.com">Ekklesiaarise2023@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-globe"></i></div>
+            <div class="content">
+              <h4>ድረ-ገጽ</h4>
+              <p><a href="https://www.ekklesia-arise.com" target="_blank">www.ekklesia-arise.com</a></p>
+            </div>
+          </div>
+
+          <div class="hours-box">
+            <h4><i class="fas fa-clock"></i> የስራ ሰዓት</h4>
+            <p><strong>ሰኞ - ቅዳሜ:</strong> 9:00 ጠዋት - 6:00 ማታ</p>
+            <p><strong>እሁድ:</strong> ከአገልግሎት በኋላ</p>
+          </div>
         </div>
-        <div class="info-item">
-          <i class="fas fa-phone-alt"></i>
-          <div><h4><span class="lang-am">ስልክ</span><span class="lang-en">Phone</span></h4><p>+251-911-416976</p></div>
+
+        <!-- Contact Form -->
+        <div class="contact-form reveal">
+          <h3>መልእክት <span class="gold">ይላኩ</span></h3>
+          <form id="contactForm" onsubmit="event.preventDefault(); alert('ስለመልእክትዎ እናመሰግናለን! በቅርቡ እንመልሳለን። / Thank you for your message! We will respond shortly.');">
+            <div class="form-group">
+              <label for="fullName">ሙሉ ስም <span class="required">*</span></label>
+              <input type="text" id="fullName" placeholder="ሙሉ ስምዎን ያስገቡ" required />
+            </div>
+            <div class="form-group">
+              <label for="email">ኢሜይል <span class="required">*</span></label>
+              <input type="email" id="email" placeholder="ኢሜይልዎን ያስገቡ" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">ርዕስ</label>
+              <input type="text" id="subject" placeholder="የመልእክትዎ ርዕስ" />
+            </div>
+            <div class="form-group">
+              <label for="message">መልእክት <span class="required">*</span></label>
+              <textarea id="message" placeholder="መልእክትዎን ይጻፉ..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> መልእክት ላክ
+            </button>
+          </form>
         </div>
-        <div class="info-item">
-          <i class="fas fa-envelope"></i>
-          <div><h4><span class="lang-am">ኢሜይል</span><span class="lang-en">Email</span></h4><p>Ekklesiaarise2023@gmail.com</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-container reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126268.52141945378!2d38.66697665!3d8.9806034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85a2b8b8b8b9%3A0x8b8b8b8b8b8b8b8b!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="amharic">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</h3>
+          <p>ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-        <div class="info-item">
-          <i class="fas fa-globe"></i>
-          <div><h4><span class="lang-am">ድረ-ገጽ</span><span class="lang-en">Website</span></h4><p>www.ekklesia-arise.com</p></div>
+
+        <div class="footer-col">
+          <h4>ፈጣን አገናኞች</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> መነሻ</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ስለእኛ</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አገልግሎቶች</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አግኙን</a></li>
+            <li><a href="give.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ይለግሱ</a></li>
+          </ul>
         </div>
-        <div style="background: #0b2a3b; color: #f5e7d3; padding: 2rem; border-radius: 20px; text-align: center;">
-          <h4 style="color: #c9a84c; margin-bottom: 0.5rem;"><i class="fas fa-clock"></i> <span class="lang-am">የስራ ሰዓት</span><span class="lang-en">Working Hours</span></h4>
-          <p><span class="lang-am">ሰኞ - ቅዳሜ: 9:00 ጠዋት - 6:00 ማታ</span><span class="lang-en">Mon - Sat: 9:00 AM - 6:00 PM</span></p>
-          <p><span class="lang-am">እሁድ: ከአገልግሎት በኋላ</span><span class="lang-en">Sunday: After service</span></p>
+
+        <div class="footer-col">
+          <h4>አገልግሎቶች</h4>
+          <ul>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቃል ማስተማር</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የደቀ መዝሙር ሥልጠና</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የሕትመት አገልግሎት</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቤተክርስቲያን ተሃድሶ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>ያግኙን</h4>
+          <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
+          <p><i class="fas fa-phone"></i> +251-911-416976</p>
+          <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+          <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
         </div>
       </div>
 
-      <div class="contact-form">
-        <h3><span class="lang-am">መልእክት ይላኩ</span><span class="lang-en">Send a Message</span></h3>
-        <form>
-          <input type="text" placeholder="ሙሉ ስም / Full Name" required />
-          <input type="email" placeholder="ኢሜይል / Email" required />
-          <input type="text" placeholder="ርዕስ / Subject" />
-          <textarea placeholder="መልእክትዎ / Your Message" required></textarea>
-          <button type="submit"><i class="fas fa-paper-plane"></i> <span class="lang-am">ላክ</span><span class="lang-en">Send</span></button>
-        </form>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ · Ekklesia Arise Global Ministry. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
       </div>
     </div>
-
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126268.52141945378!2d38.66697665!3d8.9806034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85a2b8b8b8b9%3A0x8b8b8b8b8b8b8b8b!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1700000000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="#"><i class="fab fa-telegram"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-    <p><i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
-    <p style="margin-top:0.8rem; opacity:0.7;">© 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a></p>
   </footer>
 
   <script>
-    function toggleLanguage() {
-      document.body.classList.toggle('lang-en');
-      const btn = document.getElementById('langBtnText');
-      if (document.body.classList.contains('lang-en')) { btn.textContent = 'አማርኛ'; } else { btn.textContent = 'English'; }
+    // ================================================================
+    // CUSTOM CURSOR LOGIC
+    // ================================================================
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+      
+      const target = e.target;
+      if (target.closest('a') || target.closest('button')) {
+        document.body.classList.add('hover-link');
+        document.body.classList.remove('hover-button');
+      } else {
+        document.body.classList.remove('hover-link', 'hover-button');
+      }
+    });
+
+    function animateCursor() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateCursor);
     }
-    function toggleMobileMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
+    animateCursor();
+
+    // ================================================================
+    // PAGE LOADER
+    // ================================================================
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('loaded');
+      }, 800);
+    });
+
+    // ================================================================
+    // NAVBAR SCROLL
+    // ================================================================
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 60);
+      backToTop.classList.toggle('visible', y > 600);
+    });
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ================================================================
+    // MOBILE MENU
+    // ================================================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('navMenuMobile');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
     }
-    window.addEventListener('scroll', function() {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileOverlay.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // ================================================================
+    // SCROLL REVEAL
+    // ================================================================
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.info-item, .hours-box, .contact-form, .map-container, .reveal').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      revealObserver.observe(el);
+    });
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .info-item.visible, .hours-box.visible, .contact-form.visible, .map-container.visible, .reveal.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    setTimeout(() => {
+      document.querySelectorAll('.info-item, .hours-box, .contact-form, .map-container, .reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    }, 100);
+
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.info-item, .hours-box, .contact-form, .map-container, .reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
     });
   </script>
+
 </body>
 </html>
