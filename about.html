@@ -355,7 +355,7 @@
     }
     .about-text .highlight {
       background: var(--primary-light);
-      border-left: 4px solid var(--primary);
+      border-left: 4px solid var(--gold);
       padding: 20px 28px;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       margin: 24px 0;
@@ -503,8 +503,8 @@
       transition: var(--transition-smooth);
     }
     .team-card:hover .avatar {
-      border-color: var(--primary);
-      background: var(--primary);
+      border-color: var(--gold);
+      background: var(--gold);
       color: white;
     }
     .team-card h4 {
@@ -566,6 +566,8 @@
       font-size: 1rem;
       transition: var(--transition-smooth);
       box-shadow: 0 8px 32px rgba(201, 168, 76, 0.30);
+      cursor: pointer;
+      text-decoration: none;
     }
     .btn-primary:hover {
       transform: translateY(-3px);
@@ -583,6 +585,8 @@
       font-size: 1rem;
       border: 1px solid rgba(255,255,255,0.20);
       transition: var(--transition-smooth);
+      cursor: pointer;
+      text-decoration: none;
     }
     .btn-secondary:hover {
       background: rgba(255,255,255,0.20);
@@ -900,13 +904,13 @@
           <p>አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</p>
 
           <div class="highlight">
-            <i class="fas fa-quote-left" style="color:var(--primary); font-size:1.2rem; margin-bottom:8px; display:block;"></i>
+            <i class="fas fa-quote-left" style="color:var(--gold); font-size:1.2rem; margin-bottom:8px; display:block;"></i>
             <p style="margin-bottom:0; font-style:italic; font-size:1rem;">
               "ምድር እግዚአብሔርን በማወቅ ትሞላለች" — ኢሳይያስ 11:9
             </p>
           </div>
 
-          <a href="services.html" class="btn-primary" style="display:inline-flex; margin-top:12px;">
+          <a href="services.html" class="btn-primary" style="display:inline-flex; margin-top:12px; text-decoration:none;">
             <i class="fas fa-arrow-right"></i> አገልግሎቶቻችንን ይመልከቱ
           </a>
         </div>
@@ -1124,7 +1128,6 @@
       revealObserver.observe(el);
     });
 
-    // Handle visibility separately
     const style = document.createElement('style');
     style.textContent = `
       .mv-card.visible, .team-card.visible, .stat-mini-item.visible, .about-text.visible, .about-image.visible {
@@ -1134,7 +1137,6 @@
     `;
     document.head.appendChild(style);
 
-    // Trigger initial visibility check
     setTimeout(() => {
       document.querySelectorAll('.mv-card, .team-card, .stat-mini-item, .about-text, .about-image').forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -1144,7 +1146,6 @@
       });
     }, 100);
 
-    // Also check on scroll
     document.addEventListener('scroll', () => {
       document.querySelectorAll('.mv-card, .team-card, .stat-mini-item, .about-text, .about-image').forEach(el => {
         const rect = el.getBoundingClientRect();
