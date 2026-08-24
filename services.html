@@ -2,221 +2,1309 @@
 <html lang="am">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ኤክሌሺያ ተነሺ · አገልግሎቶች</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>አገልግሎቶች · ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</title>
+  <meta name="description" content="Ekklesia Arise Global Ministry - ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Noto+Serif+Ethiopic:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #1e2b37; line-height: 1.6; }
+    /* ================================================================
+       PREMIUM THEME — MATCHING MAIN SITE
+       ================================================================ */
+    :root {
+      --primary: #1E4C8F;
+      --primary-hover: #163A6E;
+      --primary-light: rgba(30, 76, 143, 0.08);
+      --primary-glow: rgba(30, 76, 143, 0.25);
+      --dark-blue: #0E2A4F;
+      --dark-blue-deep: #07192E;
+      --accent: #4A7FC1;
+      --accent-light: #B3D0F0;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --bg-dark: #F8FAFC;
+      --bg-medium: #F1F4F9;
+      --bg-light: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --text-main: #0B1B33;
+      --text-secondary: #1E3A5F;
+      --text-muted: #4A6580;
+      --glass-bg: rgba(255, 255, 255, 0.80);
+      --glass-border: rgba(30, 76, 143, 0.10);
+      --glass-border-strong: rgba(30, 76, 143, 0.20);
+      --shadow-sm: 0 2px 8px rgba(10, 30, 50, 0.04);
+      --shadow-md: 0 8px 30px rgba(10, 30, 50, 0.06);
+      --shadow-lg: 0 20px 60px rgba(10, 30, 50, 0.08);
+      --shadow-xl: 0 32px 80px rgba(10, 30, 50, 0.12);
+      --shadow-card-hover: 0 24px 64px rgba(30, 76, 143, 0.12), 0 0 0 1px rgba(30, 76, 143, 0.08);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-xl: 40px;
+      --radius-full: 9999px;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: all 0.5s var(--ease-out-expo);
+      --transition-fast: all 0.3s var(--ease-out-expo);
+    }
+
+    /* ================================================================
+       RESET & BASE
+       ================================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', Georgia, serif; }
+    .amharic { font-family: 'Noto Serif Ethiopic', 'Playfair Display', serif; }
+
+    ::selection { background: var(--primary); color: white; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--dark-blue) 100%);
+      border-radius: 10px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { border: none; outline: none; font-family: inherit; background: transparent; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ================================================================
+       CUSTOM CURSOR SYSTEM
+       ================================================================ */
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.2s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 40px; height: 40px;
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), border-color 0.2s, background 0.2s;
+      opacity: 0.8;
+    }
+    
+    /* Cursor States */
+    body.hover-link .cursor-dot { width: 4px; height: 4px; }
+    body.hover-link .cursor-ring { width: 60px; height: 60px; border-color: var(--primary); background: rgba(30, 76, 143, 0.08); }
+    body.hover-button .cursor-dot { opacity: 0; }
+    body.hover-button .cursor-ring { width: 100%; height: 100%; background: rgba(30, 76, 143, 0.10); border-color: transparent; opacity: 1; border-radius: var(--radius-md); }
+    body.hover-image .cursor-dot { opacity: 0; }
+    body.hover-image .cursor-ring { width: 80px; height: 80px; border-width: 2px; border-color: var(--primary); background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); }
+    body.hover-image .cursor-ring::after { content: 'View'; color: var(--primary); font-size: 0.7rem; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+    /* ================================================================
+       NAVIGATION — Matching Main Site
+       ================================================================ */
     .navbar {
-      display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 3rem;
-      background: rgba(11, 42, 59, 0.95); backdrop-filter: blur(10px); color: #f5e7d3;
-      position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(201,168,76,0.25);
-      flex-wrap: wrap; transition: 0.3s;
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 10000;
+      transition: var(--transition-smooth);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
     }
-    .navbar.scrolled { background: rgba(11, 42, 59, 0.98); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-    .logo { display: flex; align-items: center; gap: 0.7rem; cursor: pointer; }
-    .logo i { font-size: 2rem; color: #c9a84c; }
-    .logo div { display: flex; flex-direction: column; line-height: 1.2; }
-    .logo span { font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; }
-    .logo small { font-size: 0.6rem; opacity: 0.8; letter-spacing: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-    .nav-links a { color: #f5e7d3; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.4rem; transition: 0.3s; padding: 0.4rem 0.8rem; border-radius: 30px; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: #c9a84c; transition: 0.3s; }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 50%; }
-    .nav-links a.active, .nav-links a:hover { background: rgba(201,168,76,0.12); color: #c9a84c; }
-    .lang-toggle { background: transparent; border: 1px solid #c9a84c; color: #f5e7d3; padding: 0.3rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.8rem; transition: 0.3s; }
-    .lang-toggle:hover { background: #c9a84c; color: #0b2a3b; }
-    .lang-en { display: none; }
-    body.lang-en .lang-am { display: none; }
-    body.lang-en .lang-en { display: inline; }
+    .navbar.scrolled {
+      box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+    }
 
-    .page-hero {
-      padding: 10rem 2rem 5rem;
-      background: linear-gradient(135deg, #1a3a2a 0%, #0b2a3b 70%, #1b4a5e 100%);
-      color: #f5e7d3;
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-inner { padding: 10px 0; }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      z-index: 10001;
+    }
+    .nav-brand .nav-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+    .navbar.scrolled .nav-brand .nav-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .nav-brand-text { line-height: 1.15; }
+    .nav-brand-amharic {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-brand-amharic { font-size: 0.75rem; }
+    .nav-brand-en {
+      font-size: 0.45rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+    }
+    .navbar.scrolled .nav-brand-en { font-size: 0.4rem; }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-menu a {
+      padding: 10px 18px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+      position: relative;
+    }
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%) !important;
+      color: white !important;
+      padding: 12px 28px !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 16px rgba(30, 76, 143, 0.25);
+    }
+    .nav-cta:hover {
+      box-shadow: 0 8px 32px rgba(30, 76, 143, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 48px; height: 48px;
+      background: var(--primary-light);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      cursor: pointer;
+      z-index: 10001;
+      transition: var(--transition-fast);
+    }
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+      position: absolute;
+    }
+    .hamburger span:nth-child(1) { transform: translateY(-7px); }
+    .hamburger span:nth-child(2) { width: 16px; }
+    .hamburger span:nth-child(3) { transform: translateY(7px); }
+    .hamburger.active { background: var(--primary); border-color: var(--primary); }
+    .hamburger.active span { background: white; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); }
+
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 30, 50, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+    }
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+
+    .nav-menu-mobile {
+      position: fixed;
+      top: 0; right: 0;
+      width: 320px;
+      height: 100vh;
+      background: var(--bg-card);
+      flex-direction: column;
+      padding: 100px 40px 60px;
+      gap: 8px;
+      transform: translateX(100%);
+      transition: transform 0.6s var(--ease-out-expo);
+      z-index: 10000;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+      overflow-y: auto;
+      align-items: stretch;
+      display: none;
+      list-style: none;
+    }
+    .nav-menu-mobile.open { transform: translateX(0); }
+    .nav-menu-mobile a {
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      display: block;
+    }
+    .nav-menu-mobile a:hover,
+    .nav-menu-mobile a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .nav-menu-mobile .nav-cta {
+      margin-top: 16px;
       text-align: center;
-      border-bottom: 6px solid #c9a84c;
     }
-    .page-hero h1 { font-size: 4rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .page-hero h1 i { color: #c9a84c; }
-    .page-hero .sub { font-size: 1.5rem; font-weight: 300; margin: 1.2rem 0 0.8rem; display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
-    .page-hero .sub i { color: #c9a84c; }
 
-    .container { max-width: 1300px; margin: 0 auto; padding: 2rem 2rem; }
+    /* ================================================================
+       PAGE HERO
+       ================================================================ */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #0B1B33 0%, #1E4C8F 50%, #0E2A4F 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(74, 127, 193, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(74, 127, 193, 0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: white;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 i {
+      color: var(--gold);
+      margin-right: 12px;
+    }
+    .page-hero .sub {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .page-hero .sub i {
+      color: var(--gold);
+    }
 
+    /* ================================================================
+       SERVICES GRID
+       ================================================================ */
+    .services-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      margin: 3rem 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
     }
     .service-card {
-      background: white;
-      border-radius: 28px;
-      padding: 2.5rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-      transition: 0.35s ease;
-      border-bottom: 5px solid #c9a84c;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
-    .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
-    .service-icon { font-size: 3rem; color: #c9a84c; margin-bottom: 1rem; }
-    .service-card h3 { font-size: 1.6rem; color: #0b2a3b; margin-bottom: 0.8rem; }
-    .service-card p { color: #555; font-size: 1rem; margin-bottom: 1rem; }
-    .service-card ul { list-style: none; }
-    .service-card ul li { padding: 0.4rem 0; display: flex; align-items: center; gap: 0.6rem; color: #444; }
-    .service-card ul li i { color: #c9a84c; font-size: 1rem; }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--primary));
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--glass-border-strong);
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+      transition: var(--transition-smooth);
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+      color: var(--primary);
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .service-card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .service-card ul li {
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .service-card ul li:last-child {
+      border-bottom: none;
+    }
+    .service-card ul li i {
+      color: var(--gold);
+      font-size: 0.85rem;
+      min-width: 18px;
+    }
 
-    .btn-gold {
-      background: #c9a84c; color: #0b2a3b; padding: 0.9rem 2.8rem; border-radius: 60px;
-      font-weight: 700; text-decoration: none; display: inline-flex; align-items: center;
-      gap: 0.8rem; transition: 0.3s; box-shadow: 0 12px 30px rgba(201,168,76,0.3);
+    /* ================================================================
+       CONTACT INFO SECTION — ATTRACTIVE CARD
+       ================================================================ */
+    .contact-info-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0B1B33 0%, #1E4C8F 60%, #0E2A4F 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-info-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(74, 127, 193, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .contact-info-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--accent-light));
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+    .contact-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.20);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+    }
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+    .contact-card .icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.6rem;
+      color: var(--gold);
+      transition: var(--transition-smooth);
+    }
+    .contact-card:hover .icon {
+      background: var(--gold);
+      color: var(--dark-blue);
+      transform: scale(1.1);
+    }
+    .contact-card h4 {
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0.6;
+    }
+    .contact-card .value {
+      color: white;
       font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.4;
+      word-break: break-word;
     }
-    .btn-gold:hover { transform: translateY(-4px); background: #dbb95c; box-shadow: 0 18px 40px rgba(201,168,76,0.45); }
-
-    footer {
-      background: #0b2a3b; color: #c9d1d9; padding: 3rem 2rem; text-align: center;
-      border-top: 4px solid #c9a84c; font-size: 0.95rem;
+    .contact-card .value a {
+      color: var(--gold);
+      transition: var(--transition-fast);
+      text-decoration: none;
     }
-    footer a { color: #c9a84c; text-decoration: none; transition: 0.3s; }
-    footer a:hover { color: #dbb95c; }
-    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .footer-social a { color: #f5e7d3; font-size: 1.5rem; transition: 0.3s; }
-    .footer-social a:hover { color: #c9a84c; transform: translateY(-3px); }
+    .contact-card .value a:hover {
+      color: white;
+    }
+    .contact-card .sub-label {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
 
-    @media (max-width: 700px) {
-      .navbar { padding: 0.8rem 1.5rem; }
-      .page-hero h1 { font-size: 2.5rem; }
-      .page-hero .sub { font-size: 1.1rem; }
+    .contact-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .contact-header .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      padding: 8px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(8px);
+      transition: var(--transition-fast);
+    }
+    .contact-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: white;
+      font-weight: 800;
+      margin: 16px 0 8px;
+    }
+    .contact-header h2 .gold {
+      color: var(--gold);
+    }
+    .contact-header p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
+       CTA SECTION
+       ================================================================ */
+    .cta-section {
+      padding: 80px 0;
+      background: var(--bg-dark);
+      text-align: center;
+    }
+    .cta-section .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--gold) 0%, #b8942e 100%);
+      color: var(--dark-blue);
+      padding: 18px 48px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: var(--transition-smooth);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.30);
+      text-decoration: none;
+    }
+    .cta-section .btn-gold:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(201, 168, 76, 0.45);
+    }
+
+    /* ================================================================
+       FOOTER — Matching Main Site
+       ================================================================ */
+    .site-footer {
+      background: var(--bg-dark);
+      color: var(--text-muted);
+      padding: 80px 0 0;
+      position: relative;
+    }
+    .site-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--glass-border-strong), transparent);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .footer-brand h3 {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .footer-brand p {
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-size: 0.92rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+    .footer-social a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(30,76,143,0.25);
+    }
+    .footer-col h4 {
+      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 14px;
+    }
+    .footer-col ul li a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-col ul li a:hover {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+    .footer-contact p {
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .footer-contact i {
+      color: var(--primary);
+      margin-top: 3px;
+      min-width: 16px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid rgba(30,76,143,0.06);
+      font-size: 0.82rem;
+    }
+    .footer-bottom a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================================================================
+       BACK TO TOP
+       ================================================================ */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      z-index: 9999;
+      box-shadow: 0 8px 24px rgba(30,76,143,0.30);
+      transition: var(--transition-smooth);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      cursor: pointer;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: 0 12px 36px rgba(30,76,143,0.40);
+    }
+
+    /* ================================================================
+       SECTION HEADERS
+       ================================================================ */
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-title { font-size: clamp(2rem, 4.5vw, 3.4rem); color: var(--text-main); font-weight: 800; margin: 18px 0 16px; line-height: 1.15; }
+    .section-title .gold { color: var(--gold); }
+    .section-subtitle { color: var(--text-muted); font-size: 1.08rem; max-width: 620px; margin: 0 auto; line-height: 1.8; }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      padding: 8px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      transition: var(--transition-fast);
+    }
+
+    /* ================================================================
+       RESPONSIVE
+       ================================================================ */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-menu-mobile {
+        display: flex;
+      }
+      .page-hero {
+        padding: 120px 0 60px;
+      }
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .contact-card {
+        padding: 24px 16px;
+      }
+      .contact-card .value {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+      .page-hero .sub {
+        font-size: 0.9rem;
+        gap: 8px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .service-card {
+        padding: 28px 20px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <img src="logo.jpg" alt="Ekklesia Arise Logo" class="loader-logo-img" onerror="this.src='https://placehold.co/80x80/FFFFFF/1E4C8F?text=EA'" />
+    <div class="loader-name-amharic">የኤክሌሺያ ተነሺ አገልግሎት</div>
+    <div class="loader-name-en">Ekklesia Arise Global Ministry</div>
+    <div class="loader-cross-spinner"></div>
+  </div>
+
+  <!-- Page Loader Styles -->
+  <style>
+    .page-loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--bg-light);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
+    }
+    .page-loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(30, 76, 143, 0.15);
+      margin-bottom: 16px;
+    }
+    .loader-name-amharic {
+      font-family: 'Noto Serif Ethiopic', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .loader-name-en {
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .loader-cross-spinner {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      margin-top: 10px;
+    }
+    .loader-cross-spinner::before,
+    .loader-cross-spinner::after {
+      content: '';
+      position: absolute;
+      background: var(--primary);
+      border-radius: 4px;
+      animation: crossPulse 1.5s ease-in-out infinite;
+    }
+    .loader-cross-spinner::before { width: 4px; height: 40px; left: 50%; top: 0; transform: translateX(-50%); }
+    .loader-cross-spinner::after { width: 30px; height: 4px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0.3s; }
+    @keyframes crossPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  </style>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Navigation -->
   <nav class="navbar" id="navbar">
-    <div class="logo" onclick="window.location.href='index.html'">
-      <i class="fas fa-church"></i>
-      <div>
-        <span>ኤክሌሺያ ተነሺ</span>
-        <small>ግሎባል ሚኒስትሪ</small>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <img src="logo.jpg" alt="Ekklesia Arise Logo" class="nav-logo-img" onerror="this.src='https://placehold.co/44x44/FFFFFF/1E4C8F?text=EA'" />
+          <div class="nav-brand-text">
+            <div class="nav-brand-amharic amharic">ኤክሌሺያ ተነሺ</div>
+            <div class="nav-brand-en">Ekklesia Arise Global Ministry</div>
+          </div>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
+          <li><a href="services.html" class="active"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a></li>
+          <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </div>
-    <div class="nav-links">
-      <a href="index.html"><i class="fas fa-home"></i> <span class="lang-am">መነሻ</span><span class="lang-en">Home</span></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> <span class="lang-am">ስለእኛ</span><span class="lang-en">About</span></a>
-      <a href="services.html" class="active"><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Services</span></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> <span class="lang-am">አግኙን</span><span class="lang-en">Contact</span></a>
-      <button class="lang-toggle" onclick="toggleLanguage()"><i class="fas fa-language"></i> <span id="langBtnText">English</span></button>
     </div>
   </nav>
 
-  <div class="page-hero">
-    <h1><i class="fas fa-hands-praying"></i> <span class="lang-am">አገልግሎቶች</span><span class="lang-en">Our Services</span></h1>
-    <div class="sub">
-      <i class="fas fa-star"></i>
-      <span class="lang-am">ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች</span>
-      <span class="lang-en">Services we offer for God's Kingdom</span>
-      <i class="fas fa-star"></i>
-    </div>
-  </div>
+  <!-- Mobile Menu -->
+  <ul class="nav-menu-mobile" id="navMenuMobile">
+    <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
+    <li><a href="services.html" class="active"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a></li>
+    <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+  </ul>
 
-  <div class="container">
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-bible"></i></div>
-        <h3><span class="lang-am">የቃል ማስተማር</span><span class="lang-en">Bible Teaching</span></h3>
-        <p><span class="lang-am">መጽሐፍ ቅዱስን በጥልቀት በማጥናት እና በማስተማር የእግዚአብሔርን ሙሉ ምክር ለሰዎች ማድረስ።</span><span class="lang-en">Deep Bible study and teaching to deliver God's full counsel to people.</span></p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የመጽሐፍ ቅዱስ አፈታት ሥልጠና</span><span class="lang-en">Bible Study Training</span></li>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የዘመን ትምህርት ሴሚናሮች</span><span class="lang-en">Eschatology Seminars</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
-        <h3><span class="lang-am">የደቀ መዝሙር ሥልጠና</span><span class="lang-en">Discipleship Training</span></h3>
-        <p><span class="lang-am">የጢራኖስ የደቀ መዝሙር ትምህርት ቤት አማካኝነት አገልጋዮችን ማሰልጠን።</span><span class="lang-en">Training servants through the Tyrannus Discipleship School.</span></p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የ4 ሳምንት አዳሪ ሥልጠና</span><span class="lang-en">4-Week Residential Training</span></li>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">10 ዙር ተመራቂዎች</span><span class="lang-en">10 Cohorts Graduated</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-book-open"></i></div>
-        <h3><span class="lang-am">የሕትመት አገልግሎት</span><span class="lang-en">Publishing Ministry</span></h3>
-        <p><span class="lang-am">17 የሚያህሉ መጻሕፍትን በማሳተም የእግዚአብሔርን ቃል ለብዙሃኑ ማድረስ።</span><span class="lang-en">Publishing over 17 books to spread God's Word to the masses.</span></p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">መንፈሳዊ መጻሕፍት</span><span class="lang-en">Spiritual Books</span></li>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የሥልጠና መመሪያዎች</span><span class="lang-en">Training Manuals</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-church"></i></div>
-        <h3><span class="lang-am">የቤተክርስቲያን ተሃድሶ</span><span class="lang-en">Church Revival</span></h3>
-        <p><span class="lang-am">በጸሎትና በቃል አገልግሎት አብያተ ክርስቲያናትን ለተሃድሶ ማዘጋጀት።</span><span class="lang-en">Preparing churches for revival through prayer and Word ministry.</span></p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የጸሎት ጉባኤዎች</span><span class="lang-en">Prayer Conferences</span></li>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የተሃድሶ ስብከቶች</span><span class="lang-en">Revival Campaigns</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-globe-africa"></i></div>
-        <h3><span class="lang-am">የወንጌል ዘመቻዎች</span><span class="lang-en">Gospel Campaigns</span></h3>
-        <p><span class="lang-am">በኢትዮጵያ እና በ15 አገራት የወንጌል ዘመቻዎችን ማካሄድ።</span><span class="lang-en">Conducting gospel campaigns in Ethiopia and 15 nations.</span></p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የጅምላ ስብከቶች</span><span class="lang-en">Mass Evangelism</span></li>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የአገር ውስጥ ዘመቻዎች</span><span class="lang-en">Local Campaigns</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
-        <h3><span class="lang-am">የማህበረሰብ አገልግሎት</span><span class="lang-en">Community Service</span></h3>
-        <p><span class="lang-am">በማህበረሰብ ውስጥ በተግባራዊ አገልግሎት የእግዚአብሔርን ፍቅር ማሳየት።</span><span class="lang-en">Demonstrating God's love through practical community service.</span></p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የማህበረሰብ ፕሮጀክቶች</span><span class="lang-en">Community Projects</span></li>
-          <li><i class="fas fa-check-circle"></i> <span class="lang-am">የድጋፍ ፕሮግራሞች</span><span class="lang-en">Support Programs</span></li>
-        </ul>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1><i class="fas fa-hands-praying"></i> አገልግሎቶች</h1>
+      <div class="sub">
+        <i class="fas fa-star"></i>
+        <span>ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች</span>
+        <i class="fas fa-star"></i>
       </div>
     </div>
+  </section>
 
-    <div style="text-align:center; margin:3rem 0;">
-      <a href="contact.html" class="btn-gold"><i class="fas fa-arrow-right"></i> <span class="lang-am">አገልግሎት ለመቀበል ያግኙን</span><span class="lang-en">Contact Us for Services</span></a>
-    </div>
-  </div>
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-hands-praying"></i> አገልግሎቶቻችን</span>
+        <h2 class="section-title">ለእግዚአብሔር መንግሥት <span class="gold">የምንሰጣቸው</span></h2>
+        <p class="section-subtitle">ቤተክርስቲያንን ለማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ የምንሰጣቸው አገልግሎቶች</p>
+      </div>
 
-  <footer>
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="#"><i class="fab fa-telegram"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <div class="services-grid">
+        <!-- Service 1: Bible Teaching -->
+        <div class="service-card reveal">
+          <span class="service-icon"><i class="fas fa-bible"></i></span>
+          <h3>የቃል ማስተማር</h3>
+          <p>መጽሐፍ ቅዱስን በጥልቀት በማጥናት እና በማስተማር የእግዚአብሔርን ሙሉ ምክር ለሰዎች ማድረስ።</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> የመጽሐፍ ቅዱስ አፈታት ሥልጠና</li>
+            <li><i class="fas fa-check-circle"></i> የዘመን ትምህርት ሴሚናሮች</li>
+          </ul>
+        </div>
+
+        <!-- Service 2: Discipleship Training -->
+        <div class="service-card reveal">
+          <span class="service-icon"><i class="fas fa-user-graduate"></i></span>
+          <h3>የደቀ መዝሙር ሥልጠና</h3>
+          <p>የጢራኖስ የደቀ መዝሙር ትምህርት ቤት አማካኝነት አገልጋዮችን ማሰልጠን።</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> የ4 ሳምንት አዳሪ ሥልጠና</li>
+            <li><i class="fas fa-check-circle"></i> 10 ዙር ተመራቂዎች</li>
+          </ul>
+        </div>
+
+        <!-- Service 3: Publishing Ministry -->
+        <div class="service-card reveal">
+          <span class="service-icon"><i class="fas fa-book-open"></i></span>
+          <h3>የሕትመት አገልግሎት</h3>
+          <p>17 የሚያህሉ መጻሕፍትን በማሳተም የእግዚአብሔርን ቃል ለብዙሃኑ ማድረስ።</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> መንፈሳዊ መጻሕፍት</li>
+            <li><i class="fas fa-check-circle"></i> የሥልጠና መመሪያዎች</li>
+          </ul>
+        </div>
+
+        <!-- Service 4: Church Revival -->
+        <div class="service-card reveal">
+          <span class="service-icon"><i class="fas fa-church"></i></span>
+          <h3>የቤተክርስቲያን ተሃድሶ</h3>
+          <p>በጸሎትና በቃል አገልግሎት አብያተ ክርስቲያናትን ለተሃድሶ ማዘጋጀት።</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> የጸሎት ጉባኤዎች</li>
+            <li><i class="fas fa-check-circle"></i> የተሃድሶ ስብከቶች</li>
+          </ul>
+        </div>
+
+        <!-- Service 5: Gospel Campaigns -->
+        <div class="service-card reveal">
+          <span class="service-icon"><i class="fas fa-globe-africa"></i></span>
+          <h3>የወንጌል ዘመቻዎች</h3>
+          <p>በኢትዮጵያ እና በ15 አገራት የወንጌል ዘመቻዎችን ማካሄድ።</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> የጅምላ ስብከቶች</li>
+            <li><i class="fas fa-check-circle"></i> የአገር ውስጥ ዘመቻዎች</li>
+          </ul>
+        </div>
+
+        <!-- Service 6: Community Service -->
+        <div class="service-card reveal">
+          <span class="service-icon"><i class="fas fa-hands-helping"></i></span>
+          <h3>የማህበረሰብ አገልግሎት</h3>
+          <p>በማህበረሰብ ውስጥ በተግባራዊ አገልግሎት የእግዚአብሔርን ፍቅር ማሳየት።</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> የማህበረሰብ ፕሮጀክቶች</li>
+            <li><i class="fas fa-check-circle"></i> የድጋፍ ፕሮግራሞች</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <p>
-      <i class="fas fa-map-pin"></i> <span class="lang-am">አዲስ አበባ፣ ኢትዮጵያ</span><span class="lang-en">Addis Ababa, Ethiopia</span> &nbsp;|&nbsp;
-      <i class="fas fa-phone-alt"></i> +251-911-416976 &nbsp;|&nbsp;
-      <i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com
-    </p>
-    <p style="margin-top:0.8rem; opacity:0.7;">
-      © 2026 <span class="lang-am">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</span><span class="lang-en">Ekklesia Arise Global Ministry</span> | <a href="#">www.ekklesia-arise.com</a>
-    </p>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-phone"></i> ያግኙን</span>
+        <h2 class="section-title">አገልግሎት ለመቀበል <span class="gold">ያግኙን</span></h2>
+        <p class="section-subtitle">ለአገልግሎት ወይም ለሥልጠና ከእኛ ጋር ለመገናኘት ከዚህ በታች ያለውን ቁልፍ ይጫኑ</p>
+      </div>
+      <a href="contact.html" class="btn-gold"><i class="fas fa-arrow-right"></i> አገልግሎት ለመቀበል ያግኙን</a>
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="contact-info-section" id="contact">
+    <div class="container">
+      <div class="contact-header reveal">
+        <span class="pill-badge"><i class="fas fa-address-card"></i> አግኙን</span>
+        <h2>ያግኙን <span class="gold">መግቢያ</span></h2>
+        <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Location -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-map-pin"></i></div>
+          <h4>አድራሻ</h4>
+          <div class="value">አዲስ አበባ፣ ኢትዮጵያ</div>
+          <div class="sub-label">Ethiopia, Addis Ababa</div>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <h4>ስልክ</h4>
+          <div class="value"><a href="tel:+251911416976">+251-911-416976</a></div>
+          <div class="sub-label">ለመደወል ይጫኑ</div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <h4>ኢሜል</h4>
+          <div class="value"><a href="mailto:Ekklesiaarise2023@gmail.com">Ekklesiaarise2023@gmail.com</a></div>
+          <div class="sub-label">ለመጻፍ ይጫኑ</div>
+        </div>
+
+        <!-- Website -->
+        <div class="contact-card reveal">
+          <div class="icon"><i class="fas fa-globe"></i></div>
+          <h4>ድረ-ገጽ</h4>
+          <div class="value"><a href="https://www.ekklesia-arise.com" target="_blank">www.ekklesia-arise.com</a></div>
+          <div class="sub-label">ጉብኝት ያድርጉ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="amharic">ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</h3>
+          <p>ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>ፈጣን አገናኞች</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> መነሻ</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ስለእኛ</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አገልግሎቶች</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አግኙን</a></li>
+            <li><a href="give.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ይለግሱ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>አገልግሎቶች</h4>
+          <ul>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቃል ማስተማር</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የደቀ መዝሙር ሥልጠና</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የሕትመት አገልግሎት</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቤተክርስቲያን ተሃድሶ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>ያግኙን</h4>
+          <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
+          <p><i class="fas fa-phone"></i> +251-911-416976</p>
+          <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
+          <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ · Ekklesia Arise Global Ministry. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+      </div>
+    </div>
   </footer>
 
   <script>
-    function toggleLanguage() {
-      document.body.classList.toggle('lang-en');
-      const btn = document.getElementById('langBtnText');
-      if (document.body.classList.contains('lang-en')) { btn.textContent = 'አማርኛ'; } else { btn.textContent = 'English'; }
+    // ================================================================
+    // CUSTOM CURSOR LOGIC
+    // ================================================================
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+      
+      const target = e.target;
+      if (target.closest('a') || target.closest('button')) {
+        document.body.classList.add('hover-link');
+        document.body.classList.remove('hover-button');
+      } else {
+        document.body.classList.remove('hover-link', 'hover-button');
+      }
+    });
+
+    function animateCursor() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateCursor);
     }
-    window.addEventListener('scroll', function() {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    animateCursor();
+
+    // ================================================================
+    // PAGE LOADER
+    // ================================================================
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('loaded');
+      }, 800);
+    });
+
+    // ================================================================
+    // NAVBAR SCROLL
+    // ================================================================
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 60);
+      backToTop.classList.toggle('visible', y > 600);
+    });
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ================================================================
+    // MOBILE MENU
+    // ================================================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('navMenuMobile');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileOverlay.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // ================================================================
+    // SCROLL REVEAL
+    // ================================================================
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .contact-card, .reveal').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      revealObserver.observe(el);
+    });
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .service-card.visible, .contact-card.visible, .reveal.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    setTimeout(() => {
+      document.querySelectorAll('.service-card, .contact-card, .reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    }, 100);
+
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.service-card, .contact-card, .reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
     });
   </script>
+
 </body>
 </html>
