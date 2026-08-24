@@ -23,6 +23,8 @@
       --dark-blue-deep: #07192E;
       --accent: #4A7FC1;
       --accent-light: #B3D0F0;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
       --bg-dark: #F8FAFC;
       --bg-medium: #F1F4F9;
       --bg-warm: #EDF1F7;
@@ -228,6 +230,7 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -264,6 +267,14 @@
       font-size: 0.85rem;
     }
     .btn-secondary:hover { background: var(--primary-light); border-color: var(--primary); transform: translateY(-2px); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, #b8942e 100%);
+      color: var(--dark-blue);
+      padding: 16px 40px;
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.30);
+    }
+    .btn-gold:hover { box-shadow: 0 16px 48px rgba(201, 168, 76, 0.45); transform: translateY(-2px); }
 
     /* Magnetic Container */
     .magnetic-wrap { position: relative; display: inline-flex; }
@@ -387,6 +398,43 @@
     .mobile-overlay { position: fixed; inset: 0; background: rgba(10, 30, 50, 0.4); backdrop-filter: blur(8px); z-index: 9999; opacity: 0; visibility: hidden; transition: var(--transition-smooth); }
     .mobile-overlay.active { opacity: 1; visibility: visible; }
 
+    .nav-menu-mobile {
+      position: fixed;
+      top: 0; right: 0;
+      width: 320px;
+      height: 100vh;
+      background: var(--bg-card);
+      flex-direction: column;
+      padding: 100px 40px 60px;
+      gap: 8px;
+      transform: translateX(100%);
+      transition: transform 0.6s var(--ease-out-expo);
+      z-index: 10000;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+      overflow-y: auto;
+      align-items: stretch;
+      display: none;
+      list-style: none;
+    }
+    .nav-menu-mobile.open { transform: translateX(0); }
+    .nav-menu-mobile a {
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      display: block;
+    }
+    .nav-menu-mobile a:hover,
+    .nav-menu-mobile a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .nav-menu-mobile .nav-cta {
+      margin-top: 16px;
+      text-align: center;
+    }
+
     /* ================================================================
        HERO — FULL IMMERSIVE
        ================================================================ */
@@ -500,7 +548,8 @@
        ================================================================ */
     .section-header { text-align: center; margin-bottom: 72px; }
     .section-title { font-size: clamp(2rem, 4.5vw, 3.4rem); color: var(--text-main); font-weight: 800; margin: 18px 0 16px; line-height: 1.15; }
-    .section-title .gold { color: var(--primary); }
+    .section-title .gold { color: var(--gold); }
+    .section-title .blue { color: var(--primary); }
     .section-subtitle { color: var(--text-muted); font-size: 1.08rem; max-width: 620px; margin: 0 auto; line-height: 1.8; }
 
     .pill-badge {
@@ -557,9 +606,6 @@
     .content-section:nth-child(even) {
       background: var(--bg-dark);
     }
-    .content-section .section-header {
-      margin-bottom: 48px;
-    }
     .content-body {
       max-width: 900px;
       margin: 0 auto;
@@ -575,26 +621,6 @@
       color: var(--text-main);
       margin: 40px 0 16px;
       font-family: 'Playfair Display', serif;
-    }
-    .content-body h4 {
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin: 28px 0 12px;
-    }
-    .content-body ul, .content-body ol {
-      margin: 16px 0 24px 30px;
-    }
-    .content-body li {
-      margin-bottom: 8px;
-    }
-    .content-body blockquote {
-      border-left: 4px solid var(--primary);
-      padding: 16px 24px;
-      margin: 24px 0;
-      background: var(--primary-light);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      font-style: italic;
-      color: var(--text-secondary);
     }
     .content-body .highlight-box {
       background: var(--primary-light);
@@ -633,6 +659,39 @@
     }
     .table-wrapper tr:hover {
       background: var(--primary-light);
+    }
+
+    /* ================================================================
+       QUICK LINKS / ABOUT PREVIEW
+       ================================================================ */
+    .about-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 40px 0;
+    }
+    .about-preview-text h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--text-main);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+    .about-preview-text p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .about-preview-image img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      width: 100%;
+      height: auto;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .about-preview-image:hover img {
+      transform: scale(1.02);
     }
 
     /* ================================================================
@@ -678,7 +737,7 @@
       margin-bottom: 10px;
       font-weight: 800;
     }
-    .giving-card h2 .gold { color: var(--accent-light); }
+    .giving-card h2 .gold { color: var(--gold); }
     .giving-card .sub-text {
       color: rgba(255,255,255,0.7);
       font-size: 1.05rem;
@@ -694,7 +753,7 @@
       transition: var(--transition-smooth);
     }
     .giving-card .account-box:hover {
-      border-color: var(--accent-light);
+      border-color: var(--gold);
       background: rgba(255,255,255,0.12);
     }
     .giving-card .account-label {
@@ -728,18 +787,18 @@
       gap: 8px;
     }
     .giving-card .copy-btn:hover {
-      background: var(--accent-light);
+      background: var(--gold);
       color: var(--dark-blue);
-      border-color: var(--accent-light);
+      border-color: var(--gold);
     }
     .giving-card .btn-donate {
-      background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+      background: linear-gradient(135deg, var(--gold) 0%, #b8942e 100%);
       color: var(--dark-blue);
       padding: 18px 50px;
       font-size: 1.05rem;
       font-weight: 700;
       border-radius: var(--radius-full);
-      box-shadow: 0 8px 32px rgba(74, 127, 193, 0.35);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
       transition: var(--transition-smooth);
       display: inline-flex;
       align-items: center;
@@ -750,7 +809,7 @@
     }
     .giving-card .btn-donate:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 16px 48px rgba(74, 127, 193, 0.50);
+      box-shadow: 0 16px 48px rgba(201, 168, 76, 0.50);
     }
     .giving-card .donate-note {
       color: rgba(255,255,255,0.4);
@@ -797,6 +856,7 @@
       opacity: 0;
       visibility: hidden;
       transform: translateY(20px);
+      cursor: pointer;
     }
     .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
     .back-to-top:hover { transform: translateY(-4px) scale(1.1); box-shadow: 0 12px 36px rgba(30,76,143,0.40); }
@@ -810,36 +870,20 @@
 
     @media (max-width: 1024px) {
       .content-body { font-size: 1rem; }
+      .about-preview { grid-template-columns: 1fr; gap: 40px; }
     }
 
     @media (max-width: 920px) {
       .hamburger { display: flex; }
-      .nav-menu {
-        position: fixed;
-        top: 0; right: 0;
-        width: 320px;
-        height: 100vh;
-        background: var(--bg-card);
-        flex-direction: column;
-        padding: 100px 40px 60px;
-        gap: 8px;
-        transform: translateX(100%);
-        transition: transform 0.6s var(--ease-out-expo);
-        z-index: 10000;
-        box-shadow: -10px 0 40px rgba(0,0,0,0.08);
-        overflow-y: auto;
-        align-items: stretch;
-      }
-      .nav-menu.open { transform: translateX(0); }
-      .nav-menu a { padding: 14px 20px; border-radius: var(--radius-md); font-size: 1rem; }
-      .nav-cta { margin-top: 16px; text-align: center; justify-content: center; }
+      .nav-menu { display: none; }
+      .nav-menu-mobile { display: flex; }
       .hero-title { letter-spacing: -1px; }
       .giving-card { padding: 40px 25px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .content-section { padding: 50px 0; }
       .content-body { font-size: 0.95rem; }
       .content-body h3 { font-size: 1.3rem; }
@@ -895,11 +939,10 @@
 
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="active">መነሻ</a></li>
-          <li><a href="#about">ስለእኛ</a></li>
-          <li><a href="#doctrine">አስተምህሮ</a></li>
-          <li><a href="#publications">ሕትመቶች</a></li>
-          <li><a href="#contact">ያግኙን</a></li>
-          <li><a href="#give" class="nav-cta">ይደግፉ <i class="fas fa-arrow-right" style="margin-left:4px;font-size:0.8rem;"></i></a></li>
+          <li><a href="about.html">ስለእኛ</a></li>
+          <li><a href="services.html">አገልግሎቶች</a></li>
+          <li><a href="contact.html">አግኙን</a></li>
+          <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
         </ul>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -908,6 +951,15 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <ul class="nav-menu-mobile" id="navMenuMobile">
+    <li><a href="index.html" class="active">መነሻ</a></li>
+    <li><a href="about.html">ስለእኛ</a></li>
+    <li><a href="services.html">አገልግሎቶች</a></li>
+    <li><a href="contact.html">አግኙን</a></li>
+    <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+  </ul>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -930,9 +982,9 @@
       </p>
 
       <div class="hero-buttons">
-        <div class="magnetic-wrap"><a href="#about" class="btn btn-primary magnetic" style="padding: 18px 48px; font-size: 1rem;"><i class="fas fa-play"></i> ይወቁ</a></div>
-        <div class="magnetic-wrap"><a href="#doctrine" class="btn btn-glass magnetic" style="padding: 18px 48px;">አስተምህሮ</a></div>
-        <div class="magnetic-wrap"><a href="#give" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-heart"></i> ይለግሱ</a></div>
+        <div class="magnetic-wrap"><a href="about.html" class="btn btn-primary magnetic" style="padding: 18px 48px; font-size: 1rem;"><i class="fas fa-info-circle"></i> ስለእኛ</a></div>
+        <div class="magnetic-wrap"><a href="services.html" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></div>
+        <div class="magnetic-wrap"><a href="give.html" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-heart"></i> ይለግሱ</a></div>
       </div>
     </div>
   </section>
@@ -961,7 +1013,7 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About Preview Section -->
   <section class="content-section" id="about">
     <div class="container">
       <div class="section-header reveal">
@@ -970,65 +1022,22 @@
         <p class="section-subtitle">ቤተክርስቲያንን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ ማስታጠቅ</p>
       </div>
 
-      <div class="content-body reveal">
-        <h3>የአገልግሎቱ አመሠራረት</h3>
-        
-        <blockquote>
-          "…መልዕክት በደብዳቤ እጽፍ ነበር፡፡ የምፅፈው ቃል ቤቴ ለአሕዛብ ሁሉ የጸሎት ቤት ይባላል የሚለውን ነበር፡፡ በመንፈስ ውስጥ ሆኜ ሳስታውስ የኢትዮጵያ ካርታ ፊት ለፊቴ ታየኝ፡፡ እኔም ለኢትዮጵያ መልእክተኛ እሆናለሁ ማለት ነው እንዴ? ብዬ ጠየቅሁት፡፡ …እንግዲያውስ ልንገርህ አንተ አገር አቀፍ ጥሪ አለብህ፡፡ ስለዚህ ከበደል ራቅ።"
-        </blockquote>
-
-        <p>ዶክተር ብርሃኑ ሃብቴ ጌታን ካገኙበት እለት ጀምሮ በመንፈሳዊ እድገታቸው የሚተጉ ብሎም በወጣትነት እድሜያቸው ትምህርታቸውን ከመከታተል ጎን ለጎን አብዛኛውን ጊዜያቸውን በአገልግሎት የተጠመዱ ነበሩ፡፡ ይህ ንግግር ከፈለገ ብርሃኑ መጽሐፍ ገጽ 65 የተወሰደ ሲሆን እግዚአብሄር ለባሪያው በወጣትነት እድሜያቸው ለመጀመሪያ ጊዜ ስለ ተጠሩበት ጥሪ ፈንጠቅ ያደረገበት ዕለት ነበር፡፡</p>
-
-        <p>በሐምሌ ወር 1983 ዶ/ር ብርሃኑ ሃብቴ በቤተ ክርስቲያን ህቡዕ ዓመታት በነበረራቸው ሰፊ አገልግሎትና ዕውቅና ምክንያት በአንድ ዓለም አቀፍ የወንጌል ሥርጭት ጉባዔ እንዲሳተፉ ተጋብዘው ወደ እንግሊዝ አገር ተጓዙ፡፡ ምንም እንኩዋን ዶ/ር ብርሃኑ የኩላሊት ሕክምና የስፔሺላይዜሽን ትምህርታቸውን በስኮትላንድ የተከታተሉ ቢሆንም በዚያች የጌታ ቀን ግን የተንጣለለው ባህርና ተፈጥሮአዊው ትዕይንት ለእይታቸው ልዩ ሆነባቸው፡፡ ምክንያቱም የእግዚአብሔር ድምፅ እንዲህ ሲል መጥቶላቸዋልና፡- "ውኃ ባህርን እንደሚከድን ምድር እግዚአብሔርን በማወቅ ትሞላለች" (ኢሳ 11፡9)፡፡</p>
-
-        <p>እንግዲህ የኢትዮጵያን ካርታ በራዕይ በማሳየት በ1964 ዓም ለመጀመሪያ ጊዜ የተቀበሉት ራዕይ የበለጠ ሰክኖ፣ የበለጠ ደምቆና የበለጠውን ሰፍቶ የመጣላቸው በዚህ ልዩ አጋጣሚ ነበር፡፡ ከዚያ ወዲህም በበለጠ ትጋት፣ የጸሎት ተጋድሎ፣ በመንፈስ ቅዱስ ኃይል ሙሉ ጊዜአቸውን ሰጥተው ለማገልገል በቁርጠኝነት መሰናዳት ጀመሩ፡፡</p>
-
-        <p>ዶ/ር ብርሃኑ ሙሉ ጊዜአቸውን እንደሰጡ ቤተክርስቲያን የአገልጋዩን ራእይ በማገናዘብና እንደ ራሷ ራእይ አድርጋ በመቀበል በዚህ የመጨረሻው ዘመን ለተሃድሶና ደቀ መዛሙርትን ማፍራት ይችሉ ዘንድ መላውን አብያተ ክርስቲያናት የማነሣሣትና የማስታጠቅ ብሔራዊና ዓለም አቀፋዊ ተልዕኮ ላነገበው "ኤክሌሺያ ተነሺ አገልግሎት" ለየቻቸው፡፡ ከቤተሰባቸውና በብርቱ የጸሎት ተጋድሎ ከደጀናቸው ሕብረት ጋር ሆነው ወደ ወንጌል ማስወጫ ተሰማሩ፤ ከአጥቢያቸውም ጀመሩ፡፡</p>
-
-        <p>ኤክሌሺያ ተነሺ አገልግሎት ሰዎች በሚረዱት መንገድ ተገልጦ የአጠቢያ ቤተክርስቲያናቸው ብርሃነ ወንጌልን ድምበር ተሻግሮ አንድ ዓመት ባልሞላ ጊዜ ወደ ሌሎች አብያተክርስቲያናትና ወደ ዓለም አቀፉ መድረክ ዘለቀ፡፡</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission Section -->
-  <section class="content-section" style="background: var(--bg-dark);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-bullseye"></i> ራዕይና ተልዕኮ</span>
-        <h2 class="section-title">የአገልግሎቱ <span class="gold">አላማ</span></h2>
-      </div>
-
-      <div class="content-body reveal">
-        <h3>ራዕይ</h3>
-        <p>ምድር እግዚአብሔርን በማወቅ ተሞልታ የሰዎችም ህይወት እግዚአብሔርን በመምሰል ተለውጦ ማየት</p>
-
-        <h3>ተልዕኮ</h3>
-        <p>ቤተክርስቲያን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ በማስተማርና በማሰልጠን ማስታጠቅ</p>
-
-        <h3>ዕሴቶች</h3>
-        <ul>
-          <li>በጸሎት መትጋት</li>
-          <li>በእግዚአብሔር ፍቅር መኖር</li>
-          <li>በመንፈስ ቅዱስ ኃይል መደገፍ</li>
-          <li>ለእግዚአብሔር ቃል አክብሮት መስጠት</li>
-          <li>በቃልና በኑሮ ክርስቶስን መምሰል</li>
-        </ul>
-
-        <div class="highlight-box">
-          <h4>ዋና ተግባሮች</h4>
-          <ul>
-            <li>በዘመኑ መጨረሻ በድል የምትገሰግሰውን ቤተክርስቲያን ማየት</li>
-            <li>በቂ የአመራር ክህሎት ያላቸውን የቤተክርስቲያን መሪዎች ማፍራት</li>
-            <li>በእያንዳንዱ አጥቢያ በቂ ቁጥር ያለው ደቀመዝሙር ማፍራት</li>
-            <li>ወንጌልን የሚናገር እና ቤተክርስቲያንን የሚተክል የተነቃቃ ትውልድ መፍጠር</li>
-          </ul>
+      <div class="about-preview">
+        <div class="about-preview-text reveal">
+          <h2>የአገልግሎታችን <span class="gold">ታሪክ</span></h2>
+          <p><strong>ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</strong> የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።</p>
+          <p>አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</p>
+          <a href="about.html" class="btn btn-primary" style="margin-top:12px;"><i class="fas fa-arrow-right"></i> ተጨማሪ ያንብቡ</a>
+        </div>
+        <div class="about-preview-image reveal-right">
+          <img src="Covermain.jpg" alt="About Ekklesia Arise" onerror="this.src='https://placehold.co/600x400/1E4C8F/FFFFFF?text=Ekklesia+Arise'" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Doctrine Section -->
-  <section class="content-section" id="doctrine">
+  <section class="content-section" style="background: var(--bg-dark);" id="doctrine">
     <div class="container">
       <div class="section-header reveal">
         <span class="pill-badge"><i class="fas fa-book-bible"></i> አስተምህሮ</span>
@@ -1048,23 +1057,21 @@
         </ul>
         <p>በአጭር ቃል የቤተ ክርስቲያን ተልዕኮ የእግዚአብሔር መንግሥት በምድር ላይ እንዲሠለጥን የማድረግ ተልዕኮ ነው።</p>
 
-        <h3>ልጅነት</h3>
-        <p>ልጅነት በወንጌል አምነው ላልዳኑ ብቻ ሳይሆን በጌታ ቤት ለዓመታት ቆይተው የልጅነት ምስጢር ገና ላልገባቸውም ጭምር ዓይነ ልቡናቸውን ወደ ውስጥ መልሰው ማንነታቸውን እንዲፈትሹ የሚያደርግ ትምህርት ነው። ይህ ትምህርት የክርስትና ሕይወት በልጅነት መንፈስ መከናወን አለበት የሚል ዋና መልእክት ያዘለ ነው።</p>
-
-        <h3>ክርስቲያናዊ ሥነ ምግባር</h3>
-        <p>ክርስቲያናዊ ሥነ ምግባር ከግል ሕይወት አመራር እስከ መንግሥታዊና ሀገራዊ ኃላፊነት ያለውን የክርስቲያናዊ ሥነ ምግባር ፅንሰ ሃሳብ በመጽሐፍ ቅዱሳዊ ሚዛን የተተነተነበት መጽሐፍ ነው።</p>
-
-        <h3>የመቅደሱ ሕግ</h3>
-        <p>የመቅደሱ ሕግ በነቢዩ ሕዝቅኤል መጽሐፍ ላይ ተመሥርቶ የቀረበ ስለዘመኑ ቤተክርስቲያን የሚናገር መልዕክት ሲሆን ቤተክርስቲያን ይህንን መጽሃፍ አስተውላ ከእግዚአብሄር የተሰጣትን እድል አክብራ በትጋት ተልዕኮዋን ከፈጸመች የእግዚአብሄርን ልብ ታረካለች፤ እርሱዋም በክብር ትጎናጸፋለች።</p>
-
-        <h3>መንፈሳዊ ውጊያ</h3>
-        <p>የክርስትና ሕይወት ዕረፍትም ሰልፍም ነው። ስለዚህ ቃሉ በግልጽ በሚነግረን መሠረት ለጠላት ሥራ ንቁ በመሆን አስፈላጊውንም መንፈሣዊ የጦር ዕቃ በመልበስ የክፉውን ሥራ መዋጋት፣ በእጁ ያስገባቸውን ምርኮኞች ነፃ ማውጣትና የእግዚአብሔርን መንግሥት ማስፋት አለብን።</p>
+        <div class="highlight-box">
+          <h4>ዋና ተግባሮች</h4>
+          <ul>
+            <li>በዘመኑ መጨረሻ በድል የምትገሰግሰውን ቤተክርስቲያን ማየት</li>
+            <li>በቂ የአመራር ክህሎት ያላቸውን የቤተክርስቲያን መሪዎች ማፍራት</li>
+            <li>በእያንዳንዱ አጥቢያ በቂ ቁጥር ያለው ደቀመዝሙር ማፍራት</li>
+            <li>ወንጌልን የሚናገር እና ቤተክርስቲያንን የሚተክል የተነቃቃ ትውልድ መፍጠር</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Training Section -->
-  <section class="content-section" style="background: var(--bg-dark);" id="training">
+  <section class="content-section" id="training">
     <div class="container">
       <div class="section-header reveal">
         <span class="pill-badge"><i class="fas fa-chalkboard-teacher"></i> ሥልጠናዎች</span>
@@ -1097,134 +1104,6 @@
             </tbody>
           </table>
         </div>
-
-        <h3>ከአገር ውጭ የተሰጡ ሥልጠናዎች</h3>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>ርዕስ</th>
-                <th>አገር</th>
-                <th>የከተሞች ብዛት</th>
-                <th>የቤተ ክርስቲያኖች ብዛት</th>
-                <th>የሠልጣኞች ብዛት</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td rowspan="6">በድል የምትገሰግሰው ቤተ ክርስቲያን</td><td>ታንዛኒያ</td><td>1</td><td>4</td><td>80</td></tr>
-              <tr><td>ኬኒያ</td><td>8</td><td>45</td><td>428</td></tr>
-              <tr><td>ኡጋንዳ</td><td>1</td><td>2</td><td>96</td></tr>
-              <tr><td>ናይጄሪያ</td><td>1</td><td>1</td><td>500</td></tr>
-              <tr><td>ማላዊ</td><td>1</td><td>1</td><td>70</td></tr>
-              <tr><td>ሩዋናዳ</td><td>1</td><td>1</td><td>31</td></tr>
-              <tr><td rowspan="4">ሌሎች</td><td>ኬኒያ</td><td>7</td><td>17</td><td>802</td></tr>
-              <tr><td>ኡጋንዳ</td><td>1</td><td>1</td><td>65</td></tr>
-              <tr><td>ደቡብ አፍሪካ</td><td>2</td><td>2</td><td>110</td></tr>
-              <tr><td>ናይጄሪያ</td><td>2</td><td>2</td><td>280</td></tr>
-              <tr><td>ልጅነት / አመራር ወዘተ</td><td>አሜሪካ፣ እንግሊዝ፣ ስዊድን፣ ሆላንድ፣ ቤልጂየም፣ ጀርመን፣ ዴንማርክ፣ ግሪክ</td><td>22</td><td>23</td><td>1,833</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tyranus Section -->
-  <section class="content-section" id="tyranus">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-graduation-cap"></i> ጢራኖስ</span>
-        <h2 class="section-title">የጢራኖስ የደቀ መዝሙር <span class="gold">ትምህርት ቤት</span></h2>
-        <p class="section-subtitle">በሐዋሪያት ሥራ ምዕ 19 ፡9 መሰረት እንደ ጳውሎስ ደቀመዛሙርትን በጥልቀት ማስተማር</p>
-      </div>
-
-      <div class="content-body reveal">
-        <p>የጢራኖስ ራእይ የተወለደው በጣት የሚቆጠሩት የኤክሌሺያ ተነሺ አገልጋዮች በመላው ኢትዮጵያ የቆዳ ስፋት የተበተኑትን አብያተ ክርስቲያናት በአካል ደርሰው ለማገልገልና ለማንቀሳቀስ ረጅም ዕድሜ ቢሰጣቸውም እንኳ ከአቅማቸው በላይ እንደሚሆንባቸው ተገንዝበው በሐዋሪያት ሥራ ምዕ 19 ፡9 መሰረት እንደ ጳውሎስ የተወሰኑ ደቀመዛሙርትን ለይቶ በጥልቀት በማስተማር የእግዚአብሔርን ቃል እውቀት የማጽረስ ሂደት ነው፡፡</p>
-
-        <p>ትምህርት ቤቱ ተንቀሳቃሽ ከመሆኑም በተጨማሪ ሠልጣኞቹ ልባቸውን ከሚሰርቋቸው የኑሮም ሆነ የአገልግሎት ጉዳዮች ርቀው፣ አርፈው ቃሉን እንዲማሩ፣ እርስ በርሳቸው ሕብረት እንዲያደርጉና የቀሰሙትን ደቀ መዝሙራዊ ሕይወት እንዲለማመዱ በሚያደርግ ረቀቅ ያለ ስልት ነው፡፡ ጢራኖስ የደቀመዝሙርነት ትምህርት ቤት ለአራት ሳምንታት የሚቆይ የአዳሪ ትምህርት ቤት ሥልጠና ፕሮግራም ሲሆን፤ ትምህርትቤቱ ስራውን ከጀመረ ጊዜ አንስቶ በአስር ዙር ተማሪዎችን አስተምሮ አስመርቋል፡፡</p>
-
-        <h3>የትምህርት ቤቱ ዋና ዋና ርዕሶች</h3>
-        <ul>
-          <li><strong>ልጅነት</strong> — ለ20 ሰዓታት</li>
-          <li><strong>ከግብዝነት ክርስቶስን ወደመምሰል</strong> — ለ10 ሰዓታት</li>
-          <li><strong>ክርስቲያናዊ ስነምግባር</strong> — ለ10 ሰዓታት</li>
-          <li><strong>የመጽሃፍ ቅዱስ አፈታት፤ የግል መጽሃፍ ቅዱስ ጥናትና የወንጌል ምስክርነት</strong> — ለ22 ሰዓታት</li>
-          <li><strong>መንፈሳዊ ውጊያ</strong> — ለ13 ሰዓታት</li>
-          <li><strong>በድል የምትገሰግሰው ቤተክርስቲያን</strong> — ለ16 ሰዓታት</li>
-          <li><strong>የመቅደሱ ህግ</strong> — ለ9 ሰዓታት</li>
-          <li><strong>የእግዚአብሄር ሙሉ ምክር</strong> — ለ12 ሰዓታት</li>
-          <li><strong>ሐዋሪያዊ ደቀመዝሙር</strong> — ለ18 ሰዓታት</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Publications Section -->
-  <section class="content-section" style="background: var(--bg-dark);" id="publications">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-book"></i> ሕትመቶች</span>
-        <h2 class="section-title">የሕትመት <span class="gold">ውጤቶች</span></h2>
-        <p class="section-subtitle">ዶ/ር ብርሃኑ በዓመት ቢያንስ አንድ መጽሐፍ የማዘጋጀትና የማሳተም እቅድ ነበራቸው</p>
-      </div>
-
-      <div class="content-body reveal">
-        <p>እስከ 2ሺህ ዓ.ም ድረስ በጠቅላላው ከአሥር በላይ የሕትመት ውጤቶች በአገልግሎቱና በዶ/ር ብርሃኑ ስም መታተማቸው ስኬታማነትን ለመመስከር በራሳቸው በቂ ናቸው፡፡ የሕትመቱ ውጤቶች በዋነኝነት ሥልጠናውን ለማገዝ የተዘጋጁ ሲሆን ከፊሎቹ ደግሞ አስተምህሯቸውን ቀጥተኛ በሆነ መንገድ ለአንባቢ ለማስተላለፍ የታለሙ ናቸው፡፡</p>
-
-        <h3>የታተሙ መጻሕፍት</h3>
-        <div style="columns: 2; column-gap: 30px; margin: 16px 0;">
-          <ul style="margin:0;">
-            <li>ፈለገ ብርሃኑ</li>
-            <li>ልጅነት / Sonship</li>
-            <li>ልጅነት ማስታወሻ</li>
-            <li>ከግብዝነት ክርስቶስን ወደመምሰል ቅጽ 1</li>
-            <li>ከግብዝነት ክርስቶስን ወደመምሰል ቅጽ 2</li>
-            <li>ከግብዝነት ክርስቶስን ወደመምሰል ማስታወሻ</li>
-            <li>ክርስቲያናዊ ስነምግባር</li>
-            <li>መንፈሳዊ ውጊያ</li>
-          </ul>
-          <ul style="margin:0;">
-            <li>በዘመኑ መጨረሻ በድል የምትገሰግሰው ቤተክርስቲያን</li>
-            <li>በድል የምትገሰግሰው ቤተክርስቲያን የመተግበሪያ ስልት</li>
-            <li>The Triumphant Church</li>
-            <li>Implementation strategy for The Triumphant Church</li>
-            <li>የመቅደሱ ህግ</li>
-            <li>የእግዚአብሄር ሙሉ ምክር</li>
-            <li>የሐዋሪያ ደቀመዝሙር ማስታወሻ</li>
-            <li>ባጠቃቀም ብልሹነት የምንቸገርባቸው የጸጋ ስጦታዎች</li>
-            <li>ሽማግሌያዊ ወይስ መጋቢያዊ አመራር የሚለውን ሙግት ትተን ወደ አዲስ ኪዳን እንመለስ</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Current Status Section -->
-  <section class="content-section" id="status">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-chart-line"></i> የአሁኑ ሁኔታ</span>
-        <h2 class="section-title">አገልግሎቱ <span class="gold">አሁን ያለበት ሁኔታ</span></h2>
-      </div>
-
-      <div class="content-body reveal">
-        <p>ኤክሌሺያ ተነሺ አገልግሎት በብርሃነ ወንጌል ቤተክርስቲያን ጥላ ስር ሆኖ እራሱን በመቻል በቦርድ ሲመራ የቆየ አገልግሎት ሲሆን ዶ/ር ብርሃኑ ሐብቴ ወደጌታ ከሄዱም በሁዋላ በባለአደራ ቦርዱ መሪነት አገልግሎቱ ለ10 ዓመታት ያህል ቀጥሎዋል፡፡</p>
-
-        <p>በኃላም የአገልግሎቱን ተደራሽነት ለማስፋት እራሱን እንዲችል ቦርዱ ስላመነበት ከቤተክርስቲያን ጋር በመመካከር አገልግሎቱ ህጋዊ ሆኖ በዶ/ር ብርሃኑ ሐብቴ ቤተሰብ በኩል እንዲመዘገብ ውሳኔ ላይ ተደርሶዋል፡፡ በዚህ ውሳኔ መሰረት አገልግሎቱ ጳጉሜ 2 ቀን 2015 ዓም ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ በሚል ስም በወንጌል አማኞች አብያተ ክርስቲያናት ካውንስል ጽ/ቤት በመመዝገብ ህጋዊ ፈቃድ አግኝቷል፡፡</p>
-
-        <h3>የወደፊት አቅጣጫዎች</h3>
-        <ol>
-          <li><strong>በጢራኖስ ትምህርት ቤት</strong> ያለፉትን እና ሌሎችን ማሰልጠን፤ ከዚህ በፊት የሰለጠኑት ሰልጣኞች ጠርቶ መጠነኛ የአሰልጣኞች ስልጠና በማዘጋጀት ትምህርቱን በውስጣቸው እንደገና በማነሳሳት በተቀናጀ ሁኔታ የስልጠናውን ሂደት በስፋት ማከናወን፡፡</li>
-          <li><strong>በቅርበት ሆነው ትምህርቶቹን የተማሩ ሰዎችን በማስተባበር</strong> ከግብዝነት ክርስቶስን ወደመምሰል፤ ልጅነት እንዲሁም ሌሎች በህብረት ሊጠኑ የሚችሉ ትምህርቶችን በመለየት የቡድን ትምህርቶቹን ማስፋፋት፡፡</li>
-          <li><strong>አብያተ ክርስቲያናትን መድረስ</strong>
-            <ul>
-              <li>በመጀመሪያ የተመረጡ ሦስት ቤተክርስቲያኖች ላይ በጥልቀት መስራት፡፡ እነዚህ ቤተክርስቲያኖች ላይ የሚመጣውን መላካም ለውጥ እንደማሳያ በመጠቀም ሌሎች ቤተክርስቲያኖችም ፈለጉን እንዲከተሉ እያሳዩ ማስተማር፡፡</li>
-              <li>የተሰጡ መሪዎችን በጢራኖስ ትምህርት ቤት በማስተማር ወደመጡበት ቤተክርስቲያን ሲመለሱ ምዕመኑን በማስተማር ትምህርቱን ተግበባራዊ እንዲያደርጉ ማገዝ፡፡</li>
-            </ul>
-          </li>
-        </ol>
-
-        <p>ኤክሌሺያ ተነሺ አገልግሎት እስከ አሁን ካገለገለው በተጨማሪ ዘመኑን በዋጀ መንገድ የሚዲያ አገልግሎትን መጠቀም አስፈላጊ መሆኑን ተገንዝቦዋል፡፡ ስለሆነም በጽሁፍ መቅረብ የሚሉትን ትምህርቶች ለይቶ ለአንባቢያን ተደራሽ የሚሆንበት መንገድ ያመቻቻል፡፡</p>
       </div>
     </div>
   </section>
@@ -1272,19 +1151,19 @@
           <h4>ፈጣን አገናኞች</h4>
           <ul>
             <li><a href="index.html">መነሻ</a></li>
-            <li><a href="#about">ስለእኛ</a></li>
-            <li><a href="#doctrine">አስተምህሮ</a></li>
-            <li><a href="#publications">ሕትመቶች</a></li>
-            <li><a href="#give">ይለግሱ</a></li>
+            <li><a href="about.html">ስለእኛ</a></li>
+            <li><a href="services.html">አገልግሎቶች</a></li>
+            <li><a href="contact.html">አግኙን</a></li>
+            <li><a href="give.html">ይለግሱ</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>አገልግሎቶች</h4>
           <ul>
-            <li><a href="#tyranus">የጢራኖስ ትምህርት ቤት</a></li>
+            <li><a href="#training">የጢራኖስ ትምህርት ቤት</a></li>
             <li><a href="#training">ሥልጠናዎች</a></li>
-            <li><a href="#status">የአሁኑ ሁኔታ</a></li>
+            <li><a href="#doctrine">አስተምህሮ</a></li>
           </ul>
         </div>
 
@@ -1372,8 +1251,8 @@
         const btn = document.querySelector('.copy-btn');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> ተቀዳ!';
-        btn.style.background = '#4A7FC1';
-        btn.style.color = 'white';
+        btn.style.background = '#c9a84c';
+        btn.style.color = '#0B1B33';
         setTimeout(() => {
           btn.innerHTML = originalText;
           btn.style.background = '';
@@ -1409,19 +1288,23 @@
     // MOBILE MENU
     // ================================================================
     const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
+    const mobileMenu = document.getElementById('navMenuMobile');
     const mobileOverlay = document.getElementById('mobileOverlay');
 
     function toggleMenu() {
       hamburger.classList.toggle('active');
-      navMenu.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
       mobileOverlay.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
     }
 
     hamburger.addEventListener('click', toggleMenu);
     mobileOverlay.addEventListener('click', toggleMenu);
-    navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { if (navMenu.classList.contains('open')) toggleMenu(); }));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) toggleMenu();
+      });
+    });
 
     // ================================================================
     // HERO PARTICLES - INTERACTIVE NETWORK
@@ -1574,5 +1457,6 @@
 
     document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
   </script>
+
 </body>
 </html>
