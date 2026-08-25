@@ -187,16 +187,35 @@
       color: var(--gold);
       background: rgba(212, 168, 67, 0.10);
     }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
-      color: var(--dark-blue) !important;
-      padding: 12px 28px !important;
-      font-weight: 700 !important;
-      box-shadow: 0 4px 16px rgba(212, 168, 67, 0.25);
+
+    /* Language Switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 12px;
+      background: rgba(212, 168, 67, 0.06);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border);
     }
-    .nav-cta:hover {
-      box-shadow: 0 8px 32px rgba(212, 168, 67, 0.35);
-      transform: translateY(-2px);
+    .lang-switch button {
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+      background: transparent;
+      letter-spacing: 0.5px;
+    }
+    .lang-switch button.active {
+      color: var(--dark-blue);
+      background: var(--gold);
+      box-shadow: 0 2px 8px rgba(212, 168, 67, 0.25);
+    }
+    .lang-switch button:hover:not(.active) {
+      color: var(--gold);
     }
 
     /* Hamburger */
@@ -274,10 +293,6 @@
     .nav-menu-mobile a.active {
       color: var(--gold);
       background: rgba(212, 168, 67, 0.10);
-    }
-    .nav-menu-mobile .nav-cta {
-      margin-top: 16px;
-      text-align: center;
     }
 
     /* ================================================================
@@ -938,6 +953,10 @@
       .page-hero h1 {
         font-size: 2.5rem;
       }
+      .lang-switch {
+        margin-left: 0;
+        margin-right: 12px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1030,11 +1049,16 @@
         </a>
 
         <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
-          <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
-          <li><a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
-          <li><a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a></li>
+          <li><a href="index.html"><i class="fas fa-home"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+          <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+          <li><a href="services.html"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
         </ul>
+
+        <div class="lang-switch">
+          <button class="active" data-lang="am" aria-label="Switch to Amharic">አማ</button>
+          <button data-lang="en" aria-label="Switch to English">EN</button>
+        </div>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
           <span></span><span></span><span></span>
@@ -1045,20 +1069,19 @@
 
   <!-- Mobile Menu -->
   <ul class="nav-menu-mobile" id="navMenuMobile">
-    <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
-    <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
-    <li><a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
-    <li><a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a></li>
-    <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+    <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+    <li><a href="services.html"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
   </ul>
 
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <h1><i class="fas fa-info-circle"></i> ስለእኛ</h1>
+      <h1><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About Us">ስለእኛ</span></h1>
       <div class="sub">
         <i class="fas fa-heart"></i>
-        <span>የእግዚአብሔርን ፍቅር በማስተማርና በማገልገል ማሳወቅ</span>
+        <span data-am="የእግዚአብሔርን ፍቅር በማስተማርና በማገልገል ማሳወቅ" data-en="Showing God's love through teaching and serving">የእግዚአብሔርን ፍቅር በማስተማርና በማገልገል ማሳወቅ</span>
         <i class="fas fa-heart"></i>
       </div>
     </div>
@@ -1069,20 +1092,20 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-text">
-          <h2>የአገልግሎታችን <span class="gold">ታሪክ</span></h2>
-          <p><strong>ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት</strong> የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።</p>
+          <h2><span data-am="የአገልግሎታችን" data-en="Our Ministry">የአገልግሎታችን</span> <span class="gold" data-am="ታሪክ" data-en="History">ታሪክ</span></h2>
+          <p><strong data-am="ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት" data-en="Ekklesia Arise Global Ministry">ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት</strong> <span data-am="የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።" data-en="was established to strengthen the church with the Word of God and to spread the Gospel to all nations. This ministry was started under the leadership of Dr. Berhanu Habte, and since 1964, it has been able to serve thousands of people with the Gospel.">የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።</span></p>
 
-          <p>አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</p>
+          <p data-am="አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።" data-en="Our ministry has spread not only in Ethiopia but also in 15 countries. We have established many churches, prepared various training programs, and published about 17 books.">አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</span></p>
 
           <div class="highlight">
             <i class="fas fa-quote-left" style="color:var(--gold); font-size:1.2rem; margin-bottom:8px; display:block;"></i>
             <p style="margin-bottom:0; font-style:italic; font-size:1rem;">
-              "ምድር እግዚአብሔርን በማወቅ ትሞላለች" — ኢሳይያስ 11:9
+              "<span data-am="ምድር እግዚአብሔርን በማወቅ ትሞላለች" data-en="The earth will be filled with the knowledge of God">ምድር እግዚአብሔርን በማወቅ ትሞላለች</span>" — <span data-am="ኢሳይያስ 11:9" data-en="Isaiah 11:9">ኢሳይያስ 11:9</span>
             </p>
           </div>
 
           <a href="services.html" class="btn-primary" style="display:inline-flex; margin-top:12px; text-decoration:none;">
-            <i class="fas fa-arrow-right"></i> አገልግሎቶቻችንን ይመልከቱ
+            <i class="fas fa-arrow-right"></i> <span data-am="አገልግሎቶቻችንን ይመልከቱ" data-en="View Our Services">አገልግሎቶቻችንን ይመልከቱ</span>
           </a>
         </div>
 
@@ -1095,19 +1118,19 @@
       <div class="stats-mini">
         <div class="stat-mini-item">
           <span class="number">1964</span>
-          <span class="label">የተመሰረተበት ዓመት</span>
+          <span class="label" data-am="የተመሰረተበት ዓመት" data-en="Year Established">የተመሰረተበት ዓመት</span>
         </div>
         <div class="stat-mini-item">
           <span class="number">15+</span>
-          <span class="label">አገራት</span>
+          <span class="label" data-am="አገራት" data-en="Countries">አገራት</span>
         </div>
         <div class="stat-mini-item">
           <span class="number">17</span>
-          <span class="label">የታተሙ መጻሕፍት</span>
+          <span class="label" data-am="የታተሙ መጻሕፍት" data-en="Books Published">የታተሙ መጻሕፍት</span>
         </div>
         <div class="stat-mini-item">
           <span class="number">23K+</span>
-          <span class="label">የሠልጣኞች ብዛት</span>
+          <span class="label" data-am="የሠልጣኞች ብዛት" data-en="Trained Students">የሠልጣኞች ብዛት</span>
         </div>
       </div>
     </div>
@@ -1118,33 +1141,33 @@
     <div class="container">
       <div style="text-align:center; margin-bottom:48px;">
         <span style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,168,67,0.10); padding:8px 22px; border-radius:var(--radius-full); font-size:0.7rem; letter-spacing:2.5px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; border:1px solid var(--glass-border);">
-          <i class="fas fa-bullseye"></i> ራዕይና ተልዕኮ
+          <i class="fas fa-bullseye"></i> <span data-am="ራዕይና ተልዕኮ" data-en="Vision & Mission">ራዕይና ተልዕኮ</span>
         </span>
-        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem); margin-top:16px; font-weight:800;">መሠረታችን <span style="color:var(--gold);">ምንድነው?</span></h2>
+        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem); margin-top:16px; font-weight:800;"><span data-am="መሠረታችን" data-en="Our Foundation">መሠረታችን</span> <span style="color:var(--gold);" data-am="ምንድነው?" data-en="What is it?">ምንድነው?</span></h2>
       </div>
 
       <div class="mv-grid">
         <div class="mv-card">
           <span class="icon"><i class="fas fa-cross"></i></span>
-          <h3>መሠረታዊ እምነት</h3>
+          <h3 data-am="መሠረታዊ እምነት" data-en="Core Beliefs">መሠረታዊ እምነት</h3>
           <ul>
-            <li><i class="fas fa-check-circle"></i> በአንድ አምላክ ማመን</li>
-            <li><i class="fas fa-check-circle"></i> በኢየሱስ ክርስቶስ መዳን</li>
-            <li><i class="fas fa-check-circle"></i> በመንፈስ ቅዱስ ኃይል</li>
-            <li><i class="fas fa-check-circle"></i> በመጽሐፍ ቅዱስ ሥልጣን</li>
-            <li><i class="fas fa-check-circle"></i> የቤተክርስቲያን አንድነት</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="በአንድ አምላክ ማመን" data-en="Belief in One God">በአንድ አምላክ ማመን</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="በኢየሱስ ክርስቶስ መዳን" data-en="Salvation in Jesus Christ">በኢየሱስ ክርስቶስ መዳን</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="በመንፈስ ቅዱስ ኃይል" data-en="Power of the Holy Spirit">በመንፈስ ቅዱስ ኃይል</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="በመጽሐፍ ቅዱስ ሥልጣን" data-en="Authority of the Bible">በመጽሐፍ ቅዱስ ሥልጣን</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የቤተክርስቲያን አንድነት" data-en="Unity of the Church">የቤተክርስቲያን አንድነት</span></li>
           </ul>
         </div>
 
         <div class="mv-card">
           <span class="icon"><i class="fas fa-hand-holding-heart"></i></span>
-          <h3>የአገልግሎት ዘርፎች</h3>
+          <h3 data-am="የአገልግሎት ዘርፎች" data-en="Ministry Areas">የአገልግሎት ዘርፎች</h3>
           <ul>
-            <li><i class="fas fa-check-circle"></i> የደቀ መዝሙር ሥልጠና</li>
-            <li><i class="fas fa-check-circle"></i> የሕትመት አገልግሎት</li>
-            <li><i class="fas fa-check-circle"></i> የወንጌል ዘመቻዎች</li>
-            <li><i class="fas fa-check-circle"></i> የቤተክርስቲያን ተሃድሶ</li>
-            <li><i class="fas fa-check-circle"></i> የመሪዎች ማፍራት</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የደቀ መዝሙር ሥልጠና" data-en="Discipleship Training">የደቀ መዝሙር ሥልጠና</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የሕትመት አገልግሎት" data-en="Publishing Ministry">የሕትመት አገልግሎት</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የወንጌል ዘመቻዎች" data-en="Gospel Campaigns">የወንጌል ዘመቻዎች</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የቤተክርስቲያን ተሃድሶ" data-en="Church Revival">የቤተክርስቲያን ተሃድሶ</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የመሪዎች ማፍራት" data-en="Leadership Development">የመሪዎች ማፍራት</span></li>
           </ul>
         </div>
       </div>
@@ -1156,26 +1179,26 @@
     <div class="container">
       <div style="text-align:center; margin-bottom:48px;">
         <span style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,168,67,0.10); padding:8px 22px; border-radius:var(--radius-full); font-size:0.7rem; letter-spacing:2.5px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; border:1px solid var(--glass-border);">
-          <i class="fas fa-users"></i> መሪዎቻችን
+          <i class="fas fa-users"></i> <span data-am="መሪዎቻችን" data-en="Our Leaders">መሪዎቻችን</span>
         </span>
-        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem); margin-top:16px; font-weight:800;">የአገልግሎቱ <span style="color:var(--gold);">አመራር</span></h2>
+        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem); margin-top:16px; font-weight:800;"><span data-am="የአገልግሎቱ" data-en="Ministry">የአገልግሎቱ</span> <span style="color:var(--gold);" data-am="አመራር" data-en="Leadership">አመራር</span></h2>
       </div>
 
       <div class="team-grid">
         <div class="team-card">
           <div class="avatar"><i class="fas fa-user-tie"></i></div>
-          <h4>ዶ/ር ብርሃኑ ሐብቴ</h4>
-          <p class="role">መስራች እና መሪ አገልጋይ</p>
+          <h4 data-am="ዶ/ር ብርሃኑ ሐብቴ" data-en="Dr. Berhanu Habte">ዶ/ር ብርሃኑ ሐብቴ</h4>
+          <p class="role" data-am="መስራች እና መሪ አገልጋይ" data-en="Founder & Lead Minister">መስራች እና መሪ አገልጋይ</p>
         </div>
         <div class="team-card">
           <div class="avatar"><i class="fas fa-user-tie"></i></div>
-          <h4>ወ/ሮ ማለት በረከት</h4>
-          <p class="role">ተባባሪ መሪ</p>
+          <h4 data-am="ወ/ሮ ማለት በረከት" data-en="Mrs. Meleat Berket">ወ/ሮ ማለት በረከት</h4>
+          <p class="role" data-am="ተባባሪ መሪ" data-en="Co-Leader">ተባባሪ መሪ</p>
         </div>
         <div class="team-card">
           <div class="avatar"><i class="fas fa-user-tie"></i></div>
-          <h4>መምህር ዳንኤል አብረሃም</h4>
-          <p class="role">የሥልጠና ዘርፍ ኃላፊ</p>
+          <h4 data-am="መምህር ዳንኤል አብረሃም" data-en="Teacher Daniel Abraham">መምህር ዳንኤል አብረሃም</h4>
+          <p class="role" data-am="የሥልጠና ዘርፍ ኃላፊ" data-en="Training Department Head">የሥልጠና ዘርፍ ኃላፊ</p>
         </div>
       </div>
     </div>
@@ -1187,42 +1210,42 @@
   <section class="contact-info-section" id="contact">
     <div class="container">
       <div class="contact-header reveal">
-        <span class="pill-badge"><i class="fas fa-address-card"></i> አግኙን</span>
-        <h2>ያግኙን <span class="gold">መግቢያ</span></h2>
-        <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
+        <span class="pill-badge"><i class="fas fa-address-card"></i> <span data-am="አግኙን" data-en="Contact Us">አግኙን</span></span>
+        <h2><span data-am="ያግኙን" data-en="Contact">ያግኙን</span> <span class="gold" data-am="መግቢያ" data-en="Information">መግቢያ</span></h2>
+        <p data-am="ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ" data-en="Use the channels below to get in touch with us">ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
       </div>
 
       <div class="contact-grid">
         <!-- Location -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-map-pin"></i></div>
-          <h4>አድራሻ</h4>
-          <div class="value">አዲስ አበባ፣ ኢትዮጵያ</div>
+          <h4 data-am="አድራሻ" data-en="Address">አድራሻ</h4>
+          <div class="value" data-am="አዲስ አበባ፣ ኢትዮጵያ" data-en="Addis Ababa, Ethiopia">አዲስ አበባ፣ ኢትዮጵያ</div>
           <div class="sub-label">Ethiopia, Addis Ababa</div>
         </div>
 
         <!-- Phone -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-phone-alt"></i></div>
-          <h4>ስልክ</h4>
+          <h4 data-am="ስልክ" data-en="Phone">ስልክ</h4>
           <div class="value"><a href="tel:+251911416976">+251-911-416976</a></div>
-          <div class="sub-label">ለመደወል ይጫኑ</div>
+          <div class="sub-label" data-am="ለመደወል ይጫኑ" data-en="Call us">ለመደወል ይጫኑ</div>
         </div>
 
         <!-- Email -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-envelope"></i></div>
-          <h4>ኢሜል</h4>
+          <h4 data-am="ኢሜል" data-en="Email">ኢሜል</h4>
           <div class="value"><a href="mailto:Ekklesiaarise2023@gmail.com">Ekklesiaarise2023@gmail.com</a></div>
-          <div class="sub-label">ለመጻፍ ይጫኑ</div>
+          <div class="sub-label" data-am="ለመጻፍ ይጫኑ" data-en="Email us">ለመጻፍ ይጫኑ</div>
         </div>
 
         <!-- Website -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-globe"></i></div>
-          <h4>ድረ-ገጽ</h4>
+          <h4 data-am="ድረ-ገጽ" data-en="Website">ድረ-ገጽ</h4>
           <div class="value"><a href="https://www.ekklesia-arise.com" target="_blank">www.ekklesia-arise.com</a></div>
-          <div class="sub-label">ጉብኝት ያድርጉ</div>
+          <div class="sub-label" data-am="ጉብኝት ያድርጉ" data-en="Visit us">ጉብኝት ያድርጉ</div>
         </div>
       </div>
     </div>
@@ -1231,11 +1254,11 @@
   <!-- Call to Action -->
   <section class="cta-section">
     <div class="container">
-      <h2>ከእኛ <span class="gold">ጋር ይቀላቀሉ</span></h2>
-      <p>በዚህ በመጨረሻው ዘመን ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ከእኛ ጋር ይተባበሩ።</p>
+      <h2><span data-am="ከእኛ" data-en="Join">ከእኛ</span> <span class="gold" data-am="ጋር ይቀላቀሉ" data-en="Us">ጋር ይቀላቀሉ</span></h2>
+      <p data-am="በዚህ በመጨረሻው ዘመን ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ከእኛ ጋር ይተባበሩ።" data-en="Partner with us to spread the Gospel to all nations in this final age.">በዚህ በመጨረሻው ዘመን ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ከእኛ ጋር ይተባበሩ።</p>
       <div class="cta-buttons">
-        <a href="services.html" class="btn-primary"><i class="fas fa-arrow-right"></i> አገልግሎቶቻችን</a>
-        <a href="contact.html" class="btn-secondary"><i class="fas fa-envelope"></i> ያግኙን</a>
+        <a href="services.html" class="btn-primary"><i class="fas fa-arrow-right"></i> <span data-am="አገልግሎቶቻችን" data-en="Our Services">አገልግሎቶቻችን</span></a>
+        <a href="contact.html" class="btn-secondary"><i class="fas fa-envelope"></i> <span data-am="ያግኙን" data-en="Contact Us">ያግኙን</span></a>
       </div>
     </div>
   </section>
@@ -1246,7 +1269,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3 class="amharic">ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት</h3>
-          <p>ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
+          <p data-am="ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ" data-en="Strengthening the church with the Word of God and spreading the Gospel to all nations">ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1256,29 +1279,28 @@
         </div>
 
         <div class="footer-col">
-          <h4>ፈጣን አገናኞች</h4>
+          <h4 data-am="ፈጣን አገናኞች" data-en="Quick Links">ፈጣን አገናኞች</h4>
           <ul>
-            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> መነሻ</a></li>
-            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ስለእኛ</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አገልግሎቶች</a></li>
-            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አግኙን</a></li>
-            <li><a href="give.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ይለግሱ</a></li>
+            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>አገልግሎቶች</h4>
+          <h4 data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</h4>
           <ul>
-            <li><a href="#"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የደቀ መዝሙር ሥልጠና</a></li>
-            <li><a href="#"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የሕትመት አገልግሎት</a></li>
-            <li><a href="#"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የወንጌል ዘመቻዎች</a></li>
-            <li><a href="#"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቤተክርስቲያን ተሃድሶ</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የደቀ መዝሙር ሥልጠና" data-en="Discipleship Training">የደቀ መዝሙር ሥልጠና</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የሕትመት አገልግሎት" data-en="Publishing Ministry">የሕትመት አገልግሎት</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የወንጌል ዘመቻዎች" data-en="Gospel Campaigns">የወንጌል ዘመቻዎች</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የቤተክርስቲያን ተሃድሶ" data-en="Church Revival">የቤተክርስቲያን ተሃድሶ</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col footer-contact">
-          <h4>ያግኙን</h4>
-          <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
+          <h4 data-am="ያግኙን" data-en="Contact">ያግኙን</h4>
+          <p><i class="fas fa-map-pin"></i> <span data-am="አዲስ አበባ፣ ኢትዮጵያ" data-en="Addis Ababa, Ethiopia">አዲስ አበባ፣ ኢትዮጵያ</span></p>
           <p><i class="fas fa-phone"></i> +251-911-416976</p>
           <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
           <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
@@ -1325,6 +1347,29 @@
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (mobileMenu.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // ================================================================
+    // LANGUAGE SWITCHER
+    // ================================================================
+    const langButtons = document.querySelectorAll('.lang-switch button');
+    let currentLang = 'am';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-am][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang === 'am' ? 'am' : 'en';
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
       });
     });
 
