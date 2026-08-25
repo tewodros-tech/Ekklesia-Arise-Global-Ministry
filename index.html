@@ -370,6 +370,39 @@
       box-shadow: 0 4px 16px rgba(30, 76, 143, 0.25);
     }
 
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--primary-light);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      padding: 4px 6px;
+      margin-left: 8px;
+    }
+    .lang-toggle button {
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+      cursor: pointer;
+      background: transparent;
+    }
+    .lang-toggle button.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 2px 8px rgba(30, 76, 143, 0.2);
+    }
+    .lang-toggle button:hover:not(.active) {
+      color: var(--primary);
+      background: rgba(30, 76, 143, 0.06);
+    }
+
     /* Hamburger */
     .hamburger {
       display: none;
@@ -432,6 +465,29 @@
     .nav-menu-mobile .nav-cta {
       margin-top: 16px;
       text-align: center;
+    }
+    .nav-menu-mobile .lang-toggle-mobile {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      justify-content: center;
+    }
+    .nav-menu-mobile .lang-toggle-mobile button {
+      padding: 8px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--primary-light);
+      color: var(--text-muted);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+    .nav-menu-mobile .lang-toggle-mobile button.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
     }
 
     /* ================================================================
@@ -1016,6 +1072,7 @@
       .hero-title { letter-spacing: -1px; }
       .giving-card { padding: 40px 25px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .lang-toggle { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -1162,6 +1219,74 @@
       .slider-slide { aspect-ratio: 4 / 3; }
       .slider-btn { width: 44px; height: 44px; font-size: 1rem; }
     }
+
+    /* ================================================================
+       BOOK IMAGE SECTION
+       ================================================================ */
+    .book-section {
+      padding: 40px 0 60px;
+      background: var(--bg-light);
+    }
+    .book-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    .book-wrapper:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .book-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .book-wrapper:hover img {
+      transform: scale(1.02);
+    }
+    .book-link-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(11, 27, 51, 0.3);
+      opacity: 0;
+      transition: var(--transition-smooth);
+      backdrop-filter: blur(2px);
+    }
+    .book-wrapper:hover .book-link-overlay {
+      opacity: 1;
+    }
+    .book-link-overlay .btn {
+      background: var(--gold);
+      color: var(--dark-blue);
+      padding: 16px 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .book-link-overlay .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .book-caption {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .book-caption i {
+      color: var(--gold);
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
@@ -1201,6 +1326,12 @@
           <li><a href="services.html">አገልግሎቶች</a></li>
           <li><a href="contact.html">አግኙን</a></li>
           <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+          <li>
+            <div class="lang-toggle">
+              <button class="active" data-lang="am" id="langAm">አማ</button>
+              <button data-lang="en" id="langEn">EN</button>
+            </div>
+          </li>
         </ul>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -1217,6 +1348,12 @@
     <li><a href="services.html">አገልግሎቶች</a></li>
     <li><a href="contact.html">አግኙን</a></li>
     <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+    <li>
+      <div class="lang-toggle-mobile">
+        <button class="active" data-lang="am" id="langAmMobile">አማርኛ</button>
+        <button data-lang="en" id="langEnMobile">English</button>
+      </div>
+    </li>
   </ul>
 
   <!-- Hero Section -->
@@ -1228,7 +1365,7 @@
     <div class="container hero-content">
       <div class="hero-badge">
         <i class="fas fa-church"></i>
-        የኤክሌሺያ ተነሺ አገልግሎት
+        <span class="hero-badge-text">የኤክሌሺያ ተነሺ አገልግሎት</span>
       </div>
 
       <h1 class="hero-title amharic">
@@ -1240,9 +1377,9 @@
       </p>
 
       <div class="hero-buttons">
-        <div class="magnetic-wrap"><a href="about.html" class="btn btn-primary magnetic" style="padding: 18px 48px; font-size: 1rem;"><i class="fas fa-info-circle"></i> ስለእኛ</a></div>
-        <div class="magnetic-wrap"><a href="services.html" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></div>
-        <div class="magnetic-wrap"><a href="give.html" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-heart"></i> ይለግሱ</a></div>
+        <div class="magnetic-wrap"><a href="about.html" class="btn btn-primary magnetic" style="padding: 18px 48px; font-size: 1rem;"><i class="fas fa-info-circle"></i> <span class="btn-about-text">ስለእኛ</span></a></div>
+        <div class="magnetic-wrap"><a href="services.html" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-hands-praying"></i> <span class="btn-services-text">አገልግሎቶች</span></a></div>
+        <div class="magnetic-wrap"><a href="give.html" class="btn btn-glass magnetic" style="padding: 18px 48px;"><i class="fas fa-heart"></i> <span class="btn-give-text">ይለግሱ</span></a></div>
       </div>
     </div>
   </section>
@@ -1253,9 +1390,9 @@
   <section class="gallery-slider-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-images"></i> የአገልግሎቱ ቅጽበቶች</span>
-        <h2 class="section-title">የእኛ <span class="gold">ምስሎች</span></h2>
-        <p class="section-subtitle">የኤክሌሺያ ተነሺ አገልግሎት በተለያዩ አጋጣሚዎች</p>
+        <span class="pill-badge"><i class="fas fa-images"></i> <span class="gallery-badge-text">የአገልግሎቱ ቅጽበቶች</span></span>
+        <h2 class="section-title"><span class="gallery-title">የእኛ</span> <span class="gold gallery-title-gold">ምስሎች</span></h2>
+        <p class="section-subtitle gallery-subtitle">የኤክሌሺያ ተነሺ አገልግሎት በተለያዩ አጋጣሚዎች</p>
       </div>
 
       <div class="slider-wrapper reveal">
@@ -1296,19 +1433,19 @@
       <div class="stats-grid">
         <div class="stat-item reveal">
           <div class="stat-number" data-target="247" data-suffix="+"><span class="counter-text">0</span></div>
-          <div class="stat-label">የከተሞች ብዛት</div>
+          <div class="stat-label stat-label-1">የከተሞች ብዛት</div>
         </div>
         <div class="stat-item reveal">
           <div class="stat-number" data-target="680" data-suffix="+"><span class="counter-text">0</span></div>
-          <div class="stat-label">አብያተ ክርስቲያናት</div>
+          <div class="stat-label stat-label-2">አብያተ ክርስቲያናት</div>
         </div>
         <div class="stat-item reveal">
           <div class="stat-number" data-target="23,340" data-suffix="+"><span class="counter-text">0</span></div>
-          <div class="stat-label">የሠልጣኞች ብዛት</div>
+          <div class="stat-label stat-label-3">የሠልጣኞች ብዛት</div>
         </div>
         <div class="stat-item reveal">
           <div class="stat-number" data-target="17" data-suffix=""><span class="counter-text">0</span></div>
-          <div class="stat-label">የሕትመት ውጤቶች</div>
+          <div class="stat-label stat-label-4">የሕትመት ውጤቶች</div>
         </div>
       </div>
     </div>
@@ -1318,17 +1455,17 @@
   <section class="content-section" id="about">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-info-circle"></i> ስለእኛ</span>
-        <h2 class="section-title">የኤክሌሺያ ተነሺ <span class="gold">አገልግሎት</span></h2>
-        <p class="section-subtitle">ቤተክርስቲያንን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ ማስታጠቅ</p>
+        <span class="pill-badge"><i class="fas fa-info-circle"></i> <span class="about-badge-text">ስለእኛ</span></span>
+        <h2 class="section-title"><span class="about-title">የኤክሌሺያ ተነሺ</span> <span class="gold about-title-gold">አገልግሎት</span></h2>
+        <p class="section-subtitle about-subtitle">ቤተክርስቲያንን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ ማስታጠቅ</p>
       </div>
 
       <div class="about-preview">
         <div class="about-preview-text reveal">
-          <h2>የአገልግሎታችን <span class="gold">ታሪክ</span></h2>
-          <p><strong>ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</strong> የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።</p>
-          <p>አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</p>
-          <a href="about.html" class="btn btn-primary" style="margin-top:12px;"><i class="fas fa-arrow-right"></i> ተጨማሪ ያንብቡ</a>
+          <h2><span class="about-story-title">የአገልግሎታችን</span> <span class="gold about-story-gold">ታሪክ</span></h2>
+          <p class="about-story-p1"><strong>ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</strong> የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።</p>
+          <p class="about-story-p2">አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።</p>
+          <a href="about.html" class="btn btn-primary" style="margin-top:12px;"><i class="fas fa-arrow-right"></i> <span class="about-readmore">ተጨማሪ ያንብቡ</span></a>
         </div>
         <div class="about-preview-image reveal-right">
           <img src="Cover1.jpg" alt="About Ekklesia Arise" onerror="this.src='https://placehold.co/600x400/1E4C8F/FFFFFF?text=Ekklesia+Arise'" />
@@ -1341,26 +1478,26 @@
   <section class="content-section" style="background: var(--bg-dark);" id="doctrine">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-book-bible"></i> አስተምህሮ</span>
-        <h2 class="section-title">መሠረታዊ <span class="gold">አስተምህሮች</span></h2>
-        <p class="section-subtitle">በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን ምን መሆን እንደሚገባት በውል ማስጨበጥ</p>
+        <span class="pill-badge"><i class="fas fa-book-bible"></i> <span class="doctrine-badge-text">አስተምህሮ</span></span>
+        <h2 class="section-title"><span class="doctrine-title">መሠረታዊ</span> <span class="gold doctrine-title-gold">አስተምህሮች</span></h2>
+        <p class="section-subtitle doctrine-subtitle">በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን ምን መሆን እንደሚገባት በውል ማስጨበጥ</p>
       </div>
 
       <div class="content-body reveal">
-        <h3>በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን</h3>
-        <p>የቤተ ክርስቲያን ቋሚ ተግባራት ታላቁ ትዕዛዝ (ማር. 12፡ 29-31) እና ታላቁ ተልዕኮ (ማቴ. 28፡ 19-20) ናቸው። ከሁለቱ ታላላቅ ክፍሎች የተፈለቀቁና ቤተ ክርስቲያን ልትፈጽመው የሚገባት አምስት ተግባራት፦</p>
-        <ul>
+        <h3 class="doctrine-h3">በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን</h3>
+        <p class="doctrine-p1">የቤተ ክርስቲያን ቋሚ ተግባራት ታላቁ ትዕዛዝ (ማር. 12፡ 29-31) እና ታላቁ ተልዕኮ (ማቴ. 28፡ 19-20) ናቸው። ከሁለቱ ታላላቅ ክፍሎች የተፈለቀቁና ቤተ ክርስቲያን ልትፈጽመው የሚገባት አምስት ተግባራት፦</p>
+        <ul class="doctrine-list">
           <li><strong>እግዚአብሔርን ማምለክ</strong> — ጌታ አምላክህን ውደድ</li>
           <li><strong>ወንጌልን ማሰራጨት</strong> — ሂዱ</li>
           <li><strong>ሕብረትን ማድረግ</strong> — አጥምቁ</li>
           <li><strong>ሕይወትን ማሳደግ</strong> — ደቀመዝሙር አድርጓቸው</li>
           <li><strong>ለአገልግሎት ማሰማራት</strong> — ባልንጀራህን ውደድ</li>
         </ul>
-        <p>በአጭር ቃል የቤተ ክርስቲያን ተልዕኮ የእግዚአብሔር መንግሥት በምድር ላይ እንዲሠለጥን የማድረግ ተልዕኮ ነው።</p>
+        <p class="doctrine-p2">በአጭር ቃል የቤተ ክርስቲያን ተልዕኮ የእግዚአብሔር መንግሥት በምድር ላይ እንዲሠለጥን የማድረግ ተልዕኮ ነው።</p>
 
         <div class="highlight-box">
-          <h4>ዋና ተግባሮች</h4>
-          <ul>
+          <h4 class="doctrine-highlight-title">ዋና ተግባሮች</h4>
+          <ul class="doctrine-highlight-list">
             <li>በዘመኑ መጨረሻ በድል የምትገሰግሰውን ቤተክርስቲያን ማየት</li>
             <li>በቂ የአመራር ክህሎት ያላቸውን የቤተክርስቲያን መሪዎች ማፍራት</li>
             <li>በእያንዳንዱ አጥቢያ በቂ ቁጥር ያለው ደቀመዝሙር ማፍራት</li>
@@ -1371,17 +1508,40 @@
     </div>
   </section>
 
+  <!-- ================================================================
+       BOOK IMAGE SECTION — Allbook.jpg below doctrine
+       ================================================================ -->
+  <section class="book-section" id="books">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom: 32px;">
+        <span class="pill-badge"><i class="fas fa-book"></i> <span class="book-badge-text">የአገልግሎቱ መጻሕፍት</span></span>
+        <h2 class="section-title"><span class="book-title">የእኛ</span> <span class="gold book-title-gold">ህትመቶች</span></h2>
+        <p class="section-subtitle book-subtitle">ወንጌልን ለማስፋፋት የተዘጋጁ መጻሕፍት</p>
+      </div>
+
+      <div class="book-wrapper reveal-scale">
+        <a href="services.html">
+          <img src="Allbook.jpg" alt="Ekklesia Arise Books" loading="lazy" onerror="this.src='https://placehold.co/800x500/1E4C8F/FFFFFF?text=All+Books'" />
+          <div class="book-link-overlay">
+            <span class="btn btn-gold"><i class="fas fa-arrow-right"></i> <span class="book-link-text">ወደ አገልግሎቶች ይሂዱ</span></span>
+          </div>
+        </a>
+      </div>
+      <p class="book-caption"><i class="fas fa-hand-point-right"></i> ሙሉ ህትመቶቻችንን ለማየት ምስሉን ይጫኑ</p>
+    </div>
+  </section>
+
   <!-- Training Section -->
   <section class="content-section" id="training">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-chalkboard-teacher"></i> ሥልጠናዎች</span>
-        <h2 class="section-title">የአገልግሎቱ <span class="gold">ተደራሽነት</span></h2>
-        <p class="section-subtitle">በአገር ውስጥ እና በዓለም ዙሪያ የተሰጡ ሥልጠናዎች</p>
+        <span class="pill-badge"><i class="fas fa-chalkboard-teacher"></i> <span class="training-badge-text">ሥልጠናዎች</span></span>
+        <h2 class="section-title"><span class="training-title">የአገልግሎቱ</span> <span class="gold training-title-gold">ተደራሽነት</span></h2>
+        <p class="section-subtitle training-subtitle">በአገር ውስጥ እና በዓለም ዙሪያ የተሰጡ ሥልጠናዎች</p>
       </div>
 
       <div class="content-body reveal">
-        <h3>በአገር ውስጥ የተሰጡ ሥልጠናዎች</h3>
+        <h3 class="training-h3">በአገር ውስጥ የተሰጡ ሥልጠናዎች</h3>
         <div class="table-wrapper">
           <table>
             <thead>
@@ -1415,9 +1575,9 @@
   <section class="contact-info-section" id="contact">
     <div class="container">
       <div class="contact-header reveal">
-        <span class="pill-badge"><i class="fas fa-address-card"></i> አግኙን</span>
-        <h2>ያግኙን <span class="gold">መግቢያ</span></h2>
-        <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
+        <span class="pill-badge"><i class="fas fa-address-card"></i> <span class="contact-badge-text">አግኙን</span></span>
+        <h2><span class="contact-title">ያግኙን</span> <span class="gold contact-title-gold">መግቢያ</span></h2>
+        <p class="contact-subtitle">ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
       </div>
 
       <div class="contact-grid">
@@ -1461,19 +1621,19 @@
     <div class="container">
       <div class="giving-card reveal-scale">
         <span class="icon-big"><i class="fas fa-hand-holding-heart"></i></span>
-        <h2>ድጋፍ ለ<span class="gold">አገልግሎቱ</span></h2>
-        <p class="sub-text">በልግስናዎ የወንጌል ሥርጭት ሥራ ተካፋይ ይሁኑ</p>
+        <h2><span class="giving-title">ድጋፍ ለ</span><span class="gold giving-title-gold">አገልግሎቱ</span></h2>
+        <p class="sub-text giving-subtext">በልግስናዎ የወንጌል ሥርጭት ሥራ ተካፋይ ይሁኑ</p>
 
         <div class="account-box">
           <div class="account-label"><i class="fas fa-university"></i> የሂሳብ ቁጥር</div>
           <div class="account-number">1000029580905</div>
           <button class="copy-btn" onclick="copyAccount()">
-            <i class="fas fa-copy"></i> ቁጥሩን ይቅዱ
+            <i class="fas fa-copy"></i> <span class="copy-text">ቁጥሩን ይቅዱ</span>
           </button>
         </div>
 
         <a href="https://play.google.com/store/apps/details?id=com.cbe.mobile" target="_blank" class="btn-donate">
-          <i class="fas fa-arrow-right"></i> ይለግሱ
+          <i class="fas fa-arrow-right"></i> <span class="donate-btn-text">ይለግሱ</span>
         </a>
         <p class="donate-note">* ሁሉም ልግስናዎች ለአገልግሎቱ ሥራ የሚውሉ ናቸው</p>
       </div>
@@ -1485,8 +1645,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h3 class="amharic">የኤክሌሺያ ተነሺ አገልግሎት</h3>
-          <p>ቤተክርስቲያንን በማስተማርና በማሰልጠን ማስታጠቅ፣ ዘመኑን በዋጀ መንገድ የሚዲያ አገልግሎትን መጠቀም።</p>
+          <h3 class="amharic footer-brand-title">የኤክሌሺያ ተነሺ አገልግሎት</h3>
+          <p class="footer-brand-desc">ቤተክርስቲያንን በማስተማርና በማሰልጠን ማስታጠቅ፣ ዘመኑን በዋጀ መንገድ የሚዲያ አገልግሎትን መጠቀም።</p>
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1496,7 +1656,7 @@
         </div>
 
         <div class="footer-col">
-          <h4>ፈጣን አገናኞች</h4>
+          <h4 class="footer-col-title">ፈጣን አገናኞች</h4>
           <ul>
             <li><a href="index.html">መነሻ</a></li>
             <li><a href="about.html">ስለእኛ</a></li>
@@ -1507,7 +1667,7 @@
         </div>
 
         <div class="footer-col">
-          <h4>አገልግሎቶች</h4>
+          <h4 class="footer-col-title">አገልግሎቶች</h4>
           <ul>
             <li><a href="#training">የጢራኖስ ትምህርት ቤት</a></li>
             <li><a href="#training">ሥልጠናዎች</a></li>
@@ -1516,7 +1676,7 @@
         </div>
 
         <div class="footer-col footer-contact">
-          <h4>ያግኙን</h4>
+          <h4 class="footer-col-title">ያግኙን</h4>
           <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
           <p><i class="fas fa-phone"></i> +251-911-416976</p>
           <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
@@ -1867,6 +2027,243 @@
         if (diff > 0) nextSlide(); else prevSlide();
       }
     }, { passive: true });
+
+    // ================================================================
+    // LANGUAGE TOGGLE — simple demo: changes some key texts
+    // ================================================================
+    const langAm = document.getElementById('langAm');
+    const langEn = document.getElementById('langEn');
+    const langAmMobile = document.getElementById('langAmMobile');
+    const langEnMobile = document.getElementById('langEnMobile');
+
+    // English translations
+    const en = {
+      heroBadge: 'Ekklesia Arise Ministry',
+      heroTitle: 'The earth will be filled<br>with the <span class="gradient-text">knowledge</span> of the Lord',
+      heroSubtitle: 'Isaiah 11:9 · Equipping the Church through teaching and training',
+      btnAbout: 'About Us',
+      btnServices: 'Services',
+      btnGive: 'Give',
+      galleryBadge: 'Ministry Moments',
+      galleryTitle: 'Our Gallery',
+      gallerySubtitle: 'Ekklesia Arise Global Ministry in various occasions',
+      aboutBadge: 'About Us',
+      aboutTitle: 'Ekklesia Arise',
+      aboutTitleGold: 'Ministry',
+      aboutSubtitle: 'Equipping the Church to effectively preach the gospel and make disciples through continuous revival',
+      aboutStory: 'Our Story',
+      aboutStoryGold: 'History',
+      aboutP1: '<strong>Ekklesia Arise Global Ministry</strong> was established to strengthen the Church through the Word of God and to spread the gospel to all nations. Led by Dr. Birhanu Habte, this ministry has been serving thousands of people through the gospel since 1964.',
+      aboutP2: 'Our ministry has spread not only in Ethiopia but in 15 countries. We have established many churches, organized various training programs, and published 17 books.',
+      aboutReadmore: 'Read More',
+      stat1: 'Cities Reached',
+      stat2: 'Churches Planted',
+      stat3: 'Trained Leaders',
+      stat4: 'Publications',
+      doctrineBadge: 'Doctrine',
+      doctrineTitle: 'Core',
+      doctrineTitleGold: 'Teachings',
+      doctrineSubtitle: 'Clearly defining what the victorious end-time Church should be',
+      doctrineH3: 'The Victorious End-Time Church',
+      doctrineP1: 'The permanent functions of the Church are the Great Commandment (Mark 12:29-31) and the Great Commission (Matthew 28:19-20). The five tasks derived from these two great parts that the Church must fulfill are:',
+      doctrineP2: 'In short, the mission of the Church is to establish God\'s Kingdom on earth.',
+      doctrineHighlight: 'Key Functions',
+      doctrineHL1: 'To see the victorious end-time Church',
+      doctrineHL2: 'To raise church leaders with adequate leadership skills',
+      doctrineHL3: 'To raise enough disciples in every locality',
+      doctrineHL4: 'To raise a generation that speaks the gospel and plants churches',
+      trainingBadge: 'Training',
+      trainingTitle: 'Reach of the',
+      trainingTitleGold: 'Ministry',
+      trainingSubtitle: 'Trainings given locally and around the world',
+      trainingH3: 'Trainings Given Locally',
+      contactBadge: 'Contact',
+      contactTitle: 'Get in',
+      contactTitleGold: 'Touch',
+      contactSubtitle: 'Use the following ways to reach out to us',
+      givingTitle: 'Support the',
+      givingTitleGold: 'Ministry',
+      givingSubtext: 'Be part of the gospel spread through your giving',
+      copyText: 'Copy Number',
+      donateBtn: 'Give Now',
+      footerBrand: 'Ekklesia Arise Global Ministry',
+      footerDesc: 'Equipping the Church through teaching and training, using media in a contemporary way.',
+      footerQuick: 'Quick Links',
+      footerServices: 'Services',
+      footerContact: 'Contact Us',
+      footerRights: 'All rights reserved.',
+      bookBadge: 'Our Publications',
+      bookTitle: 'Our',
+      bookTitleGold: 'Books',
+      bookSubtitle: 'Books prepared to spread the gospel',
+      bookLink: 'Go to Services'
+    };
+
+    const am = {
+      heroBadge: 'የኤክሌሺያ ተነሺ አገልግሎት',
+      heroTitle: 'ምድር <span class="gradient-text">እግዚአብሔርን</span><br>በማወቅ <span class="gradient-text">ትሞላለች</span>',
+      heroSubtitle: 'ኢሳይያስ 11:9 · ቤተክርስቲያንን በማስተማርና በማሰልጠን ማስታጠቅ',
+      btnAbout: 'ስለእኛ',
+      btnServices: 'አገልግሎቶች',
+      btnGive: 'ይለግሱ',
+      galleryBadge: 'የአገልግሎቱ ቅጽበቶች',
+      galleryTitle: 'የእኛ',
+      galleryTitleGold: 'ምስሎች',
+      gallerySubtitle: 'የኤክሌሺያ ተነሺ አገልግሎት በተለያዩ አጋጣሚዎች',
+      aboutBadge: 'ስለእኛ',
+      aboutTitle: 'የኤክሌሺያ ተነሺ',
+      aboutTitleGold: 'አገልግሎት',
+      aboutSubtitle: 'ቤተክርስቲያንን በማያቋርጥ ተሃድሶ ወንጌል መስበክን እና ደቀ መዛሙርት ማፍራትን በብቃት እንድትወጣ ማስታጠቅ',
+      aboutStory: 'የአገልግሎታችን',
+      aboutStoryGold: 'ታሪክ',
+      aboutP1: '<strong>ኤክሌሺያ ተነሺ ግሎባል ሚኒስትሪ</strong> የተመሰረተው ቤተክርስቲያንን በቃለ እግዚአብሔር ለማጠናከርና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ ነው። ይህ አገልግሎት በዶ/ር ብርሃኑ ሐብቴ መሪነት የተጀመረ ሲሆን፣ ከ1964 ዓም ጀምሮ እስከ ዛሬ ድረስ በሺዎች የሚቆጠሩ ሰዎችን በወንጌል ለማገልገል ተችሏል።',
+      aboutP2: 'አገልግሎታችን በኢትዮጵያ ብቻ ሳይሆን በ15 አገራት ተሰራጭቷል። በርካታ አብያተ ክርስቲያናትን መስርተናል፣ የተለያዩ የሥልጠና ፕሮግራሞችን አዘጋጅተናል፣ እንዲሁም 17 የሚያህሉ መጻሕፍትን አሳትመናል።',
+      aboutReadmore: 'ተጨማሪ ያንብቡ',
+      stat1: 'የከተሞች ብዛት',
+      stat2: 'አብያተ ክርስቲያናት',
+      stat3: 'የሠልጣኞች ብዛት',
+      stat4: 'የሕትመት ውጤቶች',
+      doctrineBadge: 'አስተምህሮ',
+      doctrineTitle: 'መሠረታዊ',
+      doctrineTitleGold: 'አስተምህሮች',
+      doctrineSubtitle: 'በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን ምን መሆን እንደሚገባት በውል ማስጨበጥ',
+      doctrineH3: 'በዘመኑ መጨረሻ በድል የምትገሠግሠው ቤተ ክርስቲያን',
+      doctrineP1: 'የቤተ ክርስቲያን ቋሚ ተግባራት ታላቁ ትዕዛዝ (ማር. 12፡ 29-31) እና ታላቁ ተልዕኮ (ማቴ. 28፡ 19-20) ናቸው። ከሁለቱ ታላላቅ ክፍሎች የተፈለቀቁና ቤተ ክርስቲያን ልትፈጽመው የሚገባት አምስት ተግባራት፦',
+      doctrineP2: 'በአጭር ቃል የቤተ ክርስቲያን ተልዕኮ የእግዚአብሔር መንግሥት በምድር ላይ እንዲሠለጥን የማድረግ ተልዕኮ ነው።',
+      doctrineHighlight: 'ዋና ተግባሮች',
+      doctrineHL1: 'በዘመኑ መጨረሻ በድል የምትገሰግሰውን ቤተክርስቲያን ማየት',
+      doctrineHL2: 'በቂ የአመራር ክህሎት ያላቸውን የቤተክርስቲያን መሪዎች ማፍራት',
+      doctrineHL3: 'በእያንዳንዱ አጥቢያ በቂ ቁጥር ያለው ደቀመዝሙር ማፍራት',
+      doctrineHL4: 'ወንጌልን የሚናገር እና ቤተክርስቲያንን የሚተክል የተነቃቃ ትውልድ መፍጠር',
+      trainingBadge: 'ሥልጠናዎች',
+      trainingTitle: 'የአገልግሎቱ',
+      trainingTitleGold: 'ተደራሽነት',
+      trainingSubtitle: 'በአገር ውስጥ እና በዓለም ዙሪያ የተሰጡ ሥልጠናዎች',
+      trainingH3: 'በአገር ውስጥ የተሰጡ ሥልጠናዎች',
+      contactBadge: 'አግኙን',
+      contactTitle: 'ያግኙን',
+      contactTitleGold: 'መግቢያ',
+      contactSubtitle: 'ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ',
+      givingTitle: 'ድጋፍ ለ',
+      givingTitleGold: 'አገልግሎቱ',
+      givingSubtext: 'በልግስናዎ የወንጌል ሥርጭት ሥራ ተካፋይ ይሁኑ',
+      copyText: 'ቁጥሩን ይቅዱ',
+      donateBtn: 'ይለግሱ',
+      footerBrand: 'የኤክሌሺያ ተነሺ አገልግሎት',
+      footerDesc: 'ቤተክርስቲያንን በማስተማርና በማሰልጠን ማስታጠቅ፣ ዘመኑን በዋጀ መንገድ የሚዲያ አገልግሎትን መጠቀም።',
+      footerQuick: 'ፈጣን አገናኞች',
+      footerServices: 'አገልግሎቶች',
+      footerContact: 'ያግኙን',
+      footerRights: 'ሁሉም መብቶች የተጠበቁ ናቸው።',
+      bookBadge: 'የአገልግሎቱ መጻሕፍት',
+      bookTitle: 'የእኛ',
+      bookTitleGold: 'ህትመቶች',
+      bookSubtitle: 'ወንጌልን ለማስፋፋት የተዘጋጁ መጻሕፍት',
+      bookLink: 'ወደ አገልግሎቶች ይሂዱ'
+    };
+
+    let currentLang = 'am';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const t = lang === 'en' ? en : am;
+
+      // Update active states
+      document.querySelectorAll('.lang-toggle button, .lang-toggle-mobile button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Hero
+      document.querySelector('.hero-badge-text').innerHTML = t.heroBadge;
+      document.querySelector('.hero-title').innerHTML = t.heroTitle;
+      document.querySelector('.hero-subtitle').innerHTML = t.heroSubtitle;
+      document.querySelector('.btn-about-text').textContent = t.btnAbout;
+      document.querySelector('.btn-services-text').textContent = t.btnServices;
+      document.querySelector('.btn-give-text').textContent = t.btnGive;
+
+      // Gallery
+      document.querySelector('.gallery-badge-text').textContent = t.galleryBadge;
+      document.querySelector('.gallery-title').textContent = t.galleryTitle;
+      document.querySelector('.gallery-title-gold').textContent = t.galleryTitleGold;
+      document.querySelector('.gallery-subtitle').textContent = t.gallerySubtitle;
+
+      // About
+      document.querySelector('.about-badge-text').textContent = t.aboutBadge;
+      document.querySelector('.about-title').textContent = t.aboutTitle;
+      document.querySelector('.about-title-gold').textContent = t.aboutTitleGold;
+      document.querySelector('.about-subtitle').textContent = t.aboutSubtitle;
+      document.querySelector('.about-story-title').textContent = t.aboutStory;
+      document.querySelector('.about-story-gold').textContent = t.aboutStoryGold;
+      document.querySelector('.about-story-p1').innerHTML = t.aboutP1;
+      document.querySelector('.about-story-p2').innerHTML = t.aboutP2;
+      document.querySelector('.about-readmore').textContent = t.aboutReadmore;
+
+      // Stats
+      document.querySelector('.stat-label-1').textContent = t.stat1;
+      document.querySelector('.stat-label-2').textContent = t.stat2;
+      document.querySelector('.stat-label-3').textContent = t.stat3;
+      document.querySelector('.stat-label-4').textContent = t.stat4;
+
+      // Doctrine
+      document.querySelector('.doctrine-badge-text').textContent = t.doctrineBadge;
+      document.querySelector('.doctrine-title').textContent = t.doctrineTitle;
+      document.querySelector('.doctrine-title-gold').textContent = t.doctrineTitleGold;
+      document.querySelector('.doctrine-subtitle').textContent = t.doctrineSubtitle;
+      document.querySelector('.doctrine-h3').textContent = t.doctrineH3;
+      document.querySelector('.doctrine-p1').textContent = t.doctrineP1;
+      document.querySelector('.doctrine-p2').textContent = t.doctrineP2;
+      document.querySelector('.doctrine-highlight-title').textContent = t.doctrineHighlight;
+      const hlItems = document.querySelectorAll('.doctrine-highlight-list li');
+      if (hlItems.length >= 4) {
+        hlItems[0].textContent = t.doctrineHL1;
+        hlItems[1].textContent = t.doctrineHL2;
+        hlItems[2].textContent = t.doctrineHL3;
+        hlItems[3].textContent = t.doctrineHL4;
+      }
+
+      // Training
+      document.querySelector('.training-badge-text').textContent = t.trainingBadge;
+      document.querySelector('.training-title').textContent = t.trainingTitle;
+      document.querySelector('.training-title-gold').textContent = t.trainingTitleGold;
+      document.querySelector('.training-subtitle').textContent = t.trainingSubtitle;
+      document.querySelector('.training-h3').textContent = t.trainingH3;
+
+      // Contact
+      document.querySelector('.contact-badge-text').textContent = t.contactBadge;
+      document.querySelector('.contact-title').textContent = t.contactTitle;
+      document.querySelector('.contact-title-gold').textContent = t.contactTitleGold;
+      document.querySelector('.contact-subtitle').textContent = t.contactSubtitle;
+
+      // Giving
+      document.querySelector('.giving-title').textContent = t.givingTitle;
+      document.querySelector('.giving-title-gold').textContent = t.givingTitleGold;
+      document.querySelector('.giving-subtext').textContent = t.givingSubtext;
+      document.querySelector('.copy-text').textContent = t.copyText;
+      document.querySelector('.donate-btn-text').textContent = t.donateBtn;
+
+      // Footer
+      document.querySelector('.footer-brand-title').textContent = t.footerBrand;
+      document.querySelector('.footer-brand-desc').textContent = t.footerDesc;
+      document.querySelectorAll('.footer-col-title')[0].textContent = t.footerQuick;
+      document.querySelectorAll('.footer-col-title')[1].textContent = t.footerServices;
+      document.querySelectorAll('.footer-col-title')[2].textContent = t.footerContact;
+      const footerRights = document.querySelector('.footer-bottom p');
+      if (footerRights) {
+        footerRights.innerHTML = `&copy; 2026 የኤክሌሺያ ተነሺ አገልግሎት · Ekklesia Arise Global Ministry. ${t.footerRights}`;
+      }
+
+      // Book section
+      document.querySelector('.book-badge-text').textContent = t.bookBadge;
+      document.querySelector('.book-title').textContent = t.bookTitle;
+      document.querySelector('.book-title-gold').textContent = t.bookTitleGold;
+      document.querySelector('.book-subtitle').textContent = t.bookSubtitle;
+      document.querySelector('.book-link-text').textContent = t.bookLink;
+    }
+
+    langAm.addEventListener('click', () => setLanguage('am'));
+    langEn.addEventListener('click', () => setLanguage('en'));
+    langAmMobile.addEventListener('click', () => setLanguage('am'));
+    langEnMobile.addEventListener('click', () => setLanguage('en'));
   </script>
 
 </body>
