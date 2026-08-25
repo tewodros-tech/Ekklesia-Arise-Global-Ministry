@@ -1046,69 +1046,121 @@
     }
 
     /* ================================================================
-       GALLERY — ATTRACTIVE GRID
+       GALLERY — BIG SLIDING CAROUSEL
        ================================================================ */
-    .gallery-section {
+    .gallery-slider-section {
       padding: 60px 0 80px;
       background: var(--bg-light);
       position: relative;
+      overflow: hidden;
     }
-    .gallery-section::before {
+    .gallery-slider-section::before {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse at 50% 0%, rgba(30,76,143,0.03) 0%, transparent 70%);
       pointer-events: none;
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 18px;
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
       margin-top: 20px;
     }
-    .gallery-item {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition-smooth);
-      aspect-ratio: 1 / 1.2;
-      position: relative;
-      background: var(--bg-medium);
+    .slider-track {
+      display: flex;
+      transition: transform 0.8s var(--ease-out-expo);
+      will-change: transform;
     }
-    .gallery-item img {
+    .slider-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-medium);
+      overflow: hidden;
+      position: relative;
+    }
+    .slider-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: var(--transition-smooth);
+      display: block;
+      transition: transform 8s ease;
     }
-    .gallery-item:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: var(--shadow-card-hover);
-      z-index: 2;
-    }
-    .gallery-item:hover img {
+    .slider-slide:hover img {
       transform: scale(1.04);
     }
-    .gallery-item .overlay {
+    .slider-slide .slide-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 16px 12px;
-      background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, transparent 100%);
+      padding: 30px 24px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 100%);
       color: white;
-      font-size: 0.7rem;
+      font-size: 1rem;
+      font-weight: 500;
       letter-spacing: 1px;
       opacity: 0;
       transition: var(--transition-smooth);
-      font-weight: 500;
       text-align: center;
     }
-    .gallery-item:hover .overlay {
+    .slider-slide:hover .slide-overlay {
       opacity: 1;
     }
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+      align-items: center;
+    }
+    .slider-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border-strong);
+      box-shadow: var(--shadow-sm);
+      color: var(--primary);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+    .slider-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .slider-dots {
+      display: flex;
+      gap: 10px;
+    }
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--glass-border-strong);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+    .slider-dot.active {
+      background: var(--primary);
+      width: 36px;
+      border-radius: 20px;
+    }
+    .slider-dot:hover {
+      background: var(--primary);
+      opacity: 0.6;
+    }
     @media (max-width: 640px) {
-      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+      .slider-slide { aspect-ratio: 4 / 3; }
+      .slider-btn { width: 44px; height: 44px; font-size: 1rem; }
     }
   </style>
 </head>
@@ -1196,9 +1248,9 @@
   </section>
 
   <!-- ================================================================
-       GALLERY SECTION — ATTRACTIVE GRID
+       BIG SLIDING GALLERY — ATTRACTIVE CAROUSEL
        ================================================================ -->
-  <section class="gallery-section">
+  <section class="gallery-slider-section">
     <div class="container">
       <div class="section-header reveal">
         <span class="pill-badge"><i class="fas fa-images"></i> የአገልግሎቱ ቅጽበቶች</span>
@@ -1206,26 +1258,34 @@
         <p class="section-subtitle">የኤክሌሺያ ተነሺ አገልግሎት በተለያዩ አጋጣሚዎች</p>
       </div>
 
-      <div class="gallery-grid">
-        <!-- 18 images as requested: 1.jpg to 18.jpg -->
-        <div class="gallery-item reveal"><img src="1.jpg" alt="Gallery 1" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 1</div></div>
-        <div class="gallery-item reveal"><img src="2.jpg" alt="Gallery 2" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 2</div></div>
-        <div class="gallery-item reveal"><img src="3.jpg" alt="Gallery 3" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 3</div></div>
-        <div class="gallery-item reveal"><img src="4.jpg" alt="Gallery 4" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 4</div></div>
-        <div class="gallery-item reveal"><img src="5.jpg" alt="Gallery 5" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 5</div></div>
-        <div class="gallery-item reveal"><img src="6.jpg" alt="Gallery 6" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 6</div></div>
-        <div class="gallery-item reveal"><img src="7.jpg" alt="Gallery 7" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 7</div></div>
-        <div class="gallery-item reveal"><img src="8.jpg" alt="Gallery 8" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 8</div></div>
-        <div class="gallery-item reveal"><img src="9.jpg" alt="Gallery 9" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 9</div></div>
-        <div class="gallery-item reveal"><img src="10.jpg" alt="Gallery 10" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 10</div></div>
-        <div class="gallery-item reveal"><img src="11.jpg" alt="Gallery 11" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 11</div></div>
-        <div class="gallery-item reveal"><img src="12.jpg" alt="Gallery 12" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 12</div></div>
-        <div class="gallery-item reveal"><img src="13.jpg" alt="Gallery 13" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 13</div></div>
-        <div class="gallery-item reveal"><img src="14.jpg" alt="Gallery 14" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 14</div></div>
-        <div class="gallery-item reveal"><img src="15.jpg" alt="Gallery 15" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 15</div></div>
-        <div class="gallery-item reveal"><img src="16.jpg" alt="Gallery 16" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 16</div></div>
-        <div class="gallery-item reveal"><img src="17.jpg" alt="Gallery 17" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 17</div></div>
-        <div class="gallery-item reveal"><img src="18.jpg" alt="Gallery 18" loading="lazy" onerror="this.style.display='none'" /><div class="overlay">ፎቶ 18</div></div>
+      <div class="slider-wrapper reveal">
+        <div class="slider-track" id="sliderTrack">
+          <!-- 18 slides: 1.jpg to 18.jpg -->
+          <div class="slider-slide"><img src="1.jpg" alt="Gallery 1" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 1</div></div>
+          <div class="slider-slide"><img src="2.jpg" alt="Gallery 2" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 2</div></div>
+          <div class="slider-slide"><img src="3.jpg" alt="Gallery 3" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 3</div></div>
+          <div class="slider-slide"><img src="4.jpg" alt="Gallery 4" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 4</div></div>
+          <div class="slider-slide"><img src="5.jpg" alt="Gallery 5" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 5</div></div>
+          <div class="slider-slide"><img src="6.jpg" alt="Gallery 6" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 6</div></div>
+          <div class="slider-slide"><img src="7.jpg" alt="Gallery 7" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 7</div></div>
+          <div class="slider-slide"><img src="8.jpg" alt="Gallery 8" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 8</div></div>
+          <div class="slider-slide"><img src="9.jpg" alt="Gallery 9" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 9</div></div>
+          <div class="slider-slide"><img src="10.jpg" alt="Gallery 10" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 10</div></div>
+          <div class="slider-slide"><img src="11.jpg" alt="Gallery 11" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 11</div></div>
+          <div class="slider-slide"><img src="12.jpg" alt="Gallery 12" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 12</div></div>
+          <div class="slider-slide"><img src="13.jpg" alt="Gallery 13" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 13</div></div>
+          <div class="slider-slide"><img src="14.jpg" alt="Gallery 14" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 14</div></div>
+          <div class="slider-slide"><img src="15.jpg" alt="Gallery 15" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 15</div></div>
+          <div class="slider-slide"><img src="16.jpg" alt="Gallery 16" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 16</div></div>
+          <div class="slider-slide"><img src="17.jpg" alt="Gallery 17" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 17</div></div>
+          <div class="slider-slide"><img src="18.jpg" alt="Gallery 18" loading="lazy" onerror="this.style.display='none'" /><div class="slide-overlay">ፎቶ 18</div></div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevSlide" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="nextSlide" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
@@ -1744,6 +1804,69 @@
     }
 
     document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+
+    // ================================================================
+    // SLIDER LOGIC
+    // ================================================================
+    const track = document.getElementById('sliderTrack');
+    const slides = track.querySelectorAll('.slider-slide');
+    const dotsContainer = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoplayInterval = null;
+
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('slider-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    }
+
+    function nextSlide() { goToSlide(currentIndex + 1); }
+    function prevSlide() { goToSlide(currentIndex - 1); }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Autoplay
+    function startAutoplay() { if (autoplayInterval) clearInterval(autoplayInterval); autoplayInterval = setInterval(nextSlide, 5000); }
+    function stopAutoplay() { if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; } }
+
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    sliderWrapper.addEventListener('mouseenter', stopAutoplay);
+    sliderWrapper.addEventListener('mouseleave', startAutoplay);
+    startAutoplay();
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Touch support for swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    sliderWrapper.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    sliderWrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide(); else prevSlide();
+      }
+    }, { passive: true });
   </script>
 
 </body>
