@@ -363,6 +363,82 @@
     }
 
     /* ================================================================
+       BOOK GALLERY — ATTRACTIVE SCROLLING ROW
+       ================================================================ */
+    .book-gallery {
+      padding: 40px 0 20px;
+      background: var(--bg-dark);
+      overflow: hidden;
+      position: relative;
+    }
+    .book-gallery .section-header {
+      margin-bottom: 24px;
+    }
+    .book-gallery .section-header .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+    .book-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 4px 30px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) var(--bg-medium);
+    }
+    .book-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .book-scroll::-webkit-scrollbar-track {
+      background: var(--bg-medium);
+      border-radius: 10px;
+    }
+    .book-scroll::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+    .book-scroll-item {
+      flex: 0 0 180px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-smooth);
+      background: var(--bg-card);
+      position: relative;
+      aspect-ratio: 2 / 3;
+    }
+    .book-scroll-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow-card-hover);
+      z-index: 2;
+    }
+    .book-scroll-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .book-scroll-item:hover img {
+      transform: scale(1.04);
+    }
+    .book-scroll-item .book-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 10px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    /* ================================================================
        SERVICES GRID
        ================================================================ */
     .services-section {
@@ -447,6 +523,18 @@
       color: var(--gold);
       font-size: 0.85rem;
       min-width: 18px;
+    }
+
+    /* ================================================================
+       BOTTOM BOOK GALLERY
+       ================================================================ */
+    .book-gallery-bottom {
+      padding: 20px 0 60px;
+      background: var(--bg-dark);
+      overflow: hidden;
+    }
+    .book-gallery-bottom .section-header {
+      margin-bottom: 20px;
     }
 
     /* ================================================================
@@ -849,6 +937,9 @@
       .contact-card .value {
         font-size: 0.9rem;
       }
+      .book-scroll-item {
+        flex: 0 0 140px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -866,6 +957,9 @@
       }
       .service-card {
         padding: 28px 20px;
+      }
+      .book-scroll-item {
+        flex: 0 0 110px;
       }
     }
   </style>
@@ -994,6 +1088,39 @@
     </div>
   </section>
 
+  <!-- ================================================================
+       TOP BOOK GALLERY — ATTRACTIVE SCROLLING ROW
+       ================================================================ -->
+  <section class="book-gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-book"></i> የአገልግሎቱ ህትመቶች</span>
+        <h2 class="section-title">የእኛ <span class="gold">መጻሕፍት</span></h2>
+        <p class="section-subtitle">ለአገልግሎት የተዘጋጁ መንፈሳዊ መጻሕፍት</p>
+      </div>
+      <div class="book-scroll" id="bookScrollTop">
+        <!-- Book 1 -->
+        <div class="book-scroll-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 1</div></div>
+        <!-- Book 2 -->
+        <div class="book-scroll-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 2</div></div>
+        <!-- Book 3 -->
+        <div class="book-scroll-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 3</div></div>
+        <!-- Book 4 -->
+        <div class="book-scroll-item"><img src="Book4.jpg" alt="Book 4" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 4</div></div>
+        <!-- Book 5 -->
+        <div class="book-scroll-item"><img src="Book5.jpg" alt="Book 5" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 5</div></div>
+        <!-- Book 6 -->
+        <div class="book-scroll-item"><img src="Book6.jpg" alt="Book 6" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 6</div></div>
+        <!-- Book 7 -->
+        <div class="book-scroll-item"><img src="Book7.jpg" alt="Book 7" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 7</div></div>
+        <!-- Book 8 -->
+        <div class="book-scroll-item"><img src="Book8.jpg" alt="Book 8" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 8</div></div>
+        <!-- Book 9 -->
+        <div class="book-scroll-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 9</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Section -->
   <section class="services-section">
     <div class="container">
@@ -1069,6 +1196,31 @@
             <li><i class="fas fa-check-circle"></i> የድጋፍ ፕሮግራሞች</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       BOTTOM BOOK GALLERY — ATTRACTIVE SCROLLING ROW
+       ================================================================ -->
+  <section class="book-gallery book-gallery-bottom">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge"><i class="fas fa-book-open"></i> ተጨማሪ ህትመቶች</span>
+        <h2 class="section-title">የእግዚአብሔር ቃል <span class="gold">በህትመት</span></h2>
+        <p class="section-subtitle">ለዘመኑ የተዘጋጁ መንፈሳዊ ጽሑፎች</p>
+      </div>
+      <div class="book-scroll" id="bookScrollBottom">
+        <!-- Book 9 to 1 reversed for variety, but using all 9 -->
+        <div class="book-scroll-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 9</div></div>
+        <div class="book-scroll-item"><img src="Book8.jpg" alt="Book 8" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 8</div></div>
+        <div class="book-scroll-item"><img src="Book7.jpg" alt="Book 7" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 7</div></div>
+        <div class="book-scroll-item"><img src="Book6.jpg" alt="Book 6" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 6</div></div>
+        <div class="book-scroll-item"><img src="Book5.jpg" alt="Book 5" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 5</div></div>
+        <div class="book-scroll-item"><img src="Book4.jpg" alt="Book 4" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 4</div></div>
+        <div class="book-scroll-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 3</div></div>
+        <div class="book-scroll-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 2</div></div>
+        <div class="book-scroll-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 1</div></div>
       </div>
     </div>
   </section>
@@ -1302,6 +1454,40 @@
         if (rect.top < window.innerHeight - 50) {
           el.classList.add('visible');
         }
+      });
+    });
+
+    // ================================================================
+    // DRAG SCROLL FOR BOOK GALLERIES
+    // ================================================================
+    document.querySelectorAll('.book-scroll').forEach(scroll => {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      scroll.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - scroll.offsetLeft;
+        scrollLeft = scroll.scrollLeft;
+        scroll.style.cursor = 'grabbing';
+      });
+
+      scroll.addEventListener('mouseleave', () => {
+        isDown = false;
+        scroll.style.cursor = 'grab';
+      });
+
+      scroll.addEventListener('mouseup', () => {
+        isDown = false;
+        scroll.style.cursor = 'grab';
+      });
+
+      scroll.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scroll.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        scroll.scrollLeft = scrollLeft - walk;
       });
     });
   </script>
