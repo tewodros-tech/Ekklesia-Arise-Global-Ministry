@@ -281,16 +281,35 @@
       color: var(--gold);
       background: rgba(212, 168, 67, 0.10);
     }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
-      color: var(--dark-blue) !important;
-      padding: 12px 28px !important;
-      font-weight: 700 !important;
-      box-shadow: 0 4px 16px rgba(212, 168, 67, 0.25);
+
+    /* Language Switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 12px;
+      background: rgba(212, 168, 67, 0.06);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border);
     }
-    .nav-cta:hover {
-      box-shadow: 0 8px 32px rgba(212, 168, 67, 0.35);
-      transform: translateY(-2px);
+    .lang-switch button {
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+      background: transparent;
+      letter-spacing: 0.5px;
+    }
+    .lang-switch button.active {
+      color: var(--dark-blue);
+      background: var(--gold);
+      box-shadow: 0 2px 8px rgba(212, 168, 67, 0.25);
+    }
+    .lang-switch button:hover:not(.active) {
+      color: var(--gold);
     }
 
     /* Hamburger */
@@ -368,10 +387,6 @@
     .nav-menu-mobile a.active {
       color: var(--gold);
       background: rgba(212, 168, 67, 0.10);
-    }
-    .nav-menu-mobile .nav-cta {
-      margin-top: 16px;
-      text-align: center;
     }
 
     /* ================================================================
@@ -848,6 +863,10 @@
       .contact-form {
         padding: 30px 24px;
       }
+      .lang-switch {
+        margin-left: 0;
+        margin-right: 12px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -925,11 +944,16 @@
         </a>
 
         <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
-          <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
-          <li><a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
-          <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> አግኙን</a></li>
+          <li><a href="index.html"><i class="fas fa-home"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+          <li><a href="services.html"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+          <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
         </ul>
+
+        <div class="lang-switch">
+          <button class="active" data-lang="am" aria-label="Switch to Amharic">አማ</button>
+          <button data-lang="en" aria-label="Switch to English">EN</button>
+        </div>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
           <span></span><span></span><span></span>
@@ -940,20 +964,19 @@
 
   <!-- Mobile Menu -->
   <ul class="nav-menu-mobile" id="navMenuMobile">
-    <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
-    <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
-    <li><a href="services.html"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
-    <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> አግኙን</a></li>
-    <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+    <li><a href="services.html"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+    <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
   </ul>
 
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <h1><i class="fas fa-envelope"></i> አግኙን</h1>
+      <h1><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact Us">አግኙን</span></h1>
       <div class="sub">
         <i class="fas fa-heart"></i>
-        <span>ለጥያቄዎች፣ ለጸሎት ጥያቄዎች ወይም ለተጨማሪ መረጃ ያግኙን</span>
+        <span data-am="ለጥያቄዎች፣ ለጸሎት ጥያቄዎች ወይም ለተጨማሪ መረጃ ያግኙን" data-en="Contact us for questions, prayer requests, or additional information">ለጥያቄዎች፣ ለጸሎት ጥያቄዎች ወይም ለተጨማሪ መረጃ ያግኙን</span>
         <i class="fas fa-heart"></i>
       </div>
     </div>
@@ -966,23 +989,23 @@
         <!-- Contact Info -->
         <div class="contact-info reveal">
           <div>
-            <span class="section-label"><i class="fas fa-address-card"></i> ያግኙን</span>
-            <h2>እንዴት <span class="gold">እናገኛለን?</span></h2>
-            <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ። መልእክትዎን በፍጥነት ለመመለስ እንጥራለን።</p>
+            <span class="section-label"><i class="fas fa-address-card"></i> <span data-am="ያግኙን" data-en="Contact Us">ያግኙን</span></span>
+            <h2><span data-am="እንዴት" data-en="How">እንዴት</span> <span class="gold" data-am="እናገኛለን?" data-en="Can We Reach You?">እናገኛለን?</span></h2>
+            <p data-am="ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ። መልእክትዎን በፍጥነት ለመመለስ እንጥራለን።" data-en="Use the channels below to get in touch with us. We will respond to your message promptly.">ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ። መልእክትዎን በፍጥነት ለመመለስ እንጥራለን።</p>
           </div>
 
           <div class="info-item">
             <div class="icon"><i class="fas fa-map-pin"></i></div>
             <div class="content">
-              <h4>አድራሻ</h4>
-              <p>አዲስ አበባ፣ ኢትዮጵያ</p>
+              <h4 data-am="አድራሻ" data-en="Address">አድራሻ</h4>
+              <p data-am="አዲስ አበባ፣ ኢትዮጵያ" data-en="Addis Ababa, Ethiopia">አዲስ አበባ፣ ኢትዮጵያ</p>
             </div>
           </div>
 
           <div class="info-item">
             <div class="icon"><i class="fas fa-phone-alt"></i></div>
             <div class="content">
-              <h4>ስልክ</h4>
+              <h4 data-am="ስልክ" data-en="Phone">ስልክ</h4>
               <p><a href="tel:+251911416976">+251-911-416976</a></p>
             </div>
           </div>
@@ -990,7 +1013,7 @@
           <div class="info-item">
             <div class="icon"><i class="fas fa-envelope"></i></div>
             <div class="content">
-              <h4>ኢሜይል</h4>
+              <h4 data-am="ኢሜይል" data-en="Email">ኢሜይል</h4>
               <p><a href="mailto:Ekklesiaarise2023@gmail.com">Ekklesiaarise2023@gmail.com</a></p>
             </div>
           </div>
@@ -998,40 +1021,40 @@
           <div class="info-item">
             <div class="icon"><i class="fas fa-globe"></i></div>
             <div class="content">
-              <h4>ድረ-ገጽ</h4>
+              <h4 data-am="ድረ-ገጽ" data-en="Website">ድረ-ገጽ</h4>
               <p><a href="https://www.ekklesia-arise.com" target="_blank">www.ekklesia-arise.com</a></p>
             </div>
           </div>
 
           <div class="hours-box">
-            <h4><i class="fas fa-clock"></i> የስራ ሰዓት</h4>
-            <p><strong>ሰኞ - ቅዳሜ:</strong> 9:00 ጠዋት - 6:00 ማታ</p>
-            <p><strong>እሁድ:</strong> ከአገልግሎት በኋላ</p>
+            <h4><i class="fas fa-clock"></i> <span data-am="የስራ ሰዓት" data-en="Working Hours">የስራ ሰዓት</span></h4>
+            <p><strong data-am="ሰኞ - ቅዳሜ:" data-en="Mon - Sat:">ሰኞ - ቅዳሜ:</strong> <span data-am="9:00 ጠዋት - 6:00 ማታ" data-en="9:00 AM - 6:00 PM">9:00 ጠዋት - 6:00 ማታ</span></p>
+            <p><strong data-am="እሁድ:" data-en="Sunday:">እሁድ:</strong> <span data-am="ከአገልግሎት በኋላ" data-en="After service">ከአገልግሎት በኋላ</span></p>
           </div>
         </div>
 
         <!-- Contact Form -->
         <div class="contact-form reveal">
-          <h3>መልእክት <span class="gold">ይላኩ</span></h3>
+          <h3><span data-am="መልእክት" data-en="Send a">መልእክት</span> <span class="gold" data-am="ይላኩ" data-en="Message">ይላኩ</span></h3>
           <form id="contactForm" onsubmit="event.preventDefault(); alert('ስለመልእክትዎ እናመሰግናለን! በቅርቡ እንመልሳለን። / Thank you for your message! We will respond shortly.');">
             <div class="form-group">
-              <label for="fullName">ሙሉ ስም <span class="required">*</span></label>
+              <label for="fullName"><span data-am="ሙሉ ስም" data-en="Full Name">ሙሉ ስም</span> <span class="required">*</span></label>
               <input type="text" id="fullName" placeholder="ሙሉ ስምዎን ያስገቡ" required />
             </div>
             <div class="form-group">
-              <label for="email">ኢሜይል <span class="required">*</span></label>
+              <label for="email"><span data-am="ኢሜይል" data-en="Email">ኢሜይል</span> <span class="required">*</span></label>
               <input type="email" id="email" placeholder="ኢሜይልዎን ያስገቡ" required />
             </div>
             <div class="form-group">
-              <label for="subject">ርዕስ</label>
+              <label for="subject"><span data-am="ርዕስ" data-en="Subject">ርዕስ</span></label>
               <input type="text" id="subject" placeholder="የመልእክትዎ ርዕስ" />
             </div>
             <div class="form-group">
-              <label for="message">መልእክት <span class="required">*</span></label>
+              <label for="message"><span data-am="መልእክት" data-en="Message">መልእክት</span> <span class="required">*</span></label>
               <textarea id="message" placeholder="መልእክትዎን ይጻፉ..." required></textarea>
             </div>
             <button type="submit" class="btn-submit">
-              <i class="fas fa-paper-plane"></i> መልእክት ላክ
+              <i class="fas fa-paper-plane"></i> <span data-am="መልእክት ላክ" data-en="Send Message">መልእክት ላክ</span>
             </button>
           </form>
         </div>
@@ -1054,7 +1077,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3 class="amharic">ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት</h3>
-          <p>ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
+          <p data-am="ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ" data-en="Strengthening the church with the Word of God and spreading the Gospel to all nations">ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1064,29 +1087,28 @@
         </div>
 
         <div class="footer-col">
-          <h4>ፈጣን አገናኞች</h4>
+          <h4 data-am="ፈጣን አገናኞች" data-en="Quick Links">ፈጣን አገናኞች</h4>
           <ul>
-            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> መነሻ</a></li>
-            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ስለእኛ</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አገልግሎቶች</a></li>
-            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አግኙን</a></li>
-            <li><a href="give.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ይለግሱ</a></li>
+            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>አገልግሎቶች</h4>
+          <h4 data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</h4>
           <ul>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቃል ማስተማር</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የደቀ መዝሙር ሥልጠና</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የሕትመት አገልግሎት</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቤተክርስቲያን ተሃድሶ</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የቃል ማስተማር" data-en="Bible Teaching">የቃል ማስተማር</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የደቀ መዝሙር ሥልጠና" data-en="Discipleship Training">የደቀ መዝሙር ሥልጠና</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የሕትመት አገልግሎት" data-en="Publishing Ministry">የሕትመት አገልግሎት</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የቤተክርስቲያን ተሃድሶ" data-en="Church Revival">የቤተክርስቲያን ተሃድሶ</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col footer-contact">
-          <h4>ያግኙን</h4>
-          <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
+          <h4 data-am="ያግኙን" data-en="Contact">ያግኙን</h4>
+          <p><i class="fas fa-map-pin"></i> <span data-am="አዲስ አበባ፣ ኢትዮጵያ" data-en="Addis Ababa, Ethiopia">አዲስ አበባ፣ ኢትዮጵያ</span></p>
           <p><i class="fas fa-phone"></i> +251-911-416976</p>
           <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
           <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
@@ -1175,6 +1197,56 @@
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (mobileMenu.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // ================================================================
+    // LANGUAGE SWITCHER
+    // ================================================================
+    const langButtons = document.querySelectorAll('.lang-switch button');
+    let currentLang = 'am';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-am][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang === 'am' ? 'am' : 'en';
+
+      // Update form placeholders
+      const placeholders = {
+        am: {
+          name: 'ሙሉ ስምዎን ያስገቡ',
+          email: 'ኢሜይልዎን ያስገቡ',
+          subject: 'የመልእክትዎ ርዕስ',
+          message: 'መልእክትዎን ይጻፉ...'
+        },
+        en: {
+          name: 'Enter your full name',
+          email: 'Enter your email',
+          subject: 'Subject of your message',
+          message: 'Write your message...'
+        }
+      };
+      const p = placeholders[lang];
+      if (p) {
+        const nameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+        if (nameInput) nameInput.placeholder = p.name;
+        if (emailInput) emailInput.placeholder = p.email;
+        if (subjectInput) subjectInput.placeholder = p.subject;
+        if (messageInput) messageInput.placeholder = p.message;
+      }
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
       });
     });
 
