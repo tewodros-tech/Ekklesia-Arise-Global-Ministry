@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>አገልግሎቶች · ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት</title>
   <meta name="description" content="Ekklesia Arise Global Ministry - ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች" />
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -224,16 +224,35 @@
       color: var(--gold);
       background: rgba(212, 168, 67, 0.10);
     }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
-      color: var(--dark-blue) !important;
-      padding: 12px 28px !important;
-      font-weight: 700 !important;
-      box-shadow: 0 4px 16px rgba(212, 168, 67, 0.25);
+
+    /* Language Switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 12px;
+      background: rgba(212, 168, 67, 0.06);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border);
     }
-    .nav-cta:hover {
-      box-shadow: 0 8px 32px rgba(212, 168, 67, 0.35);
-      transform: translateY(-2px);
+    .lang-switch button {
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+      background: transparent;
+      letter-spacing: 0.5px;
+    }
+    .lang-switch button.active {
+      color: var(--dark-blue);
+      background: var(--gold);
+      box-shadow: 0 2px 8px rgba(212, 168, 67, 0.25);
+    }
+    .lang-switch button:hover:not(.active) {
+      color: var(--gold);
     }
 
     /* Hamburger */
@@ -311,10 +330,6 @@
     .nav-menu-mobile a.active {
       color: var(--gold);
       background: rgba(212, 168, 67, 0.10);
-    }
-    .nav-menu-mobile .nav-cta {
-      margin-top: 16px;
-      text-align: center;
     }
 
     /* ================================================================
@@ -972,6 +987,10 @@
       .page-hero h1 {
         font-size: 2.5rem;
       }
+      .lang-switch {
+        margin-left: 0;
+        margin-right: 12px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1057,11 +1076,16 @@
         </a>
 
         <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
-          <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
-          <li><a href="services.html" class="active"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
-          <li><a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a></li>
+          <li><a href="index.html"><i class="fas fa-home"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+          <li><a href="services.html" class="active"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
         </ul>
+
+        <div class="lang-switch">
+          <button class="active" data-lang="am" aria-label="Switch to Amharic">አማ</button>
+          <button data-lang="en" aria-label="Switch to English">EN</button>
+        </div>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
           <span></span><span></span><span></span>
@@ -1072,20 +1096,19 @@
 
   <!-- Mobile Menu -->
   <ul class="nav-menu-mobile" id="navMenuMobile">
-    <li><a href="index.html"><i class="fas fa-home"></i> መነሻ</a></li>
-    <li><a href="about.html"><i class="fas fa-info-circle"></i> ስለእኛ</a></li>
-    <li><a href="services.html" class="active"><i class="fas fa-hands-praying"></i> አገልግሎቶች</a></li>
-    <li><a href="contact.html"><i class="fas fa-envelope"></i> አግኙን</a></li>
-    <li><a href="give.html" class="nav-cta"><i class="fas fa-heart"></i> ይለግሱ</a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+    <li><a href="services.html" class="active"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
   </ul>
 
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <h1><i class="fas fa-hands-praying"></i> አገልግሎቶች</h1>
+      <h1><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶች" data-en="Our Services">አገልግሎቶች</span></h1>
       <div class="sub">
         <i class="fas fa-star"></i>
-        <span>ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች</span>
+        <span data-am="ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች" data-en="Ministries for the Kingdom of God">ለእግዚአብሔር መንግሥት የምንሰጣቸው አገልግሎቶች</span>
         <i class="fas fa-star"></i>
       </div>
     </div>
@@ -1097,29 +1120,29 @@
   <section class="book-gallery">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-book"></i> የአገልግሎቱ ህትመቶች</span>
-        <h2 class="section-title">የእኛ <span class="gold">መጻሕፍት</span></h2>
-        <p class="section-subtitle">ለአገልግሎት የተዘጋጁ መንፈሳዊ መጻሕፍት</p>
+        <span class="pill-badge"><i class="fas fa-book"></i> <span data-am="የአገልግሎቱ ህትመቶች" data-en="Ministry Publications">የአገልግሎቱ ህትመቶች</span></span>
+        <h2 class="section-title"><span data-am="የእኛ" data-en="Our">የእኛ</span> <span class="gold" data-am="መጻሕፍት" data-en="Books">መጻሕፍት</span></h2>
+        <p class="section-subtitle" data-am="ለአገልግሎት የተዘጋጁ መንፈሳዊ መጻሕፍት" data-en="Spiritual books prepared for ministry">ለአገልግሎት የተዘጋጁ መንፈሳዊ መጻሕፍት</p>
       </div>
       <div class="book-scroll" id="bookScrollTop">
         <!-- Book 1 -->
-        <div class="book-scroll-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 1</div></div>
+        <div class="book-scroll-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 1" data-en="Book 1">መጽሐፍ 1</span></div></div>
         <!-- Book 2 -->
-        <div class="book-scroll-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 2</div></div>
+        <div class="book-scroll-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 2" data-en="Book 2">መጽሐፍ 2</span></div></div>
         <!-- Book 3 -->
-        <div class="book-scroll-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 3</div></div>
+        <div class="book-scroll-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 3" data-en="Book 3">መጽሐፍ 3</span></div></div>
         <!-- Book 4 -->
-        <div class="book-scroll-item"><img src="Book4.jpg" alt="Book 4" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 4</div></div>
+        <div class="book-scroll-item"><img src="Book4.jpg" alt="Book 4" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 4" data-en="Book 4">መጽሐፍ 4</span></div></div>
         <!-- Book 5 -->
-        <div class="book-scroll-item"><img src="Book5.jpg" alt="Book 5" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 5</div></div>
+        <div class="book-scroll-item"><img src="Book5.jpg" alt="Book 5" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 5" data-en="Book 5">መጽሐፍ 5</span></div></div>
         <!-- Book 6 -->
-        <div class="book-scroll-item"><img src="Book6.jpg" alt="Book 6" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 6</div></div>
+        <div class="book-scroll-item"><img src="Book6.jpg" alt="Book 6" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 6" data-en="Book 6">መጽሐፍ 6</span></div></div>
         <!-- Book 7 -->
-        <div class="book-scroll-item"><img src="Book7.jpg" alt="Book 7" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 7</div></div>
+        <div class="book-scroll-item"><img src="Book7.jpg" alt="Book 7" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 7" data-en="Book 7">መጽሐፍ 7</span></div></div>
         <!-- Book 8 -->
-        <div class="book-scroll-item"><img src="Book8.jpg" alt="Book 8" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 8</div></div>
+        <div class="book-scroll-item"><img src="Book8.jpg" alt="Book 8" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 8" data-en="Book 8">መጽሐፍ 8</span></div></div>
         <!-- Book 9 -->
-        <div class="book-scroll-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 9</div></div>
+        <div class="book-scroll-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 9" data-en="Book 9">መጽሐፍ 9</span></div></div>
       </div>
     </div>
   </section>
@@ -1128,75 +1151,75 @@
   <section class="services-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-hands-praying"></i> አገልግሎቶቻችን</span>
-        <h2 class="section-title">ለእግዚአብሔር መንግሥት <span class="gold">የምንሰጣቸው</span></h2>
-        <p class="section-subtitle">ቤተክርስቲያንን ለማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ የምንሰጣቸው አገልግሎቶች</p>
+        <span class="pill-badge"><i class="fas fa-hands-praying"></i> <span data-am="አገልግሎቶቻችን" data-en="Our Services">አገልግሎቶቻችን</span></span>
+        <h2 class="section-title"><span data-am="ለእግዚአብሔር መንግሥት" data-en="For the Kingdom of God">ለእግዚአብሔር መንግሥት</span> <span class="gold" data-am="የምንሰጣቸው" data-en="We Offer">የምንሰጣቸው</span></h2>
+        <p class="section-subtitle" data-am="ቤተክርስቲያንን ለማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ የምንሰጣቸው አገልግሎቶች" data-en="Ministries we offer to strengthen the church and spread the Gospel to all nations">ቤተክርስቲያንን ለማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ለማድረስ የምንሰጣቸው አገልግሎቶች</p>
       </div>
 
       <div class="services-grid">
         <!-- Service 1: Bible Teaching -->
         <div class="service-card reveal">
           <span class="service-icon"><i class="fas fa-bible"></i></span>
-          <h3>የቃል ማስተማር</h3>
-          <p>መጽሐፍ ቅዱስን በጥልቀት በማጥናት እና በማስተማር የእግዚአብሔርን ሙሉ ምክር ለሰዎች ማድረስ።</p>
+          <h3 data-am="የቃል ማስተማር" data-en="Bible Teaching">የቃል ማስተማር</h3>
+          <p data-am="መጽሐፍ ቅዱስን በጥልቀት በማጥናት እና በማስተማር የእግዚአብሔርን ሙሉ ምክር ለሰዎች ማድረስ።" data-en="Delivering the full counsel of God through in-depth Bible study and teaching.">መጽሐፍ ቅዱስን በጥልቀት በማጥናት እና በማስተማር የእግዚአብሔርን ሙሉ ምክር ለሰዎች ማድረስ።</p>
           <ul>
-            <li><i class="fas fa-check-circle"></i> የመጽሐፍ ቅዱስ አፈታት ሥልጠና</li>
-            <li><i class="fas fa-check-circle"></i> የዘመን ትምህርት ሴሚናሮች</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የመጽሐፍ ቅዱስ አፈታት ሥልጠና" data-en="Bible Study Training">የመጽሐፍ ቅዱስ አፈታት ሥልጠና</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የዘመን ትምህርት ሴሚናሮች" data-en="Seasonal Teaching Seminars">የዘመን ትምህርት ሴሚናሮች</span></li>
           </ul>
         </div>
 
         <!-- Service 2: Discipleship Training -->
         <div class="service-card reveal">
           <span class="service-icon"><i class="fas fa-user-graduate"></i></span>
-          <h3>የደቀ መዝሙር ሥልጠና</h3>
-          <p>የጢራኖስ የደቀ መዝሙር ትምህርት ቤት አማካኝነት አገልጋዮችን ማሰልጠን።</p>
+          <h3 data-am="የደቀ መዝሙር ሥልጠና" data-en="Discipleship Training">የደቀ መዝሙር ሥልጠና</h3>
+          <p data-am="የጢራኖስ የደቀ መዝሙር ትምህርት ቤት አማካኝነት አገልጋዮችን ማሰልጠን።" data-en="Training ministers through the Tyrannus Discipleship School.">የጢራኖስ የደቀ መዝሙር ትምህርት ቤት አማካኝነት አገልጋዮችን ማሰልጠን።</p>
           <ul>
-            <li><i class="fas fa-check-circle"></i> የ4 ሳምንት አዳሪ ሥልጠና</li>
-            <li><i class="fas fa-check-circle"></i> 10 ዙር ተመራቂዎች</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የ4 ሳምንት አዳሪ ሥልጠና" data-en="4-Week Residential Training">የ4 ሳምንት አዳሪ ሥልጠና</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="10 ዙር ተመራቂዎች" data-en="10 Rounds of Graduates">10 ዙር ተመራቂዎች</span></li>
           </ul>
         </div>
 
         <!-- Service 3: Publishing Ministry -->
         <div class="service-card reveal">
           <span class="service-icon"><i class="fas fa-book-open"></i></span>
-          <h3>የሕትመት አገልግሎት</h3>
-          <p>17 የሚያህሉ መጻሕፍትን በማሳተም የእግዚአብሔርን ቃል ለብዙሃኑ ማድረስ።</p>
+          <h3 data-am="የሕትመት አገልግሎት" data-en="Publishing Ministry">የሕትመት አገልግሎት</h3>
+          <p data-am="17 የሚያህሉ መጻሕፍትን በማሳተም የእግዚአብሔርን ቃል ለብዙሃኑ ማድረስ።" data-en="Publishing around 17 books to spread God's Word to the masses.">17 የሚያህሉ መጻሕፍትን በማሳተም የእግዚአብሔርን ቃል ለብዙሃኑ ማድረስ።</p>
           <ul>
-            <li><i class="fas fa-check-circle"></i> መንፈሳዊ መጻሕፍት</li>
-            <li><i class="fas fa-check-circle"></i> የሥልጠና መመሪያዎች</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="መንፈሳዊ መጻሕፍት" data-en="Spiritual Books">መንፈሳዊ መጻሕፍት</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የሥልጠና መመሪያዎች" data-en="Training Guides">የሥልጠና መመሪያዎች</span></li>
           </ul>
         </div>
 
         <!-- Service 4: Church Revival -->
         <div class="service-card reveal">
           <span class="service-icon"><i class="fas fa-church"></i></span>
-          <h3>የቤተክርስቲያን ተሃድሶ</h3>
-          <p>በጸሎትና በቃል አገልግሎት አብያተ ክርስቲያናትን ለተሃድሶ ማዘጋጀት።</p>
+          <h3 data-am="የቤተክርስቲያን ተሃድሶ" data-en="Church Revival">የቤተክርስቲያን ተሃድሶ</h3>
+          <p data-am="በጸሎትና በቃል አገልግሎት አብያተ ክርስቲያናትን ለተሃድሶ ማዘጋጀት።" data-en="Preparing churches for revival through prayer and Word ministry.">በጸሎትና በቃል አገልግሎት አብያተ ክርስቲያናትን ለተሃድሶ ማዘጋጀት።</p>
           <ul>
-            <li><i class="fas fa-check-circle"></i> የጸሎት ጉባኤዎች</li>
-            <li><i class="fas fa-check-circle"></i> የተሃድሶ ስብከቶች</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የጸሎት ጉባኤዎች" data-en="Prayer Gatherings">የጸሎት ጉባኤዎች</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የተሃድሶ ስብከቶች" data-en="Revival Sermons">የተሃድሶ ስብከቶች</span></li>
           </ul>
         </div>
 
         <!-- Service 5: Gospel Campaigns -->
         <div class="service-card reveal">
           <span class="service-icon"><i class="fas fa-globe-africa"></i></span>
-          <h3>የወንጌል ዘመቻዎች</h3>
-          <p>በኢትዮጵያ እና በ15 አገራት የወንጌል ዘመቻዎችን ማካሄድ።</p>
+          <h3 data-am="የወንጌል ዘመቻዎች" data-en="Gospel Campaigns">የወንጌል ዘመቻዎች</h3>
+          <p data-am="በኢትዮጵያ እና በ15 አገራት የወንጌል ዘመቻዎችን ማካሄድ።" data-en="Conducting Gospel campaigns in Ethiopia and 15 other countries.">በኢትዮጵያ እና በ15 አገራት የወንጌል ዘመቻዎችን ማካሄድ።</p>
           <ul>
-            <li><i class="fas fa-check-circle"></i> የጅምላ ስብከቶች</li>
-            <li><i class="fas fa-check-circle"></i> የአገር ውስጥ ዘመቻዎች</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የጅምላ ስብከቶች" data-en="Mass Crusades">የጅምላ ስብከቶች</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የአገር ውስጥ ዘመቻዎች" data-en="Local Campaigns">የአገር ውስጥ ዘመቻዎች</span></li>
           </ul>
         </div>
 
         <!-- Service 6: Community Service -->
         <div class="service-card reveal">
           <span class="service-icon"><i class="fas fa-hands-helping"></i></span>
-          <h3>የማህበረሰብ አገልግሎት</h3>
-          <p>በማህበረሰብ ውስጥ በተግባራዊ አገልግሎት የእግዚአብሔርን ፍቅር ማሳየት።</p>
+          <h3 data-am="የማህበረሰብ አገልግሎት" data-en="Community Service">የማህበረሰብ አገልግሎት</h3>
+          <p data-am="በማህበረሰብ ውስጥ በተግባራዊ አገልግሎት የእግዚአብሔርን ፍቅር ማሳየት።" data-en="Demonstrating God's love through practical community service.">በማህበረሰብ ውስጥ በተግባራዊ አገልግሎት የእግዚአብሔርን ፍቅር ማሳየት።</p>
           <ul>
-            <li><i class="fas fa-check-circle"></i> የማህበረሰብ ፕሮጀክቶች</li>
-            <li><i class="fas fa-check-circle"></i> የድጋፍ ፕሮግራሞች</li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የማህበረሰብ ፕሮጀክቶች" data-en="Community Projects">የማህበረሰብ ፕሮጀክቶች</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-am="የድጋፍ ፕሮግራሞች" data-en="Support Programs">የድጋፍ ፕሮግራሞች</span></li>
           </ul>
         </div>
       </div>
@@ -1209,21 +1232,21 @@
   <section class="book-gallery book-gallery-bottom">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-book-open"></i> ተጨማሪ ህትመቶች</span>
-        <h2 class="section-title">የእግዚአብሔር ቃል <span class="gold">በህትመት</span></h2>
-        <p class="section-subtitle">ለዘመኑ የተዘጋጁ መንፈሳዊ ጽሑፎች</p>
+        <span class="pill-badge"><i class="fas fa-book-open"></i> <span data-am="ተጨማሪ ህትመቶች" data-en="More Publications">ተጨማሪ ህትመቶች</span></span>
+        <h2 class="section-title"><span data-am="የእግዚአብሔር ቃል" data-en="The Word of God">የእግዚአብሔር ቃል</span> <span class="gold" data-am="በህትመት" data-en="In Print">በህትመት</span></h2>
+        <p class="section-subtitle" data-am="ለዘመኑ የተዘጋጁ መንፈሳዊ ጽሑፎች" data-en="Spiritual writings prepared for the season">ለዘመኑ የተዘጋጁ መንፈሳዊ ጽሑፎች</p>
       </div>
       <div class="book-scroll" id="bookScrollBottom">
         <!-- Book 9 to 1 reversed for variety, but using all 9 -->
-        <div class="book-scroll-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 9</div></div>
-        <div class="book-scroll-item"><img src="Book8.jpg" alt="Book 8" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 8</div></div>
-        <div class="book-scroll-item"><img src="Book7.jpg" alt="Book 7" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 7</div></div>
-        <div class="book-scroll-item"><img src="Book6.jpg" alt="Book 6" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 6</div></div>
-        <div class="book-scroll-item"><img src="Book5.jpg" alt="Book 5" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 5</div></div>
-        <div class="book-scroll-item"><img src="Book4.jpg" alt="Book 4" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 4</div></div>
-        <div class="book-scroll-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 3</div></div>
-        <div class="book-scroll-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 2</div></div>
-        <div class="book-scroll-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" onerror="this.style.display='none'" /><div class="book-label">መጽሐፍ 1</div></div>
+        <div class="book-scroll-item"><img src="Book9.jpg" alt="Book 9" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 9" data-en="Book 9">መጽሐፍ 9</span></div></div>
+        <div class="book-scroll-item"><img src="Book8.jpg" alt="Book 8" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 8" data-en="Book 8">መጽሐፍ 8</span></div></div>
+        <div class="book-scroll-item"><img src="Book7.jpg" alt="Book 7" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 7" data-en="Book 7">መጽሐፍ 7</span></div></div>
+        <div class="book-scroll-item"><img src="Book6.jpg" alt="Book 6" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 6" data-en="Book 6">መጽሐፍ 6</span></div></div>
+        <div class="book-scroll-item"><img src="Book5.jpg" alt="Book 5" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 5" data-en="Book 5">መጽሐፍ 5</span></div></div>
+        <div class="book-scroll-item"><img src="Book4.jpg" alt="Book 4" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 4" data-en="Book 4">መጽሐፍ 4</span></div></div>
+        <div class="book-scroll-item"><img src="Book3.jpg" alt="Book 3" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 3" data-en="Book 3">መጽሐፍ 3</span></div></div>
+        <div class="book-scroll-item"><img src="Book2.jpg" alt="Book 2" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 2" data-en="Book 2">መጽሐፍ 2</span></div></div>
+        <div class="book-scroll-item"><img src="Book1.jpg" alt="Book 1" loading="lazy" onerror="this.style.display='none'" /><div class="book-label"><span data-am="መጽሐፍ 1" data-en="Book 1">መጽሐፍ 1</span></div></div>
       </div>
     </div>
   </section>
@@ -1232,11 +1255,11 @@
   <section class="cta-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="pill-badge"><i class="fas fa-phone"></i> ያግኙን</span>
-        <h2 class="section-title">አገልግሎት ለመቀበል <span class="gold">ያግኙን</span></h2>
-        <p class="section-subtitle">ለአገልግሎት ወይም ለሥልጠና ከእኛ ጋር ለመገናኘት ከዚህ በታች ያለውን ቁልፍ ይጫኑ</p>
+        <span class="pill-badge"><i class="fas fa-phone"></i> <span data-am="ያግኙን" data-en="Contact Us">ያግኙን</span></span>
+        <h2 class="section-title"><span data-am="አገልግሎት ለመቀበል" data-en="To Receive Ministry">አገልግሎት ለመቀበል</span> <span class="gold" data-am="ያግኙን" data-en="Contact Us">ያግኙን</span></h2>
+        <p class="section-subtitle" data-am="ለአገልግሎት ወይም ለሥልጠና ከእኛ ጋር ለመገናኘት ከዚህ በታች ያለውን ቁልፍ ይጫኑ" data-en="Click the button below to contact us for ministry or training">ለአገልግሎት ወይም ለሥልጠና ከእኛ ጋር ለመገናኘት ከዚህ በታች ያለውን ቁልፍ ይጫኑ</p>
       </div>
-      <a href="contact.html" class="btn-gold"><i class="fas fa-arrow-right"></i> አገልግሎት ለመቀበል ያግኙን</a>
+      <a href="contact.html" class="btn-gold"><i class="fas fa-arrow-right"></i> <span data-am="አገልግሎት ለመቀበል ያግኙን" data-en="Contact Us for Ministry">አገልግሎት ለመቀበል ያግኙን</span></a>
     </div>
   </section>
 
@@ -1244,42 +1267,42 @@
   <section class="contact-info-section" id="contact">
     <div class="container">
       <div class="contact-header reveal">
-        <span class="pill-badge"><i class="fas fa-address-card"></i> አግኙን</span>
-        <h2>ያግኙን <span class="gold">መግቢያ</span></h2>
-        <p>ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
+        <span class="pill-badge"><i class="fas fa-address-card"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></span>
+        <h2><span data-am="ያግኙን" data-en="Contact">ያግኙን</span> <span class="gold" data-am="መግቢያ" data-en="Information">መግቢያ</span></h2>
+        <p data-am="ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ" data-en="Use the channels below to get in touch with us">ከእኛ ጋር ለመገናኘት ከዚህ በታች ያሉትን መንገዶች ይጠቀሙ</p>
       </div>
 
       <div class="contact-grid">
         <!-- Location -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-map-pin"></i></div>
-          <h4>አድራሻ</h4>
-          <div class="value">አዲስ አበባ፣ ኢትዮጵያ</div>
+          <h4 data-am="አድራሻ" data-en="Address">አድራሻ</h4>
+          <div class="value" data-am="አዲስ አበባ፣ ኢትዮጵያ" data-en="Addis Ababa, Ethiopia">አዲስ አበባ፣ ኢትዮጵያ</div>
           <div class="sub-label">Ethiopia, Addis Ababa</div>
         </div>
 
         <!-- Phone -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-phone-alt"></i></div>
-          <h4>ስልክ</h4>
+          <h4 data-am="ስልክ" data-en="Phone">ስልክ</h4>
           <div class="value"><a href="tel:+251911416976">+251-911-416976</a></div>
-          <div class="sub-label">ለመደወል ይጫኑ</div>
+          <div class="sub-label" data-am="ለመደወል ይጫኑ" data-en="Call us">ለመደወል ይጫኑ</div>
         </div>
 
         <!-- Email -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-envelope"></i></div>
-          <h4>ኢሜል</h4>
+          <h4 data-am="ኢሜል" data-en="Email">ኢሜል</h4>
           <div class="value"><a href="mailto:Ekklesiaarise2023@gmail.com">Ekklesiaarise2023@gmail.com</a></div>
-          <div class="sub-label">ለመጻፍ ይጫኑ</div>
+          <div class="sub-label" data-am="ለመጻፍ ይጫኑ" data-en="Email us">ለመጻፍ ይጫኑ</div>
         </div>
 
         <!-- Website -->
         <div class="contact-card reveal">
           <div class="icon"><i class="fas fa-globe"></i></div>
-          <h4>ድረ-ገጽ</h4>
+          <h4 data-am="ድረ-ገጽ" data-en="Website">ድረ-ገጽ</h4>
           <div class="value"><a href="https://www.ekklesia-arise.com" target="_blank">www.ekklesia-arise.com</a></div>
-          <div class="sub-label">ጉብኝት ያድርጉ</div>
+          <div class="sub-label" data-am="ጉብኝት ያድርጉ" data-en="Visit us">ጉብኝት ያድርጉ</div>
         </div>
       </div>
     </div>
@@ -1291,7 +1314,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3 class="amharic">ኤክሌሲያ ተነሺ ዓለም አቀፍ አገልግሎት</h3>
-          <p>ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
+          <p data-am="ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ" data-en="Strengthening the church with the Word of God and spreading the Gospel to all nations">ቤተክርስቲያንን በቃለ እግዚአብሔር ማጠናከር እና ወንጌልን ለአሕዛብ ሁሉ ማድረስ</p>
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1301,29 +1324,28 @@
         </div>
 
         <div class="footer-col">
-          <h4>ፈጣን አገናኞች</h4>
+          <h4 data-am="ፈጣን አገናኞች" data-en="Quick Links">ፈጣን አገናኞች</h4>
           <ul>
-            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> መነሻ</a></li>
-            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ስለእኛ</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አገልግሎቶች</a></li>
-            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> አግኙን</a></li>
-            <li><a href="give.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> ይለግሱ</a></li>
+            <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="መነሻ" data-en="Home">መነሻ</span></a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="ስለእኛ" data-en="About">ስለእኛ</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="አግኙን" data-en="Contact">አግኙን</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>አገልግሎቶች</h4>
+          <h4 data-am="አገልግሎቶች" data-en="Services">አገልግሎቶች</h4>
           <ul>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቃል ማስተማር</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የደቀ መዝሙር ሥልጠና</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የሕትመት አገልግሎት</a></li>
-            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> የቤተክርስቲያን ተሃድሶ</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የቃል ማስተማር" data-en="Bible Teaching">የቃል ማስተማር</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የደቀ መዝሙር ሥልጠና" data-en="Discipleship Training">የደቀ መዝሙር ሥልጠና</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የሕትመት አገልግሎት" data-en="Publishing Ministry">የሕትመት አገልግሎት</span></a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> <span data-am="የቤተክርስቲያን ተሃድሶ" data-en="Church Revival">የቤተክርስቲያን ተሃድሶ</span></a></li>
           </ul>
         </div>
 
         <div class="footer-col footer-contact">
-          <h4>ያግኙን</h4>
-          <p><i class="fas fa-map-pin"></i> አዲስ አበባ፣ ኢትዮጵያ</p>
+          <h4 data-am="ያግኙን" data-en="Contact">ያግኙን</h4>
+          <p><i class="fas fa-map-pin"></i> <span data-am="አዲስ አበባ፣ ኢትዮጵያ" data-en="Addis Ababa, Ethiopia">አዲስ አበባ፣ ኢትዮጵያ</span></p>
           <p><i class="fas fa-phone"></i> +251-911-416976</p>
           <p><i class="fas fa-envelope"></i> Ekklesiaarise2023@gmail.com</p>
           <p><i class="fas fa-globe"></i> www.ekklesia-arise.com</p>
@@ -1412,6 +1434,29 @@
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (mobileMenu.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // ================================================================
+    // LANGUAGE SWITCHER
+    // ================================================================
+    const langButtons = document.querySelectorAll('.lang-switch button');
+    let currentLang = 'am';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-am][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang === 'am' ? 'am' : 'en';
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
       });
     });
 
