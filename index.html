@@ -1,1194 +1,1223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="am">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>የደቀመዝሙር ሥልጠና ምዝገባ | ኤክሌሺያ አራይዝ</title>
+  <title>የሥልጠና ምዝገባ | ኤክሌሺያ አራይዝ</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-<style>
+  <style>
 
-*{
+  *{
     box-sizing:border-box;
-}
+  }
 
-:root{
-    --green:#176b45;
-    --dark:#0b3326;
-    --gold:#d7a82d;
-    --red:#a62b2b;
-    --blue:#173b73;
-    --light:#f5f7f4;
-    --white:#ffffff;
-    --border:#dfe6e1;
-    --muted:#68756e;
-}
-
-body{
+  body{
     margin:0;
     font-family:"Noto Sans Ethiopic",Arial,sans-serif;
-    background:#f5f7f4;
-    color:#17231d;
-}
+    background:#f5f7fb;
+    color:#172033;
+  }
 
-button,
-input,
-select,
-textarea{
-    font-family:inherit;
-}
+  button,
+  input,
+  select,
+  textarea{
+    font:inherit;
+  }
 
-.top-line{
-    height:7px;
-    background:
-    linear-gradient(
-        90deg,
-        #07823d 0 33%,
-        #f5c400 33% 66%,
-        #c72c2c 66%
-    );
-}
+  /* =========================
+     TOP BAR
+  ========================= */
 
-/* HEADER */
-
-header{
-    background:linear-gradient(135deg,#082f24,#14583c);
-    color:white;
-    padding:25px 20px;
-    box-shadow:0 4px 18px #0002;
-}
-
-.header-inner{
-    max-width:1180px;
-    margin:auto;
+  .topbar{
+    height:72px;
+    background:#fff;
+    border-bottom:1px solid #e7eaf0;
     display:flex;
     align-items:center;
-    gap:18px;
-}
-
-.cross{
-    width:60px;
-    height:60px;
-    border:2px solid #e5c65d;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    color:#e5c65d;
-    font-size:32px;
-    font-weight:800;
-}
-
-.brand h1{
-    margin:0 0 4px;
-    font-size:24px;
-}
-
-.brand p{
-    margin:0;
-    color:#dbe9e1;
-    font-size:14px;
-}
-
-/* MAIN */
-
-.container{
-    max-width:1180px;
-    margin:30px auto;
-    padding:0 18px;
-}
-
-.hero{
-    background:#fffdf6;
-    border:1px solid #e8e3ce;
-    border-radius:20px;
-    padding:28px;
-    margin-bottom:22px;
-    box-shadow:0 8px 30px #173b2810;
-}
-
-.hero h2{
-    color:var(--dark);
-    margin:0 0 8px;
-}
-
-.hero p{
-    color:var(--muted);
-    line-height:1.9;
-    margin:0;
-}
-
-/* LAYOUT */
-
-.layout{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 340px;
-    gap:22px;
-}
-
-.card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:24px;
-    box-shadow:0 5px 22px #163b2510;
-    margin-bottom:20px;
-}
-
-.section-title{
-    color:var(--dark);
-    font-size:19px;
-    border-bottom:1px solid var(--border);
-    padding-bottom:12px;
-    margin-bottom:20px;
-}
-
-/* FORM */
-
-.fields{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.field{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-}
-
-.field.full{
-    grid-column:1/-1;
-}
-
-label{
-    font-weight:700;
-    font-size:14px;
-}
-
-.required{
-    color:#b3261e;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:13px 14px;
-    border:1px solid #ccd7d0;
-    border-radius:10px;
-    background:#fff;
-    font-size:14px;
-    outline:none;
-}
-
-textarea{
-    min-height:90px;
-    resize:vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:var(--green);
-    box-shadow:0 0 0 3px #176b4515;
-}
-
-/* TRAININGS */
-
-.training-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-}
-
-.training{
-    position:relative;
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:17px;
-    cursor:pointer;
-    transition:.2s;
-    background:#fff;
-}
-
-.training:hover{
-    border-color:var(--green);
-    transform:translateY(-1px);
-}
-
-.training.selected{
-    border:2px solid var(--green);
-    background:#f0f8f3;
-}
-
-.training input{
-    position:absolute;
-    opacity:0;
-}
-
-.training-number{
-    display:inline-grid;
-    place-items:center;
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    background:var(--green);
-    color:#fff;
-    font-weight:800;
-    margin-bottom:9px;
-}
-
-.training h3{
-    font-size:15px;
-    line-height:1.65;
-    margin:0 0 8px;
-}
-
-.training-info{
-    font-size:12px;
-    color:var(--muted);
-    line-height:1.8;
-}
-
-.training-fee{
-    margin-top:8px;
-    color:var(--green);
-    font-weight:800;
-}
-
-/* PAYMENT */
-
-.payment-box{
-    border:1px solid #e3d8b1;
-    border-radius:14px;
-    background:#fffdf6;
-    overflow:hidden;
-    margin-bottom:20px;
-}
-
-.payment-row{
-    display:flex;
     justify-content:space-between;
-    align-items:center;
-    padding:15px 17px;
-    border-bottom:1px solid #eee5ca;
-}
+    padding:0 6%;
+    position:sticky;
+    top:0;
+    z-index:5;
+  }
 
-.payment-row strong{
-    color:var(--green);
-}
-
-.lunch-option{
+  .brand{
     display:flex;
     align-items:center;
     gap:12px;
-    padding:15px 17px;
-    background:#faf7eb;
-    cursor:pointer;
-}
+  }
 
-.lunch-option input{
-    width:18px;
-    height:18px;
-}
-
-.lunch-text{
-    flex:1;
-    font-weight:700;
-}
-
-.optional{
-    font-size:12px;
-    color:#8a8068;
-    font-weight:400;
-}
-
-.lunch-amount{
-    color:#8a6b13;
+  .logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#173b73;
+    color:#fff;
+    display:grid;
+    place-items:center;
     font-weight:800;
-    white-space:nowrap;
-}
+  }
 
-.total{
+  .brand strong,
+  .brand span{
+    display:block;
+  }
+
+  .brand span{
+    font-size:11px;
+    color:#6d7482;
+  }
+
+  .contact{
+    font-size:13px;
+    color:#596275;
+  }
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero{
+    max-width:1180px;
+    margin:36px auto 22px;
+    padding:32px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#173b73,#2860a5);
+    color:white;
     display:flex;
     justify-content:space-between;
+    gap:25px;
+    box-shadow:0 16px 40px #173b7325;
+  }
+
+  .eyebrow{
+    font-size:12px;
+    opacity:.75;
+  }
+
+  .hero h1{
+    font-size:34px;
+    margin:8px 0;
+  }
+
+  .hero p{
+    margin:0;
+    max-width:650px;
+    color:#e5efff;
+  }
+
+  .hero-card{
+    background:#ffffff16;
+    border:1px solid #ffffff30;
+    border-radius:18px;
+    padding:18px 22px;
+    min-width:220px;
+  }
+
+  .mini-label{
+    font-size:11px;
+    opacity:.7;
+    margin-top:5px;
+  }
+
+  .hero-card b{
+    display:block;
+    margin-bottom:12px;
+  }
+
+  /* =========================
+     LAYOUT
+  ========================= */
+
+  .layout{
+    max-width:1180px;
+    margin:auto;
+    padding:0 0 60px;
+    display:grid;
+    grid-template-columns:1fr 330px;
+    gap:22px;
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid #e5e8ef;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 8px 25px #1720330a;
+  }
+
+  /* =========================
+     SECTION HEAD
+  ========================= */
+
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:20px;
+  }
+
+  .section-head div{
+    display:flex;
     align-items:center;
-    padding:18px;
+    gap:10px;
+  }
+
+  .section-head span{
+    font-weight:800;
+    color:#2b63a8;
+    font-size:12px;
+  }
+
+  .section-head h2{
+    font-size:19px;
+    margin:0;
+  }
+
+  .section-head small{
+    font-size:11px;
+    color:#7b8494;
+  }
+
+  .space{
+    margin-top:34px;
+  }
+
+  /* =========================
+     FORM
+  ========================= */
+
+  .grid{
+    display:grid;
+    gap:16px;
+  }
+
+  .two{
+    grid-template-columns:1fr 1fr;
+  }
+
+  label{
+    font-size:12px;
+    font-weight:600;
+    color:#4f5868;
+  }
+
+  input,
+  select,
+  textarea{
+    display:block;
+    width:100%;
+    margin-top:7px;
+    border:1px solid #dfe3ea;
+    border-radius:11px;
+    padding:12px 13px;
+    outline:0;
+    background:#fff;
+    color:#1d2635;
+  }
+
+  textarea{
+    min-height:90px;
+    resize:vertical;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus{
+    border-color:#3471bb;
+    box-shadow:0 0 0 3px #3471bb14;
+  }
+
+  /* =========================
+     TRAINING LIST
+  ========================= */
+
+  .training-list{
+    display:grid;
+    gap:10px;
+  }
+
+  .training{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    border:1px solid #e3e7ee;
+    border-radius:13px;
+    padding:13px;
+    cursor:pointer;
+    transition:.15s;
+  }
+
+  .training:hover{
+    border-color:#8db0d7;
+    background:#f8fbff;
+  }
+
+  .training.selected{
+    border-color:#3471bb;
+    background:#f3f8ff;
+  }
+
+  .training input{
+    width:auto;
+    margin:0;
+  }
+
+  .training-main{
+    flex:1;
+  }
+
+  .training-title{
+    font-weight:700;
+    font-size:13px;
+  }
+
+  .training-meta{
+    font-size:11px;
+    color:#7b8494;
+    margin-top:4px;
+  }
+
+  .hours{
+    font-size:11px;
+    font-weight:700;
+    background:#edf3fa;
+    padding:6px 8px;
+    border-radius:8px;
+    color:#285b93;
+  }
+
+  /* =========================
+     PAYMENT
+  ========================= */
+
+  .payment-summary{
+    margin:14px 0 18px;
+    border:1px solid #e3d8b1;
+    border-radius:12px;
+    background:#fffdf6;
+    overflow:hidden;
+  }
+
+  .payment-row,
+  .lunch-option,
+  .payment-total{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+  }
+
+  .payment-row{
+    justify-content:space-between;
+    border-bottom:1px solid #eee5ca;
+  }
+
+  .payment-row strong{
+    color:#176b45;
+  }
+
+  /* OPTIONAL LUNCH */
+
+  .lunch-option{
+    cursor:pointer;
+    justify-content:flex-start;
+    background:#faf7eb;
+  }
+
+  .lunch-option input{
+    width:18px;
+    height:18px;
+    margin:0;
+    flex:none;
+  }
+
+  .lunch-option span{
+    flex:1;
+    font-weight:600;
+  }
+
+  .lunch-option small{
+    font-weight:400;
+    color:#7b7665;
+  }
+
+  .lunch-option strong{
+    white-space:nowrap;
+    color:#8a6b13;
+  }
+
+  /* TOTAL */
+
+  .payment-total{
+    justify-content:space-between;
     background:#f2ead0;
+    font-size:17px;
+    font-weight:800;
     color:#17395f;
-    font-size:18px;
-    font-weight:800;
-}
+  }
 
-.total strong{
-    font-size:24px;
-}
+  .payment-total strong{
+    font-size:22px;
+  }
 
-/* BANK */
+  /* =========================
+     UPLOAD
+  ========================= */
 
-.bank{
-    background:#0d392a;
-    color:white;
-    border-radius:15px;
-    padding:20px;
-    line-height:1.9;
-    margin-bottom:18px;
-}
-
-.bank strong{
-    color:#f1d064;
-}
-
-.bank-number{
-    font-size:21px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-/* UPLOAD */
-
-.upload{
-    margin-top:15px;
+  .upload{
+    display:block;
+    margin-top:16px;
     border:1.5px dashed #cbd4e1;
     padding:16px;
     border-radius:12px;
     background:#fafbfc;
-}
+  }
 
-.upload input{
+  .upload input{
     border:0;
     padding:0;
-    margin:10px 0 5px;
-}
+    margin:8px 0 3px;
+    background:none;
+  }
 
-.file-name{
-    font-size:12px;
-    color:var(--muted);
-}
+  .upload span{
+    font-size:11px;
+    color:#7b8494;
+  }
 
-/* CHECK */
+  /* =========================
+     AGREEMENT
+  ========================= */
 
-.agreement{
+  .check{
     display:flex;
-    gap:9px;
-    align-items:flex-start;
-    font-size:13px;
-    line-height:1.7;
+    align-items:center;
+    gap:8px;
     margin:20px 0;
-}
+  }
 
-.agreement input{
-    width:18px;
-    height:18px;
-}
+  .check input{
+    width:auto;
+    margin:0;
+  }
 
-/* BUTTON */
+  /* =========================
+     BUTTON
+  ========================= */
 
-.submit{
+  .submit{
     width:100%;
     border:0;
     border-radius:12px;
-    padding:15px;
-    background:linear-gradient(135deg,#176b45,#0b4c31);
-    color:#fff;
-    font-size:16px;
+    background:#173b73;
+    color:white;
+    padding:14px;
     font-weight:800;
     cursor:pointer;
-    box-shadow:0 7px 16px #176b4530;
-}
+  }
 
-.submit:hover{
-    filter:brightness(1.08);
-}
+  .submit:hover{
+    background:#102e5a;
+  }
 
-/* SIDE */
+  .submit span{
+    float:right;
+  }
 
-.side{
-    position:sticky;
-    top:15px;
+  /* =========================
+     SIDE BAR
+  ========================= */
+
+  .side{
     height:max-content;
-}
+    position:sticky;
+    top:92px;
+  }
 
-.side h2{
-    color:var(--dark);
-    font-size:19px;
-    border-bottom:1px solid var(--border);
-    padding-bottom:12px;
-}
+  .side-title{
+    font-size:18px;
+    font-weight:800;
+  }
 
-.schedule-item{
-    padding:12px 0;
-    border-bottom:1px solid var(--border);
-}
-
-.schedule-item strong{
-    display:block;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.schedule-item span{
+  .side p{
     font-size:12px;
-    color:var(--muted);
-}
+    color:#70798a;
+    line-height:1.7;
+  }
 
-.side-bank{
-    margin-top:20px;
-}
+  .summary-item{
+    padding:12px 0;
+    border-bottom:1px solid #edf0f4;
+  }
 
-/* MODAL */
+  .summary-item b{
+    font-size:12px;
+    display:block;
+  }
 
-.modal{
-    display:none;
+  .summary-item span{
+    font-size:10px;
+    color:#7a8391;
+  }
+
+  .bank{
+    display:grid;
+    gap:5px;
+    font-size:12px;
+  }
+
+  .bank strong{
+    font-size:18px;
+    letter-spacing:1px;
+  }
+
+  .bank span,
+  .bank small{
+    color:#737c8c;
+  }
+
+  /* =========================
+     MODAL
+  ========================= */
+
+  .modal{
     position:fixed;
     inset:0;
-    background:#061f1599;
-    z-index:99;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    background:white;
-    border-radius:20px;
-    max-width:480px;
-    width:100%;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 20px 60px #0005;
-}
-
-.success{
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    background:#e4f5eb;
-    color:var(--green);
+    background:#0d172799;
     display:grid;
     place-items:center;
-    font-size:32px;
-    margin:0 auto 15px;
-}
+    padding:20px;
+    z-index:20;
+  }
 
-.registration-number{
-    font-size:24px;
+  .hidden{
+    display:none;
+  }
+
+  .modal-box{
+    background:#fff;
+    border-radius:22px;
+    padding:34px;
+    text-align:center;
+    max-width:420px;
+    width:100%;
+    box-shadow:0 20px 60px #0003;
+  }
+
+  .success-icon{
+    margin:auto;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:#e8f7ef;
+    color:#198754;
+    display:grid;
+    place-items:center;
+    font-size:28px;
     font-weight:800;
-    color:var(--green);
-    background:#f2f8f4;
-    border-radius:10px;
-    padding:12px;
-    margin:18px 0;
-}
+  }
 
-.close{
+  .modal-box h2{
+    margin:16px 0 5px;
+  }
+
+  .modal-box p{
+    font-size:12px;
+    color:#687385;
+  }
+
+  .modal-box #regNo{
+    font-size:24px;
+    color:#173b73;
+    letter-spacing:1px;
+  }
+
+  .muted{
+    margin-top:18px;
+  }
+
+  .modal-box button{
     border:0;
-    background:var(--green);
-    color:white;
+    background:#173b73;
+    color:#fff;
+    padding:11px 28px;
     border-radius:10px;
-    padding:12px 25px;
-    font-weight:700;
     cursor:pointer;
-}
+  }
 
-/* MOBILE */
+  /* =========================
+     MOBILE
+  ========================= */
 
-@media(max-width:900px){
+  @media(max-width:850px){
 
     .layout{
-        grid-template-columns:1fr;
+      grid-template-columns:1fr;
+      padding:0 14px 40px;
+    }
+
+    .hero{
+      margin:20px 14px;
+      padding:25px;
+      display:block;
+    }
+
+    .hero h1{
+      font-size:28px;
+    }
+
+    .hero-card{
+      margin-top:18px;
     }
 
     .side{
-        position:static;
+      position:static;
     }
 
-    .training-list{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:650px){
-
-    .header-inner{
-        align-items:flex-start;
+    .two{
+      grid-template-columns:1fr;
     }
 
-    .cross{
-        width:50px;
-        height:50px;
-        font-size:27px;
+    .topbar{
+      padding:0 14px;
     }
 
-    .brand h1{
-        font-size:18px;
-    }
-
-    .fields{
-        grid-template-columns:1fr;
-    }
-
-    .field.full{
-        grid-column:auto;
-    }
-
-    .container{
-        padding:0 12px;
+    .contact{
+      display:none;
     }
 
     .card{
-        padding:18px;
+      padding:20px;
     }
 
-    .payment-row,
-    .lunch-option,
-    .total{
-        font-size:13px;
+    .section-head{
+      display:block;
     }
 
-    .total strong{
-        font-size:20px;
+    .section-head small{
+      display:block;
+      margin-top:5px;
     }
-}
 
-</style>
+    .training{
+      align-items:flex-start;
+    }
+
+    .hours{
+      display:none;
+    }
+  }
+
+  </style>
 </head>
+
 
 <body>
 
-<div class="top-line"></div>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<header>
+<header class="topbar">
 
-<div class="header-inner">
+  <div class="brand">
 
-<div class="cross">✝</div>
+    <div class="logo">
+      EA
+    </div>
 
-<div class="brand">
+    <div>
 
-<h1>ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ</h1>
+      <strong>
+        ኤክሌሺያ አራይዝ
+      </strong>
 
-<p>
-የጢራኖስ የደቀመዝሙር ትምህርት ቤት
-</p>
+      <span>
+        ግሎባል ሚኒስትሪ
+      </span>
 
-</div>
+    </div>
 
-</div>
+  </div>
+
+
+  <div class="contact">
+    0911-416976 · 0911-898375
+  </div>
 
 </header>
 
 
-<main class="container">
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
 
 <section class="hero">
 
-<h2>
-የደቀመዝሙር ሥልጠና የመስመር ላይ ምዝገባ
-</h2>
+  <div class="hero-copy">
 
-<p>
-እባክዎ የግል መረጃዎን በትክክል ይሙሉ፣
-የሚሳተፉበትን ሥልጠና ይምረጡ፣
-የክፍያ መረጃዎን ያስገቡ እና ምዝገባዎን ያስገቡ።
-</p>
+    <span class="eyebrow">
+      2019 የደቀመዝሙር ትምህርት ቤት
+    </span>
+
+    <h1>
+      የሥልጠና ምዝገባ
+    </h1>
+
+    <p>
+      ለመረጡት ሥልጠና በቀላሉ ይመዝገቡ።
+      መረጃዎን ይሙሉ እና ምዝገባዎን ያስገቡ።
+    </p>
+
+  </div>
+
+
+  <div class="hero-card">
+
+    <div class="mini-label">
+      አድራሻ
+    </div>
+
+    <b>
+      ጃክሮስ ሜታ
+    </b>
+
+
+    <div class="mini-label">
+      የምዝገባ ሁኔታ
+    </div>
+
+    <b>
+      ክፍት
+    </b>
+
+  </div>
 
 </section>
 
 
-<div class="layout">
+<!-- =====================================================
+     MAIN LAYOUT
+===================================================== -->
+
+<section class="layout">
 
 
-<!-- ================= FORM ================= -->
+<!-- =====================================================
+     REGISTRATION FORM
+===================================================== -->
 
 <form
-id="registrationForm"
-class="card"
-action="https://formsubmit.co/ekklesiaarise2023@gmail.com"
-method="POST"
-enctype="multipart/form-data"
-target="emailFrame"
+  id="registrationForm"
+  class="card"
+  action="https://formsubmit.co/ekklesiaarise2023@gmail.com"
+  method="POST"
+  enctype="multipart/form-data"
+  target="submitFrame"
 >
 
-<!-- EMAIL SETTINGS -->
+
+<!-- FORM EMAIL SETTINGS -->
 
 <input
-type="hidden"
-name="_subject"
-value="አዲስ የደቀመዝሙር ሥልጠና ምዝገባ"
->
-
-<input
-type="hidden"
-name="_template"
-value="table"
+  type="hidden"
+  name="_subject"
+  value="አዲስ የደቀመዝሙር ሥልጠና ምዝገባ"
 >
 
 <input
-type="hidden"
-name="_captcha"
-value="true"
+  type="hidden"
+  name="_template"
+  value="table"
 >
-
-<!-- ================= PARTICIPANT ================= -->
-
-<h2 class="section-title">
-፩. የተሳታፊ መረጃ
-</h2>
-
-<div class="fields">
-
-<div class="field">
-
-<label>
-ሙሉ ስም
-<span class="required">*</span>
-</label>
 
 <input
-name="ሙሉ_ስም"
-required
-placeholder="ሙሉ ስም"
+  type="hidden"
+  name="_captcha"
+  value="true"
 >
+
+
+<!-- =====================================================
+     PARTICIPANT INFORMATION
+===================================================== -->
+
+<div class="section-head">
+
+  <div>
+
+    <span>
+      01
+    </span>
+
+    <h2>
+      የተሳታፊ መረጃ
+    </h2>
+
+  </div>
+
+  <small>
+    * አስፈላጊ መስኮች
+  </small>
 
 </div>
 
 
-<div class="field">
+<div class="grid two">
 
-<label>
-የአባት ስም
-<span class="required">*</span>
-</label>
+  <label>
 
-<input
-name="የአባት_ስም"
-required
-placeholder="የአባት ስም"
->
+    ሙሉ ስም *
 
-</div>
+    <input
+      required
+      name="fullName"
+      placeholder="ሙሉ ስም"
+    >
 
-
-<div class="field">
-
-<label>
-ስልክ ቁጥር
-<span class="required">*</span>
-</label>
-
-<input
-name="ስልክ_ቁጥር"
-type="tel"
-required
-placeholder="09XXXXXXXX"
->
-
-</div>
+  </label>
 
 
-<div class="field">
+  <label>
 
-<label>
-ኢሜይል
-</label>
+    የአባት ስም *
 
-<input
-name="ኢሜይል"
-type="email"
-placeholder="example@email.com"
->
+    <input
+      required
+      name="fatherName"
+      placeholder="የአባት ስም"
+    >
 
-</div>
+  </label>
 
 
-<div class="field">
+  <label>
 
-<label>
-የቤተክርስቲያን ስም
-</label>
+    ስልክ ቁጥር *
 
-<input
-name="የቤተክርስቲያን_ስም"
-placeholder="የቤተክርስቲያን ስም"
->
+    <input
+      required
+      name="phone"
+      type="tel"
+      placeholder="09XXXXXXXX"
+    >
 
-</div>
-
-
-<div class="field">
-
-<label>
-የአገልግሎት / ሚና
-</label>
-
-<input
-name="የአገልግሎት_ሚና"
-placeholder="ለምሳሌ፡ ደቀመዝሙር"
->
-
-</div>
+  </label>
 
 
-<div class="field full">
+  <label>
 
-<label>
-አድራሻ
-</label>
+    ኢሜይል
 
-<textarea
-name="አድራሻ"
-placeholder="የመኖሪያ አድራሻ"
-></textarea>
+    <input
+      name="email"
+      type="email"
+      placeholder="example@email.com"
+    >
 
-</div>
+  </label>
+
+
+  <label>
+
+    የቤተክርስቲያን ስም *
+
+    <input
+      required
+      name="church"
+      placeholder="የቤተክርስቲያን ስም"
+    >
+
+  </label>
+
+
+  <label>
+
+    የአገልግሎት / ሚና
+
+    <input
+      name="role"
+      placeholder="ለምሳሌ፡ ደቀመዝሙር"
+    >
+
+  </label>
 
 </div>
 
 
-<!-- ================= TRAININGS ================= -->
+<!-- =====================================================
+     TRAINING SELECTION
+===================================================== -->
 
-<h2 class="section-title" style="margin-top:35px">
+<div class="section-head space">
 
-፪. ሥልጠና ይምረጡ
+  <div>
 
-</h2>
+    <span>
+      02
+    </span>
+
+    <h2>
+      ሥልጠና ይምረጡ
+    </h2>
+
+  </div>
+
+  <small>
+    አንድ ወይም ብዙ ሥልጠናዎችን መምረጥ ይችላሉ
+  </small>
+
+</div>
+
 
 <div
-id="trainingList"
-class="training-list"
+  id="trainingList"
+  class="training-list"
 ></div>
 
 
-<!-- ================= PAYMENT ================= -->
+<!-- =====================================================
+     PAYMENT
+===================================================== -->
 
-<h2 class="section-title" style="margin-top:35px">
+<div class="section-head space">
 
-፫. የክፍያ መረጃ
+  <div>
 
-</h2>
+    <span>
+      03
+    </span>
 
+    <h2>
+      የክፍያ መረጃ
+    </h2>
 
-<div class="payment-box">
+  </div>
 
-
-<!-- PAYMENT ONE -->
-
-<div class="payment-row">
-
-<span>
-<strong>የሥልጠና ወጪ</strong>
-</span>
-
-<strong id="trainingFee">
-0.00 ብር
-</strong>
+  <small>
+    የሥልጠና ወጪ አስፈላጊ ነው፤
+    የምሳ ክፍያ አማራጭ ነው
+  </small>
 
 </div>
 
 
-<!-- PAYMENT TWO -->
+<div
+  id="paymentSummary"
+  class="payment-summary"
+>
+
+
+<!-- PAYMENT 1 -->
+
+<div class="payment-row">
+
+  <span>
+    የሥልጠና ወጪ
+  </span>
+
+  <strong id="trainingFee">
+    0.00 ብር
+  </strong>
+
+</div>
+
+
+<!-- PAYMENT 2 -->
 
 <label class="lunch-option">
 
-<input
-id="lunchOption"
-type="checkbox"
-name="የምሳ_ክፍያ"
-value="አዎ"
->
+  <input
+    id="lunchOption"
+    type="checkbox"
+    name="lunch"
+    value="yes"
+  >
 
-<span class="lunch-text">
+  <span>
 
-የምሳ ክፍያ
+    የምሳ ክፍያ
 
-<span class="optional">
-(አማራጭ)
-</span>
+    <small>
+      (አማራጭ)
+    </small>
 
-</span>
+  </span>
 
-<strong
-id="lunchFee"
-class="lunch-amount"
->
-0.00 ብር
-</strong>
+  <strong id="lunchFee">
+    0.00 ብር
+  </strong>
 
 </label>
 
 
 <!-- TOTAL -->
 
-<div class="total">
+<div class="payment-total">
 
-<span>
-ጠቅላላ ክፍያ
-</span>
+  <span>
+    ጠቅላላ ክፍያ
+  </span>
 
-<strong id="totalFee">
-0.00 ብር
-</strong>
-
-</div>
+  <strong id="totalFee">
+    0.00 ብር
+  </strong>
 
 </div>
 
+</div>
 
-<!-- HIDDEN CALCULATED VALUES -->
 
-<input
-type="hidden"
-name="የሥልጠና_ወጪ"
-id="hiddenTrainingFee"
+<!-- PAYMENT METHOD -->
+
+<div class="grid two">
+
+  <label>
+
+    የክፍያ ዘዴ
+
+    <select name="paymentMethod">
+
+      <option value="">
+        ይምረጡ
+      </option>
+
+      <option>
+        ባንክ ማስተላለፍ
+      </option>
+
+      <option>
+        በጥሬ ገንዘብ
+      </option>
+
+      <option>
+        ሌላ
+      </option>
+
+    </select>
+
+  </label>
+
+
+  <label>
+
+    የክፍያ ማጣቀሻ ቁጥር
+
+    <input
+      name="paymentRef"
+      placeholder="የግብይት ቁጥር"
+    >
+
+  </label>
+
+</div>
+
+
+<!-- BANK INFORMATION -->
+
+<div
+  style="
+    margin-top:18px;
+    padding:17px;
+    background:#f8fafc;
+    border:1px solid #e4e8ee;
+    border-radius:12px;
+  "
 >
 
-<input
-type="hidden"
-name="የምሳ_ክፍያ"
-id="hiddenLunchFee"
->
+  <div
+    style="
+      font-weight:800;
+      color:#173b73;
+      margin-bottom:8px;
+    "
+  >
+    የባንክ መረጃ
+  </div>
 
-<input
-type="hidden"
-name="ጠቅላላ_ክፍያ"
-id="hiddenTotalFee"
->
+  <div style="font-size:12px;color:#687385;line-height:1.9">
 
-<input
-type="hidden"
-name="የምሳ_አማራጭ"
-id="hiddenLunchStatus"
->
+    <strong>
+      ብርሃን ባንክ
+    </strong>
 
+    <br>
 
-<!-- BANK -->
+    2603500029255
 
-<div class="bank">
+    <br>
 
-<div>
-<strong>የክፍያ መረጃ</strong>
-</div>
+    ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ
 
-<div>
-ብርሃን ባንክ
-</div>
-
-<div class="bank-number">
-2603500029255
-</div>
-
-<div>
-ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ
-</div>
-
-</div>
-
-
-<div class="fields">
-
-<div class="field">
-
-<label>
-የክፍያ ዘዴ
-<span class="required">*</span>
-</label>
-
-<select
-name="የክፍያ_ዘዴ"
-required
->
-
-<option value="">
-ይምረጡ
-</option>
-
-<option>
-ብርሃን ባንክ
-</option>
-
-<option>
-በጥሬ ገንዘብ
-</option>
-
-<option>
-ሌላ
-</option>
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>
-የክፍያ ማጣቀሻ ቁጥር
-</label>
-
-<input
-name="የክፍያ_ማጣቀሻ"
-placeholder="የግብይት ቁጥር"
->
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- RECEIPT -->
 
-<div class="upload">
+<label class="upload">
 
-<label>
-የክፍያ ማስረጃ
+  የክፍያ ማስረጃ
+
+  <input
+    id="receipt"
+    name="receipt"
+    type="file"
+    accept="image/*,.pdf"
+  >
+
+  <span id="fileName">
+    PDF ወይም ምስል ይጫኑ
+  </span>
+
 </label>
-
-<input
-id="receipt"
-name="_attachment"
-type="file"
-accept="image/*,.pdf"
->
-
-<div
-id="fileName"
-class="file-name"
->
-PDF ወይም ምስል ይጫኑ
-</div>
-
-</div>
 
 
 <!-- AGREEMENT -->
 
-<label class="agreement">
+<label class="check">
 
-<input
-type="checkbox"
-required
-name="ማረጋገጫ"
-value="አረጋግጫለሁ"
->
+  <input
+    required
+    type="checkbox"
+    name="agree"
+  >
 
-<span>
-
-ያስገባሁት መረጃ ትክክል መሆኑን
-እና የምዝገባ ሂደቱን መቀጠል መፈለጌን አረጋግጣለሁ።
-
-</span>
+  ያስገባሁት መረጃ ትክክል መሆኑን
+  አረጋግጣለሁ። *
 
 </label>
 
 
+<!-- SUBMIT -->
+
 <button
-class="submit"
-type="submit"
+  class="submit"
+  type="submit"
 >
 
-ምዝገባዬን ላክ
+  ምዝገባዬን ላክ
+
+  <span>
+    →
+  </span>
 
 </button>
+
 
 </form>
 
 
-<!-- ================= SIDE BAR ================= -->
+<!-- =====================================================
+     SIDE INFORMATION
+===================================================== -->
 
 <aside class="card side">
 
-<h2>
-የሥልጠና መርሃ ግብር
-</h2>
+  <div class="side-title">
+    የሥልጠና መረጃ
+  </div>
+
+  <p>
+    በሰነዱ ላይ የተገለጹት
+    7 ሥልጠናዎች እዚህ ይታያሉ።
+  </p>
 
 
-<div class="schedule-item">
-
-<strong>
-1. ልጅነት
-</strong>
-
-<span>
-ጥቅምት 25 - 27 · 15 ሰዓት
-</span>
-
-</div>
+  <div id="summary"></div>
 
 
-<div class="schedule-item">
-
-<strong>
-2. ክርስቲያናዊ ስነምግባር
-</strong>
-
-<span>
-ህዳር 22 - 23 · 9 ሰዓት
-</span>
-
-</div>
+  <hr>
 
 
-<div class="schedule-item">
+  <div class="bank">
 
-<strong>
-3. መንፈሳዊ ውጊያ
-</strong>
+    <b>
+      የባንክ መረጃ
+    </b>
 
-<span>
-ህዳር 24 - 25 · 10 ሰዓት
-</span>
+    <span>
+      ብርሃን ባንክ
+    </span>
 
-</div>
+    <strong>
+      2603500029255
+    </strong>
 
+    <small>
+      ኤክሌሺያ አራይዝ
+      ግሎባል ሚኒስትሪ
+    </small>
 
-<div class="schedule-item">
-
-<strong>
-4. ከግብዝነት ክርስቶስን ወደመምሰል
-</strong>
-
-<span>
-ታህሳስ 20 - 21 · 9 ሰዓት
-</span>
-
-</div>
-
-
-<div class="schedule-item">
-
-<strong>
-5. የመቅደሱ ህግ
-</strong>
-
-<span>
-ታህሳስ 22 - 23 · 9 ሰዓት
-</span>
-
-</div>
-
-
-<div class="schedule-item">
-
-<strong>
-6. የእግዚአብሄር ሙሉ ምክር
-</strong>
-
-<span>
-ጥር 25 - 26 · 9 ሰዓት
-</span>
-
-</div>
-
-
-<div class="schedule-item">
-
-<strong>
-7. በዘመኑ መጨረሻ ድል የምትገሰግሰው ቤተክርስቲያን
-</strong>
-
-<span>
-ጥር 27 - 28 · 10 ሰዓት
-</span>
-
-</div>
-
-
-<div class="side-bank">
-
-<h2>
-የባንክ መረጃ
-</h2>
-
-<p>
-<strong>ብርሃን ባንክ</strong>
-</p>
-
-<p class="bank-number">
-2603500029255
-</p>
-
-<p>
-ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ
-</p>
-
-<p>
-<strong>አድራሻ፡</strong>
-ጃክሮስ ሜታ
-</p>
-
-<p>
-<strong>ስልክ፡</strong><br>
-0911-416976<br>
-0911-898375
-</p>
-
-</div>
+  </div>
 
 </aside>
 
-</div>
+
+</section>
 
 </main>
 
 
-<!-- ================= SUCCESS MODAL ================= -->
+<!-- =====================================================
+     SUCCESS MODAL
+===================================================== -->
 
 <div
-id="successModal"
-class="modal"
+  id="success"
+  class="modal hidden"
 >
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<div class="success">
-✓
-</div>
+    <div class="success-icon">
+      ✓
+    </div>
 
-<h2>
-ምዝገባዎ ተሳክቷል!
-</h2>
+    <h2>
+      ምዝገባዎ ተሳክቷል!
+    </h2>
 
-<p>
-የምዝገባ ቁጥርዎ
-</p>
+    <p>
+      የምዝገባ ቁጥርዎ
+    </p>
 
-<div
-id="registrationNumber"
-class="registration-number"
-></div>
+    <strong id="regNo"></strong>
 
-<p>
-ይህን ቁጥር ለወደፊት ማጣቀሻ ያስቀምጡ።
-</p>
+    <p class="muted">
+      ይህን ቁጥር ለወደፊት
+      ማጣቀሻ ያስቀምጡ።
+    </p>
 
-<button
-class="close"
-onclick="closeModal()"
->
-ዝጋ
-</button>
+    <button id="closeModal">
+      ዝጋ
+    </button>
 
-</div>
+  </div>
 
 </div>
 
 
-<!-- Hidden frame used for form submission -->
+<!-- Hidden submission frame -->
 
 <iframe
-name="emailFrame"
-id="emailFrame"
-style="display:none"
+  name="submitFrame"
+  id="submitFrame"
+  style="display:none"
 ></iframe>
 
 
@@ -1198,260 +1227,308 @@ style="display:none"
    TRAINING DATA
 ===================================================== */
 
+/*
+  Array format:
+
+  [name, date, hours, training cost, lunch cost]
+*/
+
 const trainings = [
 
-{
-    name:"ልጅነት",
-    date:"ጥቅምት 25 - 27",
-    hours:15,
-    trainingFee:510,
-    lunchFee:1030
-},
+  [
+    "ልጅነት",
+    "ጥቅምት 25 - 27",
+    "15",
+    510,
+    1030
+  ],
 
-{
-    name:"ክርስቲያናዊ ስነምግባር",
-    date:"ህዳር 22 - 23",
-    hours:9,
-    trainingFee:350,
-    lunchFee:685
-},
+  [
+    "ክርስቲያናዊ ስነምግባር",
+    "ህዳር 22 - 23",
+    "9",
+    350,
+    685
+  ],
 
-{
-    name:"መንፈሳዊ ውጊያ",
-    date:"ህዳር 24 - 25",
-    hours:10,
-    trainingFee:350,
-    lunchFee:685
-},
+  [
+    "መንፈሳዊ ውጊያ",
+    "ህዳር 24 - 25",
+    "10",
+    350,
+    685
+  ],
 
-{
-    name:"ከግብዝነት ክርስቶስን ወደመምሰል",
-    date:"ታህሳስ 20 - 21",
-    hours:9,
-    trainingFee:350,
-    lunchFee:685
-},
+  [
+    "ከግብዝነት ክርስቶስን ወደመምሰል",
+    "ታህሳስ 20 - 21",
+    "9",
+    350,
+    685
+  ],
 
-{
-    name:"የመቅደሱ ህግ",
-    date:"ታህሳስ 22 - 23",
-    hours:9,
-    trainingFee:350,
-    lunchFee:685
-},
+  [
+    "የመቅደሱ ህግ",
+    "ታህሳስ 22 - 23",
+    "9",
+    350,
+    685
+  ],
 
-{
-    name:"የእግዚአብሄር ሙሉ ምክር",
-    date:"ጥር 25 - 26",
-    hours:9,
-    trainingFee:350,
-    lunchFee:685
-},
+  [
+    "የእግዚአብሄር ሙሉ ምክር",
+    "ጥር 25 - 26",
+    "9",
+    350,
+    685
+  ],
 
-{
-    name:"በዘመኑ መጨረሻ ድል የምትገሰግሰው ቤተክርስቲያን",
-    date:"ጥር 27 - 28",
-    hours:10,
-    trainingFee:350,
-    lunchFee:685
-}
+  [
+    "በዘመኑ መጨረሻ ድል የምትገሰግሰው ቤተክርስቲያን",
+    "ጥር 27 - 28",
+    "10",
+    350,
+    685
+  ]
 
 ];
 
 
 /* =====================================================
-   DISPLAY TRAININGS
+   ELEMENTS
 ===================================================== */
 
 const trainingList =
-document.getElementById("trainingList");
+  document.getElementById("trainingList");
 
+const summary =
+  document.getElementById("summary");
+
+const trainingFeeEl =
+  document.getElementById("trainingFee");
+
+const lunchFeeEl =
+  document.getElementById("lunchFee");
+
+const totalFeeEl =
+  document.getElementById("totalFee");
+
+const lunchOption =
+  document.getElementById("lunchOption");
+
+const form =
+  document.getElementById("registrationForm");
+
+
+/* =====================================================
+   CREATE TRAINING CARDS
+===================================================== */
 
 trainings.forEach((training,index)=>{
 
-    const item=document.createElement("label");
+  const item =
+    document.createElement("label");
 
-    item.className="training";
+  item.className="training";
 
-    item.innerHTML=`
 
-        <input
-            type="checkbox"
-            name="የተመረጠ_ሥልጠና"
-            value="${training.name}"
-            data-index="${index}"
-        >
+  item.innerHTML=`
 
-        <div>
+    <input
+      type="checkbox"
+      name="training"
+      value="${index}"
+    >
 
-            <div class="training-number">
-                ${index+1}
-            </div>
+    <div class="training-main">
 
-            <h3>
-                ${training.name}
-            </h3>
+      <div class="training-title">
+        ${training[0]}
+      </div>
 
-            <div class="training-info">
-                ${training.date}
-                ·
-                ${training.hours} ሰዓት
-            </div>
+      <div class="training-meta">
+        ${training[1]}
+      </div>
 
-            <div class="training-fee">
-                የሥልጠና ወጪ:
-                ${training.trainingFee.toLocaleString()} ብር
-            </div>
+    </div>
 
-        </div>
-    `;
+    <span class="hours">
+      ${training[2]} ሰዓት
+    </span>
 
-    trainingList.appendChild(item);
+  `;
 
-    const checkbox=item.querySelector("input");
 
-    checkbox.addEventListener("change",()=>{
+  trainingList.appendChild(item);
 
-        item.classList.toggle(
-            "selected",
-            checkbox.checked
-        );
 
-        calculatePayment();
+  const checkbox =
+    item.querySelector("input");
 
-    });
+
+  checkbox.addEventListener(
+    "change",
+    function(){
+
+      item.classList.toggle(
+        "selected",
+        checkbox.checked
+      );
+
+      updatePayment();
+
+    }
+  );
+
+
+  /* SIDE SUMMARY */
+
+  const summaryItem =
+    document.createElement("div");
+
+  summaryItem.className =
+    "summary-item";
+
+  summaryItem.innerHTML=`
+
+    <b>
+      ${training[0]}
+    </b>
+
+    <span>
+      ${training[1]} · ${training[2]} ሰዓት
+    </span>
+
+  `;
+
+  summary.appendChild(summaryItem);
 
 });
 
 
 /* =====================================================
-   PAYMENT CALCULATION
+   CALCULATE PAYMENT
 ===================================================== */
 
-const lunchOption =
-document.getElementById("lunchOption");
+function getSelected(){
 
-const trainingFeeDisplay =
-document.getElementById("trainingFee");
-
-const lunchFeeDisplay =
-document.getElementById("lunchFee");
-
-const totalFeeDisplay =
-document.getElementById("totalFee");
-
-const hiddenTrainingFee =
-document.getElementById("hiddenTrainingFee");
-
-const hiddenLunchFee =
-document.getElementById("hiddenLunchFee");
-
-const hiddenTotalFee =
-document.getElementById("hiddenTotalFee");
-
-const hiddenLunchStatus =
-document.getElementById("hiddenLunchStatus");
-
-
-function calculatePayment(){
-
-    const selected =
-    [...document.querySelectorAll(
-        'input[name="የተመረጠ_ሥልጠና"]:checked'
-    )];
-
-
-    let trainingTotal=0;
-
-    let lunchTotal=0;
-
-
-    selected.forEach(checkbox=>{
-
-        const index =
-        Number(checkbox.dataset.index);
-
-        trainingTotal +=
-        trainings[index].trainingFee;
-
-        lunchTotal +=
-        trainings[index].lunchFee;
-
-    });
-
-
-    /*
-       Lunch is OPTIONAL.
-       If checkbox is not selected,
-       lunch is NOT included.
-    */
-
-    const selectedLunch =
-    lunchOption.checked
-    ? lunchTotal
-    : 0;
-
-
-    const grandTotal =
-    trainingTotal + selectedLunch;
-
-
-    trainingFeeDisplay.textContent =
-    trainingTotal.toLocaleString(
-        "en-US",
-        {
-            minimumFractionDigits:2
-        }
-    ) + " ብር";
-
-
-    lunchFeeDisplay.textContent =
-    lunchTotal.toLocaleString(
-        "en-US",
-        {
-            minimumFractionDigits:2
-        }
-    ) + " ብር";
-
-
-    totalFeeDisplay.textContent =
-    grandTotal.toLocaleString(
-        "en-US",
-        {
-            minimumFractionDigits:2
-        }
-    ) + " ብር";
-
-
-    /* Values sent by email */
-
-    hiddenTrainingFee.value =
-    trainingTotal.toFixed(2) + " ብር";
-
-
-    hiddenLunchFee.value =
-    selectedLunch.toFixed(2) + " ብር";
-
-
-    hiddenTotalFee.value =
-    grandTotal.toFixed(2) + " ብር";
-
-
-    hiddenLunchStatus.value =
-    lunchOption.checked
-    ? "አዎ - የምሳ ክፍያ ተመርጧል"
-    : "አይ - የምሳ ክፍያ አልተመረጠም";
+  return [
+    ...document.querySelectorAll(
+      'input[name="training"]:checked'
+    )
+  ].map(
+    checkbox =>
+      Number(checkbox.value)
+  );
 
 }
 
 
+function calculateAmounts(){
+
+  const selected =
+    getSelected();
+
+
+  /*
+    PAYMENT 1
+    Training cost
+  */
+
+  const trainingFee =
+    selected.reduce(
+      (total,index)=>
+        total +
+        trainings[index][3],
+      0
+    );
+
+
+  /*
+    PAYMENT 2
+    Lunch cost
+
+    This is calculated but NOT
+    added unless lunch is selected.
+  */
+
+  const lunchFee =
+    selected.reduce(
+      (total,index)=>
+        total +
+        trainings[index][4],
+      0
+    );
+
+
+  const selectedLunch =
+    lunchOption.checked
+      ? lunchFee
+      : 0;
+
+
+  const total =
+    trainingFee +
+    selectedLunch;
+
+
+  return {
+    trainingFee,
+    lunchFee,
+    total,
+    lunchSelected:
+      lunchOption.checked
+  };
+
+}
+
+
+function updatePayment(){
+
+  const amounts =
+    calculateAmounts();
+
+
+  trainingFeeEl.textContent =
+    amounts.trainingFee.toLocaleString(
+      "en-US",
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    ) + " ብር";
+
+
+  lunchFeeEl.textContent =
+    amounts.lunchFee.toLocaleString(
+      "en-US",
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    ) + " ብር";
+
+
+  totalFeeEl.textContent =
+    amounts.total.toLocaleString(
+      "en-US",
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    ) + " ብር";
+
+}
+
+
+/* =====================================================
+   LUNCH CHANGE
+===================================================== */
+
 lunchOption.addEventListener(
-    "change",
-    calculatePayment
+  "change",
+  updatePayment
 );
-
-
-calculatePayment();
 
 
 /* =====================================================
@@ -1459,139 +1536,227 @@ calculatePayment();
 ===================================================== */
 
 document
-.getElementById("receipt")
-.addEventListener(
+  .getElementById("receipt")
+  .addEventListener(
     "change",
     function(){
 
-        const fileName =
-        document.getElementById("fileName");
+      const file =
+        this.files[0];
 
-        if(this.files.length){
-
-            fileName.textContent =
-            "የተመረጠው ፋይል፡ "
-            + this.files[0].name;
-
-        }else{
-
-            fileName.textContent =
-            "PDF ወይም ምስል ይጫኑ";
-
-        }
+      document.getElementById(
+        "fileName"
+      ).textContent =
+        file
+          ? "የተመረጠው ፋይል፡ " + file.name
+          : "PDF ወይም ምስል ይጫኑ";
 
     }
-);
+  );
 
 
 /* =====================================================
    FORM SUBMISSION
 ===================================================== */
 
-const form =
-document.getElementById(
-    "registrationForm"
-);
-
-
 form.addEventListener(
-    "submit",
-    function(event){
+  "submit",
+  function(event){
 
-        const selected =
-        document.querySelectorAll(
-            'input[name="የተመረጠ_ሥልጠና"]:checked'
-        );
+    const selected =
+      getSelected();
 
 
-        /* Must select at least one training */
+    /* At least one training */
 
-        if(selected.length===0){
+    if(selected.length === 0){
 
-            event.preventDefault();
+      event.preventDefault();
 
-            alert(
-                "እባክዎ ቢያንስ አንድ ሥልጠና ይምረጡ።"
-            );
+      alert(
+        "እባክዎ ቢያንስ አንድ ሥልጠና ይምረጡ።"
+      );
 
-            return;
+      return;
 
-        }
+    }
 
 
-        /*
-           Generate registration number.
-        */
+    /*
+      Calculate final amount.
+    */
 
-        const registrationNumber =
-        "EAR-"
-        + new Date().getFullYear()
-        + "-"
-        + Math.random()
-            .toString(36)
-            .substring(2,8)
-            .toUpperCase();
+    const amounts =
+      calculateAmounts();
+
+
+    /*
+      Registration number
+    */
+
+    const registrationNumber =
+      "TRN-" +
+      new Date().getFullYear() +
+      "-" +
+      Math.random()
+        .toString(36)
+        .substring(2,8)
+        .toUpperCase();
+
+
+    /*
+      Add registration number
+      to email submission.
+    */
+
+    const regInput =
+      document.createElement("input");
+
+    regInput.type="hidden";
+
+    regInput.name="registrationNumber";
+
+    regInput.value=
+      registrationNumber;
+
+    form.appendChild(regInput);
+
+
+    /*
+      Add calculated payment
+      information to email.
+    */
+
+    const trainingInput =
+      document.createElement("input");
+
+    trainingInput.type="hidden";
+
+    trainingInput.name="trainingPayment";
+
+    trainingInput.value =
+      amounts.trainingFee.toFixed(2) +
+      " ብር";
+
+    form.appendChild(trainingInput);
+
+
+    const lunchInput =
+      document.createElement("input");
+
+    lunchInput.type="hidden";
+
+    lunchInput.name="lunchPayment";
+
+    lunchInput.value =
+      amounts.lunchSelected
+        ? amounts.lunchFee.toFixed(2) + " ብር"
+        : "አልተመረጠም";
+
+    form.appendChild(lunchInput);
+
+
+    const totalInput =
+      document.createElement("input");
+
+    totalInput.type="hidden";
+
+    totalInput.name="totalPayment";
+
+    totalInput.value =
+      amounts.total.toFixed(2) +
+      " ብር";
+
+    form.appendChild(totalInput);
+
+
+    /*
+      Add selected training names.
+    */
+
+    const trainingNames =
+      selected
+        .map(index => trainings[index][0])
+        .join("፣ ");
+
+
+    const trainingNamesInput =
+      document.createElement("input");
+
+    trainingNamesInput.type="hidden";
+
+    trainingNamesInput.name=
+      "selectedTrainings";
+
+    trainingNamesInput.value=
+      trainingNames;
+
+    form.appendChild(trainingNamesInput);
+
+
+    /*
+      IMPORTANT:
+      We do NOT preventDefault here.
+
+      The normal form submission goes
+      to FormSubmit and therefore can
+      send the registration email.
+    */
+
+
+    /*
+      Show success message after
+      allowing submission to happen.
+    */
+
+    setTimeout(
+      function(){
+
+        document.getElementById(
+          "regNo"
+        ).textContent =
+          registrationNumber;
 
 
         document.getElementById(
-            "registrationNumber"
-        ).textContent =
-        registrationNumber;
-
-
-        /*
-           Send registration number
-           together with the form.
-        */
-
-        let hidden =
-        document.createElement("input");
-
-        hidden.type="hidden";
-
-        hidden.name="የምዝገባ_ቁጥር";
-
-        hidden.value=
-        registrationNumber;
-
-        form.appendChild(hidden);
-
-
-        /*
-           Allow the normal form submission
-           to FormSubmit.
-        */
-
-        setTimeout(
-            function(){
-
-                document
-                .getElementById(
-                    "successModal"
-                )
-                .classList.add("show");
-
-            },
-            1200
+          "success"
+        ).classList.remove(
+          "hidden"
         );
 
-    }
+      },
+      1200
+    );
+
+  }
 );
 
 
 /* =====================================================
-   CLOSE MODAL
+   CLOSE SUCCESS WINDOW
 ===================================================== */
 
-function closeModal(){
+document
+  .getElementById("closeModal")
+  .addEventListener(
+    "click",
+    function(){
 
-    document
-    .getElementById(
-        "successModal"
-    )
-    .classList.remove("show");
+      document.getElementById(
+        "success"
+      ).classList.add(
+        "hidden"
+      );
 
-}
+    }
+  );
+
+
+/* =====================================================
+   INITIAL PAYMENT
+===================================================== */
+
+updatePayment();
 
 </script>
 
