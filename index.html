@@ -1,1366 +1,2708 @@
 <!DOCTYPE html>
 <html lang="am">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>የሥልጠና ምዝገባ | ኤክሌሺያ አራይዝ</title>
+<title>የሥልጠና ምዝገባ | ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --navy: #102d52;
+    --navy-dark: #071b33;
+    --navy-light: #1b4674;
+
+    --gold: #c89b3c;
+    --gold-light: #e6ca83;
+
+    --green: #198754;
+    --red: #b43b3b;
+
+    --cream: #faf8f2;
+    --white: #ffffff;
+
+    --text: #202b3a;
+    --muted: #707b8c;
+
+    --border: #e1e5eb;
+    --soft: #f5f7fa;
+
+    --shadow:
+        0 12px 35px rgba(16,45,82,.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        linear-gradient(
+            rgba(250,248,242,.96),
+            rgba(250,248,242,.96)
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 20px,
+            rgba(16,45,82,.025) 20px,
+            rgba(16,45,82,.025) 21px
+        );
+
+    color: var(--text);
+
+    font-family:
+        "Noto Sans Ethiopic",
+        "Abyssinica SIL",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   ETHIOPIAN INSPIRED STRIP
+========================================================= */
+
+.top-strip {
+    height: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #198754 0%,
+            #198754 33.33%,
+            #f1c84b 33.33%,
+            #f1c84b 66.66%,
+            #c53d3d 66.66%,
+            #c53d3d 100%
+        );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    background: var(--navy);
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: -100px;
+    top: -140px;
+
+    border:
+        1px solid rgba(230,202,131,.2);
+
+    transform: rotate(45deg);
+}
+
+.header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: 70px;
+    top: -90px;
+
+    border:
+        1px solid rgba(230,202,131,.12);
+
+    transform: rotate(45deg);
+}
+
+.header-inner {
+    max-width: 1180px;
+
+    min-height: 96px;
+
+    margin: auto;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.logo {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    border:
+        3px solid var(--gold);
+
+    background:
+        radial-gradient(
+            circle,
+            white 0 35%,
+            var(--gold) 36% 41%,
+            var(--navy-dark) 42%
+        );
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--navy);
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 0 5px rgba(200,155,60,.12);
+}
+
+.brand-text strong {
+    display: block;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.brand-text span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #d6e0ee;
+
+    font-size: 11px;
+}
+
+.header-contact {
+    text-align: right;
+
+    font-size: 11px;
+
+    color: #d8e2ef;
+}
+
+.header-contact strong {
+    display: block;
+
+    color: var(--gold-light);
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    max-width: 1180px;
+
+    margin: 30px auto 22px;
+
+    padding: 44px 46px;
+
+    border-radius: 4px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(16,45,82,.99),
+            rgba(28,72,119,.98)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(16,45,82,.16);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -110px;
+    top: -150px;
+
+    border:
+        1px solid rgba(230,202,131,.25);
+
+    transform: rotate(45deg);
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: 60px;
+    bottom: -130px;
+
+    border:
+        1px solid rgba(230,202,131,.15);
+
+    transform: rotate(45deg);
+}
+
+.hero-content {
+    max-width: 760px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero-label {
+    display: inline-block;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    border-bottom:
+        1px solid var(--gold);
+
+    padding-bottom: 6px;
+
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: 36px;
+
+    line-height: 1.45;
+
+    font-weight: 900;
+}
+
+.hero p {
+    margin: 13px 0 0;
+
+    color: #dce6f5;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.gold-divider {
+    max-width: 1180px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+    content: "";
+
+    height: 1px;
+
+    background: var(--gold);
+
+    flex: 1;
+}
+
+.gold-divider span {
+    width: 9px;
+    height: 9px;
+
+    background: var(--gold);
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.main {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding-bottom: 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        340px;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.form-card,
+.info-card {
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+.form-card {
+    padding: 32px;
+}
+
+.info-card {
+    height: max-content;
+
+    padding: 25px;
+
+    position: sticky;
+
+    top: 20px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+    margin-bottom: 36px;
+}
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 13px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.section-number {
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+.section-title h2 {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.section-description {
+    margin-left: auto;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #465267;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.required {
+    color: var(--red);
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid #d8dde5;
+
+    border-radius: 2px;
+
+    outline: none;
+
+    background: white;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition: .2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(200,155,60,.1);
+}
+
+input::placeholder {
+    color: #a0a7b2;
+}
+
+
+/* =========================================================
+   TRAINING CARDS
+========================================================= */
+
+.training-list {
+    display: grid;
+
+    gap: 11px;
+}
+
+.training {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 16px;
+
+    border:
+        1px solid var(--border);
+
+    cursor: pointer;
+
+    background: white;
+
+    transition: .2s;
+}
+
+.training:hover {
+    border-color: var(--gold);
+
+    background: #fffdf8;
+}
+
+.training.selected {
+    border-color: var(--gold);
+
+    background: #fffaf0;
+
+    box-shadow:
+        inset 4px 0 0 var(--gold);
+}
+
+.training input {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    accent-color: var(--navy);
+}
+
+.training-info {
+    flex: 1;
+}
+
+.training-name {
+    color: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    line-height: 1.7;
+}
+
+.training-date {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 3px;
+}
+
+.training-hours {
+    padding: 6px 9px;
+
+    color: #806522;
+
+    background: #fffaf0;
+
+    border:
+        1px solid #e1d3ad;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SELECTED COST SUMMARY
+========================================================= */
+
+.selected-summary {
+    display: none;
+
+    margin-top: 18px;
+
+    border:
+        1px solid var(--gold);
+
+    background: #fffdf7;
+}
+
+.selected-summary.active {
+    display: block;
+}
+
+.selected-summary-header {
+    padding: 15px 17px;
+
+    color: white;
+
+    background: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.selected-items {
+    padding: 0 17px;
+}
+
+.selected-item {
+    padding: 15px 0;
+
+    border-bottom:
+        1px solid #ece8dc;
+}
+
+.selected-item:last-child {
+    border-bottom: 0;
+}
+
+.selected-item-name {
+    color: var(--navy);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    line-height: 1.7;
+}
+
+.selected-item-date {
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin: 3px 0 9px;
+}
+
+.cost-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #596477;
+
+    font-size: 10px;
+
+    margin-top: 5px;
+}
+
+.cost-row strong {
+    color: var(--text);
+
+    font-size: 11px;
+}
+
+.selected-total {
+    padding: 17px;
+
+    background: #f4f0e4;
+
+    border-top:
+        1px solid #ded4b9;
+}
+
+.total-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.total-label {
+    color: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.total-amount {
+    color: var(--navy);
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+.total-note {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   PAYMENT NOTE
+========================================================= */
+
+.payment-note {
+    margin-bottom: 18px;
+
+    padding: 14px;
+
+    border-left:
+        3px solid var(--gold);
+
+    background: #f8f5eb;
+
+    color: #5c5749;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   UPLOAD
+========================================================= */
+
+.upload {
+    margin-top: 18px;
+
+    padding: 18px;
+
+    border:
+        1px dashed #c8ced8;
+
+    background: #fafbfc;
+}
+
+.upload-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #465267;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.upload input {
+    border: 0;
+
+    padding: 0;
+
+    margin: 5px 0;
+}
+
+.upload-help {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   AGREEMENT
+========================================================= */
+
+.agreement {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+    color: #566173;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+.agreement input {
+    width: 17px;
+    height: 17px;
+
+    margin-top: 2px;
+
+    accent-color: var(--navy);
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.submit {
+    width: 100%;
+
+    padding: 16px;
+
+    border: 0;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.submit:hover {
+    background: var(--navy-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.info-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+    padding-bottom: 13px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.info-mark {
+    width: 8px;
+    height: 8px;
+
+    background: var(--gold);
+
+    transform: rotate(45deg);
+}
+
+.info-heading h3 {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 16px;
+}
+
+.info-description {
+    margin-bottom: 18px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TRAINING SUMMARY SIDEBAR
+========================================================= */
+
+.sidebar-training {
+    padding: 11px 0;
+
+    border-bottom:
+        1px solid #edf0f3;
+}
+
+.sidebar-training strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+.sidebar-training span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   BANK
+========================================================= */
+
+.bank-box {
+    margin-top: 22px;
+
+    padding: 18px;
+
+    color: white;
+
+    background: var(--navy);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.bank-box::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 15px;
+    top: 8px;
+
+    color: var(--gold);
+
+    opacity: .5;
+
+    font-size: 26px;
+}
+
+.bank-title {
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.bank-name {
+    margin-top: 8px;
+
+    font-size: 11px;
+}
+
+.account {
+    margin-top: 4px;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.bank-owner {
+    margin-top: 6px;
+
+    color: #cfd9e8;
+
+    font-size: 9px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border:
+        1px solid var(--border);
+}
+
+.contact-title {
+    margin-bottom: 7px;
+
+    color: var(--navy);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.contact-line {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding: 27px 15px;
+
+    border-top:
+        3px solid var(--gold);
+
+    background: var(--navy-dark);
+
+    color: #bdc9da;
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+.footer strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--gold-light);
+}
+
+
+/* =========================================================
+   SUCCESS MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(4,15,29,.76);
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-box {
+    width: 100%;
+
+    max-width: 470px;
+
+    padding: 35px;
+
+    border-top:
+        5px solid var(--gold);
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+}
+
+.success-symbol {
+    width: 62px;
+    height: 62px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #e8f5ee;
+
+    color: var(--green);
+
+    font-size: 30px;
+
+    font-weight: 900;
+}
+
+.modal-box h2 {
+    margin: 17px 0 5px;
+
+    color: var(--navy);
+
+    font-size: 20px;
+}
+
+.modal-box p {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+.registration-number {
+    display: block;
+
+    margin: 15px 0;
+
+    color: var(--navy);
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.modal-total {
+    margin: 15px 0;
+
+    padding: 13px;
+
+    background: #f7f4eb;
+
+    border:
+        1px solid #e5dcc5;
+}
+
+.modal-total span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.modal-total strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--navy);
+
+    font-size: 20px;
+}
+
+.close-button {
+    margin-top: 8px;
+
+    padding: 11px 30px;
+
+    border: 0;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .header-inner {
+        padding: 14px 18px;
     }
 
-    body {
-      margin: 0;
-      font-family: "Noto Sans Ethiopic", Arial, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
+    .header-contact {
+        display: none;
     }
 
-    button,
-    input,
-    select {
-      font: inherit;
+    .brand-text strong {
+        font-size: 14px;
     }
-
-    /* =========================
-       TOP BAR
-    ========================== */
-
-    .topbar {
-      height: 72px;
-      background: #ffffff;
-      border-bottom: 1px solid #e7eaf0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #173b73;
-      color: #ffffff;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      font-size: 15px;
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 15px;
-    }
-
-    .brand span {
-      display: block;
-      color: #6d7482;
-      font-size: 11px;
-      margin-top: 2px;
-    }
-
-    .contact {
-      font-size: 13px;
-      color: #596275;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
 
     .hero {
-      max-width: 1180px;
-      margin: 36px auto 22px;
-      padding: 34px;
-      border-radius: 24px;
-      background: linear-gradient(
-        135deg,
-        #173b73,
-        #2860a5
-      );
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      gap: 25px;
-      box-shadow: 0 16px 40px rgba(23, 59, 115, 0.15);
-    }
+        margin: 20px 14px;
 
-    .hero-copy {
-      flex: 1;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      opacity: 0.75;
+        padding: 30px 25px;
     }
 
     .hero h1 {
-      font-size: 36px;
-      margin: 8px 0;
-      line-height: 1.3;
+        font-size: 27px;
     }
 
-    .hero p {
-      margin: 0;
-      max-width: 650px;
-      color: #e5efff;
-      line-height: 1.8;
-      font-size: 14px;
+    .gold-divider {
+        margin-left: 14px;
+        margin-right: 14px;
     }
 
-    .hero-card {
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 255, 255, 0.20);
-      border-radius: 18px;
-      padding: 18px 22px;
-      min-width: 230px;
-      align-self: center;
-    }
-
-    .mini-label {
-      font-size: 11px;
-      opacity: 0.7;
-      margin-top: 5px;
-    }
-
-    .hero-card b {
-      display: block;
-      margin: 3px 0 13px;
-    }
-
-    /* =========================
-       MAIN LAYOUT
-    ========================== */
-
-    .layout {
-      max-width: 1180px;
-      margin: auto;
-      padding: 0 0 60px;
-      display: grid;
-      grid-template-columns: 1fr 330px;
-      gap: 22px;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #e5e8ef;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
-    }
-
-    /* =========================
-       SECTION HEADERS
-    ========================== */
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 20px;
-    }
-
-    .section-head > div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-head > div > span {
-      font-weight: 800;
-      color: #2b63a8;
-      font-size: 12px;
-    }
-
-    .section-head h2 {
-      font-size: 19px;
-      margin: 0;
-    }
-
-    .section-head small {
-      font-size: 11px;
-      color: #7b8494;
-    }
-
-    .space {
-      margin-top: 36px;
-    }
-
-    /* =========================
-       FORM
-    ========================== */
-
-    .grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .two {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #4f5868;
-    }
-
-    input,
-    select {
-      display: block;
-      width: 100%;
-      margin-top: 7px;
-      border: 1px solid #dfe3ea;
-      border-radius: 11px;
-      padding: 12px 13px;
-      outline: none;
-      background: #ffffff;
-      color: #1d2635;
-    }
-
-    input::placeholder {
-      color: #a0a7b3;
-    }
-
-    input:focus,
-    select:focus {
-      border-color: #3471bb;
-      box-shadow: 0 0 0 3px rgba(52, 113, 187, 0.08);
-    }
-
-    /* =========================
-       TRAINING CARDS
-    ========================== */
-
-    .training-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .training {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      border: 1px solid #e3e7ee;
-      border-radius: 13px;
-      padding: 14px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .training:hover {
-      border-color: #8db0d7;
-      background: #f8fbff;
-      transform: translateY(-1px);
-    }
-
-    .training.selected {
-      border-color: #3471bb;
-      background: #f3f8ff;
-    }
-
-    .training input {
-      width: auto;
-      margin: 0;
-      cursor: pointer;
-    }
-
-    .training-main {
-      flex: 1;
-    }
-
-    .training-title {
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #202a3a;
-    }
-
-    .training-meta {
-      font-size: 11px;
-      color: #7b8494;
-      margin-top: 4px;
-    }
-
-    .hours {
-      font-size: 11px;
-      font-weight: 700;
-      background: #edf3fa;
-      padding: 6px 8px;
-      border-radius: 8px;
-      color: #285b93;
-      white-space: nowrap;
-    }
-
-    /* =========================
-       UPLOAD
-    ========================== */
-
-    .upload {
-      display: block;
-      margin-top: 16px;
-      border: 1.5px dashed #cbd4e1;
-      padding: 16px;
-      border-radius: 12px;
-      background: #fafbfc;
-    }
-
-    .upload input {
-      border: 0;
-      padding: 0;
-      margin: 10px 0 4px;
-      background: transparent;
-    }
-
-    .upload span {
-      font-size: 11px;
-      color: #7b8494;
-    }
-
-    /* =========================
-       CHECKBOX
-    ========================== */
-
-    .check {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 22px 0;
-      line-height: 1.6;
-    }
-
-    .check input {
-      width: auto;
-      margin: 0;
-    }
-
-    /* =========================
-       SUBMIT BUTTON
-    ========================== */
-
-    .submit {
-      width: 100%;
-      border: 0;
-      border-radius: 12px;
-      background: #173b73;
-      color: white;
-      padding: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .submit:hover {
-      background: #102e5a;
-      transform: translateY(-1px);
-    }
-
-    .submit span {
-      float: right;
-      font-size: 20px;
-      line-height: 15px;
-    }
-
-    /* =========================
-       RIGHT SIDEBAR
-    ========================== */
-
-    .side {
-      height: max-content;
-      position: sticky;
-      top: 92px;
-    }
-
-    .side-title {
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .side > p {
-      font-size: 12px;
-      color: #70798a;
-      line-height: 1.7;
-    }
-
-    .summary-item {
-      padding: 12px 0;
-      border-bottom: 1px solid #edf0f4;
-    }
-
-    .summary-item b {
-      font-size: 12px;
-      display: block;
-      line-height: 1.6;
-    }
-
-    .summary-item span {
-      font-size: 10px;
-      color: #7a8391;
-    }
-
-    .bank {
-      display: grid;
-      gap: 5px;
-      font-size: 12px;
-    }
-
-    .bank strong {
-      font-size: 18px;
-      letter-spacing: 1px;
-      color: #173b73;
-    }
-
-    .bank span,
-    .bank small {
-      color: #737c8c;
-    }
-
-    hr {
-      border: 0;
-      border-top: 1px solid #edf0f4;
-      margin: 20px 0;
-    }
-
-    /* =========================
-       SUCCESS MODAL
-    ========================== */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(13, 23, 39, 0.60);
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      z-index: 100;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .modal-box {
-      background: #ffffff;
-      border-radius: 22px;
-      padding: 34px;
-      text-align: center;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
-    }
-
-    .success-icon {
-      margin: auto;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #e8f7ef;
-      color: #198754;
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      font-weight: 800;
-    }
-
-    .modal-box h2 {
-      margin: 16px 0 5px;
-    }
-
-    .modal-box p {
-      font-size: 12px;
-      color: #687385;
-    }
-
-    .modal-box #regNo {
-      display: block;
-      font-size: 24px;
-      color: #173b73;
-      letter-spacing: 1px;
-      margin: 10px 0;
-    }
-
-    .modal-box button {
-      border: 0;
-      background: #173b73;
-      color: #ffffff;
-      padding: 11px 28px;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-    @media (max-width: 850px) {
-
-      .topbar {
-        padding: 0 14px;
-      }
-
-      .contact {
-        display: none;
-      }
-
-      .hero {
-        margin: 20px 14px;
-        padding: 25px;
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .hero-card {
-        margin-top: 18px;
-      }
-
-      .layout {
+    .main {
         grid-template-columns: 1fr;
-        padding: 0 14px 40px;
-      }
 
-      .two {
-        grid-template-columns: 1fr;
-      }
+        padding:
+            0 14px 45px;
+    }
 
-      .card {
-        padding: 20px;
-      }
-
-      .side {
+    .info-card {
         position: static;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-head small {
-        display: block;
-        margin-top: 5px;
-      }
-
-      .training {
-        align-items: flex-start;
-      }
-
-      .hours {
-        display: none;
-      }
     }
-  </style>
+
+    .form-card {
+        padding: 22px 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-description {
+        display: none;
+    }
+
+    .training-hours {
+        display: none;
+    }
+
+    .total-amount {
+        font-size: 20px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
 
-  <header class="topbar">
+<!-- =====================================================
+     ETHIOPIAN INSPIRED TOP STRIP
+===================================================== -->
 
-    <div class="brand">
+<div class="top-strip"></div>
 
-      <div class="logo">
-        EA
-      </div>
 
-      <div>
-        <strong>ኤክሌሺያ አራይዝ</strong>
-        <span>ግሎባል ሚኒስትሪ</span>
-      </div>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <div class="logo">
+                ✝
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    ኤክሌሺያ አራይዝ
+                </strong>
+
+                <span>
+                    ግሎባል ሚኒስትሪ
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-contact">
+
+            <strong>
+                የሥልጠና ምዝገባ
+            </strong>
+
+            0911-416976 · 0911-898375
+
+        </div>
 
     </div>
 
-    <div class="contact">
-      0911-416976 · 0911-898375
-    </div>
-
-  </header>
+</header>
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
+<!-- =====================================================
+     HERO
+========================================================= -->
 
-  <main>
+<section class="hero">
 
-    <!-- HERO -->
+    <div class="hero-content">
 
-    <section class="hero">
-
-      <div class="hero-copy">
-
-        <span class="eyebrow">
-          2019 የደቀመዝሙር ትምህርት ቤት
-        </span>
+        <div class="hero-label">
+            የጢራኖስ የደቀመዝሙር ትምህርት ቤት
+        </div>
 
         <h1>
-          የሥልጠና ምዝገባ
+            የሥልጠና ምዝገባ
         </h1>
 
         <p>
-          ለመረጡት ሥልጠና በቀላሉ ይመዝገቡ።
-          የግል መረጃዎን ይሙሉ፣ ሥልጠናዎን ይምረጡ
-          እና ምዝገባዎን ያስገቡ።
+            ለመረጡት የሥልጠና መርሃ ግብር
+            በመመዝገብ የሚፈለገውን መረጃ
+            ይሙሉ። ከአንድ በላይ ሥልጠና
+            መምረጥ ይችላሉ፤ ጠቅላላ ክፍያውም
+            በራሱ ይሰላል።
         </p>
 
-      </div>
+    </div>
+
+</section>
 
 
-      <div class="hero-card">
+<div class="gold-divider">
+    <span></span>
+</div>
 
-        <div class="mini-label">
-          አድራሻ
+
+<!-- =====================================================
+     MAIN
+========================================================= -->
+
+<main class="main">
+
+
+<!-- =====================================================
+     REGISTRATION FORM
+========================================================= -->
+
+<form
+    id="registrationForm"
+    class="form-card"
+>
+
+
+<!-- =====================================================
+     SECTION 1
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            01
         </div>
 
-        <b>
-          ጃክሮስ ሜታ
-        </b>
+        <h2>
+            የተሳታፊ መረጃ
+        </h2>
 
-        <div class="mini-label">
-          የምዝገባ ሁኔታ
+        <div class="section-description">
+            አስፈላጊ መረጃ
         </div>
 
-        <b>
-          ክፍት
-        </b>
-
-      </div>
-
-    </section>
+    </div>
 
 
-    <!-- CONTENT -->
-
-    <section class="layout">
+    <div class="form-grid">
 
 
-      <!-- =========================
-           REGISTRATION FORM
-      ========================== -->
+        <div class="form-group">
 
-      <form
-        id="registrationForm"
-        class="card"
-      >
-
-        <!-- PARTICIPANT -->
-
-        <div class="section-head">
-
-          <div>
-            <span>01</span>
-
-            <h2>
-              የተሳታፊ መረጃ
-            </h2>
-          </div>
-
-          <small>
-            * አስፈላጊ መስኮች
-          </small>
-
-        </div>
-
-
-        <div class="grid two">
-
-
-          <label>
-            ሙሉ ስም *
+            <label>
+                ሙሉ ስም
+                <span class="required">*</span>
+            </label>
 
             <input
-              required
-              name="fullName"
-              placeholder="ሙሉ ስም"
+                type="text"
+                name="fullName"
+                placeholder="ሙሉ ስምዎን ያስገቡ"
+                required
             >
-          </label>
-
-
-          <label>
-            የአባት ስም *
-
-            <input
-              required
-              name="fatherName"
-              placeholder="የአባት ስም"
-            >
-          </label>
-
-
-          <label>
-            ስልክ ቁጥር *
-
-            <input
-              required
-              name="phone"
-              type="tel"
-              placeholder="09XXXXXXXX"
-            >
-          </label>
-
-
-          <label>
-            ኢሜይል
-
-            <input
-              name="email"
-              type="email"
-              placeholder="example@email.com"
-            >
-          </label>
-
-
-          <label>
-            የቤተክርስቲያን ስም *
-
-            <input
-              required
-              name="church"
-              placeholder="የቤተክርስቲያን ስም"
-            >
-          </label>
-
-
-          <label>
-            የአገልግሎት / ሚና
-
-            <input
-              name="role"
-              placeholder="ለምሳሌ፡ ደቀመዝሙር"
-            >
-          </label>
-
 
         </div>
 
 
-        <!-- TRAININGS -->
+        <div class="form-group">
 
-        <div class="section-head space">
+            <label>
+                የአባት ስም
+                <span class="required">*</span>
+            </label>
 
-          <div>
-            <span>02</span>
+            <input
+                type="text"
+                name="fatherName"
+                placeholder="የአባት ስም"
+                required
+            >
 
-            <h2>
-              ሥልጠና ይምረጡ
-            </h2>
-          </div>
+        </div>
 
-          <small>
-            አንድ ወይም ብዙ ሥልጠናዎችን መምረጥ ይችላሉ
-          </small>
 
+        <div class="form-group">
+
+            <label>
+                ስልክ ቁጥር
+                <span class="required">*</span>
+            </label>
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="09XXXXXXXX"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                የኢሜይል አድራሻ
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="example@email.com"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                የቤተክርስቲያን ስም
+                <span class="required">*</span>
+            </label>
+
+            <input
+                type="text"
+                name="church"
+                placeholder="የቤተክርስቲያን ስም"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                የአገልግሎት ድርሻ
+            </label>
+
+            <input
+                type="text"
+                name="role"
+                placeholder="ለምሳሌ፦ ደቀመዝሙር"
+            >
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 2 - TRAINING
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            02
+        </div>
+
+        <h2>
+            የሥልጠና ዓይነት ይምረጡ
+        </h2>
+
+        <div class="section-description">
+            ከአንድ በላይ መምረጥ ይችላሉ
+        </div>
+
+    </div>
+
+
+    <div
+        id="trainingList"
+        class="training-list"
+    ></div>
+
+
+    <!-- =================================================
+         AUTOMATIC COST CALCULATOR
+    ================================================= -->
+
+    <div
+        id="selectedSummary"
+        class="selected-summary"
+    >
+
+        <div class="selected-summary-header">
+            የመረጡት የሥልጠና ዝርዝር እና ክፍያ
         </div>
 
 
         <div
-          id="trainingList"
-          class="training-list"
-        >
-        </div>
+            id="selectedItems"
+            class="selected-items"
+        ></div>
 
 
-        <!-- PAYMENT -->
+        <div class="selected-total">
 
-        <div class="section-head space">
+            <div class="total-row">
 
-          <div>
-            <span>03</span>
+                <span class="total-label">
+                    ጠቅላላ ክፍያ
+                </span>
 
-            <h2>
-              የክፍያ መረጃ
-            </h2>
-          </div>
+                <span
+                    id="grandTotal"
+                    class="total-amount"
+                >
+                    0.00 ብር
+                </span>
 
-          <small>
-            የክፍያ ማስረጃ ማያያዝ ይችላሉ
-          </small>
+            </div>
 
-        </div>
-
-
-        <div class="grid two">
-
-
-          <label>
-
-            የክፍያ ዘዴ
-
-            <select name="paymentMethod">
-
-              <option value="">
-                ይምረጡ
-              </option>
-
-              <option>
-                ባንክ ማስተላለፍ
-              </option>
-
-              <option>
-                በጥሬ ገንዘብ
-              </option>
-
-              <option>
-                ሌላ
-              </option>
-
-            </select>
-
-          </label>
-
-
-          <label>
-
-            የክፍያ ማጣቀሻ ቁጥር
-
-            <input
-              name="paymentRef"
-              placeholder="የግብይት ቁጥር"
-            >
-
-          </label>
-
+            <div class="total-note">
+                የሥልጠና ክፍያ እና የምግብ ክፍያ ድምር
+            </div>
 
         </div>
-
-
-        <!-- RECEIPT -->
-
-        <label class="upload">
-
-          የክፍያ ማስረጃ
-
-          <input
-            id="receipt"
-            name="receipt"
-            type="file"
-            accept="image/*,.pdf"
-          >
-
-          <span id="fileName">
-            PDF ወይም ምስል ይጫኑ
-          </span>
-
-        </label>
-
-
-        <!-- AGREEMENT -->
-
-        <label class="check">
-
-          <input
-            required
-            type="checkbox"
-            name="agree"
-          >
-
-          <span>
-            ያስገባሁት መረጃ ትክክል መሆኑን አረጋግጣለሁ። *
-          </span>
-
-        </label>
-
-
-        <!-- SUBMIT -->
-
-        <button
-          class="submit"
-          type="submit"
-        >
-
-          ምዝገባዬን ላክ
-
-          <span>
-            →
-          </span>
-
-        </button>
-
-      </form>
-
-
-      <!-- =========================
-           SIDEBAR
-      ========================== -->
-
-      <aside class="card side">
-
-        <div class="side-title">
-          የሥልጠና መረጃ
-        </div>
-
-        <p>
-          በሰነዱ ላይ የተገለጹት 7 ሥልጠናዎች ከታች ተዘርዝረዋል።
-        </p>
-
-
-        <div id="summary"></div>
-
-
-        <hr>
-
-
-        <div class="bank">
-
-          <b>
-            የባንክ መረጃ
-          </b>
-
-          <span>
-            ብርሃን ባንክ
-          </span>
-
-          <strong>
-            2603500029255
-          </strong>
-
-          <small>
-            ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ
-          </small>
-
-        </div>
-
-      </aside>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       SUCCESS MODAL
-  ========================== -->
-
-  <div
-    id="success"
-    class="modal hidden"
-  >
-
-    <div class="modal-box">
-
-      <div class="success-icon">
-        ✓
-      </div>
-
-      <h2>
-        ምዝገባዎ ተሳክቷል!
-      </h2>
-
-      <p>
-        የምዝገባ ቁጥርዎ
-      </p>
-
-      <strong id="regNo"></strong>
-
-      <p>
-        ይህን ቁጥር ለወደፊት ማጣቀሻ ያስቀምጡ።
-      </p>
-
-      <button id="closeModal">
-        ዝጋ
-      </button>
 
     </div>
 
-  </div>
+</section>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+<!-- =====================================================
+     SECTION 3 - PAYMENT
+========================================================= -->
 
-  <script>
+<section class="section">
 
-    /*
-      TRAINING DATA
-    */
+    <div class="section-title">
 
-    const trainings = [
+        <div class="section-number">
+            03
+        </div>
 
-      [
-        "ልጅነት",
-        "ጥቅምት 25 - 27",
-        "15"
-      ],
+        <h2>
+            የክፍያ መረጃ
+        </h2>
 
-      [
-        "ክርስቲያናዊ ስነምግባር",
-        "ህዳር 22 - 23",
-        "9"
-      ],
-
-      [
-        "መንፈሳዊ ውጊያ",
-        "ህዳር 24 - 25",
-        "10"
-      ],
-
-      [
-        "ከግብዝነት ክርስቶስን ወደመምሰል",
-        "ታህሳስ 20 - 21",
-        "9"
-      ],
-
-      [
-        "የመቅደሱ ህግ",
-        "ታህሳስ 22 - 23",
-        "9"
-      ],
-
-      [
-        "የእግዚአብሄር ሙሉ ምክር",
-        "ጥር 25 - 26",
-        "9"
-      ],
-
-      [
-        "በዘመኑ መጨረሻ ድል የምትገሰግሰው ቤተክርስቲያን",
-        "ጥር 27 - 28",
-        "10"
-      ]
-
-    ];
+    </div>
 
 
-    /*
-      GENERATE TRAINING OPTIONS
-    */
+    <div class="payment-note">
 
-    const trainingList =
-      document.querySelector("#trainingList");
+        ከላይ የመረጡትን ሥልጠና እና
+        ጠቅላላ ክፍያ ያረጋግጡ።
+        ከዚያም ክፍያዎን በመፈጸም
+        የክፍያ ማጣቀሻ ቁጥር እና
+        ማስረጃ ያስገቡ።
 
-    const summary =
-      document.querySelector("#summary");
-
-
-    trainings.forEach((training, index) => {
-
-      const item =
-        document.createElement("label");
-
-      item.className = "training";
+    </div>
 
 
-      item.innerHTML = `
+    <div class="form-grid">
 
-        <input
-          type="checkbox"
-          name="training"
-          value="${index}"
-        >
 
-        <div class="training-main">
+        <div class="form-group">
 
-          <div class="training-title">
-            ${training[0]}
-          </div>
+            <label>
+                የክፍያ ዘዴ
+            </label>
 
-          <div class="training-meta">
-            ${training[1]}
-          </div>
+            <select name="paymentMethod">
+
+                <option value="">
+                    ይምረጡ
+                </option>
+
+                <option value="ብርሃን ባንክ">
+                    ብርሃን ባንክ
+                </option>
+
+                <option value="የጥሬ ገንዘብ ክፍያ">
+                    የጥሬ ገንዘብ ክፍያ
+                </option>
+
+                <option value="ሌላ">
+                    ሌላ
+                </option>
+
+            </select>
 
         </div>
 
-        <span class="hours">
-          ${training[2]} ሰዓት
-        </span>
 
-      `;
+        <div class="form-group">
+
+            <label>
+                የክፍያ ማጣቀሻ ቁጥር
+            </label>
+
+            <input
+                type="text"
+                name="paymentRef"
+                placeholder="የግብይት ማጣቀሻ ቁጥር"
+            >
+
+        </div>
 
 
-      trainingList.appendChild(item);
+    </div>
 
 
-      const checkbox =
-        item.querySelector("input");
+    <div class="upload">
+
+        <label class="upload-label">
+            የክፍያ ማስረጃ ያስገቡ
+        </label>
+
+        <input
+            id="receipt"
+            type="file"
+            name="receipt"
+            accept="image/*,.pdf"
+        >
+
+        <div
+            id="fileName"
+            class="upload-help"
+        >
+            የPDF ወይም የምስል ፋይል ይምረጡ
+        </div>
+
+    </div>
+
+</section>
 
 
-      checkbox.addEventListener(
+<!-- =====================================================
+     AGREEMENT
+========================================================= -->
+
+<label class="agreement">
+
+    <input
+        type="checkbox"
+        name="agreement"
+        required
+    >
+
+    <span>
+        ያስገባሁት መረጃ ትክክል መሆኑን
+        እና ለምዝገባው ዓላማ እንዲጠቀምበት
+        መስማማቴን አረጋግጣለሁ።
+    </span>
+
+</label>
+
+
+<!-- =====================================================
+     SUBMIT
+========================================================= -->
+
+<button
+    type="submit"
+    class="submit"
+>
+    ምዝገባዬን አስገባ
+</button>
+
+
+</form>
+
+
+<!-- =====================================================
+     SIDEBAR
+========================================================= -->
+
+<aside class="info-card">
+
+
+    <div class="info-heading">
+
+        <div class="info-mark"></div>
+
+        <h3>
+            የሥልጠና መረጃ
+        </h3>
+
+    </div>
+
+
+    <div class="info-description">
+
+        የጢራኖስ የደቀመዝሙር ትምህርት ቤት
+        በ2019 ዓ.ም. ከጥቅምት 25
+        እስከ ጥር 28 የሚካሄዱ
+        የሥልጠና መርሃ ግብሮች።
+
+    </div>
+
+
+    <div id="sidebarTraining"></div>
+
+
+    <!-- BANK -->
+
+    <div class="bank-box">
+
+        <div class="bank-title">
+            የባንክ ክፍያ
+        </div>
+
+        <div class="bank-name">
+            ብርሃን ባንክ
+        </div>
+
+        <div class="account">
+            2603500029255
+        </div>
+
+        <div class="bank-owner">
+            ኤክሌሺያ አራይዝ
+            ግሎባል ሚኒስትሪ
+        </div>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="contact-box">
+
+        <div class="contact-title">
+            ያግኙን
+        </div>
+
+        <div class="contact-line">
+            አድራሻ፦ ጃክሮስ ሜታ
+        </div>
+
+        <div class="contact-line">
+            ስልክ፦ 0911-416976
+        </div>
+
+        <div class="contact-line">
+            ስልክ፦ 0911-898375
+        </div>
+
+    </div>
+
+
+</aside>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <strong>
+        ኤክሌሺያ አራይዝ ግሎባል ሚኒስትሪ
+    </strong>
+
+    የጢራኖስ የደቀመዝሙር ትምህርት ቤት
+
+</footer>
+
+
+<!-- =====================================================
+     SUCCESS MODAL
+========================================================= -->
+
+<div
+    id="successModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <div class="success-symbol">
+            ✓
+        </div>
+
+        <h2>
+            ምዝገባዎ ተሳክቷል!
+        </h2>
+
+        <p>
+            የምዝገባ ማጣቀሻ ቁጥርዎ
+        </p>
+
+        <strong
+            id="registrationNumber"
+            class="registration-number"
+        ></strong>
+
+
+        <div class="modal-total">
+
+            <span>
+                የተመዘገቡበት ጠቅላላ ክፍያ
+            </span>
+
+            <strong
+                id="modalTotal"
+            >
+                0.00 ብር
+            </strong>
+
+        </div>
+
+
+        <p>
+            እባክዎ የምዝገባ ቁጥርዎን
+            ለወደፊት ማጣቀሻ ያስቀምጡ።
+        </p>
+
+
+        <button
+            id="closeModal"
+            class="close-button"
+        >
+            ዝጋ
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   TRAINING DATA
+========================================================= */
+
+const trainings = [
+
+    {
+        id: 1,
+
+        name: "ልጅነት",
+
+        date: "ጥቅምት 25 - 27",
+
+        hours: 15,
+
+        trainingCost: 510.00,
+
+        foodCost: 1030.00
+    },
+
+    {
+        id: 2,
+
+        name: "ክርስቲያናዊ ስነምግባር",
+
+        date: "ህዳር 22 - 23",
+
+        hours: 9,
+
+        trainingCost: 350.00,
+
+        foodCost: 685.00
+    },
+
+    {
+        id: 3,
+
+        name: "መንፈሳዊ ውጊያ",
+
+        date: "ህዳር 24 - 25",
+
+        hours: 10,
+
+        trainingCost: 350.00,
+
+        foodCost: 685.00
+    },
+
+    {
+        id: 4,
+
+        name: "ከግብዝነት ክርስቶስን ወደመምሰል",
+
+        date: "ታህሳስ 20 - 21",
+
+        hours: 9,
+
+        trainingCost: 350.00,
+
+        foodCost: 685.00
+    },
+
+    {
+        id: 5,
+
+        name: "የመቅደሱ ህግ",
+
+        date: "ታህሳስ 22 - 23",
+
+        hours: 9,
+
+        trainingCost: 350.00,
+
+        foodCost: 685.00
+    },
+
+    {
+        id: 6,
+
+        name: "የእግዚአብሄር ሙሉ ምክር",
+
+        date: "ጥር 25 - 26",
+
+        hours: 9,
+
+        trainingCost: 350.00,
+
+        foodCost: 685.00
+    },
+
+    {
+        id: 7,
+
+        name: "በዘመኑ መጨረሻ ድል የምትገሰግሰው ቤተክርስቲያን",
+
+        date: "ጥር 27 - 28",
+
+        hours: 10,
+
+        trainingCost: 350.00,
+
+        foodCost: 685.00
+    }
+
+];
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const trainingList =
+    document.getElementById(
+        "trainingList"
+    );
+
+const selectedSummary =
+    document.getElementById(
+        "selectedSummary"
+    );
+
+const selectedItems =
+    document.getElementById(
+        "selectedItems"
+    );
+
+const grandTotal =
+    document.getElementById(
+        "grandTotal"
+    );
+
+const sidebarTraining =
+    document.getElementById(
+        "sidebarTraining"
+    );
+
+
+/* =========================================================
+   FORMAT MONEY
+========================================================= */
+
+function formatMoney(amount) {
+
+    return amount.toLocaleString(
+        "en-US",
+        {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }
+    ) + " ብር";
+
+}
+
+
+/* =========================================================
+   CREATE TRAINING CARDS
+========================================================= */
+
+trainings.forEach(
+    training => {
+
+        const label =
+            document.createElement(
+                "label"
+            );
+
+        label.className =
+            "training";
+
+
+        label.innerHTML = `
+
+            <input
+                type="checkbox"
+                name="training"
+                value="${training.id}"
+            >
+
+            <div class="training-info">
+
+                <div class="training-name">
+                    ${training.name}
+                </div>
+
+                <div class="training-date">
+                    ${training.date}
+                </div>
+
+            </div>
+
+            <div class="training-hours">
+                ${training.hours} ሰዓት
+            </div>
+
+        `;
+
+
+        trainingList.appendChild(
+            label
+        );
+
+
+        const checkbox =
+            label.querySelector(
+                "input"
+            );
+
+
+        checkbox.addEventListener(
+            "change",
+            function () {
+
+                label.classList.toggle(
+                    "selected",
+                    this.checked
+                );
+
+                updateCostSummary();
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   SIDEBAR TRAINING LIST
+========================================================= */
+
+trainings.forEach(
+    training => {
+
+        const item =
+            document.createElement(
+                "div"
+            );
+
+        item.className =
+            "sidebar-training";
+
+
+        item.innerHTML = `
+
+            <strong>
+                ${training.name}
+            </strong>
+
+            <span>
+                ${training.date}
+                ·
+                ${training.hours} ሰዓት
+                ·
+                ${formatMoney(
+                    training.trainingCost +
+                    training.foodCost
+                )}
+            </span>
+
+        `;
+
+
+        sidebarTraining.appendChild(
+            item
+        );
+
+    }
+);
+
+
+/* =========================================================
+   UPDATE COST SUMMARY
+========================================================= */
+
+function updateCostSummary() {
+
+    const checked =
+        [
+            ...document.querySelectorAll(
+                'input[name="training"]:checked'
+            )
+        ];
+
+
+    if (checked.length === 0) {
+
+        selectedSummary.classList.remove(
+            "active"
+        );
+
+        selectedItems.innerHTML = "";
+
+        grandTotal.textContent =
+            "0.00 ብር";
+
+        return;
+
+    }
+
+
+    selectedSummary.classList.add(
+        "active"
+    );
+
+
+    let total =
+        0;
+
+
+    selectedItems.innerHTML = "";
+
+
+    checked.forEach(
+        checkbox => {
+
+            const training =
+                trainings.find(
+                    item =>
+                        item.id ===
+                        Number(
+                            checkbox.value
+                        )
+                );
+
+
+            const itemTotal =
+                training.trainingCost +
+                training.foodCost;
+
+
+            total +=
+                itemTotal;
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "selected-item";
+
+
+            item.innerHTML = `
+
+                <div class="selected-item-name">
+                    ${training.name}
+                </div>
+
+                <div class="selected-item-date">
+                    ${training.date}
+                    ·
+                    ${training.hours} ሰዓት
+                </div>
+
+                <div class="cost-row">
+
+                    <span>
+                        የሥልጠና ክፍያ
+                    </span>
+
+                    <strong>
+                        ${formatMoney(
+                            training.trainingCost
+                        )}
+                    </strong>
+
+                </div>
+
+                <div class="cost-row">
+
+                    <span>
+                        የምግብ ክፍያ
+                    </span>
+
+                    <strong>
+                        ${formatMoney(
+                            training.foodCost
+                        )}
+                    </strong>
+
+                </div>
+
+                <div class="cost-row">
+
+                    <span>
+                        የዚህ ሥልጠና ጠቅላላ
+                    </span>
+
+                    <strong>
+                        ${formatMoney(
+                            itemTotal
+                        )}
+                    </strong>
+
+                </div>
+
+            `;
+
+
+            selectedItems.appendChild(
+                item
+            );
+
+        }
+    );
+
+
+    grandTotal.textContent =
+        formatMoney(total);
+
+}
+
+
+/* =========================================================
+   GET CURRENT TOTAL
+========================================================= */
+
+function getCurrentTotal() {
+
+    const checked =
+        [
+            ...document.querySelectorAll(
+                'input[name="training"]:checked'
+            )
+        ];
+
+
+    return checked.reduce(
+        (
+            total,
+            checkbox
+        ) => {
+
+            const training =
+                trainings.find(
+                    item =>
+                        item.id ===
+                        Number(
+                            checkbox.value
+                        )
+                );
+
+
+            return total +
+                training.trainingCost +
+                training.foodCost;
+
+        },
+        0
+    );
+
+}
+
+
+/* =========================================================
+   FILE UPLOAD DISPLAY
+========================================================= */
+
+document
+    .getElementById("receipt")
+    .addEventListener(
         "change",
         function () {
 
-          item.classList.toggle(
-            "selected",
-            checkbox.checked
-          );
+            const file =
+                this.files[0];
+
+
+            document
+                .getElementById(
+                    "fileName"
+                )
+                .textContent =
+
+                file
+                    ? file.name
+                    : "የPDF ወይም የምስል ፋይል ይምረጡ";
 
         }
-      );
+    );
 
 
-      /*
-        SIDEBAR SUMMARY
-      */
+/* =========================================================
+   FORM SUBMISSION
+========================================================= */
 
-      const summaryItem =
-        document.createElement("div");
-
-      summaryItem.className =
-        "summary-item";
-
-
-      summaryItem.innerHTML = `
-
-        <b>
-          ${training[0]}
-        </b>
-
-        <span>
-          ${training[1]} · ${training[2]} ሰዓት
-        </span>
-
-      `;
-
-
-      summary.appendChild(summaryItem);
-
-    });
-
-
-    /*
-      RECEIPT FILE NAME
-    */
-
-    document
-      .querySelector("#receipt")
-      .addEventListener(
-        "change",
-        function (event) {
-
-          const file =
-            event.target.files[0];
-
-          document
-            .querySelector("#fileName")
-            .textContent =
-              file
-                ? file.name
-                : "PDF ወይም ምስል ይጫኑ";
-
-        }
-      );
-
-
-    /*
-      FORM SUBMISSION
-    */
-
-    document
-      .querySelector("#registrationForm")
-      .addEventListener(
+document
+    .getElementById("registrationForm")
+    .addEventListener(
         "submit",
         function (event) {
 
-          event.preventDefault();
+            event.preventDefault();
 
 
-          /*
-            Check training selection
-          */
-
-          const selected =
-            [
-              ...document.querySelectorAll(
-                'input[name="training"]:checked'
-              )
-            ];
+            const selected =
+                [
+                    ...document.querySelectorAll(
+                        'input[name="training"]:checked'
+                    )
+                ];
 
 
-          if (selected.length === 0) {
+            /* NO TRAINING */
 
-            alert(
-              "እባክዎ ቢያንስ አንድ ሥልጠና ይምረጡ።"
+            if (
+                selected.length === 0
+            ) {
+
+                alert(
+                    "እባክዎ ቢያንስ አንድ የሥልጠና ዓይነት ይምረጡ።"
+                );
+
+                return;
+
+            }
+
+
+            /* TOTAL */
+
+            const total =
+                getCurrentTotal();
+
+
+            /* REGISTRATION NUMBER */
+
+            const registrationNumber =
+                "ምዝ-" +
+                "2019-" +
+                Math.random()
+                    .toString(36)
+                    .substring(
+                        2,
+                        7
+                    )
+                    .toUpperCase();
+
+
+            /* FORM DATA */
+
+            const formData =
+                new FormData(
+                    this
+                );
+
+
+            const registration = {
+
+                registrationNumber:
+                    registrationNumber,
+
+                fullName:
+                    formData.get(
+                        "fullName"
+                    ),
+
+                fatherName:
+                    formData.get(
+                        "fatherName"
+                    ),
+
+                phone:
+                    formData.get(
+                        "phone"
+                    ),
+
+                email:
+                    formData.get(
+                        "email"
+                    ),
+
+                church:
+                    formData.get(
+                        "church"
+                    ),
+
+                role:
+                    formData.get(
+                        "role"
+                    ),
+
+                paymentMethod:
+                    formData.get(
+                        "paymentMethod"
+                    ),
+
+                paymentReference:
+                    formData.get(
+                        "paymentRef"
+                    ),
+
+                totalAmount:
+                    total,
+
+                trainings:
+                    selected.map(
+                        checkbox => {
+
+                            return trainings.find(
+                                item =>
+                                    item.id ===
+                                    Number(
+                                        checkbox.value
+                                    )
+                            );
+
+                        }
+                    ),
+
+                submittedAt:
+                    new Date()
+                        .toISOString()
+
+            };
+
+
+            /* =================================================
+               SAVE TO BROWSER
+            ================================================= */
+
+            const registrations =
+                JSON.parse(
+                    localStorage.getItem(
+                        "የሥልጠና_ምዝገባዎች"
+                    ) || "[]"
+                );
+
+
+            registrations.push(
+                registration
             );
 
-            return;
 
-          }
-
-
-          /*
-            Generate registration number
-          */
-
-          const registrationNumber =
-            "TRN-" +
-            new Date().getFullYear() +
-            "-" +
-            Math.random()
-              .toString(36)
-              .substring(2, 8)
-              .toUpperCase();
-
-
-          /*
-            Get form data
-          */
-
-          const form =
-            document.querySelector(
-              "#registrationForm"
-            );
-
-          const formData =
-            new FormData(form);
-
-
-          const registration = {
-
-            registrationNo:
-              registrationNumber,
-
-            fullName:
-              formData.get("fullName"),
-
-            fatherName:
-              formData.get("fatherName"),
-
-            phone:
-              formData.get("phone"),
-
-            email:
-              formData.get("email"),
-
-            church:
-              formData.get("church"),
-
-            role:
-              formData.get("role"),
-
-            paymentMethod:
-              formData.get("paymentMethod"),
-
-            paymentRef:
-              formData.get("paymentRef"),
-
-            trainings:
-              selected.map(
-                checkbox =>
-                  trainings[
-                    Number(checkbox.value)
-                  ]
-              ),
-
-            submittedAt:
-              new Date().toISOString()
-
-          };
-
-
-          /*
-            Save registration locally
-          */
-
-          const registrations =
-            JSON.parse(
-              localStorage.getItem(
-                "trainingRegistrations"
-              ) || "[]"
-            );
-
-
-          registrations.push(
-            registration
-          );
-
-
-          localStorage.setItem(
-            "trainingRegistrations",
-            JSON.stringify(
-              registrations
-            )
-          );
-
-
-          /*
-            Show success message
-          */
-
-          document
-            .querySelector("#regNo")
-            .textContent =
-              registrationNumber;
-
-
-          document
-            .querySelector("#success")
-            .classList.remove(
-              "hidden"
-            );
-
-
-          /*
-            Reset form
-          */
-
-          form.reset();
-
-
-          document
-            .querySelectorAll(
-              ".training"
-            )
-            .forEach(
-              item =>
-                item.classList.remove(
-                  "selected"
+            localStorage.setItem(
+                "የሥልጠና_ምዝገባዎች",
+                JSON.stringify(
+                    registrations
                 )
             );
 
 
-          document
-            .querySelector("#fileName")
-            .textContent =
-              "PDF ወይም ምስል ይጫኑ";
+            /* =================================================
+               SUCCESS MODAL
+            ================================================= */
+
+            document
+                .getElementById(
+                    "registrationNumber"
+                )
+                .textContent =
+                    registrationNumber;
+
+
+            document
+                .getElementById(
+                    "modalTotal"
+                )
+                .textContent =
+                    formatMoney(
+                        total
+                    );
+
+
+            document
+                .getElementById(
+                    "successModal"
+                )
+                .classList.remove(
+                    "hidden"
+                );
+
+
+            /* RESET FORM */
+
+            this.reset();
+
+
+            document
+                .querySelectorAll(
+                    ".training"
+                )
+                .forEach(
+                    item =>
+                        item.classList.remove(
+                            "selected"
+                        )
+                );
+
+
+            selectedSummary
+                .classList.remove(
+                    "active"
+                );
+
+
+            selectedItems.innerHTML =
+                "";
+
+
+            grandTotal.textContent =
+                "0.00 ብር";
+
+
+            document
+                .getElementById(
+                    "fileName"
+                )
+                .textContent =
+                    "የPDF ወይም የምስል ፋይል ይምረጡ";
 
         }
-      );
+    );
 
 
-    /*
-      CLOSE SUCCESS WINDOW
-    */
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
 
-    document
-      .querySelector("#closeModal")
-      .addEventListener(
+document
+    .getElementById(
+        "closeModal"
+    )
+    .addEventListener(
         "click",
         function () {
 
-          document
-            .querySelector("#success")
-            .classList.add(
-              "hidden"
-            );
+            document
+                .getElementById(
+                    "successModal"
+                )
+                .classList.add(
+                    "hidden"
+                );
 
         }
-      );
+    );
 
-  </script>
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================================= */
+
+document
+    .getElementById(
+        "successModal"
+    )
+    .addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                this.classList.add(
+                    "hidden"
+                );
+
+            }
+
+        }
+    );
+
+</script>
 
 </body>
 </html>
