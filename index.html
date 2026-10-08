@@ -34,10 +34,6 @@
     font:inherit;
   }
 
-  /* =========================
-     TOP BAR
-  ========================= */
-
   .topbar{
     height:72px;
     background:#fff;
@@ -82,10 +78,6 @@
     font-size:13px;
     color:#596275;
   }
-
-  /* =========================
-     HERO
-  ========================= */
 
   .hero{
     max-width:1180px;
@@ -135,10 +127,6 @@
     margin-bottom:12px;
   }
 
-  /* =========================
-     LAYOUT
-  ========================= */
-
   .layout{
     max-width:1180px;
     margin:auto;
@@ -155,10 +143,6 @@
     padding:28px;
     box-shadow:0 8px 25px #1720330a;
   }
-
-  /* =========================
-     SECTION HEAD
-  ========================= */
 
   .section-head{
     display:flex;
@@ -192,10 +176,6 @@
   .space{
     margin-top:34px;
   }
-
-  /* =========================
-     FORM
-  ========================= */
 
   .grid{
     display:grid;
@@ -237,10 +217,6 @@
     border-color:#3471bb;
     box-shadow:0 0 0 3px #3471bb14;
   }
-
-  /* =========================
-     TRAINING LIST
-  ========================= */
 
   .training-list{
     display:grid;
@@ -297,10 +273,6 @@
     color:#285b93;
   }
 
-  /* =========================
-     PAYMENT
-  ========================= */
-
   .payment-summary{
     margin:14px 0 18px;
     border:1px solid #e3d8b1;
@@ -326,8 +298,6 @@
   .payment-row strong{
     color:#176b45;
   }
-
-  /* OPTIONAL LUNCH */
 
   .lunch-option{
     cursor:pointer;
@@ -357,8 +327,6 @@
     color:#8a6b13;
   }
 
-  /* TOTAL */
-
   .payment-total{
     justify-content:space-between;
     background:#f2ead0;
@@ -370,10 +338,6 @@
   .payment-total strong{
     font-size:22px;
   }
-
-  /* =========================
-     UPLOAD
-  ========================= */
 
   .upload{
     display:block;
@@ -396,10 +360,6 @@
     color:#7b8494;
   }
 
-  /* =========================
-     AGREEMENT
-  ========================= */
-
   .check{
     display:flex;
     align-items:center;
@@ -411,10 +371,6 @@
     width:auto;
     margin:0;
   }
-
-  /* =========================
-     BUTTON
-  ========================= */
 
   .submit{
     width:100%;
@@ -431,13 +387,14 @@
     background:#102e5a;
   }
 
+  .submit:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+  }
+
   .submit span{
     float:right;
   }
-
-  /* =========================
-     SIDE BAR
-  ========================= */
 
   .side{
     height:max-content;
@@ -486,10 +443,6 @@
   .bank small{
     color:#737c8c;
   }
-
-  /* =========================
-     MODAL
-  ========================= */
 
   .modal{
     position:fixed;
@@ -556,10 +509,6 @@
     cursor:pointer;
   }
 
-  /* =========================
-     MOBILE
-  ========================= */
-
   @media(max-width:850px){
 
     .layout{
@@ -617,17 +566,13 @@
     .hours{
       display:none;
     }
+
   }
 
   </style>
 </head>
 
-
 <body>
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header class="topbar">
 
@@ -638,7 +583,6 @@
     </div>
 
     <div>
-
       <strong>
         ኤክሌሺያ አራይዝ
       </strong>
@@ -646,11 +590,9 @@
       <span>
         ግሎባል ሚኒስትሪ
       </span>
-
     </div>
 
   </div>
-
 
   <div class="contact">
     0911-416976 · 0911-898375
@@ -658,10 +600,6 @@
 
 </header>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <main>
 
@@ -684,7 +622,6 @@
 
   </div>
 
-
   <div class="hero-card">
 
     <div class="mini-label">
@@ -694,7 +631,6 @@
     <b>
       ጃክሮስ ሜታ
     </b>
-
 
     <div class="mini-label">
       የምዝገባ ሁኔታ
@@ -709,28 +645,18 @@
 </section>
 
 
-<!-- =====================================================
-     MAIN LAYOUT
-===================================================== -->
-
 <section class="layout">
 
-
-<!-- =====================================================
-     REGISTRATION FORM
-===================================================== -->
 
 <form
   id="registrationForm"
   class="card"
-  action="https://formsubmit.co/ekklesiaarise2023@gmail.com"
+  action="https://formsubmit.co/ajax/ekklesiaarise2023@gmail.com"
   method="POST"
   enctype="multipart/form-data"
-  target="submitFrame"
 >
 
-
-<!-- FORM EMAIL SETTINGS -->
+<!-- FIXED EMAIL SETTINGS -->
 
 <input
   type="hidden"
@@ -750,10 +676,6 @@
   value="true"
 >
 
-
-<!-- =====================================================
-     PARTICIPANT INFORMATION
-===================================================== -->
 
 <div class="section-head">
 
@@ -820,19 +742,6 @@
 
   <label>
 
-    ኢሜይል
-
-    <input
-      name="email"
-      type="email"
-      placeholder="example@email.com"
-    >
-
-  </label>
-
-
-  <label>
-
     የቤተክርስቲያን ስም *
 
     <input
@@ -857,10 +766,6 @@
 
 </div>
 
-
-<!-- =====================================================
-     TRAINING SELECTION
-===================================================== -->
 
 <div class="section-head space">
 
@@ -889,10 +794,6 @@
 ></div>
 
 
-<!-- =====================================================
-     PAYMENT
-===================================================== -->
-
 <div class="section-head space">
 
   <div>
@@ -920,9 +821,6 @@
   class="payment-summary"
 >
 
-
-<!-- PAYMENT 1 -->
-
 <div class="payment-row">
 
   <span>
@@ -935,8 +833,6 @@
 
 </div>
 
-
-<!-- PAYMENT 2 -->
 
 <label class="lunch-option">
 
@@ -964,8 +860,6 @@
 </label>
 
 
-<!-- TOTAL -->
-
 <div class="payment-total">
 
   <span>
@@ -981,8 +875,6 @@
 </div>
 
 
-<!-- PAYMENT METHOD -->
-
 <div class="grid two">
 
   <label>
@@ -995,15 +887,15 @@
         ይምረጡ
       </option>
 
-      <option>
+      <option value="ባንክ ማስተላለፍ">
         ባንክ ማስተላለፍ
       </option>
 
-      <option>
+      <option value="በጥሬ ገንዘብ">
         በጥሬ ገንዘብ
       </option>
 
-      <option>
+      <option value="ሌላ">
         ሌላ
       </option>
 
@@ -1025,8 +917,6 @@
 
 </div>
 
-
-<!-- BANK INFORMATION -->
 
 <div
   style="
@@ -1067,8 +957,6 @@
 </div>
 
 
-<!-- RECEIPT -->
-
 <label class="upload">
 
   የክፍያ ማስረጃ
@@ -1087,14 +975,13 @@
 </label>
 
 
-<!-- AGREEMENT -->
-
 <label class="check">
 
   <input
     required
     type="checkbox"
     name="agree"
+    value="yes"
   >
 
   ያስገባሁት መረጃ ትክክል መሆኑን
@@ -1102,8 +989,6 @@
 
 </label>
 
-
-<!-- SUBMIT -->
 
 <button
   class="submit"
@@ -1122,10 +1007,6 @@
 </form>
 
 
-<!-- =====================================================
-     SIDE INFORMATION
-===================================================== -->
-
 <aside class="card side">
 
   <div class="side-title">
@@ -1137,12 +1018,9 @@
     7 ሥልጠናዎች እዚህ ይታያሉ።
   </p>
 
-
   <div id="summary"></div>
 
-
   <hr>
-
 
   <div class="bank">
 
@@ -1172,10 +1050,6 @@
 
 </main>
 
-
-<!-- =====================================================
-     SUCCESS MODAL
-===================================================== -->
 
 <div
   id="success"
@@ -1212,26 +1086,11 @@
 </div>
 
 
-<!-- Hidden submission frame -->
-
-<iframe
-  name="submitFrame"
-  id="submitFrame"
-  style="display:none"
-></iframe>
-
-
 <script>
 
 /* =====================================================
    TRAINING DATA
 ===================================================== */
-
-/*
-  Array format:
-
-  [name, date, hours, training cost, lunch cost]
-*/
 
 const trainings = [
 
@@ -1331,7 +1190,6 @@ trainings.forEach((training,index)=>{
 
   item.className="training";
 
-
   item.innerHTML=`
 
     <input
@@ -1358,13 +1216,10 @@ trainings.forEach((training,index)=>{
 
   `;
 
-
   trainingList.appendChild(item);
-
 
   const checkbox =
     item.querySelector("input");
-
 
   checkbox.addEventListener(
     "change",
@@ -1380,8 +1235,6 @@ trainings.forEach((training,index)=>{
     }
   );
 
-
-  /* SIDE SUMMARY */
 
   const summaryItem =
     document.createElement("div");
@@ -1407,7 +1260,7 @@ trainings.forEach((training,index)=>{
 
 
 /* =====================================================
-   CALCULATE PAYMENT
+   SELECTED TRAININGS
 ===================================================== */
 
 function getSelected(){
@@ -1424,16 +1277,14 @@ function getSelected(){
 }
 
 
+/* =====================================================
+   CALCULATE PAYMENT
+===================================================== */
+
 function calculateAmounts(){
 
   const selected =
     getSelected();
-
-
-  /*
-    PAYMENT 1
-    Training cost
-  */
 
   const trainingFee =
     selected.reduce(
@@ -1443,15 +1294,6 @@ function calculateAmounts(){
       0
     );
 
-
-  /*
-    PAYMENT 2
-    Lunch cost
-
-    This is calculated but NOT
-    added unless lunch is selected.
-  */
-
   const lunchFee =
     selected.reduce(
       (total,index)=>
@@ -1460,34 +1302,39 @@ function calculateAmounts(){
       0
     );
 
-
   const selectedLunch =
     lunchOption.checked
       ? lunchFee
       : 0;
 
-
   const total =
     trainingFee +
     selectedLunch;
 
-
   return {
+
     trainingFee,
+
     lunchFee,
+
     total,
+
     lunchSelected:
       lunchOption.checked
+
   };
 
 }
 
 
+/* =====================================================
+   UPDATE PAYMENT
+===================================================== */
+
 function updatePayment(){
 
   const amounts =
     calculateAmounts();
-
 
   trainingFeeEl.textContent =
     amounts.trainingFee.toLocaleString(
@@ -1498,7 +1345,6 @@ function updatePayment(){
       }
     ) + " ብር";
 
-
   lunchFeeEl.textContent =
     amounts.lunchFee.toLocaleString(
       "en-US",
@@ -1507,7 +1353,6 @@ function updatePayment(){
         maximumFractionDigits:2
       }
     ) + " ብር";
-
 
   totalFeeEl.textContent =
     amounts.total.toLocaleString(
@@ -1561,7 +1406,9 @@ document
 
 form.addEventListener(
   "submit",
-  function(event){
+  async function(event){
+
+    event.preventDefault();
 
     const selected =
       getSelected();
@@ -1570,8 +1417,6 @@ form.addEventListener(
     /* At least one training */
 
     if(selected.length === 0){
-
-      event.preventDefault();
 
       alert(
         "እባክዎ ቢያንስ አንድ ሥልጠና ይምረጡ።"
@@ -1582,17 +1427,13 @@ form.addEventListener(
     }
 
 
-    /*
-      Calculate final amount.
-    */
+    /* Calculate payment */
 
     const amounts =
       calculateAmounts();
 
 
-    /*
-      Registration number
-    */
+    /* Registration number */
 
     const registrationNumber =
       "TRN-" +
@@ -1604,113 +1445,182 @@ form.addEventListener(
         .toUpperCase();
 
 
-    /*
-      Add registration number
-      to email submission.
-    */
-
-    const regInput =
-      document.createElement("input");
-
-    regInput.type="hidden";
-
-    regInput.name="registrationNumber";
-
-    regInput.value=
-      registrationNumber;
-
-    form.appendChild(regInput);
-
-
-    /*
-      Add calculated payment
-      information to email.
-    */
-
-    const trainingInput =
-      document.createElement("input");
-
-    trainingInput.type="hidden";
-
-    trainingInput.name="trainingPayment";
-
-    trainingInput.value =
-      amounts.trainingFee.toFixed(2) +
-      " ብር";
-
-    form.appendChild(trainingInput);
-
-
-    const lunchInput =
-      document.createElement("input");
-
-    lunchInput.type="hidden";
-
-    lunchInput.name="lunchPayment";
-
-    lunchInput.value =
-      amounts.lunchSelected
-        ? amounts.lunchFee.toFixed(2) + " ብር"
-        : "አልተመረጠም";
-
-    form.appendChild(lunchInput);
-
-
-    const totalInput =
-      document.createElement("input");
-
-    totalInput.type="hidden";
-
-    totalInput.name="totalPayment";
-
-    totalInput.value =
-      amounts.total.toFixed(2) +
-      " ብር";
-
-    form.appendChild(totalInput);
-
-
-    /*
-      Add selected training names.
-    */
+    /* Selected training names */
 
     const trainingNames =
       selected
-        .map(index => trainings[index][0])
+        .map(index =>
+          trainings[index][0]
+        )
         .join("፣ ");
 
 
-    const trainingNamesInput =
-      document.createElement("input");
+    /*
+      Remove old calculated fields
+      if the user submits again.
+    */
 
-    trainingNamesInput.type="hidden";
-
-    trainingNamesInput.name=
-      "selectedTrainings";
-
-    trainingNamesInput.value=
-      trainingNames;
-
-    form.appendChild(trainingNamesInput);
+    form
+      .querySelectorAll(".calculated-field")
+      .forEach(
+        element =>
+          element.remove()
+      );
 
 
     /*
-      IMPORTANT:
-      We do NOT preventDefault here.
-
-      The normal form submission goes
-      to FormSubmit and therefore can
-      send the registration email.
+      Helper for hidden fields
     */
+
+    function addHidden(
+      name,
+      value
+    ){
+
+      const input =
+        document.createElement("input");
+
+      input.type =
+        "hidden";
+
+      input.name =
+        name;
+
+      input.value =
+        value;
+
+      input.className =
+        "calculated-field";
+
+      form.appendChild(input);
+
+    }
+
+
+    /* Registration number */
+
+    addHidden(
+      "registrationNumber",
+      registrationNumber
+    );
+
+
+    /* Selected trainings */
+
+    addHidden(
+      "selectedTrainings",
+      trainingNames
+    );
+
+
+    /* Training payment */
+
+    addHidden(
+      "trainingPayment",
+      amounts.trainingFee.toFixed(2) +
+      " ብር"
+    );
+
+
+    /* Lunch payment */
+
+    addHidden(
+      "lunchPayment",
+      amounts.lunchSelected
+        ? amounts.lunchFee.toFixed(2) +
+          " ብር"
+        : "አልተመረጠም"
+    );
+
+
+    /* Total payment */
+
+    addHidden(
+      "totalPayment",
+      amounts.total.toFixed(2) +
+      " ብር"
+    );
 
 
     /*
-      Show success message after
-      allowing submission to happen.
+      Fixed recipient.
+      This is NOT controlled by the customer.
     */
 
-    setTimeout(
-      function(){
+    addHidden(
+      "_to",
+      "ekklesiaarise2023@gmail.com"
+    );
+
+
+    /* Disable button */
+
+    const submitButton =
+      form.querySelector(".submit");
+
+    submitButton.disabled =
+      true;
+
+    submitButton.innerHTML =
+      "በመላክ ላይ...";
+
+
+    try{
+
+      const formData =
+        new FormData(form);
+
+
+      /*
+        Send directly to the fixed
+        FormSubmit AJAX endpoint.
+      */
+
+      const response =
+        await fetch(
+          "https://formsubmit.co/ajax/ekklesiaarise2023@gmail.com",
+          {
+            method:"POST",
+            body:formData,
+            headers:{
+              "Accept":"application/json"
+            }
+          }
+        );
+
+
+      /*
+        Try to read JSON response.
+      */
+
+      let result = {};
+
+      try{
+
+        result =
+          await response.json();
+
+      }catch(jsonError){
+
+        console.log(
+          "Response was not JSON:",
+          jsonError
+        );
+
+      }
+
+
+      console.log(
+        "FormSubmit response:",
+        result
+      );
+
+
+      /*
+        SUCCESS
+      */
+
+      if(response.ok){
 
         document.getElementById(
           "regNo"
@@ -1724,16 +1634,76 @@ form.addEventListener(
           "hidden"
         );
 
-      },
-      1200
-    );
+
+        /*
+          Reset form after successful
+          submission.
+        */
+
+        form.reset();
+
+
+        document
+          .querySelectorAll(".training")
+          .forEach(
+            item =>
+              item.classList.remove(
+                "selected"
+              )
+          );
+
+
+        document.getElementById(
+          "fileName"
+        ).textContent =
+          "PDF ወይም ምስል ይጫኑ";
+
+
+        updatePayment();
+
+      }else{
+
+        console.error(
+          "FormSubmit error:",
+          result
+        );
+
+        alert(
+          "ምዝገባውን መላክ አልተቻለም። " +
+          "እባክዎ እንደገና ይሞክሩ።"
+        );
+
+      }
+
+
+    }catch(error){
+
+      console.error(
+        "Submission error:",
+        error
+      );
+
+      alert(
+        "የኢንተርኔት ወይም የላኪ ስህተት ተፈጥሯል። " +
+        "እባክዎ እንደገና ይሞክሩ።"
+      );
+
+    }finally{
+
+      submitButton.disabled =
+        false;
+
+      submitButton.innerHTML =
+        "ምዝገባዬን ላክ <span>→</span>";
+
+    }
 
   }
 );
 
 
 /* =====================================================
-   CLOSE SUCCESS WINDOW
+   CLOSE MODAL
 ===================================================== */
 
 document
